@@ -6,7 +6,7 @@ import sys
 # n
 
 
-def fetch_papers(query: str, max_results: int =5) -> list[dict]:
+def fetch_papers(query: str, max_results: int =1) -> list[dict]:
     URL = f"http://export.arxiv.org/api/query?search_query=all:{query}&start=0&max_results={max_results}"
 
     with urllib.request.urlopen(URL) as response:
@@ -17,10 +17,9 @@ def fetch_papers(query: str, max_results: int =5) -> list[dict]:
     ns = {"a": "http://www.w3.org/2005/Atom"}
 
     root = ET.fromstring(xml_text)
-    #print(root)
 
     entries = root.findall("a:entry", ns)
-    #print(entries)
+    
     papers = []
     
     
@@ -29,7 +28,6 @@ def fetch_papers(query: str, max_results: int =5) -> list[dict]:
         title_elem = entry.find("a:title", ns)
         if title_elem is None or title_elem.text is None:
             continue
-
         title = title_elem.text.strip()
         title_elem_id = entry.find("a:id", ns)
         if title_elem_id is None or title_elem_id.text is None:
@@ -45,7 +43,8 @@ def fetch_papers(query: str, max_results: int =5) -> list[dict]:
         paper = {
             "id": title_id, 
             "title": title, 
-            "authors": authors
+            "authors": authors,
+            "year": f"20{title_id[21:23]}"
             }
         papers.append(paper)
         
@@ -53,3 +52,6 @@ def fetch_papers(query: str, max_results: int =5) -> list[dict]:
         # print(f"  id: {title_id}")
         # print(f"  title: {title}")
         # print(f"  authors: {authors}")
+        
+        
+print(fetch_papers("AI"))
