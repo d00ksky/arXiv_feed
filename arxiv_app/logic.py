@@ -1,10 +1,10 @@
 
-papers = [
-    {"title": "Attention Is All You Need", "year": 2017},
-    {"title": "Deep Residual Learning", "year": 2015},
-    {"title": "The Annotated Transformer", "year": 2018},
-    {"title": "A Survey on Transformers", "year": 2020},
-]
+# papers = [
+#     {"title": "Attention Is All You Need", "year": 2017},
+#     {"title": "Deep Residual Learning", "year": 2015},
+#     {"title": "The Annotated Transformer", "year": 2018},
+#     {"title": "A Survey on Transformers", "year": 2020},
+# ]
 
 # n
 
@@ -41,7 +41,6 @@ def get_limited_titles_after_year(papers, year, limit):
     limited = limit_results(titles_after, limit)
     return limited
 
-#authors = ["Alice", "Bob", "Charlie"]
 authors = []
 def format_authors(authors):
     formatted_authors = ""
@@ -51,11 +50,3 @@ def format_authors(authors):
         formatted_authors = formatted_authors + authors[i]
     return formatted_authors
   
-            
-        
-
-
-
-result = get_limited_titles_after_year(papers, 2017, 3)
-result2 = format_authors(authors)
-print(result2)

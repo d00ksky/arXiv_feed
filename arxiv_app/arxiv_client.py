@@ -25,6 +25,10 @@ def fetch_papers(query: str, max_results: int =1) -> list[dict]:
     
 
     for entry in entries: 
+        pub_elem = entry.find("a:published", ns)
+        if pub_elem is None or pub_elem.text is None:
+            continue
+        pub = pub_elem.text.strip()
         title_elem = entry.find("a:title", ns)
         if title_elem is None or title_elem.text is None:
             continue
@@ -44,14 +48,12 @@ def fetch_papers(query: str, max_results: int =1) -> list[dict]:
             "id": title_id, 
             "title": title, 
             "authors": authors,
-            "year": f"20{title_id[21:23]}"
+            "published": pub
             }
         papers.append(paper)
         
     return papers
-        # print(f"  id: {title_id}")
-        # print(f"  title: {title}")
-        # print(f"  authors: {authors}")
+ 
+ 
+print(fetch_papers('AI'))
         
-        
-print(fetch_papers("AI"))
