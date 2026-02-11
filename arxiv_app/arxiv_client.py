@@ -6,7 +6,7 @@ import sys
 # n
 
 
-def fetch_papers(query: str, max_results: int =1) -> list[dict]:
+def fetch_papers(query: str, max_results: int =10) -> list[dict]:
     URL = f"http://export.arxiv.org/api/query?search_query=all:{query}&start=0&max_results={max_results}"
 
     with urllib.request.urlopen(URL) as response:
@@ -55,5 +55,5 @@ def fetch_papers(query: str, max_results: int =1) -> list[dict]:
     return papers
  
  
-print(fetch_papers('AI'))
+
         
