@@ -3,6 +3,7 @@ from normalization import normalize_papers
 from logic import (
     get_limited_titles_after_year,
     format_authors,
+    filter_papers_by_author
 )
 
 def main():
@@ -29,10 +30,12 @@ def main():
     papers = normalize_papers(raw)
     titles = get_limited_titles_after_year(papers, 2022, 5)
     authors = format_authors(papers[0]["authors"])
+    filtered = filter_papers_by_author(papers, 'ai')
     
     print(f"len raw = {len(raw)}, len papers = {len(papers)}")
     print(titles)
     print(authors)
+    print(f'filtered authors = {filtered}')
 
 
 if __name__ == "__main__":

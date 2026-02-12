@@ -50,3 +50,12 @@ def format_authors(authors):
         formatted_authors = formatted_authors + authors[i]
     return formatted_authors
   
+def filter_papers_by_author(papers, author_query):
+    filtered = []
+    for paper in papers:
+        for author in paper["authors"]:
+            if author_query.lower() in author.lower():
+                filtered.append(paper)
+                break
+                
+    return filtered
