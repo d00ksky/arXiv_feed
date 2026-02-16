@@ -1,40 +1,41 @@
+import argparse
 from arxiv_client import fetch_papers
 from normalization import normalize_papers
 from logic import (
     get_limited_titles_after_year,
+    filter_papers_after_year,
     format_authors,
     filter_papers_by_author,
     extract_titles,
     limit_results
 )
+# n
 
 def main():
-    # papers = [
-    #     {
-    #         "id": "http://arxiv.org/abs/2501.02842v1",
-    #         "title": "Foundations of GenIR",
-    #         "authors": ["Qingyao Ai", "Jingtao Zhan", "Yiqun Liu"],
-    #         "year": 2025,
-    #     },
-    #     {
-    #         "title": "The Annotated Transformer",
-    #         "year": 2018,
-    #         "authors": ["Rush"],
-    #     },
-    # ]
+    parser = argparse.ArgumentParser(description="arXiv CLI tool")
 
-    # titles = get_limited_titles_after_year(papers, 2017, 5)
-    # print(titles)
+    parser.add_argument("--query", required=True, help="Search query")
+    parser.add_argument("--year", type=int, help="Filter papers after year")
+    parser.add_argument("--author", help="Filter papers by author substring")
+    parser.add_argument("--limit", type=int, default=5, help="Limit number of results")
 
-    # print(format_authors(papers[0]["authors"]))
+    args = parser.parse_args()
 
-    raw = fetch_papers("AI", max_results = 15)
+    raw = fetch_papers(args.query, max_results = args.limit * 5)
     papers = normalize_papers(raw)
-    filtered = filter_papers_by_author(papers, 'ai')
-    titles = extract_titles(filtered)
-    limited = limit_results(titles, 5)
     
-    print(limited)
+    if args.year is not None:
+        papers = filter_papers_after_year(papers, args.year)
+        
+    if args.author is not None:
+        papers = filter_papers_by_author(papers, args.author)
+        
+    titles = extract_titles(papers)
+    titles = limit_results(titles, args.limit)
+    
+    for title in titles:
+        print(title)
+    
 
 
 
