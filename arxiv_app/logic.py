@@ -16,17 +16,21 @@ def filter_papers_after_year(papers, year):
     return papers_after
 
 
+
 def extract_titles(papers):
     titles = []
     for paper in papers:
         titles.append(paper["title"])
     return titles
 
+
+
 def get_titles_after_year(papers, year):
     papers_after = filter_papers_after_year(papers, year)
     titles_after = extract_titles(papers_after)
     return titles_after
     
+
 
 def limit_results(items, limit):
     limited_result = []
@@ -36,10 +40,13 @@ def limit_results(items, limit):
     return limited_result
 
 
+
 def get_limited_titles_after_year(papers, year, limit):
     titles_after = get_titles_after_year(papers, year)
     limited = limit_results(titles_after, limit)
     return limited
+
+
 
 authors = []
 def format_authors(authors):
@@ -49,7 +56,9 @@ def format_authors(authors):
             formatted_authors = formatted_authors + ", "
         formatted_authors = formatted_authors + authors[i]
     return formatted_authors
-  
+
+
+ 
 def filter_papers_by_author(papers, author_query):
     filtered = []
     for paper in papers:
@@ -59,3 +68,13 @@ def filter_papers_by_author(papers, author_query):
                 break
                 
     return filtered
+
+
+
+def _cache_path(query: str, max_results: int) -> str:
+    ...
+
+
+
+def _is_cache_fresh(path: str, ttl_seconds: int) -> bool:
+    ...

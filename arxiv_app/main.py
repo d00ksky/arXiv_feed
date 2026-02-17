@@ -2,9 +2,7 @@ import argparse
 from arxiv_client import fetch_papers
 from normalization import normalize_papers
 from logic import (
-    get_limited_titles_after_year,
     filter_papers_after_year,
-    format_authors,
     filter_papers_by_author,
     extract_titles,
     limit_results
