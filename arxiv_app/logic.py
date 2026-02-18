@@ -1,10 +1,5 @@
-
-# papers = [
-#     {"title": "Attention Is All You Need", "year": 2017},
-#     {"title": "Deep Residual Learning", "year": 2015},
-#     {"title": "The Annotated Transformer", "year": 2018},
-#     {"title": "A Survey on Transformers", "year": 2020},
-# ]
+import os
+import time
 
 # n
 
@@ -71,10 +66,21 @@ def filter_papers_by_author(papers, author_query):
 
 
 
-def _cache_path(query: str, max_results: int) -> str:
-    ...
-
-
-
 def _is_cache_fresh(path: str, ttl_seconds: int) -> bool:
-    ...
+    if not os.path.exists(path):
+        return False
+    
+    modified_time = os.path.getmtime(path)
+    age = time.time() - modified_time 
+    return age < ttl_seconds
+
+
+
+def _cache_path(query: str, max_results: int) -> str:
+    dir = os.makedirs("cache", exist_ok=True)
+    filename: str = query.replace(" ", "_") + "_" + str(max_results) + ".xml"
+    path = str(dir) + "/" + filename
+    if not os.path.exists(path):
+        with open(path) as file:
+            file.write("")
+    return path
