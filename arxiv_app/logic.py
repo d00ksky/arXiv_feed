@@ -77,10 +77,7 @@ def _is_cache_fresh(path: str, ttl_seconds: int) -> bool:
 
 
 def _cache_path(query: str, max_results: int) -> str:
-    dir = os.makedirs("cache", exist_ok=True)
-    filename: str = query.replace(" ", "_") + "_" + str(max_results) + ".xml"
-    path = str(dir) + "/" + filename
-    if not os.path.exists(path):
-        with open(path) as file:
-            file.write("")
-    return path
+    os.makedirs("cache", exist_ok=True)
+    safe_query = query.replace(" ", "_")
+    filename = f"{safe_query}_{max_results}.xml"
+    return os.path.join("cache", filename)
