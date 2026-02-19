@@ -7,6 +7,7 @@ from logic import (
     extract_titles,
     limit_results
 )
+from validation import non_negative_int
 # n
 
 def main():
@@ -16,6 +17,7 @@ def main():
     parser.add_argument("--year", type=int, help="Filter papers after year")
     parser.add_argument("--author", help="Filter papers by author substring")
     parser.add_argument("--limit", type=int, default=5, help="Limit number of results")
+    parser.add_argument("--cache-ttl", type=non_negative_int, default=600, help="Cache TTL in seconds (default 600, 0 disables cache)")
 
     args = parser.parse_args()
 
