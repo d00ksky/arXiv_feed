@@ -41,8 +41,8 @@ def get_limited_titles_after_year(papers, year, limit):
 
 
 
-authors = []
 def format_authors(authors):
+    authors = []
     formatted_authors = ""
     for i in range(len(authors)):
         if i > 0:

@@ -8,6 +8,7 @@ from logic import (
     limit_results
 )
 from validation import non_negative_int
+from render import render_paper_line
 # n
 
 def main():
@@ -30,11 +31,15 @@ def main():
     if args.author is not None:
         papers = filter_papers_by_author(papers, args.author)
         
-    titles = extract_titles(papers)
-    titles = limit_results(titles, args.limit)
+    # titles = extract_titles(papers)
+    # titles = limit_results(titles, args.limit)
     
-    for title in titles:
-        print(title)
+    # for i, title in enumerate(titles, start=1):
+    #     print(f"{i}. {title}")
+    
+    for i, paper in enumerate(papers, start=1):
+        formatted = render_paper_line(i, paper)
+        print(formatted)
     
 
 
