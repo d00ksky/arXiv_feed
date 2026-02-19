@@ -1,5 +1,3 @@
-import os
-import time
 
 # n
 
@@ -65,19 +63,3 @@ def filter_papers_by_author(papers, author_query):
     return filtered
 
 
-
-def _is_cache_fresh(path: str, ttl_seconds: int) -> bool:
-    if not os.path.exists(path):
-        return False
-    
-    modified_time = os.path.getmtime(path)
-    age = time.time() - modified_time 
-    return age < ttl_seconds
-
-
-
-def _cache_path(query: str, max_results: int) -> str:
-    os.makedirs("cache", exist_ok=True)
-    safe_query = query.replace(" ", "_")
-    filename = f"{safe_query}_{max_results}.xml"
-    return os.path.join("cache", filename)
