@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/T6UkPcDhq2Qdm59atbbbaTED2Qw</id>
+  <title>arXiv Query: search_query=all:AI&amp;id_list=&amp;start=0&amp;max_results=5</title>
+  <updated>2026-02-20T17:56:51Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:AI&amp;start=0&amp;max_results=5&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>5</opensearch:itemsPerPage>
+  <opensearch:totalResults>51260</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2501.02842v1</id>
+    <title>Foundations of GenIR</title>
+    <updated>2025-01-06T08:38:29Z</updated>
+    <link href="https://arxiv.org/abs/2501.02842v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2501.02842v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The chapter discusses the foundational impact of modern generative AI models on information access (IA) systems. In contrast to traditional AI, the large-scale training and superior data modeling of generative AI models enable them to produce high-quality, human-like responses, which brings brand new opportunities for the development of IA paradigms. In this chapter, we identify and introduce two of them in details, i.e., information generation and information synthesis. Information generation allows AI to create tailored content addressing user needs directly, enhancing user experience with immediate, relevant outputs. Information synthesis leverages the ability of generative AI to integrate and reorganize existing information, providing grounded responses and mitigating issues like model hallucination, which is particularly valuable in scenarios requiring precision and external knowledge. This chapter delves into the foundational aspects of generative models, including architecture, scaling, and training, and discusses their applications in multi-modal scenarios. Additionally, it examines the retrieval-augmented generation paradigm and other methods for corpus modeling and understanding, demonstrating how generative AI can enhance information access systems. It also summarizes potential challenges and fruitful directions for future studies.</summary>
+    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-01-06T08:38:29Z</published>
+    <arxiv:comment>Chapter 2 of the book on Information Access in the Era of Generative AI</arxiv:comment>
+    <arxiv:primary_category term="cs.IR"/>
+    <author>
+      <name>Qingyao Ai</name>
+    </author>
+    <author>
+      <name>Jingtao Zhan</name>
+    </author>
+    <author>
+      <name>Yiqun Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.16513v1</id>
+    <title>Competing Visions of Ethical AI: A Case Study of OpenAI</title>
+    <updated>2026-01-23T07:26:45Z</updated>
+    <link href="https://arxiv.org/abs/2601.16513v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.16513v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Introduction. AI Ethics is framed distinctly across actors and stakeholder groups. We report results from a case study of OpenAI analysing ethical AI discourse. Method. Research addressed: How has OpenAI's public discourse leveraged 'ethics', 'safety', 'alignment' and adjacent related concepts over time, and what does discourse signal about framing in practice? A structured corpus, differentiating between communication for a general audience and communication with an academic audience, was assembled from public documentation. Analysis. Qualitative content analysis of ethical themes combined inductively derived and deductively applied codes. Quantitative analysis leveraged computational content analysis methods via NLP to model topics and quantify changes in rhetoric over time. Visualizations report aggregate results. For reproducible results, we have released our code at https://github.com/famous-blue-raincoat/AI_Ethics_Discourse. Results. Results indicate that safety and risk discourse dominate OpenAI's public communication and documentation, without applying academic and advocacy ethics frameworks or vocabularies. Conclusions. Implications for governance are presented, along with discussion of ethics-washing practices in industry.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-23T07:26:45Z</published>
+    <arxiv:comment>iConference 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Melissa Wilfley</name>
+    </author>
+    <author>
+      <name>Mengting Ai</name>
+    </author>
+    <author>
+      <name>Madelyn Rose Sanfilippo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2308.12400v1</id>
+    <title>Towards The Ultimate Brain: Exploring Scientific Discovery with ChatGPT AI</title>
+    <updated>2023-07-08T09:59:22Z</updated>
+    <link href="https://arxiv.org/abs/2308.12400v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2308.12400v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper presents a novel approach to scientific discovery using an artificial intelligence (AI) environment known as ChatGPT, developed by OpenAI. This is the first paper entirely generated with outputs from ChatGPT. We demonstrate how ChatGPT can be instructed through a gamification environment to define and benchmark hypothetical physical theories. Through this environment, ChatGPT successfully simulates the creation of a new improved model, called GPT$^4$, which combines the concepts of GPT in AI (generative pretrained transformer) and GPT in physics (generalized probabilistic theory). We show that GPT$^4$ can use its built-in mathematical and statistical capabilities to simulate and analyze physical laws and phenomena. As a demonstration of its language capabilities, GPT$^4$ also generates a limerick about itself. Overall, our results demonstrate the promising potential for human-AI collaboration in scientific discovery, as well as the importance of designing systems that effectively integrate AI's capabilities with human intelligence.</summary>
+    <category term="cs.OH" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-07-08T09:59:22Z</published>
+    <arxiv:comment>26 pages. To appear in AI Magazine</arxiv:comment>
+    <arxiv:primary_category term="cs.OH"/>
+    <arxiv:journal_ref>AI Magazine 44, 328 (2023)</arxiv:journal_ref>
+    <author>
+      <name>Gerardo Adesso</name>
+    </author>
+    <arxiv:doi>10.1002/aaai.12113</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1002/aaai.12113" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2112.01298v2</id>
+    <title>Meaningful human control: actionable properties for AI system development</title>
+    <updated>2022-05-19T15:28:01Z</updated>
+    <link href="https://arxiv.org/abs/2112.01298v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2112.01298v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>How can humans remain in control of artificial intelligence (AI)-based systems designed to perform tasks autonomously? Such systems are increasingly ubiquitous, creating benefits - but also undesirable situations where moral responsibility for their actions cannot be properly attributed to any particular person or group. The concept of meaningful human control has been proposed to address responsibility gaps and mitigate them by establishing conditions that enable a proper attribution of responsibility for humans; however, clear requirements for researchers, designers, and engineers are yet inexistent, making the development of AI-based systems that remain under meaningful human control challenging. In this paper, we address the gap between philosophical theory and engineering practice by identifying, through an iterative process of abductive thinking, four actionable properties for AI-based systems under meaningful human control, which we discuss making use of two applications scenarios: automated vehicles and AI-based hiring. First, a system in which humans and AI algorithms interact should have an explicitly defined domain of morally loaded situations within which the system ought to operate. Second, humans and AI agents within the system should have appropriate and mutually compatible representations. Third, responsibility attributed to a human should be commensurate with that human's ability and authority to control the system. Fourth, there should be explicit links between the actions of the AI agents and actions of humans who are aware of their moral responsibility. We argue that these four properties will support practically-minded professionals to take concrete steps toward designing and engineering for AI systems that facilitate meaningful human control.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-11-25T11:05:37Z</published>
+    <arxiv:comment>Preprint. Published AI and Ethics (2022): https://doi.org/10.1007/s43681-022-00167-3</arxiv:comment>
+    <arxiv:primary_category term="cs.CY"/>
+    <arxiv:journal_ref>AI Ethics (2022)</arxiv:journal_ref>
+    <author>
+      <name>Luciano Cavalcante Siebert</name>
+    </author>
+    <author>
+      <name>Maria Luce Lupetti</name>
+    </author>
+    <author>
+      <name>Evgeni Aizenberg</name>
+    </author>
+    <author>
+      <name>Niek Beckers</name>
+    </author>
+    <author>
+      <name>Arkady Zgonnikov</name>
+    </author>
+    <author>
+      <name>Herman Veluwenkamp</name>
+    </author>
+    <author>
+      <name>David Abbink</name>
+    </author>
+    <author>
+      <name>Elisa Giaccardi</name>
+    </author>
+    <author>
+      <name>Geert-Jan Houben</name>
+    </author>
+    <author>
+      <name>Catholijn M. Jonker</name>
+    </author>
+    <author>
+      <name>Jeroen van den Hoven</name>
+    </author>
+    <author>
+      <name>Deborah Forster</name>
+    </author>
+    <author>
+      <name>Reginald L. Lagendijk</name>
+    </author>
+    <arxiv:doi>10.1007/s43681-022-00167-3</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s43681-022-00167-3" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2408.00025v3</id>
+    <title>Need of AI in Modern Education: in the Eyes of Explainable AI (xAI)</title>
+    <updated>2025-01-02T21:59:22Z</updated>
+    <link href="https://arxiv.org/abs/2408.00025v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2408.00025v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Modern Education is not \textit{Modern} without AI. However, AI's complex nature makes understanding and fixing problems challenging. Research worldwide shows that a parent's income greatly influences a child's education. This led us to explore how AI, especially complex models, makes important decisions using Explainable AI tools. Our research uncovered many complexities linked to parental income and offered reasonable explanations for these decisions. However, we also found biases in AI that go against what we want from AI in education: clear transparency and equal access for everyone. These biases can impact families and children's schooling, highlighting the need for better AI solutions that offer fair opportunities to all. This chapter tries to shed light on the complex ways AI operates, especially concerning biases. These are the foundational steps towards better educational policies, which include using AI in ways that are more reliable, accountable, and beneficial for everyone involved.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-07-31T08:11:33Z</published>
+    <arxiv:comment>Chapter in the book: Blockchain and AI in Shaping the Modern Education System, CRC Press, Taylor &amp; Francis Group, USA</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <arxiv:journal_ref>Blockchain and AI in Shaping the Modern Education System 2025</arxiv:journal_ref>
+    <author>
+      <name>Supriya Manna</name>
+    </author>
+    <author>
+      <name>Niladri Sett</name>
+    </author>
+  </entry>
+</feed>

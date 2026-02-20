@@ -1,13 +1,12 @@
-from logic import (
-    extract_titles,
-    format_authors
-)
+
 
 def render_paper_line(index: int, paper: dict) -> str:
-    """
-    Returns: '1. (2025) Title — Author1, Author2'
-    """
-    title = paper["title"]
+    title = str(paper["title"])
     authors = paper["authors"]
-    result = str(title) + str(authors)
+    year = str(paper["year"])
+    authors_str = ", ".join(authors)
+    result = f"{index}. ({year}) {title}"
+    if authors:
+        result = result + " - " + authors_str
+            
     return result
