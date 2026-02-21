@@ -2,7 +2,7 @@
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
   <id>https://arxiv.org/api/T6UkPcDhq2Qdm59atbbbaTED2Qw</id>
   <title>arXiv Query: search_query=all:AI&amp;id_list=&amp;start=0&amp;max_results=5</title>
-  <updated>2026-02-20T17:56:51Z</updated>
+  <updated>2026-02-21T10:55:44Z</updated>
   <link href="https://arxiv.org/api/query?search_query=all:AI&amp;start=0&amp;max_results=5&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>5</opensearch:itemsPerPage>
   <opensearch:totalResults>51260</opensearch:totalResults>

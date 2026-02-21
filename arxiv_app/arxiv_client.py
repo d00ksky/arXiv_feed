@@ -24,8 +24,43 @@ def _cache_path(query: str, max_results: int) -> str:
 
 # n
 
+def _parse_xml(xml_bytes: bytes) -> list[dict]:
+    xml_text = xml_bytes.decode("utf-8")
+    ns = {"a": "http://www.w3.org/2005/Atom"}
+    root = ET.fromstring(xml_text)
+    entries = root.findall("a:entry", ns)
 
-def fetch_papers(query: str, max_results: int =10) -> list[dict]:
+
+    papers = []
+    for entry in entries:
+        pub_elem = entry.find("a:published", ns)
+        title_elem = entry.find("a:title", ns)
+        id_elem = entry.find("a:id", ns)
+        if (
+            pub_elem is None or pub_elem.text is None or
+            title_elem is None or title_elem.text is None or
+            id_elem is None or id_elem.text is None
+        ):
+            continue
+
+        authors = []
+        for author in entry.findall("a:author", ns):
+            name_elem = author.find("a:name", ns)
+            if name_elem is not None and name_elem.text is not None:
+                authors.append(name_elem.text.strip())
+
+        papers.append({
+            "id": id_elem.text.strip(),
+            "title": title_elem.text.strip(),
+            "authors": authors,
+            "published": pub_elem.text.strip(),
+        })
+
+    return papers
+
+
+
+def fetch_papers(query: str, max_results: int =10, cache_ttl: int = 600) -> list[dict]:
     encoded_query = quote_plus(query)
     url = (
         f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}&start=0&max_results={max_results}"
@@ -36,7 +71,7 @@ def fetch_papers(query: str, max_results: int =10) -> list[dict]:
     }
     
     cache_path = _cache_path(query, max_results)
-    TTL = 600
+    TTL = cache_ttl
     
     # retry/backoff
     max_attempts = 6
@@ -85,38 +120,8 @@ def fetch_papers(query: str, max_results: int =10) -> list[dict]:
             raise last_err if last_err is not None else RuntimeError("fetch_papers failed")
 
 
-    xml_text = xml_bytes.decode("utf-8")
-    ns = {"a": "http://www.w3.org/2005/Atom"}
-    root = ET.fromstring(xml_text)
-    entries = root.findall("a:entry", ns)
 
-
-    papers = []
-    for entry in entries:
-        pub_elem = entry.find("a:published", ns)
-        title_elem = entry.find("a:title", ns)
-        id_elem = entry.find("a:id", ns)
-        if (
-            pub_elem is None or pub_elem.text is None or
-            title_elem is None or title_elem.text is None or
-            id_elem is None or id_elem.text is None
-        ):
-            continue
-
-        authors = []
-        for author in entry.findall("a:author", ns):
-            name_elem = author.find("a:name", ns)
-            if name_elem is not None and name_elem.text is not None:
-                authors.append(name_elem.text.strip())
-
-        papers.append({
-            "id": id_elem.text.strip(),
-            "title": title_elem.text.strip(),
-            "authors": authors,
-            "published": pub_elem.text.strip(),
-        })
-
-    return papers
+    return _parse_xml(xml_bytes)
  
 
         

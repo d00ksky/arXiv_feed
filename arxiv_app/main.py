@@ -22,7 +22,12 @@ def main():
 
     args = parser.parse_args()
 
-    raw = fetch_papers(args.query, max_results = args.limit * 5)
+
+    raw = fetch_papers(
+        args.query, 
+        max_results = args.limit * 5,
+        cache_ttl=args.cache_ttl,
+        )
     papers = normalize_papers(raw)
     
     if args.year is not None:
