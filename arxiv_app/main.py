@@ -19,6 +19,7 @@ def main():
     parser.add_argument("--author", help="Filter papers by author substring")
     parser.add_argument("--limit", type=int, default=5, help="Limit number of results")
     parser.add_argument("--cache-ttl", type=non_negative_int, default=600, help="Cache TTL in seconds (default 600, 0 disables cache)")
+    parser.add_argument("--sort", choices=["newest", "oldest"], help="Sort by year")
 
     args = parser.parse_args()
 
@@ -36,6 +37,12 @@ def main():
     if args.author is not None:
         papers = filter_papers_by_author(papers, args.author)
         
+    if args.sort == "oldest":
+        papers = sorted(papers, key=lambda p: p["year"])
+    elif args.sort == "newest":
+        papers = sorted(papers, key=lambda p: p["year"], reverse=True)
+        
+    
     # titles = extract_titles(papers)
     # titles = limit_results(titles, args.limit)
     
