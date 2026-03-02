@@ -63,3 +63,15 @@ def filter_papers_by_author(papers, author_query):
     return filtered
 
 
+
+
+def titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
+    filtered = {}
+    for paper in papers:
+        if paper["year"] not in filtered:
+            filtered[paper["year"]] = paper["title"]
+    return filtered
+            
+            
+
+
