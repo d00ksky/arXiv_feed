@@ -78,3 +78,25 @@ def titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
             
 
 
+
+class Paper:
+    def __init__(self, title: str, year: int, citations: int):
+        self.title = title
+        self.year = year
+        self.citations = citations
+        
+papers = [
+    Paper("A", 2023, 15),
+    Paper("B", 2022, 40),
+    Paper("C", 2023, 5),
+    ]
+        
+        
+def top_papers_by_year(papers: list[Paper], year: int) -> list[str]:
+    papers_from_year = [paper for paper in papers if paper.year == year]
+    sorted_papers = sorted(
+        papers_from_year, 
+        key=lambda paper: paper.citations, 
+        reverse=True
+        )
+    return [paper.title for paper in sorted_papers]
