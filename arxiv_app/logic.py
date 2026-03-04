@@ -1,5 +1,6 @@
 
 # n
+from operator import attrgetter
 
 def filter_papers_after_year(papers, year):
     papers_after = []
@@ -117,7 +118,7 @@ def top_papers_by_year(papers: list[Paper], year: int) -> list[str]:
 
 
 def top_n_papers(papers: list[Paper], n: int) -> list[Paper]:
-    sorted_papers = sorted(papers, key=lambda paper: paper.citations, reverse=True)
+    sorted_papers = sorted(papers, key=attrgetter("citations"), reverse=True)
     return sorted_papers[:n]
 
 
