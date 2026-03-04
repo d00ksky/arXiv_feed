@@ -80,17 +80,31 @@ def titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
 
 
 class Paper:
-    def __init__(self, title: str, year: int, citations: int):
+    def __init__(self, title: str, year: int, citations: int, authors: str):
         self.title = title
         self.year = year
         self.citations = citations
+        self.authors = authors
         
 papers = [
-    Paper("A", 2023, 15),
-    Paper("B", 2022, 40),
-    Paper("C", 2023, 5),
+    Paper("A", 2023, 15, "authorA"),
+    Paper("B", 2022, 40, "authorB"),
+    Paper("C", 2023, 5, "authorC"),
     ]
         
+        
+        
+def count_papers_by_author(papers: list[Paper], author: str) -> int:
+    return len(papers_by_author(papers, author))
+
+def top_author_papers(papers: list[Paper], author: str, n: int) -> list[Paper]:
+    top_authors = sorted(papers_by_author(papers, author), key=lambda paper: paper.citations, reverse=True)
+    return top_authors[:n]
+  
+        
+def papers_by_author(papers: list[Paper], author: str) -> list[Paper]:
+    return [paper for paper in papers if any(author.lower() in a.lower() for a in paper.authors)]
+       
         
 def top_papers_by_year(papers: list[Paper], year: int) -> list[str]:
     papers_from_year = [paper for paper in papers if paper.year == year]
@@ -100,3 +114,51 @@ def top_papers_by_year(papers: list[Paper], year: int) -> list[str]:
         reverse=True
         )
     return [paper.title for paper in sorted_papers]
+
+
+def top_n_papers(papers: list[Paper], n: int) -> list[Paper]:
+    sorted_papers = sorted(papers, key=lambda paper: paper.citations, reverse=True)
+    return sorted_papers[:n]
+
+
+def top_papers_from_year(papers: list[Paper], year: int, n: int) -> list[Paper]:
+    papers_from_year = [paper for paper in papers if paper.year == year]
+    top_papers = sorted(papers_from_year, key=lambda paper: paper.citations, reverse=True)
+    return top_papers[:n]
+    
+def search_papers_by_keyword(papers: list[Paper], keyword: str) -> list[Paper]:
+    papers_with_keyword = [paper for paper in papers if keyword.lower() in paper.title.lower()]
+    return papers_with_keyword
+
+def search_and_rank(
+    papers: list[Paper],
+    keyword: str,
+    n: int
+) -> list[Paper]:
+    sorted_with_keyword = sorted(search_papers_by_keyword(papers, keyword), key=lambda paper: paper.citations, reverse=True)
+    return sorted_with_keyword[:n]
+    ...
+
+class Book:
+    def __init__(self, title: str, pages: int, rating: float):
+        self.title = title
+        self.pages = pages
+        self.rating = rating
+        
+        
+        
+books = [
+    Book("Clean Code", 464, 4.5),
+    Book("The Pragmatic Programmer", 352, 4.7),
+    Book("Fluent Python", 790, 4.8),
+    Book("The Mythical Man-Month", 322, 4.2),
+]
+
+
+def top_books_by_rating(books: list[Book]) -> list[str]:
+    sorted_books = sorted(books, key=lambda book: book.rating, reverse=True )
+    sorted_titles = [book.title for book in sorted_books]
+    return sorted_titles
+    
+result = top_books_by_rating(books)
+print(result)
