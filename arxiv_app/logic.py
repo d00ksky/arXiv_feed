@@ -100,6 +100,60 @@ papers = [
     {"title": "Neural Networks in Medicine", "authors": ["A. Smith", "K. Patel"]},
 ] 
 
+def group_papers_by_year(papers: list[Paper]) -> dict[int, list[Paper]]:
+    groups = {}
+    for paper in papers:
+        if paper.year not in groups:
+            groups[paper.year] = []
+        groups[paper.year].append(paper)
+    return groups
+
+
+def unique_authors(papers: list[dict]) -> set[str]:
+    authors = set()
+    for paper in papers:
+        for author in paper["authors"]:
+            authors.add(author)
+    return authors
+
+
+def count_papers_by_year(papers: list[dict]) -> dict[int, int]:
+    counts = {}
+    
+    for paper in papers:
+        year = paper["year"]
+        if year not in counts:
+            counts[year] = 0
+        counts[year] += 1
+    return counts
+
+
+def newest_paper(papers: list[dict]) -> dict | None:
+    return max(
+        papers, 
+        key=lambda x: x["year"],
+        default=None
+        )
+
+def papers_by_author_sorted(papers: list[dict], author: str) -> list[dict]:
+    author_lower = author.lower()
+    return sorted(
+        (paper for paper in papers 
+         if any(author_lower in author_name.lower() for author_name in paper["authors"]))
+         , key=lambda x: x["year"], 
+        reverse=True
+        )
+
+
+def filter_by_author(papers: list[dict], author: str) -> list[dict]:
+    author_lower = author.lower()
+    return [
+        paper for paper in papers 
+        if any(author_lower in author_name.lower() for author_name in paper['authors'])
+        ]
+
+
+
 def has_author(papers: list[dict], author: str) -> bool:
     author_lower = author.lower()      
     return any(
