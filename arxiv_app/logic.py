@@ -87,13 +87,25 @@ class Paper:
         self.citations = citations
         self.authors = authors
         
-papers = [
+papers1 = [
     Paper("A", 2023, 15, "authorA"),
     Paper("B", 2022, 40, "authorB"),
     Paper("C", 2023, 5, "authorC"),
     ]
         
-        
+
+papers = [
+    {"title": "Deep Learning for Vision", "authors": ["Y. LeCun", "A. Smith"]},
+    {"title": "Quantum Computing Basics", "authors": ["John Doe"]},
+    {"title": "Neural Networks in Medicine", "authors": ["A. Smith", "K. Patel"]},
+] 
+
+def has_author(papers: list[dict], author: str) -> bool:
+    author_lower = author.lower()      
+    return any(
+        any(author_lower in author_name.lower() for author_name in paper["authors"])
+        for paper in papers
+        )
         
 def count_papers_by_author(papers: list[Paper], author: str) -> int:
     return len(papers_by_author(papers, author))
