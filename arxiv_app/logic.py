@@ -1,6 +1,8 @@
 
 # n
 from operator import attrgetter
+from dataclasses import dataclass
+
 
 def filter_papers_after_year(papers, year):
     papers_after = []
@@ -78,15 +80,18 @@ def titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
             
             
 
-
-
+                                                                 
+@dataclass
 class Paper:
-    def __init__(self, title: str, year: int, citations: int, authors: list):
-        self.title = title
-        self.year = year
-        self.citations = citations
-        self.authors = authors
-        
+    title: str
+    year: int
+    citations: int
+    authors: list[str]
+    
+    
+    
+    
+    
 # papers2 = [
 #     Paper("A", 2023, 15, "authorA"),
 #     Paper("B", 2022, 40, "authorB"),
@@ -109,6 +114,13 @@ papers = [
     Paper("Large Language Models", 2024, 800, ["A. Smith", "John Doe"]),
     Paper("AI in Healthcare", 2022, 600, ["K. Patel", "A. Smith"]),
 ]
+
+
+def most_cited_papers(papers: list[Paper], n: int = 5) -> list[Paper]:
+    sorted_papers = sorted(papers, key=lambda paper: paper.citations, reverse=True)
+    return sorted_papers[:n]
+        
+    ...
 
 
 def authors_count(papers: list[Paper], n: int = 5) -> list[tuple[str, int]]:
@@ -251,5 +263,12 @@ def top_books_by_rating(books: list[Book]) -> list[str]:
     sorted_titles = [book.title for book in sorted_books]
     return sorted_titles
     
-result = authors_count(papers, 5)
+def search_papers_by_keyword2(papers: list[Paper], keyword: str) -> list[Paper]:
+    papers_with_keyword = [paper for paper in papers if keyword.lower() in paper.title.lower()]
+    return papers_with_keyword
+    
+    ...
+    
+    
+result = search_papers_by_keyword2(papers, 'AI')
 print(result)
