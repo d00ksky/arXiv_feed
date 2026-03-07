@@ -81,24 +81,48 @@ def titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
 
 
 class Paper:
-    def __init__(self, title: str, year: int, citations: int, authors: str):
+    def __init__(self, title: str, year: int, citations: int, authors: list):
         self.title = title
         self.year = year
         self.citations = citations
         self.authors = authors
         
-papers1 = [
-    Paper("A", 2023, 15, "authorA"),
-    Paper("B", 2022, 40, "authorB"),
-    Paper("C", 2023, 5, "authorC"),
-    ]
+# papers2 = [
+#     Paper("A", 2023, 15, "authorA"),
+#     Paper("B", 2022, 40, "authorB"),
+#     Paper("C", 2023, 5, "authorC"),
+#     ]
         
 
-papers = [
+papers1 = [
     {"title": "Deep Learning for Vision", "authors": ["Y. LeCun", "A. Smith"]},
     {"title": "Quantum Computing Basics", "authors": ["John Doe"]},
     {"title": "Neural Networks in Medicine", "authors": ["A. Smith", "K. Patel"]},
 ] 
+
+
+papers = [
+    Paper("Deep Learning for Vision", 2021, 12000, ["Y. LeCun", "A. Smith"]),
+    Paper("Neural Networks in Medicine", 2023, 450, ["A. Smith", "K. Patel"]),
+    Paper("Transformers in NLP", 2020, 25000, ["A. Vaswani", "Y. LeCun"]),
+    Paper("Quantum Computing Basics", 2019, 300, ["John Doe"]),
+    Paper("Large Language Models", 2024, 800, ["A. Smith", "John Doe"]),
+    Paper("AI in Healthcare", 2022, 600, ["K. Patel", "A. Smith"]),
+]
+
+
+def authors_count(papers: list[Paper], n: int = 5) -> list[tuple[str, int]]:
+    authors_count = {}
+    for paper in papers:
+        for author in paper.authors:
+            if author not in authors_count:
+                authors_count[author] = 0
+            authors_count[author] += 1
+    authors_sorted = sorted(authors_count.items(), key=lambda author: author[1], reverse=True)
+    return authors_sorted[:n]
+                
+        
+    ...
 
 def group_papers_by_year(papers: list[Paper]) -> dict[int, list[Paper]]:
     groups = {}
@@ -165,8 +189,8 @@ def count_papers_by_author(papers: list[Paper], author: str) -> int:
     return len(papers_by_author(papers, author))
 
 def top_author_papers(papers: list[Paper], author: str, n: int) -> list[Paper]:
-    top_authors = sorted(papers_by_author(papers, author), key=lambda paper: paper.citations, reverse=True)
-    return top_authors[:n]
+    authors_count = sorted(papers_by_author(papers, author), key=lambda paper: paper.citations, reverse=True)
+    return authors_count[:n]
   
         
 def papers_by_author(papers: list[Paper], author: str) -> list[Paper]:
@@ -227,5 +251,5 @@ def top_books_by_rating(books: list[Book]) -> list[str]:
     sorted_titles = [book.title for book in sorted_books]
     return sorted_titles
     
-result = top_books_by_rating(books)
+result = authors_count(papers, 5)
 print(result)
