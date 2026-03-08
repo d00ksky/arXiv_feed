@@ -1,3 +1,5 @@
+from models import Paper
+
 
 def normalize_paper(raw_paper: dict) -> dict:
     """
@@ -13,7 +15,7 @@ def normalize_paper(raw_paper: dict) -> dict:
     return normalized_result
 
 
-def normalize_papers(raw_papers: list[dict]) -> list[dict]:
+def normalize_papers(raw_papers: list[dict]) -> list[Paper]:
     normalized_papers = []
 
     for raw_paper in raw_papers:

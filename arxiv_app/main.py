@@ -4,8 +4,6 @@ from normalization import normalize_papers
 from logic import (
     filter_papers_after_year,
     filter_papers_by_author,
-    extract_titles,
-    limit_results
 )
 from validation import non_negative_int
 from render import render_paper_line
@@ -39,9 +37,9 @@ def main():
         papers = filter_papers_by_author(papers, args.author)
         
     if args.sort == "oldest":
-        papers = sorted(papers, key=lambda p: p["year"])
+        papers = sorted(papers, key=lambda paper: paper.year)
     elif args.sort == "newest":
-        papers = sorted(papers, key=lambda p: p["year"], reverse=True)
+        papers = sorted(papers, key=lambda paper: paper.year, reverse=True)
         
     
     # titles = extract_titles(papers)
@@ -50,7 +48,7 @@ def main():
     # for i, title in enumerate(titles, start=1):
     #     print(f"{i}. {title}")
     
-    for i, paper in enumerate(papers, start=1):
+    for i, paper in enumerate(papers: list[Paper], start=1):
         formatted = render_paper_line(i, paper)
         print(formatted)
     

@@ -2,7 +2,7 @@
 # n
 from operator import attrgetter
 from dataclasses import dataclass
-
+from models import Paper
 #Old dict functions
 #____________________________________________________________________________
 
@@ -75,13 +75,6 @@ def titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
 def format_authors(authors):
     return ", ".join(authors)
                                                                  
-@dataclass
-class Paper:
-    title: str
-    year: int
-    citations: int
-    authors: list[str]
-    
 
 
 
