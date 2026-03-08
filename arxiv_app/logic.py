@@ -144,29 +144,29 @@ def newest_paper(papers: list[Paper]) -> Paper | None:
         default=None
         )
 
-def papers_by_author_sorted(papers: list[dict], author: str) -> list[dict]:
+def papers_by_author_sorted(papers: list[Paper], author: str) -> list[Paper]:
     author_lower = author.lower()
     return sorted(
         (paper for paper in papers 
-         if any(author_lower in author_name.lower() for author_name in paper["authors"]))
-         , key=lambda x: x["year"], 
+         if any(author_lower in author_name.lower() for author_name in paper.authors))
+         , key=lambda x: x.year, 
         reverse=True
         )
 
 
-def filter_by_author(papers: list[dict], author: str) -> list[dict]:
+def filter_by_author(papers: list[Paper], author: str) -> list[Paper]:
     author_lower = author.lower()
     return [
         paper for paper in papers 
-        if any(author_lower in author_name.lower() for author_name in paper['authors'])
+        if any(author_lower in author_name.lower() for author_name in paper.authors)
         ]
 
 
 
-def has_author(papers: list[dict], author: str) -> bool:
+def has_author(papers: list[Paper], author: str) -> bool:
     author_lower = author.lower()      
     return any(
-        any(author_lower in author_name.lower() for author_name in paper["authors"])
+        any(author_lower in author_name.lower() for author_name in paper.authors)
         for paper in papers
         )
         
