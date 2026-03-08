@@ -1,6 +1,6 @@
 from models import Paper
 
-def render_paper_line(index: int, paper: list[Paper]) -> str:
+def render_paper_line(index: int, paper: Paper) -> str:
     title = paper.title
     authors = paper.authors
     year = paper.year
