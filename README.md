@@ -1,3 +1,5 @@
+A personalized research feed and AI assistant for discovering and understanding arXiv papers.
+
 # arXiv Feed
 
 A tool for discovering and understanding new arXiv papers in a more personalized and interactive way.
