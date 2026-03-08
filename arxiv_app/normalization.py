@@ -9,9 +9,9 @@ def normalize_paper(raw_paper: dict) -> Paper:
     
     return Paper(
         title = str(raw_paper["title"]),
-        year = int(raw_paper["year"]),
-        citations = int(raw_paper["citations"]),
-        authors = list[str](raw_paper["authors"])
+        year = int(raw_paper["published"][:4]),
+        citations = 0,
+        authors = list(raw_paper["authors"])
     )
 
 
