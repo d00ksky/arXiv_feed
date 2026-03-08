@@ -1,7 +1,5 @@
 
 # n
-from operator import attrgetter
-from dataclasses import dataclass
 from models import Paper
 #Old dict functions
 #____________________________________________________________________________
@@ -15,7 +13,7 @@ def filter_papers_after_year(papers: list[Paper], year: int) -> list[Paper]:
 
 
 
-def extract_titles(papers: list[Paper]) -> list[Paper]:
+def extract_titles(papers: list[Paper]) -> list[str]:
     titles = []
     for paper in papers:
         titles.append(paper.title)
@@ -23,7 +21,7 @@ def extract_titles(papers: list[Paper]) -> list[Paper]:
 
 
 
-def get_titles_after_year(papers: list[Paper], year: int) -> list[Paper]:
+def get_titles_after_year(papers: list[Paper], year: int) -> list[str]:
     papers_after = filter_papers_after_year(papers, year)
     titles_after = extract_titles(papers_after)
     return titles_after
@@ -39,7 +37,7 @@ def limit_results(items, limit):
 
 
 
-def get_limited_titles_after_year(papers: list[Paper], year: int, limit: int) -> list[Paper]:
+def get_limited_titles_after_year(papers: list[Paper], year: int, limit: int) -> list[str]:
     titles_after = get_titles_after_year(papers, year)
     limited = limit_results(titles_after, limit)
     return limited
@@ -59,11 +57,11 @@ def filter_papers_by_author(papers: list[Paper], author_query: str) -> list[Pape
 
 
 
-def titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
+def titles_by_year(papers: list[Paper]) -> dict[int, list[str]]:
     filtered = {}
     for paper in papers:
-        year = paper["year"]
-        title = paper["title"]
+        year = paper.year
+        title = paper.title
         if year not in filtered:
             filtered[year] = []
         filtered[year].append(title)
