@@ -133,16 +133,14 @@ def count_papers_by_year(papers: list[Paper]) -> dict[int, int]:
     
     for paper in papers:
         year = paper.year
-        if year not in counts:
-            counts[year] = 0
-        counts[year] += 1
+        counts[year] = counts.get(year, 0) + 1
     return counts
 
 
-def newest_paper(papers: list[dict]) -> dict | None:
+def newest_paper(papers: list[Paper]) -> Paper | None:
     return max(
         papers, 
-        key=lambda x: x["year"],
+        key=lambda x: x.year,
         default=None
         )
 
