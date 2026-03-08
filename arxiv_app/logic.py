@@ -6,24 +6,24 @@ from dataclasses import dataclass
 #Old dict functions
 #____________________________________________________________________________
 
-def filter_papers_after_year(papers, year):
+def filter_papers_after_year(papers: list[Paper], year: int) -> list[Paper]:
     papers_after = []
     for paper in papers:
-        if paper["year"] > year:
+        if paper.year > year:
             papers_after.append(paper)
     return papers_after
 
 
 
-def extract_titles(papers):
+def extract_titles(papers: list[Paper]) -> list[Paper]:
     titles = []
     for paper in papers:
-        titles.append(paper["title"])
+        titles.append(paper.title)
     return titles
 
 
 
-def get_titles_after_year(papers, year):
+def get_titles_after_year(papers: list[Paper], year: int) -> list[Paper]:
     papers_after = filter_papers_after_year(papers, year)
     titles_after = extract_titles(papers_after)
     return titles_after
@@ -39,17 +39,17 @@ def limit_results(items, limit):
 
 
 
-def get_limited_titles_after_year(papers, year, limit):
+def get_limited_titles_after_year(papers: list[Paper], year: int, limit: int) -> list[Paper]:
     titles_after = get_titles_after_year(papers, year)
     limited = limit_results(titles_after, limit)
     return limited
 
 
  
-def filter_papers_by_author(papers, author_query):
+def filter_papers_by_author(papers: list[Paper], author_query: str) -> list[Paper]:
     filtered = []
     for paper in papers:
-        for author in paper["authors"]:
+        for author in paper.authors:
             if author_query.lower() in author.lower():
                 filtered.append(paper)
                 break

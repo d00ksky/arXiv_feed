@@ -9,6 +9,7 @@ from logic import (
 )
 from validation import non_negative_int
 from render import render_paper_line
+from models import Paper
 # n
 
 def main():
