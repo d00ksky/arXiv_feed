@@ -3,6 +3,8 @@
 from operator import attrgetter
 from dataclasses import dataclass
 
+#Old dict functions
+#____________________________________________________________________________
 
 def filter_papers_after_year(papers, year):
     papers_after = []
@@ -43,11 +45,6 @@ def get_limited_titles_after_year(papers, year, limit):
     return limited
 
 
-
-def format_authors(authors):
-    return ", ".join(authors)
-
-
  
 def filter_papers_by_author(papers, author_query):
     filtered = []
@@ -72,8 +69,11 @@ def titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
         filtered[year].append(title)
     return filtered
             
-            
 
+#____________________________________________________________________________
+            
+def format_authors(authors):
+    return ", ".join(authors)
                                                                  
 @dataclass
 class Paper:
@@ -89,21 +89,20 @@ def most_cited_papers(papers: list[Paper], n: int = 5) -> list[Paper]:
     sorted_papers = sorted(papers, key=lambda paper: paper.citations, reverse=True)
     return sorted_papers[:n]
         
-    ...
 
 
-def authors_count(papers: list[Paper], n: int = 5) -> list[tuple[str, int]]:
-    authors_count = {}
+def top_authors(papers: list[Paper], n: int = 5) -> list[tuple[str, int]]:
+    authors_counts = {}
     for paper in papers:
         for author in paper.authors:
-            if author not in authors_count:
-                authors_count[author] = 0
-            authors_count[author] += 1
-    authors_sorted = sorted(authors_count.items(), key=lambda author: author[1], reverse=True)
+            if author not in authors_counts:
+                authors_counts[author] = 0
+            authors_counts[author] += 1
+    authors_sorted = sorted(authors_counts.items(), key=lambda author: author[1], reverse=True)
     return authors_sorted[:n]
                 
         
-    ...
+    
 
 def group_papers_by_year(papers: list[Paper]) -> dict[int, list[Paper]]:
     groups = {}
@@ -138,23 +137,27 @@ def newest_paper(papers: list[Paper]) -> Paper | None:
         default=None
         )
 
+def papers_by_author(papers: list[Paper], author: str) -> list[Paper]:
+    return [paper for paper in papers if any(author.lower() in a.lower() for a in paper.authors)]
+
+#This one for future if we need for reference old version of papers_by_author_sorted
+#
+# def papers_by_author_sorted(papers: list[Paper], author: str) -> list[Paper]:
+#     author_lower = author.lower()
+#     return sorted(
+#         (paper for paper in papers 
+#          if any(author_lower in author_name.lower() for author_name in paper.authors))
+#          , key=lambda x: x.year, 
+#         reverse=True
+#         )
+
 def papers_by_author_sorted(papers: list[Paper], author: str) -> list[Paper]:
     author_lower = author.lower()
     return sorted(
-        (paper for paper in papers 
-         if any(author_lower in author_name.lower() for author_name in paper.authors))
-         , key=lambda x: x.year, 
+        papers_by_author(papers, author), 
+        key=lambda paper: paper.year, 
         reverse=True
         )
-
-
-def filter_by_author(papers: list[Paper], author: str) -> list[Paper]:
-    author_lower = author.lower()
-    return [
-        paper for paper in papers 
-        if any(author_lower in author_name.lower() for author_name in paper.authors)
-        ]
-
 
 
 def has_author(papers: list[Paper], author: str) -> bool:
@@ -170,10 +173,6 @@ def count_papers_by_author(papers: list[Paper], author: str) -> int:
 def top_author_papers(papers: list[Paper], author: str, n: int) -> list[Paper]:
     top_author_papers = sorted(papers_by_author(papers, author), key=lambda paper: paper.citations, reverse=True)
     return top_author_papers[:n]
-  
-        
-def papers_by_author(papers: list[Paper], author: str) -> list[Paper]:
-    return [paper for paper in papers if any(author.lower() in a.lower() for a in paper.authors)]
        
         
 def top_papers_by_year(papers: list[Paper], year: int) -> list[str]:
@@ -184,11 +183,6 @@ def top_papers_by_year(papers: list[Paper], year: int) -> list[str]:
         reverse=True
         )
     return [paper.title for paper in sorted_papers]
-
-
-def top_n_papers(papers: list[Paper], n: int) -> list[Paper]:
-    sorted_papers = sorted(papers, key=attrgetter("citations"), reverse=True)
-    return sorted_papers[:n]
 
 
 def top_papers_from_year(papers: list[Paper], year: int, n: int) -> list[Paper]:
@@ -207,4 +201,4 @@ def search_and_rank(
 ) -> list[Paper]:
     sorted_with_keyword = sorted(search_papers_by_keyword(papers, keyword), key=lambda paper: paper.citations, reverse=True)
     return sorted_with_keyword[:n]
-    ...
+    
