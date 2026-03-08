@@ -168,8 +168,8 @@ def count_papers_by_author(papers: list[Paper], author: str) -> int:
     return len(papers_by_author(papers, author))
 
 def top_author_papers(papers: list[Paper], author: str, n: int) -> list[Paper]:
-    authors_count = sorted(papers_by_author(papers, author), key=lambda paper: paper.citations, reverse=True)
-    return authors_count[:n]
+    top_author_papers = sorted(papers_by_author(papers, author), key=lambda paper: paper.citations, reverse=True)
+    return top_author_papers[:n]
   
         
 def papers_by_author(papers: list[Paper], author: str) -> list[Paper]:
