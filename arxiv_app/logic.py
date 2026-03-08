@@ -88,32 +88,7 @@ class Paper:
     citations: int
     authors: list[str]
     
-    
-    
-    
-    
-# papers2 = [
-#     Paper("A", 2023, 15, "authorA"),
-#     Paper("B", 2022, 40, "authorB"),
-#     Paper("C", 2023, 5, "authorC"),
-#     ]
-        
 
-papers1 = [
-    {"title": "Deep Learning for Vision", "authors": ["Y. LeCun", "A. Smith"]},
-    {"title": "Quantum Computing Basics", "authors": ["John Doe"]},
-    {"title": "Neural Networks in Medicine", "authors": ["A. Smith", "K. Patel"]},
-] 
-
-
-papers = [
-    Paper("Deep Learning for Vision", 2021, 12000, ["Y. LeCun", "A. Smith"]),
-    Paper("Neural Networks in Medicine", 2023, 450, ["A. Smith", "K. Patel"]),
-    Paper("Transformers in NLP", 2020, 25000, ["A. Vaswani", "Y. LeCun"]),
-    Paper("Quantum Computing Basics", 2019, 300, ["John Doe"]),
-    Paper("Large Language Models", 2024, 800, ["A. Smith", "John Doe"]),
-    Paper("AI in Healthcare", 2022, 600, ["K. Patel", "A. Smith"]),
-]
 
 
 def most_cited_papers(papers: list[Paper], n: int = 5) -> list[Paper]:
@@ -145,19 +120,19 @@ def group_papers_by_year(papers: list[Paper]) -> dict[int, list[Paper]]:
     return groups
 
 
-def unique_authors(papers: list[dict]) -> set[str]:
+def unique_authors(papers: list[Paper]) -> set[str]:
     authors = set()
     for paper in papers:
-        for author in paper["authors"]:
+        for author in paper.authors:
             authors.add(author)
     return authors
 
 
-def count_papers_by_year(papers: list[dict]) -> dict[int, int]:
+def count_papers_by_year(papers: list[Paper]) -> dict[int, int]:
     counts = {}
     
     for paper in papers:
-        year = paper["year"]
+        year = paper.year
         if year not in counts:
             counts[year] = 0
         counts[year] += 1
@@ -241,34 +216,3 @@ def search_and_rank(
     sorted_with_keyword = sorted(search_papers_by_keyword(papers, keyword), key=lambda paper: paper.citations, reverse=True)
     return sorted_with_keyword[:n]
     ...
-
-class Book:
-    def __init__(self, title: str, pages: int, rating: float):
-        self.title = title
-        self.pages = pages
-        self.rating = rating
-        
-        
-        
-books = [
-    Book("Clean Code", 464, 4.5),
-    Book("The Pragmatic Programmer", 352, 4.7),
-    Book("Fluent Python", 790, 4.8),
-    Book("The Mythical Man-Month", 322, 4.2),
-]
-
-
-def top_books_by_rating(books: list[Book]) -> list[str]:
-    sorted_books = sorted(books, key=lambda book: book.rating, reverse=True )
-    sorted_titles = [book.title for book in sorted_books]
-    return sorted_titles
-    
-def search_papers_by_keyword2(papers: list[Paper], keyword: str) -> list[Paper]:
-    papers_with_keyword = [paper for paper in papers if keyword.lower() in paper.title.lower()]
-    return papers_with_keyword
-    
-    ...
-    
-    
-result = search_papers_by_keyword2(papers, 'AI')
-print(result)
