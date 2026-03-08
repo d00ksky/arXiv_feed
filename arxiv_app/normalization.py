@@ -1,18 +1,18 @@
 from models import Paper
 
 
-def normalize_paper(raw_paper: dict) -> dict:
+def normalize_paper(raw_paper: dict) -> Paper:
     """
     raw_paper ma klucze: id, title, authors, published
     zwraca: id, title, authors, year (int)
     """
-    normalized_result = {}    
-    normalized_result["id"] = str(raw_paper["id"])
-    normalized_result["title"] = str(raw_paper["title"])
-    normalized_result["authors"] = list(raw_paper["authors"])
-    normalized_result["year"] = int(raw_paper["published"][:4])
     
-    return normalized_result
+    return Paper(
+        title = str(raw_paper["title"]),
+        year = int(raw_paper["year"]),
+        citations = int(raw_paper["citations"]),
+        authors = list[str](raw_paper["authors"])
+    )
 
 
 def normalize_papers(raw_papers: list[dict]) -> list[Paper]:
