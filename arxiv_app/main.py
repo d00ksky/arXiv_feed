@@ -45,14 +45,13 @@ def main():
     if args.top_cited is not None:
         papers = most_cited_papers(papers, args.top_cited)
         
-    if args.stats is not None:
+    if args.stats:
         uniq_authors = unique_authors(papers)
         count_papers_year = count_papers_by_year(papers)
-        years = []
-        count = 0
-        for year in count_papers_year:
-            years.append(count_papers_year[year])
-        return f"Total papers:"
+        total_papers = len(papers)
+        print(f"Total papers: {total_papers}")
+        print(f"Years covered: {min(count_papers_year)}-{max(count_papers_year)}")
+        print(f"Unique authors: {len(uniq_authors)}")
     
     if args.sort == "oldest":
         papers = sorted(papers, key=lambda paper: paper.year)

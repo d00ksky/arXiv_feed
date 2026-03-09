@@ -2,10 +2,10 @@
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
   <id>https://arxiv.org/api/xmsyZZxTSiGwH0Zq+dDubnLIfsg</id>
   <title>arXiv Query: search_query=all:AI&amp;id_list=&amp;start=0&amp;max_results=25</title>
-  <updated>2026-02-21T12:50:47Z</updated>
+  <updated>2026-03-09T18:16:13Z</updated>
   <link href="https://arxiv.org/api/query?search_query=all:AI&amp;start=0&amp;max_results=25&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>25</opensearch:itemsPerPage>
-  <opensearch:totalResults>51260</opensearch:totalResults>
+  <opensearch:totalResults>52170</opensearch:totalResults>
   <opensearch:startIndex>0</opensearch:startIndex>
   <entry>
     <id>http://arxiv.org/abs/2501.02842v1</id>
@@ -628,32 +628,6 @@
     </author>
   </entry>
   <entry>
-    <id>http://arxiv.org/abs/2501.06861v1</id>
-    <title>Integrators at War: Mediating in AI-assisted Resort-to-Force Decisions</title>
-    <updated>2025-01-12T16:21:33Z</updated>
-    <link href="https://arxiv.org/abs/2501.06861v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2501.06861v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>The integration of AI systems into the military domain is changing the way war-related decisions are made. It binds together three disparate groups of actors - developers, integrators, users - and creates a relationship between these groups and the machine, embedded in the (pre-)existing organisational and system structures. In this article, we focus on the important, but often neglected, group of integrators within such a sociotechnical system. In complex human-machine configurations, integrators carry responsibility for linking the disparate groups of developers and users in the political and military system. To act as the mediating group requires a deep understanding of the other groups' activities, perspectives and norms. We thus ask which challenges and shortcomings emerge from integrating AI systems into resort-to-force (RTF) decision-making processes, and how to address them. To answer this, we proceed in three steps. First, we conceptualise the relationship between different groups of actors and AI systems as a sociotechnical system. Second, we identify challenges within such systems for human-machine teaming in RTF decisions. We focus on challenges that arise a) from the technology itself, b) from the integrators' role in the sociotechnical system, c) from the human-machine interaction. Third, we provide policy recommendations to address these shortcomings when integrating AI systems into RTF decision-making structures.</summary>
-    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
-    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
-    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2025-01-12T16:21:33Z</published>
-    <arxiv:comment>32 pages. Keywords: education, artificial intelligence, AI integrators, resort to force, sociotechnical system, systems engineering</arxiv:comment>
-    <arxiv:primary_category term="cs.CY"/>
-    <arxiv:journal_ref>Camb. forum AI Law gov. 1 (2025) e51</arxiv:journal_ref>
-    <author>
-      <name>Dennis Müller</name>
-    </author>
-    <author>
-      <name>Maurice Chiodo</name>
-    </author>
-    <author>
-      <name>Mitja Sienknecht</name>
-    </author>
-    <arxiv:doi>10.1017/cfl.2025.10030</arxiv:doi>
-    <link rel="related" href="https://doi.org/10.1017/cfl.2025.10030" title="doi"/>
-  </entry>
-  <entry>
     <id>http://arxiv.org/abs/2502.18527v2</id>
     <title>GOD model: Privacy Preserved AI School for Personal Assistant</title>
     <updated>2025-02-27T20:33:35Z</updated>
@@ -697,6 +671,32 @@
     </author>
   </entry>
   <entry>
+    <id>http://arxiv.org/abs/2501.06861v1</id>
+    <title>Integrators at War: Mediating in AI-assisted Resort-to-Force Decisions</title>
+    <updated>2025-01-12T16:21:33Z</updated>
+    <link href="https://arxiv.org/abs/2501.06861v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2501.06861v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The integration of AI systems into the military domain is changing the way war-related decisions are made. It binds together three disparate groups of actors - developers, integrators, users - and creates a relationship between these groups and the machine, embedded in the (pre-)existing organisational and system structures. In this article, we focus on the important, but often neglected, group of integrators within such a sociotechnical system. In complex human-machine configurations, integrators carry responsibility for linking the disparate groups of developers and users in the political and military system. To act as the mediating group requires a deep understanding of the other groups' activities, perspectives and norms. We thus ask which challenges and shortcomings emerge from integrating AI systems into resort-to-force (RTF) decision-making processes, and how to address them. To answer this, we proceed in three steps. First, we conceptualise the relationship between different groups of actors and AI systems as a sociotechnical system. Second, we identify challenges within such systems for human-machine teaming in RTF decisions. We focus on challenges that arise a) from the technology itself, b) from the integrators' role in the sociotechnical system, c) from the human-machine interaction. Third, we provide policy recommendations to address these shortcomings when integrating AI systems into RTF decision-making structures.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-01-12T16:21:33Z</published>
+    <arxiv:comment>32 pages. Keywords: education, artificial intelligence, AI integrators, resort to force, sociotechnical system, systems engineering</arxiv:comment>
+    <arxiv:primary_category term="cs.CY"/>
+    <arxiv:journal_ref>Camb. forum AI Law gov. 1 (2025) e51</arxiv:journal_ref>
+    <author>
+      <name>Dennis Müller</name>
+    </author>
+    <author>
+      <name>Maurice Chiodo</name>
+    </author>
+    <author>
+      <name>Mitja Sienknecht</name>
+    </author>
+    <arxiv:doi>10.1017/cfl.2025.10030</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1017/cfl.2025.10030" title="doi"/>
+  </entry>
+  <entry>
     <id>http://arxiv.org/abs/2504.14996v1</id>
     <title>Distributed Cognition for AI-supported Remote Operations: Challenges and Research Directions</title>
     <updated>2025-04-21T09:53:49Z</updated>
@@ -719,25 +719,6 @@
     </author>
     <author>
       <name>Niels van Berkel</name>
-    </author>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/2504.15647v2</id>
-    <title>Promoting Real-Time Reflection in Synchronous Communication with Generative AI</title>
-    <updated>2025-04-28T14:48:38Z</updated>
-    <link href="https://arxiv.org/abs/2504.15647v2" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2504.15647v2" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Real-time reflection plays a vital role in synchronous communication. It enables users to adjust their communication strategies dynamically, thereby improving the effectiveness of their communication. Generative AI holds significant potential to enhance real-time reflection due to its ability to comprehensively understand the current context and generate personalized and nuanced content. However, it is challenging to design the way of interaction and information presentation to support the real-time workflow rather than disrupt it. In this position paper, we present a review of existing research on systems designed for reflection in different synchronous communication scenarios. Based on that, we discuss design implications on how to design human-AI interaction to support reflection in real time.</summary>
-    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2025-04-22T07:12:56Z</published>
-    <arxiv:comment>Presented at the 2025 ACM Workshop on Human-AI Interaction for Augmented Reasoning, Report Number: CHI25-WS-AUGMENTED-REASONING</arxiv:comment>
-    <arxiv:primary_category term="cs.HC"/>
-    <arxiv:journal_ref>Proceedings of the 2025 ACM CHI Workshop on Human-AI Interaction for Augmented Reasoning</arxiv:journal_ref>
-    <author>
-      <name>Yi Wen</name>
-    </author>
-    <author>
-      <name>Meng Xia</name>
     </author>
   </entry>
   <entry>
@@ -772,6 +753,35 @@
     </author>
     <author>
       <name>Bo Ai</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2404.11836v1</id>
+    <title>AI-Empowered RIS-Assisted Networks: CV-Enabled RIS Selection and DNN-Enabled Transmission</title>
+    <updated>2024-04-18T01:36:03Z</updated>
+    <link href="https://arxiv.org/abs/2404.11836v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2404.11836v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper investigates artificial intelligence (AI) empowered schemes for reconfigurable intelligent surface (RIS) assisted networks from the perspective of fast implementation. We formulate a weighted sum-rate maximization problem for a multi-RIS-assisted network. To avoid huge channel estimation overhead due to activate all RISs, we propose a computer vision (CV) enabled RIS selection scheme based on a single shot multi-box detector. To realize real-time resource allocation, a deep neural network (DNN) enabled transmit design is developed to learn the optimal mapping from channel information to transmit beamformers and phase shift matrix. Numerical results illustrate that the CV module is able to select of RIS with the best propagation condition. The well-trained DNN achieves similar sum-rate performance to the existing alternative optimization method but with much smaller inference time.</summary>
+    <category term="eess.SP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-04-18T01:36:03Z</published>
+    <arxiv:primary_category term="eess.SP"/>
+    <author>
+      <name>Conggang Hu</name>
+    </author>
+    <author>
+      <name>Yang Lu</name>
+    </author>
+    <author>
+      <name>Hongyang Du</name>
+    </author>
+    <author>
+      <name>Mi Yang</name>
+    </author>
+    <author>
+      <name>Bo Ai</name>
+    </author>
+    <author>
+      <name>Dusit Niyato</name>
     </author>
   </entry>
 </feed>
