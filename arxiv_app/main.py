@@ -5,6 +5,8 @@ from logic import (
     filter_papers_after_year,
     filter_papers_by_author,
     most_cited_papers,
+    unique_authors,
+    count_papers_by_year,
 )
 from validation import non_negative_int
 from render import render_paper_line
@@ -21,6 +23,7 @@ def main():
     parser.add_argument("--cache-ttl", type=non_negative_int, default=600, help="Cache TTL in seconds (default 600, 0 disables cache)")
     parser.add_argument("--sort", choices=["newest", "oldest"], help="Sort by year")
     parser.add_argument("--top-cited", type=int, help="Show top cited papers")
+    parser.add_argument("--stats", action="store_true", help="Show statistics about papers")
 
 
     args = parser.parse_args()
@@ -41,6 +44,15 @@ def main():
     
     if args.top_cited is not None:
         papers = most_cited_papers(papers, args.top_cited)
+        
+    if args.stats is not None:
+        uniq_authors = unique_authors(papers)
+        count_papers_year = count_papers_by_year(papers)
+        years = []
+        count = 0
+        for year in count_papers_year:
+            years.append(count_papers_year[year])
+        return f"Total papers:"
     
     if args.sort == "oldest":
         papers = sorted(papers, key=lambda paper: paper.year)
