@@ -13,12 +13,14 @@ def filter_papers_after_year(papers: list[Paper], year: int) -> list[Paper]:
 
 
 
-def extract_titles(papers: list[Paper]) -> list[str]:
-    titles = []
-    for paper in papers:
-        titles.append(paper.title)
-    return titles
+# def extract_titles(papers: list[Paper]) -> list[str]:
+#     titles = []
+#     for paper in papers:
+#         titles.append(paper.title)
+#     return titles
 
+def extract_titles(papers: list[Paper]) -> list[str]:
+    return [paper.title for paper in papers]
 
 
 def get_titles_after_year(papers: list[Paper], year: int) -> list[str]:
@@ -28,12 +30,8 @@ def get_titles_after_year(papers: list[Paper], year: int) -> list[str]:
     
 
 
-def limit_results(items, limit):
-    limited_result = []
-    for i in range(limit):
-        if i < len(items):
-            limited_result.append(items[i])
-    return limited_result
+def limit_results(items: list, limit: int) -> list:
+    return items[:limit]
 
 
 
@@ -182,8 +180,7 @@ def top_papers_from_year(papers: list[Paper], year: int, n: int) -> list[Paper]:
     return top_papers[:n]
     
 def search_papers_by_keyword(papers: list[Paper], keyword: str) -> list[Paper]:
-    papers_with_keyword = [paper for paper in papers if keyword.lower() in paper.title.lower()]
-    return papers_with_keyword
+    return [paper for paper in papers if keyword.lower() in paper.title.lower()]
 
 def search_and_rank(
     papers: list[Paper],
