@@ -67,6 +67,9 @@ def titles_by_year(papers: list[Paper]) -> dict[int, list[str]]:
             
 
 #____________________________________________________________________________
+
+# TODO: little refactor to continue / maybe divide functions into smaller modules than one big logic.py
+
             
 def format_authors(authors):
     return ", ".join(authors)
