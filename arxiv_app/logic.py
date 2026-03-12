@@ -20,10 +20,12 @@ def filter_papers_after_year(papers: list[Paper], year: int) -> list[Paper]:
 #     return titles
 
 def extract_titles(papers: list[Paper]) -> list[str]:
+    """Return titles extracted from a list of papers."""
     return [paper.title for paper in papers]
 
 
 def get_titles_after_year(papers: list[Paper], year: int) -> list[str]:
+    """Returns papers published after a given year."""
     papers_after = filter_papers_after_year(papers, year)
     titles_after = extract_titles(papers_after)
     return titles_after
@@ -106,6 +108,7 @@ def group_papers_by_year(papers: list[Paper]) -> dict[int, list[Paper]]:
 
 
 def unique_authors(papers: list[Paper]) -> set[str]:
+    """Returns a set of all unique authors."""
     authors = set()
     for paper in papers:
         for author in paper.authors:
