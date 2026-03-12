@@ -193,3 +193,13 @@ def search_and_rank(
     sorted_with_keyword = sorted(search_papers_by_keyword(papers, keyword), key=lambda paper: paper.citations, reverse=True)
     return sorted_with_keyword[:n]
     
+
+
+def recent_papers(papers: list[Paper], n: int = 5) -> list[Paper]:
+    """
+    Returns n most recent papers sorted by year
+    """
+    return sorted(papers, key=lambda paper: paper.year, reverse=True)[:n]
+    
+    ...
+    
