@@ -99,6 +99,7 @@ def top_authors(papers: list[Paper], n: int = 5) -> list[tuple[str, int]]:
     
 
 def group_papers_by_year(papers: list[Paper]) -> dict[int, list[Paper]]:
+    """Returns dictionary of papers grouped by year of publication"""
     groups = {}
     for paper in papers:
         if paper.year not in groups:
@@ -117,6 +118,7 @@ def unique_authors(papers: list[Paper]) -> set[str]:
 
 
 def count_papers_by_year(papers: list[Paper]) -> dict[int, int]:
+    """Returns count of papers for each year from papers"""
     counts = {}
     
     for paper in papers:
@@ -126,6 +128,7 @@ def count_papers_by_year(papers: list[Paper]) -> dict[int, int]:
 
 
 def newest_paper(papers: list[Paper]) -> Paper | None:
+    """Returns paper with newest date from papers"""
     return max(
         papers, 
         key=lambda x: x.year,
@@ -133,6 +136,7 @@ def newest_paper(papers: list[Paper]) -> Paper | None:
         )
 
 def papers_by_author(papers: list[Paper], author: str) -> list[Paper]:
+    """Returns list of papers published by given author"""
     return [paper for paper in papers if any(author.lower() in a.lower() for a in paper.authors)]
 
 #This one for future if we need for reference old version of papers_by_author_sorted
