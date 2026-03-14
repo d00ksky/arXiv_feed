@@ -1,6 +1,7 @@
 # Just notepad for testing and trying quick ideas 
 from models import Paper
 from collections import defaultdict
+from logic import recent_papers
 
 
 papers_by_year = {
@@ -35,6 +36,8 @@ groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-print(paper_in_year)
+result = recent_papers(papers, 5)
+
+print(result)
 
 

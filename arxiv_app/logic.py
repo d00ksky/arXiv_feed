@@ -151,6 +151,7 @@ def papers_by_author(papers: list[Paper], author: str) -> list[Paper]:
 #         )
 
 def papers_by_author_sorted(papers: list[Paper], author: str) -> list[Paper]:
+    """Returns list of papers for a given author sorted by year"""
     author_lower = author.lower()
     return sorted(
         papers_by_author(papers, author), 
@@ -197,6 +198,7 @@ def search_and_rank(
     keyword: str,
     n: int
 ) -> list[Paper]:
+    """Returns papers for given keyword and sort them by citations"""
     sorted_with_keyword = sorted(search_papers_by_keyword(papers, keyword), key=lambda paper: paper.citations, reverse=True)
     return sorted_with_keyword[:n]
     
@@ -204,9 +206,9 @@ def search_and_rank(
 
 def recent_papers(papers: list[Paper], n: int = 5) -> list[Paper]:
     """
-    Returns n most recent papers sorted by year
+    Returns n most recent papers sorted by year and by citations for papers in that same year
     """
-    return sorted(papers, key=lambda paper: paper.year, reverse=True)[:n]
+    return sorted(papers, key=lambda paper: (paper.year, paper.citations), reverse=True)[:n]
     
     ...
     
