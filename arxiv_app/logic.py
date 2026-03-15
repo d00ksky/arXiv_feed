@@ -191,6 +191,7 @@ def top_papers_from_year(papers: list[Paper], year: int, n: int) -> list[Paper]:
     return top_papers[:n]
     
 def search_papers_by_keyword(papers: list[Paper], keyword: str) -> list[Paper]:
+    """Returns paper searched by keyword"""
     return [paper for paper in papers if keyword.lower() in paper.title.lower()]
 
 def search_and_rank(
