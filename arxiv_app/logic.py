@@ -199,9 +199,11 @@ def search_and_rank(
     keyword: str,
     n: int
 ) -> list[Paper]:
-    """Returns papers for given keyword and sort them by citations"""
-    sorted_with_keyword = sorted(search_papers_by_keyword(papers, keyword), key=lambda paper: paper.citations, reverse=True)
-    return sorted_with_keyword[:n]
+    """Return top n keyword-matching papers ranked by citations."""
+    return sorted(
+        search_papers_by_keyword(papers, keyword), 
+        key=lambda paper: paper.citations, reverse=True
+        )[:n]
     
 
 
