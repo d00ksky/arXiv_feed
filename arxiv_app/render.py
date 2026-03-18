@@ -20,7 +20,10 @@ def render_paper_list(papers: list[Paper]) -> str:
 
 def render_stats(total_papers: int, years: dict[int, int], unique_authors_count: int) -> str:
     total_papers_str = f"Total papers: {total_papers}"
-    years_str = f"Years covered: {min(years)}-{max(years)}"
+    if not years:
+        years_str = "Years covered: N/A"
+    else:
+        years_str = f"Years covered: {min(years)}-{max(years)}"
     unique_authors_count_str = f"Unique authors: {unique_authors_count}"
     lines = [total_papers_str, years_str, unique_authors_count_str]
     return "\n".join(lines)

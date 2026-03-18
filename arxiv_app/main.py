@@ -9,7 +9,11 @@ from logic import (
     count_papers_by_year,
 )
 from validation import non_negative_int
-from render import render_paper_line
+from render import (
+    render_paper_line,
+    render_stats,
+    render_paper_list,
+)
 from models import Paper
 # n
 
@@ -46,12 +50,11 @@ def main():
         papers = most_cited_papers(papers, args.top_cited)
         
     if args.stats:
-        uniq_authors = unique_authors(papers)
+        uniq_authors = len(unique_authors(papers))
         count_papers_year = count_papers_by_year(papers)
         total_papers = len(papers)
-        print(f"Total papers: {total_papers}")
-        print(f"Years covered: {min(count_papers_year)}-{max(count_papers_year)}")
-        print(f"Unique authors: {len(uniq_authors)}")
+        stats_str = render_stats(total_papers, count_papers_year, uniq_authors)
+        print(stats_str)
     
     if args.sort == "oldest":
         papers = sorted(papers, key=lambda paper: paper.year)
