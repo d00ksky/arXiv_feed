@@ -67,8 +67,10 @@ def main():
     
     # for i, title in enumerate(titles, start=1):
     #     print(f"{i}. {title}")
-    
-    print(render_paper_list(papers))
+    if not papers:
+        print("No papers found.")
+    else:
+        print(render_paper_list(papers))
 
     
 
