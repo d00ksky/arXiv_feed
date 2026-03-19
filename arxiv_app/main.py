@@ -68,9 +68,8 @@ def main():
     # for i, title in enumerate(titles, start=1):
     #     print(f"{i}. {title}")
     
-    for i, paper in enumerate(papers, start=1):
-        formatted = render_paper_line(i, paper)
-        print(formatted)
+    print(render_paper_list(papers))
+
     
 
 
