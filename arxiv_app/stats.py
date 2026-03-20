@@ -16,4 +16,4 @@ def count_papers_by_year(papers: list[Paper]) -> dict[int, int]:
     for paper in papers:
         year = paper.year
         counts[year] = counts.get(year, 0) + 1
-    return counts
+    return counts 

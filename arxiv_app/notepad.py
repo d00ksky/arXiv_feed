@@ -32,6 +32,17 @@ def group_papers_by_year(papers: list[Paper]) -> dict[int, list[Paper]]:
         groups[paper.year].append(paper)
     return groups
 
+
+def authors_with_keyword(papers: list[Paper], keyword: str) -> list[str]:
+    title_with_keyword = [paper for paper in papers if keyword.lower() in paper.title.lower()]
+    authors = []
+    for paper in title_with_keyword:
+        for author in paper.authors:
+            authors.append(author)
+
+    return sorted(set(authors))
+
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
