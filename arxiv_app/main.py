@@ -5,8 +5,6 @@ from logic import (
     filter_papers_after_year,
     filter_papers_by_author,
     most_cited_papers,
-    unique_authors,
-    count_papers_by_year,
 )
 from validation import non_negative_int
 from render import (
@@ -14,7 +12,12 @@ from render import (
     render_stats,
     render_paper_list,
 )
-from models import Paper
+
+from stats import (
+    unique_authors,
+    count_papers_by_year,
+)
+
 # n
 
 def main():
