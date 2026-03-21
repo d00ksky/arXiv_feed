@@ -8,7 +8,6 @@ from arxiv_app.logic import (
 )
 from arxiv_app.validation import non_negative_int
 from arxiv_app.render import (
-    render_paper_line,
     render_stats,
     render_paper_list,
 )
