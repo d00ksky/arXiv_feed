@@ -1,7 +1,12 @@
 # Just notepad for testing and trying quick ideas 
 from arxiv_app.models import Paper
-from collections import defaultdict
+import collections
+from collections import (
+    defaultdict,
+    Counter,
+)
 from arxiv_app.logic import recent_papers
+
 
 
 papers_by_year = {
@@ -38,19 +43,27 @@ def authors_with_keyword(papers: list[Paper], keyword: str) -> list[str]:
     return sorted(set(author for paper in title_with_keyword for author in paper.authors))
 
 
-def most_common_author(papers: list[Paper]) -> str|None:
-    authors_count = {}
-    for paper in papers:
-        for author in paper.authors:
-            if author not in authors_count:
-                authors_count[author] = 0
-            authors_count[author] += 1
+# def most_common_author(papers: list[Paper]) -> str|None:
+#     authors_count = {}
+#     for paper in papers:
+#         for author in paper.authors:
+#             authors_count[author] = authors_count.get(author, 0) + 1
+            
+#     if not authors_count:
+#         return None
+    
+#     return max(authors_count, key=lambda author: authors_count[author])
+            
+
+def most_common_author(papers: list[Paper]) -> str | None:
+    authors_count = Counter(
+        author for paper in papers for author in paper.authors
+        )
             
     if not authors_count:
         return None
     
-    return max(authors_count, key=lambda author: authors_count[author])
-            
+    return authors_count.most_common(1)[0][0]
 
 
 groups = group_papers_by_year(papers)

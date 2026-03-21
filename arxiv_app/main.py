@@ -15,6 +15,7 @@ from arxiv_app.render import (
 from arxiv_app.stats import (
     unique_authors,
     count_papers_by_year,
+    most_common_author,
 )
 
 # n
@@ -53,9 +54,10 @@ def main():
         
     if args.stats:
         uniq_authors = len(unique_authors(papers))
+        most_common_author_name = most_common_author(papers)
         count_papers_year = count_papers_by_year(papers)
         total_papers = len(papers)
-        stats_str = render_stats(total_papers, count_papers_year, uniq_authors)
+        stats_str = render_stats(total_papers, count_papers_year, uniq_authors, most_common_author_name)
         print(stats_str)
     
     if args.sort == "oldest":

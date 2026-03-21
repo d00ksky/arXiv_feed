@@ -1,4 +1,5 @@
 from arxiv_app.models import Paper
+from collections import Counter
 
 def unique_authors(papers: list[Paper]) -> set[str]:
     """Returns a set of all unique authors."""
@@ -17,3 +18,13 @@ def count_papers_by_year(papers: list[Paper]) -> dict[int, int]:
         year = paper.year
         counts[year] = counts.get(year, 0) + 1
     return counts 
+
+def most_common_author(papers: list[Paper]) -> str | None:
+    authors_count = Counter(
+        author for paper in papers for author in paper.authors
+        )
+            
+    if not authors_count:
+        return None
+    
+    return authors_count.most_common(1)[0][0]
