@@ -38,7 +38,7 @@ def main():
     raw = fetch_papers(
         args.query, 
         max_results = args.limit * 5,
-        cache_ttl=args.cache_ttl,
+        cache_ttl=args.cache_ttl
         )
     papers = normalize_papers(raw)
     
