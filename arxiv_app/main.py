@@ -1,19 +1,19 @@
 import argparse
-from arxiv_client import fetch_papers
-from normalization import normalize_papers
-from logic import (
+from arxiv_app.arxiv_client import fetch_papers
+from arxiv_app.normalization import normalize_papers
+from arxiv_app.logic import (
     filter_papers_after_year,
     filter_papers_by_author,
     most_cited_papers,
 )
-from validation import non_negative_int
-from render import (
+from arxiv_app.validation import non_negative_int
+from arxiv_app.render import (
     render_paper_line,
     render_stats,
     render_paper_list,
 )
 
-from stats import (
+from arxiv_app.stats import (
     unique_authors,
     count_papers_by_year,
 )

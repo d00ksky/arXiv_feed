@@ -1,4 +1,4 @@
-from models import Paper
+from arxiv_app.models import Paper
 
 def render_paper_line(index: int, paper: Paper) -> str:
     title = paper.title

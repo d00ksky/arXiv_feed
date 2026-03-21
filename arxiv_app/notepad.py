@@ -1,7 +1,7 @@
 # Just notepad for testing and trying quick ideas 
-from models import Paper
+from arxiv_app.models import Paper
 from collections import defaultdict
-from logic import recent_papers
+from arxiv_app.logic import recent_papers
 
 
 papers_by_year = {
@@ -16,7 +16,7 @@ papers = [
     Paper("Neural Networks in Medicine", 2023, 450, ["A. Smith", "K. Patel"]),
     Paper("Transformers in NLP", 2020, 25000, ["A. Vaswani", "Y. LeCun"]),
     Paper("Quantum Computing Basics", 2019, 300, ["John Doe"]),
-    Paper("Large Language Models", 2024, 800, ["A. Smith", "John Doe"]),
+    Paper("Large Language arxiv_app.arxiv_app.models", 2024, 800, ["A. Smith", "John Doe"]),
     Paper("AI in Healthcare", 2022, 600, ["K. Patel", "A. Smith"]),
     Paper("Self-Supervised Learning", 2021, 1500, ["A. Smith"]),
 ]
@@ -35,9 +35,7 @@ def group_papers_by_year(papers: list[Paper]) -> dict[int, list[Paper]]:
 
 def authors_with_keyword(papers: list[Paper], keyword: str) -> list[str]:
     title_with_keyword = [paper for paper in papers if keyword.lower() in paper.title.lower()]
-    authors = [author for paper in title_with_keyword for author in paper.authors]
-
-    return sorted(set(authors))
+    return sorted(set(author for paper in title_with_keyword for author in paper.authors))
 
 
 groups = group_papers_by_year(papers)

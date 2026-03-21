@@ -1,4 +1,4 @@
-from models import Paper
+from arxiv_app.models import Paper
 
 
 def normalize_paper(raw_paper: dict) -> Paper:

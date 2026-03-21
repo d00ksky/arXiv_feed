@@ -1,4 +1,4 @@
-from models import Paper
+from arxiv_app.models import Paper
 
 def unique_authors(papers: list[Paper]) -> set[str]:
     """Returns a set of all unique authors."""

@@ -1,6 +1,6 @@
+from arxiv_app.models import Paper
 
 # n
-from models import Paper
 #Old dict functions
 #____________________________________________________________________________
 
