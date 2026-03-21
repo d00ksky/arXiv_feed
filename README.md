@@ -22,11 +22,28 @@ The long-term goal is to create a personalized research assistant that:
 
 Example workflow:
 
-1. User defines topics or queries of interest.
-2. The system fetches new papers from arXiv.
-3. Papers are filtered and ranked for the user.
-4. The user sees a personalized feed of relevant research.
-5. The user can explore each paper with AI assistance.
+1. User selects a topic or provides an area of interest.
+2. The system fetches recent papers from arXiv.
+3. The system filters, ranks, and selects a small useful set instead of showing everything.
+4. The user sees a compact discovery view of relevant papers or themes.
+5. The user chooses a topic or paper to inspect more deeply.
+6. The system shows more detailed information and, later, AI assistance.
+
+---
+
+# Current Product Framing
+
+The current CLI is a prototype interface for validating the product logic, not the final product itself.
+
+This project is not meant to become a collection of random CLI filters, paper statistics, or developer-only helper commands. The real product direction is a discovery-first arXiv assistant that helps the user quickly notice what is worth paying attention to, then go deeper only where needed.
+
+The default experience should favor:
+
+- a compact discovery view instead of a raw dump of all matching papers
+- a small selected set of relevant papers or topics instead of maximum volume
+- low-noise presentation in the first view, with more detail shown only on demand
+
+This means the initial view may intentionally hide less important metadata, such as authors, until the user chooses to inspect a topic or paper more deeply.
 
 ---
 
@@ -92,6 +109,20 @@ Custom models may be explored later for specific tasks such as:
 - paper classification
 - recommendation ranking
 - difficulty prediction
+
+---
+
+# Product Discipline
+
+New CLI options, filters, and helper functions should only be added when they clearly support the core workflow:
+
+1. fetch relevant papers
+2. rank or select useful results
+3. present a meaningful discovery view
+4. let the user inspect a selected topic or paper more deeply
+5. later improve personalization and AI assistance
+
+If a task is useful mainly as Python practice but not clearly useful to the product yet, it should stay as an isolated exercise rather than being added directly to the main app.
 
 ---
 
