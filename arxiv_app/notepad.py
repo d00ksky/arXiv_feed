@@ -39,15 +39,25 @@ def authors_with_keyword(papers: list[Paper], keyword: str) -> list[str]:
 
 
 def most_common_author(papers: list[Paper]) -> str|None:
+    authors_count = {}
+    for paper in papers:
+        for author in paper.authors:
+            if author not in authors_count:
+                authors_count[author] = 0
+            authors_count[author] += 1
+            
+    if not authors_count:
+        return None
     
-    ...
+    return max(authors_count, key=lambda author: authors_count[author])
+            
 
 
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = authors_with_keyword(papers, 'deep')
+result = most_common_author(papers)
 
 print(result)
 
