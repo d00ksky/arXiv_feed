@@ -18,7 +18,7 @@ def render_paper_list(papers: list[Paper]) -> str:
     return "\n".join(lines)
 
 
-def render_stats(total_papers: int, years: dict[int, int], unique_authors_count: int, most_common_author: str) -> str:
+def render_stats(total_papers: int, years: dict[int, int], unique_authors_count: int, most_common_author: str | None) -> str:
     total_papers_str = f"Total papers: {total_papers}"
     if not years:
         years_str = "Years covered: N/A"
