@@ -52,7 +52,7 @@ This means the initial view may intentionally hide less important metadata, such
 ### Smart arXiv Feed
 
 - fetch latest papers from arXiv
-- filter by topic, author, or year
+- surface the most relevant recent papers for a topic or interest area
 - ranking and recommendation of relevant papers
 - personalized research feed
 
