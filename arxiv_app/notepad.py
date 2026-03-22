@@ -56,6 +56,7 @@ def authors_with_keyword(papers: list[Paper], keyword: str) -> list[str]:
             
 
 def most_common_author(papers: list[Paper]) -> str | None:
+    '''Returns most common author using collections like counter and most_common'''
     authors_count = Counter(
         author for paper in papers for author in paper.authors
         )
