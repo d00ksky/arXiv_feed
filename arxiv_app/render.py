@@ -31,3 +31,11 @@ def render_stats(total_papers: int, years: dict[int, int], unique_authors_count:
         most_common_author_string = f"Most common author: {most_common_author}"
     lines = [total_papers_str, years_str, unique_authors_count_str, most_common_author_string]
     return "\n".join(lines)
+
+
+def render_discovery_view(papers: list[Paper]) -> str:
+    # •	indeks
+	# •	tytuł
+	# •	rok
+	# •	krótki opis placeholder albo bardzo krótki summary później
+    ...
