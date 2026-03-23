@@ -36,7 +36,8 @@ def main():
 
     args = parser.parse_args()
 
-# part for fetching papers -> normalizing output so they look better -> creating selection of newest ones
+# Fetch and normalize papers before applying filters and discovery selection.
+
     raw = fetch_papers(
         args.query, 
         max_results = args.limit * 5,
