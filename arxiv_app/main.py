@@ -18,6 +18,7 @@ from arxiv_app.stats import (
     most_common_author,
 )
 
+from arxiv_app.ranking import select_discovery_papers
 # n
 
 def main():
@@ -35,13 +36,15 @@ def main():
 
     args = parser.parse_args()
 
-
+# part for fetching papers -> normalizing output so they look better -> creating selection of newest ones
     raw = fetch_papers(
         args.query, 
         max_results = args.limit * 5,
         cache_ttl=args.cache_ttl
         )
     papers = normalize_papers(raw)
+    
+    discovery_papers = select_discovery_papers(papers)
     
     if args.year is not None:
         papers = filter_papers_after_year(papers, args.year)
@@ -65,16 +68,11 @@ def main():
     elif args.sort == "newest":
         papers = sorted(papers, key=lambda paper: paper.year, reverse=True)
         
-    
-    # titles = extract_titles(papers)
-    # titles = limit_results(titles, args.limit)
-    
-    # for i, title in enumerate(titles, start=1):
-    #     print(f"{i}. {title}")
+    # Here we are printing papers after all filters
     if not papers:
         print("No papers found.")
     else:
-        print(render_paper_list(papers))
+        print(render_paper_list(discovery_papers))
 
     
 
