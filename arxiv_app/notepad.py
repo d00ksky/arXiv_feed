@@ -66,12 +66,16 @@ def most_common_author(papers: list[Paper]) -> str | None:
     
     return authors_count.most_common(1)[0][0]
 
+def newest_titles(papers: list[Paper], limit: int) -> list[str]:
+    '''just for training and fun!'''
+    return [paper.title for paper in sorted(papers, key=lambda paper: paper.year, reverse=True)][:limit]
+
 
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = most_common_author(papers)
+result = newest_titles(papers, 5)
 
 print(result)
 
