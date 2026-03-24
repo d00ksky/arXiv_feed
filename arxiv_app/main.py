@@ -70,7 +70,7 @@ def main():
         
     discovery_papers = select_discovery_papers(papers, limit=args.limit)
     # Here we are printing papers after all filters
-    if not papers:
+    if not discovery_papers:
         print("No papers found.")
     else:
         print(render_paper_list(discovery_papers))
