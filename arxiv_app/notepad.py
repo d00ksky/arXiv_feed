@@ -76,6 +76,20 @@ def papers_with_author_keyword(papers: list[Paper], keyword: str) -> list[Paper]
     return [paper for paper in papers if any(keyword.lower() in author.lower() for author in paper.authors)]
 
 
+
+def count_papers_per_author(papers: list[Paper]) -> dict[str, int]:
+    # counter = {}
+    # for paper in papers:
+    #     for author in paper.authors:
+    #         if author not in counter:
+    #             counter[author] = 0
+    #         counter[author] += 1
+    # return counter
+    return Counter(author for paper in papers for author in paper.authors)
+    
+
+
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
