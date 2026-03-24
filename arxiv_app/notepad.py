@@ -71,11 +71,16 @@ def newest_titles(papers: list[Paper], limit: int) -> list[str]:
     return [paper.title for paper in sorted(papers, key=lambda paper: paper.year, reverse=True)][:limit]
 
 
+
+def papers_with_author_keyword(papers: list[Paper], keyword: str) -> list[Paper]:
+    return [paper for paper in papers if any(keyword.lower() in author.lower() for author in paper.authors)]
+
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = newest_titles(papers, 5)
+result = papers_with_author_keyword(papers, 'ai')
 
 print(result)
 
