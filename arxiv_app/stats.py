@@ -28,3 +28,7 @@ def most_common_author(papers: list[Paper]) -> str | None:
         return None
     
     return authors_count.most_common(1)[0][0]
+
+
+def top_n_authors(papers: list[Paper], n: int) -> list[tuple[str, int]]:
+    return Counter(author for paper in papers for author in paper.authors).most_common(n)

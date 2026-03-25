@@ -16,6 +16,7 @@ from arxiv_app.stats import (
     unique_authors,
     count_papers_by_year,
     most_common_author,
+    top_n_authors,
 )
 
 from arxiv_app.ranking import select_discovery_papers
@@ -46,6 +47,7 @@ def main():
     papers = normalize_papers(raw)
     
     
+    
     if args.year is not None:
         papers = filter_papers_after_year(papers, args.year)
         
@@ -60,7 +62,8 @@ def main():
         most_common_author_name = most_common_author(papers)
         count_papers_year = count_papers_by_year(papers)
         total_papers = len(papers)
-        stats_str = render_stats(total_papers, count_papers_year, uniq_authors, most_common_author_name)
+        top_authors = top_n_authors(papers, 3)
+        stats_str = render_stats(total_papers, count_papers_year, uniq_authors, most_common_author_name, top_authors)
         print(stats_str)
     
     if args.sort == "oldest":
