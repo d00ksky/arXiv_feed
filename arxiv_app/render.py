@@ -18,7 +18,7 @@ def render_paper_list(papers: list[Paper]) -> str:
     return "\n".join(lines)
 
 
-def render_stats(total_papers: int, years: dict[int, int], unique_authors_count: int, most_common_author: str | None, top_n_authors: dict | None) -> str:
+def render_stats(total_papers: int, years: dict[int, int], unique_authors_count: int, most_common_author: str | None, top_n_authors: list[tuple[str, int]] | None) -> str:
     total_papers_str = f"Total papers: {total_papers}"
     if not years:
         years_str = "Years covered: N/A"
@@ -32,7 +32,7 @@ def render_stats(total_papers: int, years: dict[int, int], unique_authors_count:
     if top_n_authors is None:
         top_n_authors_string = "Top authors: N/A"
     else:
-        top_n_authors_string = f"Top authors: {top_n_authors}"
+        top_n_authors_string = ", ".join(f"{author} ({count})" for author, count in top_n_authors)
     lines = [total_papers_str, years_str, unique_authors_count_str, most_common_author_string, top_n_authors_string]
     return "\n".join(lines)
 
