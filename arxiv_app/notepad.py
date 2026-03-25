@@ -89,12 +89,16 @@ def count_papers_per_author(papers: list[Paper]) -> dict[str, int]:
     
 
 
+def top_n_authors(papers: list[Paper], n: int) -> list[tuple[str, int]]:
+    return Counter(author for paper in papers for author in paper.authors).most_common(n)
+
+
 
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = papers_with_author_keyword(papers, 'ai')
+result = top_n_authors(papers, 5)
 
 print(result)
 
