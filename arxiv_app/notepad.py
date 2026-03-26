@@ -95,14 +95,16 @@ def top_n_authors(papers: list[Paper], n: int) -> list[tuple[str, int]]:
 
 def has_multiple_authors(papers: list[Paper]) -> list[Paper]:
     return [paper for paper in papers if len(paper.authors) > 1]
-    ...
 
+
+def papers_with_all_authors_matching(papers: list[Paper], keyword: str) -> list[Paper]:
+    return [paper for paper in papers if all(keyword.lower() in author.lower() for author in paper.authors )]
 
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = has_multiple_authors(papers)
+result = papers_with_all_authors_matching(papers, 'John')
 
 print(result)
 
