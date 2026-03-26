@@ -93,12 +93,16 @@ def top_n_authors(papers: list[Paper], n: int) -> list[tuple[str, int]]:
     return Counter(author for paper in papers for author in paper.authors).most_common(n)
 
 
+def has_multiple_authors(papers: list[Paper]) -> list[Paper]:
+    return [paper for paper in papers if len(paper.authors) > 1]
+    ...
+
 
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = top_n_authors(papers, 5)
+result = has_multiple_authors(papers)
 
 print(result)
 
