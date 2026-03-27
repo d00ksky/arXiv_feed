@@ -101,8 +101,14 @@ def papers_with_all_authors_matching(papers: list[Paper], keyword: str) -> list[
     return [paper for paper in papers if all(keyword.lower() in author.lower() for author in paper.authors )]
 
 def papers_from_last_n_years(papers: list[Paper], years: int) -> list[Paper]:
-    max_year = max([paper.year for paper in papers])
-    return [paper for paper in papers if paper.year >= (max_year - years +1)]
+    if not papers:
+        return []
+    
+    else:
+        max_year = max(paper.year for paper in papers)
+        threshold = max_year - years + 1
+        
+        return [paper for paper in papers if paper.year >= threshold]
 
 groups = group_papers_by_year(papers)
 
