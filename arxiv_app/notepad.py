@@ -100,11 +100,15 @@ def has_multiple_authors(papers: list[Paper]) -> list[Paper]:
 def papers_with_all_authors_matching(papers: list[Paper], keyword: str) -> list[Paper]:
     return [paper for paper in papers if all(keyword.lower() in author.lower() for author in paper.authors )]
 
+def papers_from_last_n_years(papers: list[Paper], years: int) -> list[Paper]:
+    max_year = max([paper.year for paper in papers])
+    return [paper for paper in papers if paper.year >= (max_year - years +1)]
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = papers_with_all_authors_matching(papers, 'John')
+result = papers_from_last_n_years(papers, 2)
 
 print(result)
 
