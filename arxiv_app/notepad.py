@@ -112,11 +112,7 @@ def papers_from_last_n_years(papers: list[Paper], years: int) -> list[Paper]:
     
     
 def papers_with_single_author(papers: list[Paper]) -> list[Paper]:
-    if not papers:
-        return []
-    
-    else:
-        return  [paper for paper in papers if len(paper.authors) == 1]
+    return  [paper for paper in papers if len(paper.authors) == 1]
 
 groups = group_papers_by_year(papers)
 
