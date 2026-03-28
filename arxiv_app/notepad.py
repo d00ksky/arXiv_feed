@@ -109,12 +109,20 @@ def papers_from_last_n_years(papers: list[Paper], years: int) -> list[Paper]:
         threshold = max_year - years + 1
         
         return [paper for paper in papers if paper.year >= threshold]
+    
+    
+def papers_with_single_author(papers: list[Paper]) -> list[Paper]:
+    if not papers:
+        return []
+    
+    else:
+        return  [paper for paper in papers if len(paper.authors) == 1]
 
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = papers_from_last_n_years(papers, 2)
+result = papers_with_single_author(papers)
 
 print(result)
 
