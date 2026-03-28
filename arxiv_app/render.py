@@ -42,4 +42,7 @@ def render_discovery_view(papers: list[Paper]) -> str:
 	# •	tytuł
 	# •	rok
 	# •	krótki opis placeholder albo bardzo krótki summary później
+    for index, title, year in enumerate(papers, start=1):
+        print(f"{index}. [{year}] {title}")
+ 
     ...
