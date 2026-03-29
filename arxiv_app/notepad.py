@@ -6,7 +6,7 @@ from collections import (
     Counter,
 )
 from arxiv_app.logic import recent_papers
-
+import os
 
 
 papers_by_year = {
@@ -124,6 +124,9 @@ def render_discovery_view(papers: list[Paper]) -> str:
         
         view.append(f"{index}. {line}")
     return "\n".join(view)
+
+def has_cache(path: str) -> bool:
+    return os.path.exists(path)
 
 groups = group_papers_by_year(papers)
 
