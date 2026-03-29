@@ -61,6 +61,7 @@ def _parse_xml(xml_bytes: bytes) -> list[dict]:
 
 
 def fetch_papers(query: str, max_results: int =10, cache_ttl: int = 600) -> list[dict]:
+    time.sleep(1.0)
     encoded_query = quote_plus(query)
     url = (
         f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}&start=0&max_results={max_results}"
@@ -74,7 +75,10 @@ def fetch_papers(query: str, max_results: int =10, cache_ttl: int = 600) -> list
     TTL = cache_ttl
     
     # retry/backoff
-    max_attempts = 6
+    if os.path.exists(cache_path):
+        max_attempts = 2
+    else:
+        max_attempts = 6
     delay = 1.0  # start 1s
 
     xml_bytes = None
@@ -88,7 +92,7 @@ def fetch_papers(query: str, max_results: int =10, cache_ttl: int = 600) -> list
         for attempt in range(1, max_attempts + 1):
             req = urllib.request.Request(url, headers=headers, method="GET")
             try:
-                with urllib.request.urlopen(req, timeout=20) as response:
+                with urllib.request.urlopen(req, timeout=3) as response:
                     xml_bytes = response.read()
                 with open(cache_path, 'wb') as f:
                     f.write(xml_bytes)
@@ -118,7 +122,7 @@ def fetch_papers(query: str, max_results: int =10, cache_ttl: int = 600) -> list
   
         if xml_bytes is None:
             if os.path.exists(cache_path):
-                print("(Using cached data)")
+                print("(fetch failed, using cache)")
                 with open(cache_path, 'rb') as f:
                     xml_bytes = f.read()
             else:
