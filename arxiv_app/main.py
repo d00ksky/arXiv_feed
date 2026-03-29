@@ -10,6 +10,7 @@ from arxiv_app.validation import non_negative_int
 from arxiv_app.render import (
     render_stats,
     render_paper_list,
+    render_discovery_view,
 )
 
 from arxiv_app.stats import (
@@ -76,7 +77,7 @@ def main():
     if not discovery_papers:
         print("No papers found.")
     else:
-        print(render_paper_list(discovery_papers))
+        print(render_discovery_view(discovery_papers))
 
     
 
