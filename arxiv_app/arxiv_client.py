@@ -117,6 +117,9 @@ def fetch_papers(query: str, max_results: int =10, cache_ttl: int = 600) -> list
 
   
         if xml_bytes is None:
+            if os.path.exists(cache_path):
+                with open(cache_path, 'rb') as f:
+                    xml_bytes = f.read()
             raise last_err if last_err is not None else RuntimeError("fetch_papers failed")
 
 
