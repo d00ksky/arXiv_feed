@@ -114,16 +114,29 @@ def papers_from_last_n_years(papers: list[Paper], years: int) -> list[Paper]:
 def papers_with_single_author(papers: list[Paper]) -> list[Paper]:
     return  [paper for paper in papers if len(paper.authors) == 1]
 
+
+
+
+
 def render_discovery_view(papers: list[Paper]) -> str:
     # •	indeks
 	# •	tytuł
 	# •	rok
 	# •	krótki opis placeholder albo bardzo krótki summary później
+    sorted_papers = []
+    papers_by_year = {}
     view = []
-    for index, line in enumerate([f"{paper.year} - {paper.title}" for paper in papers], start=1):
+    
+    sorted_papers = sorted(papers, key=lambda x: x.year, reverse=True)
+    
+
+                
         
-        view.append(f"{index}. {line}")
+    print(papers_by_year)
     return "\n".join(view)
+
+
+
 
 def has_cache(path: str) -> bool:
     return os.path.exists(path)
@@ -136,7 +149,7 @@ groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = extract_years(papers)
+result = render_discovery_view(papers)
 
 print(result)
 
