@@ -128,11 +128,15 @@ def render_discovery_view(papers: list[Paper]) -> str:
 def has_cache(path: str) -> bool:
     return os.path.exists(path)
 
+def extract_years(papers: list[Paper]) -> list[int]:
+    return [paper.year for paper in papers]
+    
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = render_discovery_view(papers)
+result = extract_years(papers)
 
 print(result)
 
