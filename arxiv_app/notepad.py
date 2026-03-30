@@ -141,6 +141,8 @@ def titles_from_year(papers: list[Paper], year: int) -> list[str]:
     return [paper.title for paper in papers if paper.year == year]
     
 
+def count_titles_from_year(papers: list[Paper], year: int) -> int:
+    return sum(1 for paper in papers if paper.year == year)
 
 
 def has_cache(path: str) -> bool:
@@ -154,7 +156,7 @@ groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = titles_from_year(papers, 2019)
+result = count_titles_from_year(papers, 2019)
 
 print(result)
 
