@@ -137,6 +137,11 @@ def render_discovery_view(papers: list[Paper]) -> str:
 
 
 
+def titles_from_year(papers: list[Paper], year: int) -> list[str]:
+    return [paper.title for paper in papers if paper.year == year]
+    
+
+
 
 def has_cache(path: str) -> bool:
     return os.path.exists(path)
@@ -149,7 +154,7 @@ groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = render_discovery_view(papers)
+result = titles_from_year(papers, 2019)
 
 print(result)
 
