@@ -152,11 +152,15 @@ def extract_years(papers: list[Paper]) -> list[int]:
     return [paper.year for paper in papers]
     
 
+def unique_years_desc(papers: list[Paper]) -> list[int]:
+    return sorted({paper.year for paper in papers}, reverse=True)
+
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = count_titles_from_year(papers, 2019)
+result = unique_years_desc(papers)
 
 print(result)
 
