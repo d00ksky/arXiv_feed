@@ -1,0 +1,502 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/wdJhsBi18rrcGmo48G8AEqIUMwM</id>
+  <title>arXiv Query: search_query=all:war&amp;id_list=&amp;start=0&amp;max_results=25</title>
+  <updated>2026-03-31T05:51:00Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:war&amp;start=0&amp;max_results=25&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>25</opensearch:itemsPerPage>
+  <opensearch:totalResults>1202</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2303.14486v2</id>
+    <title>Exposure to World War II and Its Labor Market Consequences over the Life Cycle</title>
+    <updated>2025-09-20T13:58:12Z</updated>
+    <link href="https://arxiv.org/abs/2303.14486v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2303.14486v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>With 70 million dead, World War II remains the most devastating conflict in history. Among the survivors, millions were displaced, returned maimed from the battlefield, or endured years of captivity. We examine the effects of such war exposures on labor market careers, showing that they often become apparent only at certain life stages. While war injuries reduced employment in old age, former prisoners of war prolonged their time in the workforce before retiring. Many displaced workers, especially women, never returned to employment. These responses align with standard life-cycle theory and thus likely hold relevance for other conflicts.</summary>
+    <category term="econ.GN" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-03-25T14:39:15Z</published>
+    <arxiv:comment>JEL Code: J24, J26, N34, Keywords: World War II; labor market careers; war injuries; prisoners of war, displacement; life-cycle models</arxiv:comment>
+    <arxiv:primary_category term="econ.GN"/>
+    <author>
+      <name>Sebastian T. Braun</name>
+    </author>
+    <author>
+      <name>Jan Stuhler</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1508.06228v3</id>
+    <title>Statistical look at reasons of involvement in wars</title>
+    <updated>2015-09-08T15:43:44Z</updated>
+    <link href="https://arxiv.org/abs/1508.06228v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1508.06228v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Correlates of War project scrupulously collects information about disputes between the countries over a long historical period together with other data relevant to the character and reasons of international conflicts. Using methods of modern Data Science implemented in the R statistical software, we investigate the datasets from the project. We study political, economic, and religious factors with respect to the emergence of conflicts and wars between the countries. The results obtained lead to certain conclusions about variances and causalities between the factors considered. Some unpredictable features are presented.</summary>
+    <category term="stat.AP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-08-23T11:30:11Z</published>
+    <arxiv:comment>Keywords: Correlates of War, Variance, Two Factorial ANOVA, Normality, R</arxiv:comment>
+    <arxiv:primary_category term="stat.AP"/>
+    <author>
+      <name>Igor Mackarov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2302.09427v5</id>
+    <title>Multiplayer War of Attrition with Asymmetric Private Information</title>
+    <updated>2025-02-26T02:17:45Z</updated>
+    <link href="https://arxiv.org/abs/2302.09427v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2302.09427v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper studies a war of attrition game in the setting of public good provision that combines three elements: (i) multiple players, (ii) incomplete information, and (iii) ex-ante asymmetry. In the unique equilibrium, asymmetry leads to a stratified behavior pattern where one player provides the public good instantly with a positive probability while each of the other players has a player-specific strict waiting time, before which even his highest type will not provide the good. Comparative statics show that a player with less patience, lower cost of provision, and higher reputation in value (expressed in a form of hazard rate) provides the good type-wise uniformly faster. In large societies, the cost of delay is mainly determined by the highest type of the instant-exit player.</summary>
+    <category term="econ.TH" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-02-18T21:42:08Z</published>
+    <arxiv:comment>JEL Codes: C62; C72; C78; D62; D82; H41 Keywords: war of attrition; public good; asymmetric players; multiple players; incomplete information</arxiv:comment>
+    <arxiv:primary_category term="econ.TH"/>
+    <author>
+      <name>Hongcheng Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2209.07451v4</id>
+    <title>On the Trail of Lost Pennies: player-funded tug-of-war on the integers</title>
+    <updated>2026-02-07T18:30:27Z</updated>
+    <link href="https://arxiv.org/abs/2209.07451v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2209.07451v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study random-turn resource-allocation games. In the Trail of Lost Pennies, a counter moves on $\mathbb{Z}$. At each turn, Maxine stakes $a \in [0,\infty)$ and Mina $b \in [0,\infty)$. The counter $X$ then moves adjacently, to the right with probability $\tfrac{a}{a+b}$. If $X_i \to -\infty$ in this infinte-turn game, Mina receives one unit, and Maxine zero; if $X_i \to \infty$, then these receipts are zero and $x$. Thus the net receipt to a given player is $-A+B$, where $A$ is the sum of her stakes, and $B$ is her terminal receipt. The game was inspired by unbiased tug-of-war in~[PSSW] from 2009 but in fact closely resembles the original version of tug-of-war, introduced [HarrisVickers87] in the economics literature in 1987. We show that the game has surprising features. For a natural class of strategies, Nash equilibria exist precisely when $x$ lies in $[λ,λ^{-1}]$, for a certain $λ\in (0,1)$. We indicate that $λ$ is remarkably close to one, proving that $λ\leq 0.999904$ and presenting clear numerical evidence that $λ\geq 1 - 10^{-4}$. For each $x \in [λ,λ^{-1}]$, we find countably many Nash equilibria. Each is roughly characterized by an integral {\em battlefield} index: when the counter is nearby, both players stake intensely, with rapid but asymmetric decay in stakes as it moves away. Our results advance premises [HarrisVickers87,Konrad12] for fund management and the incentive-outcome relation that plausibly hold for many player-funded stake-governed games. Alongside a companion treatment [HP22] of games with allocated budgets, we thus offer a detailed mathematical treatment of an illustrative class of tug-of-war games. We also review the separate developments of tug-of-war in economics and mathematics in the hope that mathematicians direct further attention to tug-of-war in its original resource-allocation guise.</summary>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.GT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="econ.TH" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-09-15T16:54:31Z</published>
+    <arxiv:comment>94 pages with five figures. In monograph format with extended title, with an overview of the economics and mathematics literature of tug-of-war. Revision based on referee report</arxiv:comment>
+    <arxiv:primary_category term="math.PR"/>
+    <author>
+      <name>Alan Hammond</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2209.07274v5</id>
+    <title>Introducing Grid WAR: Rethinking WAR for Starting Pitchers</title>
+    <updated>2024-02-09T06:31:17Z</updated>
+    <link href="https://arxiv.org/abs/2209.07274v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2209.07274v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The baseball statistic "Wins Above Replacement" (WAR) has emerged as one of the most popular evaluation metrics. But it is not readily observed and tabulated; WAR is an estimate of a parameter in a vaguely defined model with all its attendant assumptions. Industry-standard models of WAR for starting pitchers from FanGraphs and Baseball Reference all assume that season-long averages are sufficient statistics for a pitcher's performance. This provides an invalid mathematical foundation for many reasons, especially because WAR should not be linear with respect to any counting statistic. To repair this defect, as well as many others, we devise a new measure, Grid WAR, which accurately estimates a starting pitcher's WAR on a per-game basis. The convexity of Grid WAR diminishes the impact of "blow-up" games and upweights exceptional games, raising the valuation of pitchers like Sandy Koufax, Whitey Ford, and Catfish Hunter who exhibit fundamental game-by-game variance. Grid WAR is designed to accurately measure past performance, but also has predictive value insofar as a pitcher's Grid WAR is better than WAR at predicting future performance. Finally, at https://gridwar.xyz we host a Shiny app which displays the Grid WAR results of each MLB game since 1952, including career, season, and game level results, which updates automatically every morning.</summary>
+    <category term="cs.GT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-09-12T16:49:12Z</published>
+    <arxiv:primary_category term="cs.GT"/>
+    <author>
+      <name>Ryan S. Brill</name>
+    </author>
+    <author>
+      <name>Abraham J. Wyner</name>
+    </author>
+    <arxiv:doi>10.1515/jqas-2023-0095</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1515/jqas-2023-0095" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/physics/0603095v2</id>
+    <title>Physicists in times of war</title>
+    <updated>2006-03-20T23:04:33Z</updated>
+    <link href="https://arxiv.org/abs/physics/0603095v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/physics/0603095v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  Though the majority of physicists would probably not support preemptive wars, nuclear and other weapons of mass destruction would not exist without their contributions. Einstein's anti-militaristic position has been well-documented and the present essay recalls the role of some contemporary and past physicists on this issue. The idea that the rationality of scientific thought is a reliable antidote against supporting wars in order to achieve political or ideological aims was neither correct in the past nor is it presently valid. In the physics community there always existed a minority of supporters of wars of conquest of territory, domination of people beyond the borders or regime change. The ``preemptive'' war for the US hegemony in the middle east has given the problem of ``physicists in times of war'' new actuality, especially on the third anniversary of its start, with Iraq slipping every day more into civil, war and the main culprit still talk about a victory for democracy and freedom. One of the most perplexing appologists of the agressive war of Nazi-Germany against ``the Bolshevist peril'' has been the physicist Pascual Jordan whose interesting scientific and controversial political biography is the main issue of this essay.</summary>
+    <category term="physics.soc-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2006-03-13T18:10:29Z</published>
+    <arxiv:comment>16 pages latex</arxiv:comment>
+    <arxiv:primary_category term="physics.soc-ph"/>
+    <author>
+      <name>Bert Schroer</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2001.01245v2</id>
+    <title>Decline of war or end of positive check? Analysis of change in war size distribution between 1816-2007</title>
+    <updated>2020-02-05T14:41:16Z</updated>
+    <link href="https://arxiv.org/abs/2001.01245v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2001.01245v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This study examines whether there has been a decline in the risk of death by battle during wars, testing the 'long peace' hypothesis. The analysis relies on the Expanded War Dataset (Gleditsch, 2004) covering intra- and inter-state wars between 1816-2007. Using untransformed data on war sizes, the estimates do not provide empirical evidence for a decline in war over time. However, normalising the data for global human population does illustrate a likely decline in war from 1947 onward. The results indicate that despite strong population growth wars have not become more severe.</summary>
+    <category term="stat.AP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-01-05T14:26:02Z</published>
+    <arxiv:comment>15 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="stat.AP"/>
+    <author>
+      <name>Stijn van Weezel</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/physics/0506213v1</id>
+    <title>From old wars to new wars and global terrorism</title>
+    <updated>2005-06-29T09:33:52Z</updated>
+    <link href="https://arxiv.org/abs/physics/0506213v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/physics/0506213v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  Even before 9/11 there were claims that the nature of war had changed fundamentally. The 9/11 attacks created an urgent need to understand contemporary wars and their relationship to older conventional and terrorist wars, both of which exhibit remarkable regularities. The frequency-intensity distribution of fatalities in "old wars", 1816-1980, is a power-law with exponent 1.80. Global terrorist attacks, 1968-present, also follow a power-law with exponent 1.71 for G7 countries and 2.5 for non-G7 countries. Here we analyze two ongoing, high-profile wars on opposite sides of the globe - Colombia and Iraq. Our analysis uses our own unique dataset for killings and injuries in Colombia, plus publicly available data for civilians killed in Iraq. We show strong evidence for power-law behavior within each war. Despite substantial differences in contexts and data coverage, the power-law coefficients for both wars are tending toward 2.5, which is a value characteristic of non-G7 terrorism as opposed to old wars. We propose a plausible yet analytically-solvable model of modern insurgent warfare, which can explain these observations.</summary>
+    <category term="physics.soc-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.data-an" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2005-06-29T09:33:52Z</published>
+    <arxiv:comment>For more information, please contact M.Spagat@rhul.ac.uk or n.johnson@physics.ox.ac.uk</arxiv:comment>
+    <arxiv:primary_category term="physics.soc-ph"/>
+    <author>
+      <name>N. Johnson</name>
+    </author>
+    <author>
+      <name>M. Spagat</name>
+    </author>
+    <author>
+      <name>J. Restrepo</name>
+    </author>
+    <author>
+      <name>J. Bohorquez</name>
+    </author>
+    <author>
+      <name>N. Suarez</name>
+    </author>
+    <author>
+      <name>E. Restrepo</name>
+    </author>
+    <author>
+      <name>R. Zarama</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1708.07424v1</id>
+    <title>Cyber-Physical War Gaming</title>
+    <updated>2017-08-24T13:57:19Z</updated>
+    <link href="https://arxiv.org/abs/1708.07424v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1708.07424v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper presents general strategies for cyber war gaming of Cyber-Physical Systems (CPSs) that are used for cyber security research at the U.S. Army Research Laboratory (ARL). Since Supervisory Control and Data Acquisition (SCADA) and other CPSs are operational systems, it is difficult or impossible to perform security experiments on actual systems. The authors describe how table-top strategy sessions and realistic, live CPS war games are conducted at ARL. They also discuss how the recorded actions of the war game activity can be used to test and validate cyber-defence models, such as game-theoretic security models.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-08-24T13:57:19Z</published>
+    <arxiv:comment>To appear in Journal of Information Warfare, Volume 16</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>E. J. M. Colbert</name>
+    </author>
+    <author>
+      <name>D. T. Sullivan</name>
+    </author>
+    <author>
+      <name>A Kott</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1612.05200v2</id>
+    <title>Quark Wars - a particle physics outreach game in the age of Star Wars</title>
+    <updated>2016-12-19T18:32:39Z</updated>
+    <link href="https://arxiv.org/abs/1612.05200v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1612.05200v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Quark Wars is an all-new, adventure style game. We recommended playing it outdoors. Quark Wars is modeled upon the outdoor game called Hungarian Number War, with notable influence from Star Wars, the American epic space saga. The players form two opposing teams. Both teams elect their own leader. The team members and their leaders wear particle war bonnets on their foreheads. These headdresses consist of three or four cards indicating combinations of elementary particles. The two teams compete by identifying (reading out loudly) the elementary particle cards on the foreheads of their adversaries. Players are allowed to use the terrain to cover their particle identity on their foreheads and may try to hide, run, or band together in a group to win. Quark Wars was tested at a Summer Camp of Berze Science Club in Hungary. Students loved playing Quark Wars, as this game resulted in lots of hilarity and action. In addition, Quark Wars also solidified particle terminology and made the concept of particle identification and discovery more tangible to secondary/middle school students.</summary>
+    <category term="physics.pop-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-ex" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="nucl-ex" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.ed-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-12-15T19:24:41Z</published>
+    <arxiv:comment>10 pages, 1 table, talk of T. Novák in the outreach section of WPCF 2014, Gyöngyös, Hungary, typos fixed, to appear in JCEGI, in the proceedings of WPCF 2014</arxiv:comment>
+    <arxiv:primary_category term="physics.pop-ph"/>
+    <arxiv:journal_ref>JCEGI 4 (4) 2016 pp. 195-204</arxiv:journal_ref>
+    <author>
+      <name>T. Csörgő</name>
+    </author>
+    <author>
+      <name>T. Novák</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2111.15598v2</id>
+    <title>Inefficient Peace or Preventive War?</title>
+    <updated>2023-04-22T02:25:29Z</updated>
+    <link href="https://arxiv.org/abs/2111.15598v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2111.15598v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study a model of two-player bargaining game in the shadow of a preventive trade war that examines why states deliberately maintain trade barriers in the age of globalization. Globalization can induce substantial power shifts between states, which makes the threat of a preventive trade war salient. In this situation, there may exist "healthy" levels of trade barriers that dampen the war incentives by reducing states' expected payoffs from such a war. Thus, we demonstrate that trade barriers can sometimes serve as breaks and cushions necessary to sustain inefficient yet peaceful economic cooperation between states. We assess the theoretical implications by examining the US-China trade relations since 1972.</summary>
+    <category term="econ.GN" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-11-30T17:45:58Z</published>
+    <arxiv:primary_category term="econ.GN"/>
+    <author>
+      <name>Liqun Liu</name>
+      <arxiv:affiliation>Ündes</arxiv:affiliation>
+    </author>
+    <author>
+      <name> Tusi</name>
+      <arxiv:affiliation>Ündes</arxiv:affiliation>
+    </author>
+    <author>
+      <name> Wen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2209.03046v1</id>
+    <title>Estimating the Effects of Syrian Civil War</title>
+    <updated>2022-09-07T10:22:50Z</updated>
+    <link href="https://arxiv.org/abs/2209.03046v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2209.03046v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We examine the effect of civil war in Syria on economic growth, human development and institutional quality. Building on the synthetic control method, we estimate the missing counterfactual scenario in the hypothetical absence of the armed conflict that led to unprecedented humanitarian crisis and population displacement in modern history. By matching Syrian growth and development trajectories with the characteristics of the donor pool of 66 countries with no armed internal conflict in the period 1996-2021, we estimate a series of growth and development gaps attributed to civil war. Syrian civil war appears to have had a temporary negative effect on the trajectory of economic growth that almost disappeared before the onset of COVID19 pandemic. By contrast, the civil war led to unprecedented losses in human development, rising infant mortality and rampantly deteriorating institutional quality. Down to the present day, each year of the conflict led to 5,700 additional under-five child deaths with permanently derailed negative effect on longevity. The civil war led to unprecedent and permanent deterioration in institutional quality indicated by pervasive weakening of the rule of law and deleterious impacts on government effectiveness, civil liberties and widespread escalation of corruption. The estimated effects survive a battery of placebo checks.</summary>
+    <category term="econ.GN" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-09-07T10:22:50Z</published>
+    <arxiv:comment>34 pages</arxiv:comment>
+    <arxiv:primary_category term="econ.GN"/>
+    <author>
+      <name>Aleksandar Keseljevic</name>
+    </author>
+    <author>
+      <name>Rok Spruk</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2105.07841v1</id>
+    <title>Post-war Civil War Propaganda Techniques and Media Spins in Nigeria and Journalism Practice</title>
+    <updated>2021-04-29T18:00:04Z</updated>
+    <link href="https://arxiv.org/abs/2105.07841v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2105.07841v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In public relations and political communication, a spin is a form of propaganda achieved through knowingly presenting a biased interpretation of an event or issues. It is also the act of presenting narratives to influence public opinion about events, people or and ideas. In war time, various forms of spins are employed by antagonists to push their brigades to victory and wear out the opponents. During the Nigerian civil war, quite a number of these spins were dominant for example GOWON (Go On With One Nigeria); On Aburi We Stand, O Le Ku Ija Ore. Post-war years presented different spins and fifty years after the war, different spins continue to push emerging narratives (e.g. marginalization, restructuring. This paper investigates and analyzes the different propaganda techniques and spins in the narratives of the Nigerian civil in the past five years through a content analysis of three national newspapers: The Nigerian Tribune, Daily Trust and Sun Newspapers. Findings confirm that propaganda and spins are not limited to war time, but are actively deployed in peace time. This development places additional challenge on journalists to uphold the canons of balance, truth and fairness in reporting sensitive national issues.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.soc-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-04-29T18:00:04Z</published>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Bolu John Folayan</name>
+    </author>
+    <author>
+      <name>Olumide Samuel Ogunjobi</name>
+    </author>
+    <author>
+      <name>Prosper Zannu</name>
+    </author>
+    <author>
+      <name>Taiwo Ajibolu Balofin</name>
+    </author>
+    <arxiv:doi>10.24297/jssr.v17i.8993</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.24297/jssr.v17i.8993" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2410.15439v1</id>
+    <title>The Economic Consequences of Being Widowed by War: A Life-Cycle Perspective</title>
+    <updated>2024-10-20T16:18:25Z</updated>
+    <link href="https://arxiv.org/abs/2410.15439v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2410.15439v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Despite millions of war widows worldwide, little is known about the economic consequences of being widowed by war. We use life history data from West Germany to show that war widowhood increased women's employment immediately after World War II but led to lower employment rates later in life. War widows, therefore, carried a double burden of employment and childcare while their children were young but left the workforce when their children reached adulthood. We show that the design of compensation policies likely explains this counterintuitive life-cycle pattern and examine potential spillovers to the next generation.</summary>
+    <category term="econ.GN" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-10-20T16:18:25Z</published>
+    <arxiv:primary_category term="econ.GN"/>
+    <arxiv:journal_ref>Journal of Public Economics, 239 (2024)</arxiv:journal_ref>
+    <author>
+      <name>Sebastian T. Braun</name>
+    </author>
+    <author>
+      <name>Jan Stuhler</name>
+    </author>
+    <arxiv:doi>10.1016/j.jpubeco.2024.105241</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.jpubeco.2024.105241" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1609.04667v1</id>
+    <title>War-Algorithm Accountability</title>
+    <updated>2016-09-12T15:59:07Z</updated>
+    <link href="https://arxiv.org/abs/1609.04667v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1609.04667v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this briefing report, we introduce a new concept (war algorithms) that elevates algorithmically-derived choices and decisions to a, and perhaps the, central concern regarding technical autonomy in war. We thereby aim to shed light on and recast the discussion regarding autonomous weapon systems. We define war algorithm as any algorithm that is expressed in computer code, that is effectuated through a constructed system, and that is capable of operating in relation to armed conflict. In introducing this concept, our foundational technological concern is the capability of a constructed system, without further human intervention, to help make and effectuate a decision or choice of a war algorithm. Distilled, the two core ingredients are an algorithm expressed in computer code and a suitably capable constructed system. Through that lens, we link international law and related accountability architectures to relevant technologies. We sketch a three-part (non-exhaustive) approach that highlights traditional and unconventional accountability avenues. We focus largely on international law because it is the only normative regime that purports, in key respects but with important caveats, to be both universal and uniform. By not limiting our inquiry only to weapon systems, we take an expansive view, showing how the broad concept of war algorithms might be susceptible to regulation, and how those algorithms might already fit within the existing regulatory system established by international law.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-09-12T15:59:07Z</published>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Dustin A. Lewis</name>
+    </author>
+    <author>
+      <name>Gabriella Blum</name>
+    </author>
+    <author>
+      <name>Naz K. Modirzadeh</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/cond-mat/9603007v1</id>
+    <title>On War: The Dynamics of Vicious Civilizations</title>
+    <updated>1996-03-01T21:43:14Z</updated>
+    <link href="https://arxiv.org/abs/cond-mat/9603007v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/cond-mat/9603007v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  The dynamics of ``vicious'', continuously growing civilizations (domains), which engage in ``war'' whenever two domains meet, is investigated. In the war event, the smaller domain is annihilated, while the larger domain is reduced in size by a fraction $\e$ of the casualties of the loser. Here $\e$ quantifies the fairness of the war, with $\e=1$ corresponding to a fair war with equal casualties on both side, and $\e=0$ corresponding to a completely unfair war where the winner suffers no casualties. In the heterogeneous version of the model, evolution begins from a specified initial distribution of domains, while in the homogeneous system, there is a continuous and spatially uniform input of point domains, in addition to the growth and warfare. For the heterogeneous case, the rate equations are derived and solved, and comparisons with numerical simulations are made. An exact solution is also derived for the case of equal size domains in one dimension. The heterogeneous system is found to coarsen, with the typical cluster size growing linearly in time $t$ and the number density of domains decreases as $1/t$. For the homogeneous system, two different long-time behaviors arise as a function of $\e$. When $1/2&lt;\e\leq 1$ (relatively fair wars), a steady state arises which is characterized by egalitarian competition between domains of comparable size. In the limiting case of $\e=1$, rate equations which simultaneously account for the distribution of domains and that of the intervening gaps are derived and solved. The steady state is characterized by domains whose age is typically much larger than their size. When $0\leq\e&lt;1/2$ (unfair wars), a few ``superpowers'' ultimately dominate. Simulations indicate that this coarsening process is characterized by power-law temporal behavior, with non-universal</summary>
+    <category term="cond-mat" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="nlin.AO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>1996-03-01T21:43:14Z</published>
+    <arxiv:comment>43 pages, plain TeX, 12 figures included, gzipped and uuencoded</arxiv:comment>
+    <arxiv:primary_category term="cond-mat"/>
+    <arxiv:journal_ref>Phys. Rev. E 54, 1274 (1996).</arxiv:journal_ref>
+    <author>
+      <name>I. Ispolatov</name>
+    </author>
+    <author>
+      <name>P. L. Krapivsky</name>
+    </author>
+    <author>
+      <name>S. Redner</name>
+    </author>
+    <arxiv:doi>10.1103/PhysRevE.54.1274</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1103/PhysRevE.54.1274" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2308.04473v1</id>
+    <title>Opponents and proponents of the war in Ukraine in Russian social media: who are they?</title>
+    <updated>2023-08-08T12:21:49Z</updated>
+    <link href="https://arxiv.org/abs/2308.04473v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2308.04473v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Understanding the personality of Russians who support the war in Ukraine is one of the key steps to understanding how this war became possible. However, during the war, traditional sociological methods are not always applicable. Social media provides an alternative source of what is inside people's heads. In this paper, I compare the political identities, values, and interests of social media users in Russia who hold a strong position for or against the war in Ukraine. I collect data from VK, the most popular Russian social media platform, and analyze self-filled profile information as well as the groups that the users subscribed to. I found that proponents of the war tend to have a weaker political identity (self-identified as "moderate") compared to opponents, who specify it more precisely (often, but not limited to, "liberal"). Additionally, the values of the proponents more frequently align with those promoted by the Russian government, such as orthodoxy and family. Despite these differences, pro-war and anti-war users share many common interests, as evidenced by their subscriptions to the same groups focused on music, history, and sport. When asked to state the most important trait in people (a field users can fill in VK), the most frequent answer for both groups is "kindness and honesty". The analysis results, in addition to contributing to the understanding of public opinion in Russia, can be utilized for predicting one's position on the war based on their social media profile.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.SI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-08-08T12:21:49Z</published>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Alesya Sokolova</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2012.07027v1</id>
+    <title>Impact of Regional Reactions to War on Contemporary Chinese Trade</title>
+    <updated>2020-12-13T10:49:34Z</updated>
+    <link href="https://arxiv.org/abs/2012.07027v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2012.07027v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Different regional reactions to war in 1894 and 1900 can significantly impact Chinese imports in 2001. As international relationship gets tense and China rises, international conflicts could decrease trade.We analyze impact of historic political conflict. We measure regional change of number of people passing imperial exam because of war. War leads to an unsuccessful reform and shocks elites. Elites in different regions have different ideas about modernization, and the change of number of people passing exam is quite different in different regions after war. Regional number of people passing exam increases 1% after war, imports from then empires decrease 2.050% in 2001, and this shows impact of cultural barrier. Manufactured goods can be impacted because brands can be identified easily. Risk aversion of expensive products in conservative regions can increase imports of equipment. Value chains need deep trust, and this decreases imports of foreign company and assembly trade.</summary>
+    <category term="econ.GN" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-12-13T10:49:34Z</published>
+    <arxiv:comment>29 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="econ.GN"/>
+    <author>
+      <name>Xuejian Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1309.5205v1</id>
+    <title>The British Astronomical Association and the Great War of 1914-1918</title>
+    <updated>2013-09-20T08:29:02Z</updated>
+    <link href="https://arxiv.org/abs/1309.5205v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1309.5205v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Marking the centenary of the outbreak of the First World War, this paper considers the effect of the war on the BAA and pays tribute to some of its members who were involved in the conflict.</summary>
+    <category term="physics.hist-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2013-09-20T08:29:02Z</published>
+    <arxiv:comment>Accepted for publication in the Journal of the British Astronomical Association. 32 pages, 17 figures</arxiv:comment>
+    <arxiv:primary_category term="physics.hist-ph"/>
+    <author>
+      <name>Jeremy Shears</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.18813v1</id>
+    <title>Fog of War Chess</title>
+    <updated>2026-01-21T13:18:02Z</updated>
+    <link href="https://arxiv.org/abs/2601.18813v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.18813v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Fog of War chess is a popular variant of classical chess, in which both players have only partial information about the position of the opponent's pieces. This study provides the first theoretical analysis of endgames in Fog of War chess. In particular, we analyze the setups king and queen versus king, king and rook versus king, and king and two rooks versus king. We show that a king and queen can always guarantee a win against a lone king. In contrast to classical chess, a king and a rook cannot guarantee a win against a lone king. However, adding one more rook guarantees a win.</summary>
+    <category term="cs.GT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-21T13:18:02Z</published>
+    <arxiv:comment>21 pages, 13 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.GT"/>
+    <author>
+      <name>Matthias Gehnen</name>
+    </author>
+    <author>
+      <name>Julius Stannat</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2311.17227v2</id>
+    <title>War and Peace (WarAgent): Large Language Model-based Multi-Agent Simulation of World Wars</title>
+    <updated>2024-01-30T18:53:30Z</updated>
+    <link href="https://arxiv.org/abs/2311.17227v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2311.17227v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Can we avoid wars at the crossroads of history? This question has been pursued by individuals, scholars, policymakers, and organizations throughout human history. In this research, we attempt to answer the question based on the recent advances of Artificial Intelligence (AI) and Large Language Models (LLMs). We propose \textbf{WarAgent}, an LLM-powered multi-agent AI system, to simulate the participating countries, their decisions, and the consequences, in historical international conflicts, including the World War I (WWI), the World War II (WWII), and the Warring States Period (WSP) in Ancient China. By evaluating the simulation effectiveness, we examine the advancements and limitations of cutting-edge AI systems' abilities in studying complex collective human behaviors such as international conflicts under diverse settings. In these simulations, the emergent interactions among agents also offer a novel perspective for examining the triggers and conditions that lead to war. Our findings offer data-driven and AI-augmented insights that can redefine how we approach conflict resolution and peacekeeping strategies. The implications stretch beyond historical analysis, offering a blueprint for using AI to understand human history and possibly prevent future international conflicts. Code and data are available at \url{https://github.com/agiresearch/WarAgent}.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-11-28T20:59:49Z</published>
+    <arxiv:comment>47 pages, 9 figures, 5 tables</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Wenyue Hua</name>
+    </author>
+    <author>
+      <name>Lizhou Fan</name>
+    </author>
+    <author>
+      <name>Lingyao Li</name>
+    </author>
+    <author>
+      <name>Kai Mei</name>
+    </author>
+    <author>
+      <name>Jianchao Ji</name>
+    </author>
+    <author>
+      <name>Yingqiang Ge</name>
+    </author>
+    <author>
+      <name>Libby Hemphill</name>
+    </author>
+    <author>
+      <name>Yongfeng Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.06570v1</id>
+    <title>Generic visuality of war? How image-generative AI models (mis)represent Russia's war against Ukraine</title>
+    <updated>2025-12-06T21:26:21Z</updated>
+    <link href="https://arxiv.org/abs/2512.06570v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.06570v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The rise of generative AI (genAI) can transform the representation of different aspects of social reality, including modern wars. While scholarship has largely focused on the military applications of AI, the growing adoption of genAI technologies may have major implications for how wars are portrayed, remembered, and interpreted. A few initial scholarly inquiries highlight the risks of genAI in this context, specifically regarding its potential to distort the representation of mass violence, particularly by sanitising and homogenising it. However, little is known about how genAI representation practices vary between different episodes of violence portrayed by Western and non-Western genAI models. Using the Russian aggression against Ukraine as a case study, we audit how two image-generative models, the US-based Midjourney and the Russia-based Kandinsky, represent both fictional and factual episodes of the war. We then analyse the models' responsiveness to the war-related prompts, together with the aesthetic and content-based aspects of the resulting images. Our findings highlight that contextual factors lead to variation in the representation of war, both between models and within the outputs of the same model. However, there are some consistent patterns of representation that may contribute to the homogenization of war aesthetics.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-06T21:26:21Z</published>
+    <arxiv:comment>31 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Mykola Makhortykh</name>
+    </author>
+    <author>
+      <name>Miglė Bareikytė</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2107.01098v1</id>
+    <title>Temporal Analysis of Worldwide War</title>
+    <updated>2021-06-27T10:40:32Z</updated>
+    <link href="https://arxiv.org/abs/2107.01098v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2107.01098v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Analysis of wars and conflicts between regions has been an important topic of interest throughout the history of humankind. In the latter part of the 20th century, in the aftermath of two World Wars and the shadow of nuclear, biological, and chemical holocaust, more was written on the subject than ever before. Wars have a negative impact on a country's economy, social order, infrastructure, and public health. In this paper, we study the wars fought in history and draw conclusions from that. We explore the participation of countries in wars and the nature of relationships between various countries during different timelines. A big part of today's wars is fought against terrorism. Therefore, this study also attempts to shed light on different countries' exposure to terrorist encounters and analyses the impact of wars on a country's economy in terms of change in GDP.</summary>
+    <category term="econ.GN" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.soc-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-06-27T10:40:32Z</published>
+    <arxiv:primary_category term="econ.GN"/>
+    <author>
+      <name>Devansh Bajpai</name>
+    </author>
+    <author>
+      <name>Rishi Ranjan Singh</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1505.00246v2</id>
+    <title>Nuclear War from a Cosmic Perspective</title>
+    <updated>2015-05-21T01:45:14Z</updated>
+    <link href="https://arxiv.org/abs/1505.00246v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1505.00246v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>I discuss the impact of computer progress on nuclear war policy, both by enabling more accurate nuclear winter simulations and by affecting the probability of war starting accidentally. I argue that from a cosmic perspective, humanity's track record of risk mitigation is inexcusably pathetic, jeopardizing the potential for life to flourish for billions of years.</summary>
+    <category term="physics.soc-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-05-01T18:59:30Z</published>
+    <arxiv:comment>Typos corrected. Based on my talk at the symposium "The Dynamics of Possible Nuclear Extinction" held February 28-March 1 2015 at The New York Academy of Medicine, http://totalwebcasting.com/view/?id=hcf</arxiv:comment>
+    <arxiv:primary_category term="physics.soc-ph"/>
+    <author>
+      <name>Max Tegmark</name>
+      <arxiv:affiliation>MIT</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1509.09240v2</id>
+    <title>Solving a Mathematical Problem in Square War: a Go-like Board Game</title>
+    <updated>2015-11-29T09:15:36Z</updated>
+    <link href="https://arxiv.org/abs/1509.09240v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1509.09240v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we present a board game: Square War. The game definition of Square War is similar to the classic Chinese board game Go. Then we propose a mathematical problem of the game Square War. Finally, we show that the problem can be solved by using a method of mixed mathematics and computer science.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-07-26T08:09:24Z</published>
+    <arxiv:comment>8 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Chu Luo</name>
+    </author>
+  </entry>
+</feed>

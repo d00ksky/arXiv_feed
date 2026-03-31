@@ -38,14 +38,29 @@ def render_stats(total_papers: int, years: dict[int, int], unique_authors_count:
 
 
 def render_discovery_view(papers: list[Paper]) -> str:
-    # •	indeks
-	# •	tytuł
-	# •	rok
-	# •	krótki opis placeholder albo bardzo krótki summary później
+    # 2024
+    # 1. Title A
+    # 2. Title B
+    
+    # 2023
+    # 3. Title C    
     view = []
-    for index, line in enumerate([f"{paper.year} - {paper.title}" for paper in papers], start=1):
+    index = 1
+    papers_by_year = {}
+    
+    for paper in papers:
+        if paper.year not in papers_by_year:
+            papers_by_year[paper.year] = []
+        papers_by_year[paper.year].append(paper.title)
+    
         
-        view.append(f"{index}. {line}")
+    for year in sorted(papers_by_year, reverse=True):
+        if view:
+            view.append("")
+        view.append(f"[{year}]")
+        for title in papers_by_year[year]:
+            view.append(f"{index}. {title}")
+            index += 1
+             
     return "\n".join(view)
  
-    ...
