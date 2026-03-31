@@ -119,20 +119,30 @@ def papers_with_single_author(papers: list[Paper]) -> list[Paper]:
 
 
 def render_discovery_view(papers: list[Paper]) -> str:
-    # •	indeks
-	# •	tytuł
-	# •	rok
-	# •	krótki opis placeholder albo bardzo krótki summary później
-    sorted_papers = []
-    papers_by_year = {}
+    # 2024
+    # 1. Title A
+    # 2. Title B
+    
+    # 2023
+    # 3. Title C    
     view = []
+    index = 1
+    papers_by_year = {}
     
-    sorted_papers = sorted(papers, key=lambda x: x.year, reverse=True)
+    for paper in papers:
+        if paper.year not in papers_by_year:
+            papers_by_year[paper.year] = []
+        papers_by_year[paper.year].append(paper.title)
     
-
-                
         
-    print(papers_by_year)
+    for year in sorted(papers_by_year, reverse=True):
+        if view:
+            view.append("")
+        view.append(f"[{year}]")
+        for title in papers_by_year[year]:
+            view.append(f"{index}. {title}")
+            index += 1
+             
     return "\n".join(view)
 
 
