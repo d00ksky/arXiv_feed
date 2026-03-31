@@ -156,11 +156,25 @@ def unique_years_desc(papers: list[Paper]) -> list[int]:
     return sorted({paper.year for paper in papers}, reverse=True)
 
 
+def title_match_score(title: str, query: str) -> int:
+    score = 0
+    query_lower = query.lower()
+    title_lower = title.lower()
+    if query_lower in title_lower:
+        score += 3
+    for word in query_lower.split():
+        if word in title_lower:
+            score += 1
+    return score
+    
+
+
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = unique_years_desc(papers)
+result = title_match_score("Neural Networks in Medicine", "neural networks")
 
 print(result)
 
