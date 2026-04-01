@@ -173,7 +173,7 @@ def title_match_score(title: str, query: str) -> int:
     if query_lower in title_lower:
         score += 3
     for word in query_lower.split():
-        if word in title_lower:
+        if word and word in title_lower:
             score += 1
     return score
     
