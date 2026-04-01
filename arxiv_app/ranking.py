@@ -15,6 +15,8 @@ def title_match_score(title: str, query: str) -> int:
 
 def select_discovery_papers(papers: list[Paper], query: str, limit: int = 5) -> list[Paper]:
     """Returns sorted papers by score and if score is the same, by year"""
+    #ranking currently uses title match score + recency
+    #this is a heuristic V1 ranking
     return sorted(
         papers, key=lambda paper: (
             title_match_score(paper.title, query), 
