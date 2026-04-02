@@ -176,7 +176,12 @@ def title_match_score(title: str, query: str) -> int:
         if word and word in title_lower:
             score += 1
     return score
-    
+
+
+def author_line(authors: list[str]) -> str:
+    if not authors:
+        return "N/A"
+    return f"Authors: {", ".join(authors)}"
 
 
 
@@ -184,7 +189,9 @@ groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-result = title_match_score("Neural Networks in Medicine", "neural networks")
+authors = ["Y. LeCun", "A. Smith"]
+
+result = author_line(authors)
 
 print(result)
 
