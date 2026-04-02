@@ -13,6 +13,7 @@ from arxiv_app.render import (
     render_stats,
     render_paper_list,
     render_discovery_view,
+    render_paper_detail,
 )
 
 from arxiv_app.stats import (
@@ -83,6 +84,8 @@ def main():
         
         selected_paper = paper_at_index(discovery_papers, 1)
         if selected_paper is not None:
+            print()
+            print(render_paper_detail(selected_paper))
         
 
     

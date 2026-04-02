@@ -186,13 +186,24 @@ def author_line(authors: list[str]) -> str:
 
 
 
+def parse_selection(value: str) -> int | None:
+    value = value.strip()
+    if not value:
+        return None
+    
+    if value.isdigit():
+        return int(value)
+    
+    return None
+    ...
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
 authors = ["Y. LeCun", "A. Smith"]
 
-result = author_line(authors)
+result = parse_selection("4")
 
 print(result)
 
