@@ -5,6 +5,8 @@ from arxiv_app.logic import (
     filter_papers_after_year,
     filter_papers_by_author,
     most_cited_papers,
+    paper_at_index,
+    
 )
 from arxiv_app.validation import non_negative_int
 from arxiv_app.render import (
@@ -78,6 +80,10 @@ def main():
         print("No papers found.")
     else:
         print(render_discovery_view(discovery_papers))
+        
+        selected_paper = paper_at_index(discovery_papers, 1)
+        if selected_paper is not None:
+        
 
     
 

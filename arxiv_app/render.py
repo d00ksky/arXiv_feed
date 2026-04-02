@@ -64,4 +64,12 @@ def render_discovery_view(papers: list[Paper]) -> str:
              
     return "\n".join(view)
  
-
+ 
+ 
+def render_paper_detail(paper: Paper) -> str:
+    lines = []
+    lines.append(f"Title: {paper.title}")
+    lines.append(f"Year: {paper.year}")
+    authors_str = ", ".join(paper.authors)
+    lines.append(f"Authors: {authors_str}")
+    return "\n".join(lines) 

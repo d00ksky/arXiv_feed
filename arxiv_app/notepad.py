@@ -180,8 +180,9 @@ def title_match_score(title: str, query: str) -> int:
 
 def author_line(authors: list[str]) -> str:
     if not authors:
-        return "N/A"
-    return f"Authors: {", ".join(authors)}"
+        return "Authors: N/A"
+    authors_str = ", ".join(authors)
+    return f"Authors: {authors_str}"
 
 
 
