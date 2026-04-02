@@ -196,13 +196,31 @@ def parse_selection(value: str) -> int | None:
     
     return None
 
+titles = [paper.title for paper in papers]
+
+def choose_title(titles: list[str]) -> str | None:
+    if not titles:
+        return None
+    
+    numbered_titles = {}
+    
+    for index, title in enumerate(titles, start=1):
+        numbered_titles[index] = title
+        print(f"{index}. {title}")
+    
+    selection = input("Please select title")
+    
+    return numbered_titles[int(selection)]
+    ...
+
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
 authors = ["Y. LeCun", "A. Smith"]
 
-result = parse_selection("4")
+result = choose_title(titles)
 
 print(result)
 
