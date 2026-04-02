@@ -195,10 +195,18 @@ def recent_papers(papers: list[Paper], n: int = 5) -> list[Paper]:
     """
     return sorted(papers, key=lambda paper: (paper.year, paper.citations), reverse=True)[:n]
     
-    ...
     
 def paper_at_index(papers: list[Paper], index: int) -> Paper | None:
     if index < 1 or index > len(papers):
         return None
     return papers[index - 1] 
-    ...
+    
+def parse_selection(value: str) -> int | None:
+    value = value.strip()
+    if not value:
+        return None
+    
+    if value.isdigit():
+        return int(value)
+    
+    return None

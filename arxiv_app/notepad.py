@@ -195,7 +195,6 @@ def parse_selection(value: str) -> int | None:
         return int(value)
     
     return None
-    ...
 
 groups = group_papers_by_year(papers)
 

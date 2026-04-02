@@ -6,6 +6,7 @@ from arxiv_app.logic import (
     filter_papers_by_author,
     most_cited_papers,
     paper_at_index,
+    parse_selection,
     
 )
 from arxiv_app.validation import non_negative_int
@@ -82,10 +83,24 @@ def main():
     else:
         print(render_discovery_view(discovery_papers))
         
-        selected_paper = paper_at_index(discovery_papers, 1)
-        if selected_paper is not None:
-            print()
-            print(render_paper_detail(selected_paper))
+        selection = input("Select paper number (Enter to skip).")
+        
+        if not selection.strip():
+            return
+        
+        selected_index = parse_selection(selection)
+        
+        if selected_index is None:
+            print("Invalid paper number")
+            return
+        
+        selected_paper = paper_at_index(discovery_papers, selected_index)
+        if selected_paper is None:
+            print("Invalid paper number")
+            return
+
+        print()
+        print(render_paper_detail(selected_paper))
         
 
     
