@@ -6,3 +6,5 @@ class Paper:
     year: int
     citations: int
     authors: list[str]
+    id: str
+    summary: str
