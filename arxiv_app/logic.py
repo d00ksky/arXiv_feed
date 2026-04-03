@@ -210,3 +210,9 @@ def parse_selection(value: str) -> int | None:
         return int(value)
     
     return None
+
+
+def summary_snippet(text: str, limit: int) -> str:
+    if len(text) <= limit:
+        return text
+    return text[:limit] + "..."
