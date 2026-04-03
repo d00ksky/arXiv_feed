@@ -72,4 +72,5 @@ def render_paper_detail(paper: Paper) -> str:
     lines.append(f"Year: {paper.year}")
     authors_str = ", ".join(paper.authors)
     lines.append(f"Authors: {authors_str}")
+    lines.append(f"Summary: {paper.summary}")
     return "\n".join(lines) 
