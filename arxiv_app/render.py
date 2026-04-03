@@ -1,4 +1,6 @@
 from arxiv_app.models import Paper
+from arxiv_app.logic import summary_snippet
+
 
 def render_paper_line(index: int, paper: Paper) -> str:
     title = paper.title
@@ -40,10 +42,13 @@ def render_stats(total_papers: int, years: dict[int, int], unique_authors_count:
 def render_discovery_view(papers: list[Paper]) -> str:
     # 2024
     # 1. Title A
+    # Summary: ...
     # 2. Title B
+    #Summary: ...
     
     # 2023
     # 3. Title C    
+    #Summary: ...
     view = []
     index = 1
     papers_by_year = {}
@@ -51,15 +56,16 @@ def render_discovery_view(papers: list[Paper]) -> str:
     for paper in papers:
         if paper.year not in papers_by_year:
             papers_by_year[paper.year] = []
-        papers_by_year[paper.year].append(paper.title)
+        papers_by_year[paper.year].append(paper)
     
         
     for year in sorted(papers_by_year, reverse=True):
         if view:
             view.append("")
         view.append(f"[{year}]")
-        for title in papers_by_year[year]:
-            view.append(f"{index}. {title}")
+        for paper in papers_by_year[year]:
+            view.append(f"{index}. {paper.title}")
+            view.append(f"   Summary: {summary_snippet(paper.summary, 150)}")
             index += 1
              
     return "\n".join(view)
