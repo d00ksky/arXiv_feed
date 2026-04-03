@@ -2,6 +2,12 @@ from arxiv_app.models import Paper
 from arxiv_app.logic import summary_snippet
 
 
+RESET = "\033[0m"
+BOLD = "\033[1m"
+DIM = "\033[2m"
+CYAN = "\033[36m"
+
+
 def render_paper_line(index: int, paper: Paper) -> str:
     title = paper.title
     authors = paper.authors
@@ -64,8 +70,8 @@ def render_discovery_view(papers: list[Paper]) -> str:
             view.append("")
         view.append(f"[{year}]")
         for paper in papers_by_year[year]:
-            view.append(f"{index}. {paper.title}")
-            view.append(f"   Summary: {summary_snippet(paper.summary, 150)}")
+            view.append(f"{index}. {BOLD}{paper.title}{RESET}")
+            view.append(f"   {CYAN}Summary:{RESET} {summary_snippet(paper.summary, 150)}\n")
             index += 1
              
     return "\n".join(view)
