@@ -208,9 +208,18 @@ def choose_title(titles: list[str]) -> str | None:
         numbered_titles[index] = title
         print(f"{index}. {title}")
     
-    selection = input("Please select title")
+    selection = input("\nPlease select title\n\n")
+    selection = selection.strip()
+
+    if not selection or not selection.isdigit():
+        return None
+
+    selected_index = int(selection)
+
+    if selected_index > len(titles) or selected_index < 1:
+        return None
     
-    return numbered_titles[int(selection)]
+    return numbered_titles[selected_index]
     ...
 
 
