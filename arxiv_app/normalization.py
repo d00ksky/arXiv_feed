@@ -3,8 +3,8 @@ from arxiv_app.models import Paper
 
 def normalize_paper(raw_paper: dict) -> Paper:
     """
-    raw_paper ma klucze: id, title, authors, published
-    zwraca: id, title, authors, year (int)
+    raw_paper ma klucze: id, title, authors, published, citations, summary
+    zwraca: id, title, authors, year (int), id, citations, summary
     """
     
     return Paper(

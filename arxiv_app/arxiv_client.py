@@ -36,7 +36,7 @@ def _parse_xml(xml_bytes: bytes) -> list[dict]:
         pub_elem = entry.find("a:published", ns)
         title_elem = entry.find("a:title", ns)
         id_elem = entry.find("a:id", ns)
-        summary_elem = entry.find("a.summary", ns)
+        summary_elem = entry.find("a:summary", ns)
         if (
             pub_elem is None or pub_elem.text is None or
             title_elem is None or title_elem.text is None or
