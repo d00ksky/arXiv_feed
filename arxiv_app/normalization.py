@@ -11,7 +11,9 @@ def normalize_paper(raw_paper: dict) -> Paper:
         title = str(raw_paper["title"]),
         year = int(raw_paper["published"][:4]),
         citations = 0,
-        authors = list(raw_paper["authors"])
+        authors = list(raw_paper["authors"]),
+        id = str(raw_paper["id"]),
+        summary = str(raw_paper["summary"])
     )
 
 
