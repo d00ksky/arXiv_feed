@@ -220,7 +220,12 @@ def choose_title(titles: list[str]) -> str | None:
         return None
     
     return numbered_titles[selected_index]
-    ...
+
+
+def summary_snippet(text: str, limit: int) -> str:
+    if len(text) <= limit:
+        return text
+    return text[:limit] + "..."
 
 
 groups = group_papers_by_year(papers)
@@ -229,7 +234,7 @@ paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
 authors = ["Y. LeCun", "A. Smith"]
 
-result = choose_title(titles)
+result = summary_snippet("Neural Networks in Medicine", 16)
 
 print(result)
 
