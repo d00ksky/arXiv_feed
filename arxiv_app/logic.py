@@ -216,3 +216,6 @@ def summary_snippet(text: str, limit: int) -> str:
     if len(text) <= limit:
         return text
     return text[:limit] + "..."
+
+def has_summary_keyword(papers: list[Paper], keyword: str) -> list[Paper]:
+    return [paper for paper in papers if keyword.lower() in paper.summary]
