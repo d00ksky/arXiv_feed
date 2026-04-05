@@ -228,6 +228,12 @@ def summary_snippet(text: str, limit: int) -> str:
     return text[:limit] + "..."
 
 
+def paper_titles(papers: list[Paper]) -> list[str]:
+    return [paper.title for paper in papers]
+
+def paper_ids(papers: list[Paper]) -> list[str]:
+    return [paper.id for paper in papers]
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
