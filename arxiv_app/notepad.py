@@ -287,13 +287,16 @@ def paper_ids(papers: list[Paper]) -> list[str]:
 def summaries_for_author(papers: list[Paper], author: str) -> list[str]:
     return [paper.summary for paper in papers if author in paper.authors]
 
+def titles_with_summary_keyword(papers: list[Paper], keyword: str) -> list[str]:
+    return [paper.title for paper in papers if keyword.lower() in paper.summary.lower()]
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
 author = "John Doe"
 
-result = summaries_for_author(papers, author)
+result = titles_with_summary_keyword(papers, "AI")
 
 print(result)
 
