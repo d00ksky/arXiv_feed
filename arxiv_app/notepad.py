@@ -17,13 +17,62 @@ papers_by_year = {
 }
 
 papers = [
-    Paper("Deep Learning for Vision", 2021, 12000, ["Y. LeCun", "A. Smith"]),
-    Paper("Neural Networks in Medicine", 2023, 450, ["A. Smith", "K. Patel"]),
-    Paper("Transformers in NLP", 2020, 25000, ["A. Vaswani", "Y. LeCun"]),
-    Paper("Quantum Computing Basics", 2019, 300, ["John Doe"]),
-    Paper("Large Language arxiv_app.arxiv_app.models", 2024, 800, ["A. Smith", "John Doe"]),
-    Paper("AI in Healthcare", 2022, 600, ["K. Patel", "A. Smith"]),
-    Paper("Self-Supervised Learning", 2021, 1500, ["A. Smith"]),
+    Paper(
+        "Deep Learning for Vision",
+        2021,
+        12000,
+        ["Y. LeCun", "A. Smith"],
+        "paper-1",
+        "A paper about deep learning methods used in computer vision tasks."
+    ),
+    Paper(
+        "Neural Networks in Medicine",
+        2023,
+        450,
+        ["A. Smith", "K. Patel"],
+        "paper-2",
+        "A study of neural network applications in medical diagnosis and treatment support."
+    ),
+    Paper(
+        "Transformers in NLP",
+        2020,
+        25000,
+        ["A. Vaswani", "Y. LeCun"],
+        "paper-3",
+        "An overview of transformer-based methods for natural language processing."
+    ),
+    Paper(
+        "Quantum Computing Basics",
+        2019,
+        300,
+        ["John Doe"],
+        "paper-4",
+        "A beginner-friendly introduction to the main concepts of quantum computing."
+    ),
+    Paper(
+        "Large Language Models",
+        2024,
+        800,
+        ["A. Smith", "John Doe"],
+        "paper-5",
+        "A paper discussing the capabilities and limitations of large language models."
+    ),
+    Paper(
+        "AI in Healthcare",
+        2022,
+        600,
+        ["K. Patel", "A. Smith"],
+        "paper-6",
+        "An analysis of how artificial intelligence can improve healthcare systems."
+    ),
+    Paper(
+        "Self-Supervised Learning",
+        2021,
+        1500,
+        ["A. Smith"],
+        "paper-7",
+        "A paper about self-supervised learning techniques for representation learning."
+    ),
 ]
 
 
