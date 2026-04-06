@@ -283,13 +283,17 @@ def paper_titles(papers: list[Paper]) -> list[str]:
 def paper_ids(papers: list[Paper]) -> list[str]:
     return [paper.id for paper in papers]
 
+
+def summaries_for_author(papers: list[Paper], author: str) -> list[str]:
+    return [paper.summary for paper in papers if author in paper.authors]
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
-authors = ["Y. LeCun", "A. Smith"]
+author = "John Doe"
 
-result = summary_snippet("Neural Networks in Medicine", 16)
+result = summaries_for_author(papers, author)
 
 print(result)
 
