@@ -290,13 +290,19 @@ def summaries_for_author(papers: list[Paper], author: str) -> list[str]:
 def titles_with_summary_keyword(papers: list[Paper], keyword: str) -> list[str]:
     return [paper.title for paper in papers if keyword.lower() in paper.summary.lower()]
 
+
+def papers_with_long_summary(papers: list[Paper], min_length: int) -> list[Paper]:
+    return [paper for paper in papers if len(paper.summary) >= min_length]
+
+
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
 author = "John Doe"
 
-result = titles_with_summary_keyword(papers, "AI")
+result = papers_with_long_summary(papers, 67)
 
 print(result)
 
