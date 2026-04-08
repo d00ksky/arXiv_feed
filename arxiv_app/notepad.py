@@ -294,7 +294,8 @@ def titles_with_summary_keyword(papers: list[Paper], keyword: str) -> list[str]:
 def papers_with_long_summary(papers: list[Paper], min_length: int) -> list[Paper]:
     return [paper for paper in papers if len(paper.summary) >= min_length]
 
-
+def paper_titles_with_short_summary(papers: list[Paper], max_length: int) -> list[str]:
+    return [paper.title for paper in papers if len(paper.summary) <= max_length]
 
 groups = group_papers_by_year(papers)
 
