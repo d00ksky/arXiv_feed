@@ -3,5 +3,8 @@ DEFAULT_INTERESTS = [
     "llm agents",
     "ai safety",
     "machine learning",
-    "agentic coding"
+    "agentic coding",
+    "retrieval augmented generation",
+    "reasoning models",
+    "large language models"
 ]
