@@ -8,3 +8,6 @@ DEFAULT_INTERESTS = [
     "reasoning models",
     "large language models"
 ]
+
+def all_default_interests() -> list[str]:
+    return list(DEFAULT_INTERESTS)
