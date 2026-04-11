@@ -10,7 +10,7 @@ import os
 from arxiv_app.interests import (
     DEFAULT_INTERESTS,
 )
-
+from arxiv_app.render import render_discovery_view
 
 papers_by_year = {
     2019: 1,
@@ -309,6 +309,13 @@ def interest_count(interests: list[str]) -> int:
     return len(interests)
     
 
+def render_interest_digest(interest: str, papers: list[Paper]) -> str:
+    lines = []
+    lines.append(interest)
+    lines.append("")
+    lines.append(render_discovery_view(papers))
+    return "\n".join(lines)
+
 
 groups = group_papers_by_year(papers)
 
@@ -316,7 +323,7 @@ paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
 author = "John Doe"
 
-result = interest_count(DEFAULT_INTERESTS)
+result = render_interest_digest("openai", papers)
 
 print(result)
 
