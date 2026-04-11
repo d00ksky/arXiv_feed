@@ -311,7 +311,7 @@ def interest_count(interests: list[str]) -> int:
 
 def render_interest_digest(interest: str, papers: list[Paper]) -> str:
     lines = []
-    lines.append(interest)
+    lines.append(f"Interest: =={interest}==")
     lines.append("")
     lines.append(render_discovery_view(papers))
     return "\n".join(lines)
