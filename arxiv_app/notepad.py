@@ -7,6 +7,9 @@ from collections import (
 )
 from arxiv_app.logic import recent_papers
 import os
+from arxiv_app.interests import (
+    DEFAULT_INTERESTS,
+)
 
 
 papers_by_year = {
@@ -301,13 +304,19 @@ def paper_titles_with_short_summary(papers: list[Paper], max_length: int) -> lis
 def paper_ids_with_summary_keyword(papers: list[Paper], keyword: str) -> list[str]:
     return [paper.id for paper in papers if keyword.lower() in paper.summary.lower()]
 
+
+def interest_count(interests: list[str]) -> int:
+    return len(interests)
+    
+
+
 groups = group_papers_by_year(papers)
 
 paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
 author = "John Doe"
 
-result = papers_with_long_summary(papers, 67)
+result = interest_count(DEFAULT_INTERESTS)
 
 print(result)
 
