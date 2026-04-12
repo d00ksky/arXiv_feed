@@ -319,6 +319,13 @@ def render_interest_digest(interest: str, papers: list[Paper]) -> str:
 def interest_labels(interests: list[str]) -> list[str]:
     return [f"Interest: {interest}" for interest in interests]
 
+def digest_for_interest(interest: str, papers: list[Paper], limit: int = 5) -> str:
+    # Co ma robić
+	# 1.	bierze papers
+	# 2.	robi selekcję przez select_discovery_papers(papers, interest, limit)
+	# 3.	renderuje wynik przez render_interest_digest(interest, selected_papers)
+    ...
+
 
 groups = group_papers_by_year(papers)
 
@@ -326,7 +333,7 @@ paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
 author = "John Doe"
 
-result = interest_labels(DEFAULT_INTERESTS)
+result = digest_for_interest("AI", papers, 10)
 
 print(result)
 
