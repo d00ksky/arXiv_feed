@@ -316,6 +316,9 @@ def render_interest_digest(interest: str, papers: list[Paper]) -> str:
     lines.append(render_discovery_view(papers))
     return "\n".join(lines)
 
+def interest_labels(interests: list[str]) -> list[str]:
+    return [f"Interest: {interest}" for interest in interests]
+
 
 groups = group_papers_by_year(papers)
 
@@ -323,7 +326,7 @@ paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
 author = "John Doe"
 
-result = render_interest_digest("openai", papers)
+result = interest_labels(DEFAULT_INTERESTS)
 
 print(result)
 
