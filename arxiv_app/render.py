@@ -86,3 +86,11 @@ def render_paper_detail(paper: Paper) -> str:
     lines.append(f"Authors: {authors_str}")
     lines.append(f"Summary: {paper.summary}")
     return "\n".join(lines) 
+
+
+def render_interest_digest(interest: str, papers: list[Paper]) -> str:
+    lines = []
+    lines.append(f"Interest: =={interest}==")
+    lines.append("")
+    lines.append(render_discovery_view(papers))
+    return "\n".join(lines)
