@@ -89,14 +89,20 @@ titles = [paper.title for paper in papers]
 
 author = "John Doe"
 
+interests = ["openai", "superpartia", "    ", "Roberto"]
+
+def non_empty_interests(interests: list[str]) -> list[str]:
+    non_empty = []
+    for interest in interests:
+        if interest.strip() != "":
+            non_empty.append(interest)
+    return non_empty
 
 
 
 
 
-
-
-result = []
+result = non_empty_interests(interests)
 
 print(result)
 
