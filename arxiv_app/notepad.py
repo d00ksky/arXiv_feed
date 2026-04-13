@@ -11,6 +11,8 @@ from arxiv_app.interests import (
     DEFAULT_INTERESTS,
 )
 from arxiv_app.render import render_discovery_view
+from arxiv_app.ranking import select_discovery_papers
+
 
 papers_by_year = {
     2019: 1,
@@ -320,12 +322,10 @@ def interest_labels(interests: list[str]) -> list[str]:
     return [f"Interest: {interest}" for interest in interests]
 
 def digest_for_interest(interest: str, papers: list[Paper], limit: int = 5) -> str:
-    # Co ma robić
-	# 1.	bierze papers
-	# 2.	robi selekcję przez select_discovery_papers(papers, interest, limit)
-	# 3.	renderuje wynik przez render_interest_digest(interest, selected_papers)
-    ...
-
+    selected_papers = select_discovery_papers(papers, interest, limit)
+    return render_interest_digest(interest, selected_papers)
+ 
+ 
 
 groups = group_papers_by_year(papers)
 
