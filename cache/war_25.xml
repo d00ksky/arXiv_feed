@@ -2,10 +2,10 @@
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
   <id>https://arxiv.org/api/wdJhsBi18rrcGmo48G8AEqIUMwM</id>
   <title>arXiv Query: search_query=all:war&amp;id_list=&amp;start=0&amp;max_results=25</title>
-  <updated>2026-04-02T05:54:31Z</updated>
+  <updated>2026-04-13T05:36:28Z</updated>
   <link href="https://arxiv.org/api/query?search_query=all:war&amp;start=0&amp;max_results=25&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>25</opensearch:itemsPerPage>
-  <opensearch:totalResults>1204</opensearch:totalResults>
+  <opensearch:totalResults>1208</opensearch:totalResults>
   <opensearch:startIndex>0</opensearch:startIndex>
   <entry>
     <id>http://arxiv.org/abs/2303.14486v2</id>
@@ -286,6 +286,26 @@
     <link rel="related" href="https://doi.org/10.1016/j.jpubeco.2024.105241" title="doi"/>
   </entry>
   <entry>
+    <id>http://arxiv.org/abs/1609.04667v1</id>
+    <title>War-Algorithm Accountability</title>
+    <updated>2016-09-12T15:59:07Z</updated>
+    <link href="https://arxiv.org/abs/1609.04667v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1609.04667v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this briefing report, we introduce a new concept (war algorithms) that elevates algorithmically-derived choices and decisions to a, and perhaps the, central concern regarding technical autonomy in war. We thereby aim to shed light on and recast the discussion regarding autonomous weapon systems. We define war algorithm as any algorithm that is expressed in computer code, that is effectuated through a constructed system, and that is capable of operating in relation to armed conflict. In introducing this concept, our foundational technological concern is the capability of a constructed system, without further human intervention, to help make and effectuate a decision or choice of a war algorithm. Distilled, the two core ingredients are an algorithm expressed in computer code and a suitably capable constructed system. Through that lens, we link international law and related accountability architectures to relevant technologies. We sketch a three-part (non-exhaustive) approach that highlights traditional and unconventional accountability avenues. We focus largely on international law because it is the only normative regime that purports, in key respects but with important caveats, to be both universal and uniform. By not limiting our inquiry only to weapon systems, we take an expansive view, showing how the broad concept of war algorithms might be susceptible to regulation, and how those algorithms might already fit within the existing regulatory system established by international law.</summary>
+    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-09-12T15:59:07Z</published>
+    <arxiv:primary_category term="cs.CY"/>
+    <author>
+      <name>Dustin A. Lewis</name>
+    </author>
+    <author>
+      <name>Gabriella Blum</name>
+    </author>
+    <author>
+      <name>Naz K. Modirzadeh</name>
+    </author>
+  </entry>
+  <entry>
     <id>http://arxiv.org/abs/2308.04473v1</id>
     <title>Opponents and proponents of the war in Ukraine in Russian social media: who are they?</title>
     <updated>2023-08-08T12:21:49Z</updated>
@@ -324,26 +344,6 @@
     </author>
     <arxiv:doi>10.1103/PhysRevE.54.1274</arxiv:doi>
     <link rel="related" href="https://doi.org/10.1103/PhysRevE.54.1274" title="doi"/>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/1609.04667v1</id>
-    <title>War-Algorithm Accountability</title>
-    <updated>2016-09-12T15:59:07Z</updated>
-    <link href="https://arxiv.org/abs/1609.04667v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/1609.04667v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>In this briefing report, we introduce a new concept (war algorithms) that elevates algorithmically-derived choices and decisions to a, and perhaps the, central concern regarding technical autonomy in war. We thereby aim to shed light on and recast the discussion regarding autonomous weapon systems. We define war algorithm as any algorithm that is expressed in computer code, that is effectuated through a constructed system, and that is capable of operating in relation to armed conflict. In introducing this concept, our foundational technological concern is the capability of a constructed system, without further human intervention, to help make and effectuate a decision or choice of a war algorithm. Distilled, the two core ingredients are an algorithm expressed in computer code and a suitably capable constructed system. Through that lens, we link international law and related accountability architectures to relevant technologies. We sketch a three-part (non-exhaustive) approach that highlights traditional and unconventional accountability avenues. We focus largely on international law because it is the only normative regime that purports, in key respects but with important caveats, to be both universal and uniform. By not limiting our inquiry only to weapon systems, we take an expansive view, showing how the broad concept of war algorithms might be susceptible to regulation, and how those algorithms might already fit within the existing regulatory system established by international law.</summary>
-    <category term="cs.CY" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2016-09-12T15:59:07Z</published>
-    <arxiv:primary_category term="cs.CY"/>
-    <author>
-      <name>Dustin A. Lewis</name>
-    </author>
-    <author>
-      <name>Gabriella Blum</name>
-    </author>
-    <author>
-      <name>Naz K. Modirzadeh</name>
-    </author>
   </entry>
   <entry>
     <id>http://arxiv.org/abs/2012.07027v1</id>
