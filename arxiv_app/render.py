@@ -1,5 +1,6 @@
 from arxiv_app.models import Paper
 from arxiv_app.logic import summary_snippet
+from arxiv_app.ranking import select_discovery_papers
 
 
 RESET = "\033[0m"
@@ -94,3 +95,14 @@ def render_interest_digest(interest: str, papers: list[Paper]) -> str:
     lines.append("")
     lines.append(render_discovery_view(papers))
     return "\n".join(lines)
+
+
+def digest_for_interest(interest: str, papers: list[Paper], limit: int = 5) -> str:
+    selected_papers = select_discovery_papers(papers, interest, limit)
+    return render_interest_digest(interest, selected_papers)
+ 
+def digest_for_interests(interests: list[str], papers: list[Paper], limit: int = 5) -> str:
+    sections = []
+    for interest in interests:
+        sections.append(digest_for_interest(interest, papers, limit)) 
+    return "\n\n".join(sections)

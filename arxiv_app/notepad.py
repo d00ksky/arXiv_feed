@@ -293,7 +293,11 @@ def digest_for_interest(interest: str, papers: list[Paper], limit: int = 5) -> s
     selected_papers = select_discovery_papers(papers, interest, limit)
     return render_interest_digest(interest, selected_papers)
  
- 
+def digest_for_interests(interests: list[str], papers: list[Paper], limit: int = 5) -> str:
+    sections = []
+    for interest in interests:
+        sections.append(digest_for_interest(interest, papers, limit)) 
+    return "\n\n".join(sections)
 
 groups = group_papers_by_year(papers)
 
@@ -301,8 +305,7 @@ paper_in_year = {year:len(paper) for year, paper in groups.items()}
 
 author = "John Doe"
 
-result = digest_for_interest("AI", papers)
+result = digest_for_interests(DEFAULT_INTERESTS, papers, 3)
 
 print(result)
-
 
