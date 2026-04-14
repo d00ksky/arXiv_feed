@@ -100,9 +100,12 @@ def non_empty_interests(interests: list[str]) -> list[str]:
 
 
 
+def summaries_longer_than(papers: list[Paper], length: int) -> list[str]:
+    return [paper.summary for paper in papers if len(paper.summary) > length]
+    
 
 
-result = non_empty_interests(interests)
+result = summaries_longer_than(papers, 200)
 
 print(result)
 
