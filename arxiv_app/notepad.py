@@ -110,10 +110,13 @@ def paper_count_with_keyword_in_summary(papers: list[Paper], keyword: str) -> in
 
 def titles_for_papers_with_long_summary(papers: list[Paper], min_length: int) -> list[str]:
     return [paper.title for paper in papers if len(paper.summary) >= min_length]
+
+def ids_for_papers_with_long_summary(papers: list[Paper], min_length: int) -> list[str]:
+    return [paper.id for paper in papers if len(paper.summary) >= min_length]
     
 
 
-result = titles_for_papers_with_long_summary(papers, 10)
+result = ids_for_papers_with_long_summary(papers, 10)
 
 print(result)
 
