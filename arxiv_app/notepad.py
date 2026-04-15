@@ -104,8 +104,16 @@ def summaries_longer_than(papers: list[Paper], length: int) -> list[str]:
     return [paper.summary for paper in papers if len(paper.summary) > length]
     
 
+def paper_count_with_keyword_in_summary(papers: list[Paper], keyword: str) -> int:
+    return len([paper for paper in papers if keyword.lower() in paper.summary.lower()])
+    
 
-result = summaries_longer_than(papers, 200)
+def titles_for_papers_with_long_summary(papers: list[Paper], min_length: int) -> list[str]:
+    return [paper.title for paper in papers if len(paper.summary) >= min_length]
+    
+
+
+result = titles_for_papers_with_long_summary(papers, 10)
 
 print(result)
 
