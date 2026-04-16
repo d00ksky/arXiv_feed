@@ -13,6 +13,19 @@ def title_match_score(title: str, query: str) -> int:
     return score
 
 
+def paper_match_score(paper: Paper, query: str) -> int:
+    score = title_match_score(paper.title, query)
+    query_lower = query.lower()
+    summary_lower = paper.summary.lower()
+    if query_lower in summary_lower:
+        score += 3
+    for word in query_lower.split():
+        if word and word in summary_lower:
+            score += 1
+    return score
+    ...
+
+
 def select_discovery_papers(papers: list[Paper], query: str, limit: int = 5) -> list[Paper]:
     """Returns sorted papers by score and if score is the same, by year"""
     #ranking currently uses title match score + recency
