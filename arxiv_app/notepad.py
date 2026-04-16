@@ -120,9 +120,10 @@ def paper_years_with_long_summary(papers: list[Paper], min_length: int) -> list[
     return [paper.year for paper in papers if len(paper.summary) >= min_length]
 
 
+def summaries_with_keyword(papers: list[Paper], keyword: str) -> list[str]:
+    return [paper.summary for paper in papers if keyword.lower() in paper.summary.lower()]
 
-
-result = paper_years_with_long_summary(papers, 10)
+result = summaries_with_keyword(papers, "computer")
 
 print(result)
 
