@@ -32,7 +32,7 @@ def select_discovery_papers(papers: list[Paper], query: str, limit: int = 5) -> 
     #this is a heuristic V1 ranking
     return sorted(
         papers, key=lambda paper: (
-            title_match_score(paper.title, query), 
+            paper_match_score(paper, query), 
             paper.year), 
         reverse=True
     )[:limit]
