@@ -6,10 +6,10 @@ def title_match_score(title: str, query: str) -> int:
     query_lower = query.lower()
     title_lower = title.lower()
     if query_lower in title_lower:
-        score += 3
+        score += 4
     for word in query_lower.split():
         if word and word in title_lower:
-            score += 1
+            score += 2
     return score
 
 
@@ -18,7 +18,7 @@ def paper_match_score(paper: Paper, query: str) -> int:
     query_lower = query.lower()
     summary_lower = paper.summary.lower()
     if query_lower in summary_lower:
-        score += 3
+        score += 2
     for word in query_lower.split():
         if word and word in summary_lower:
             score += 1
