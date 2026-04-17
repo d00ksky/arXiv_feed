@@ -137,9 +137,16 @@ def safe_last_paper(papers: list[Paper]) -> Paper | None:
         return None
     return papers[-1]
 
+def papers_by_author_count(papers: list[Paper]) -> dict[int, list[Paper]]:
+    groups = {}
+    for paper in papers:
+        author_count = len(paper.authors)
+        if author_count not in groups:
+            groups[author_count] = []
+        groups[author_count].append(paper)
+    return groups
 
-
-result = safe_last_paper(papers)
+result = papers_by_author_count(papers)
 
 print(result)
 
