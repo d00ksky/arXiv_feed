@@ -123,7 +123,23 @@ def paper_years_with_long_summary(papers: list[Paper], min_length: int) -> list[
 def summaries_with_keyword(papers: list[Paper], keyword: str) -> list[str]:
     return [paper.summary for paper in papers if keyword.lower() in paper.summary.lower()]
 
-result = summaries_with_keyword(papers, "computer")
+def paper_titles_with_keyword_in_title(papers: list[Paper], keyword: str) -> list[str]:
+    return [paper.title for paper in papers if keyword.lower() in paper.title.lower()]
+
+def safe_first_paper(papers: list[Paper]) -> Paper | None:
+    if not papers:
+        return None
+    return papers[0]
+
+
+def safe_last_paper(papers: list[Paper]) -> Paper | None:
+    if not papers:
+        return None
+    return papers[-1]
+
+
+
+result = safe_last_paper(papers)
 
 print(result)
 
