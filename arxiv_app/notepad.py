@@ -146,7 +146,24 @@ def papers_by_author_count(papers: list[Paper]) -> dict[int, list[Paper]]:
         groups[author_count].append(paper)
     return groups
 
-result = papers_by_author_count(papers)
+
+def titles_by_author_count(papers: list[Paper]) -> dict[int, list[str]]:
+    groups = {}
+    for paper in papers:
+        authors_count = len(paper.authors)
+        if authors_count not in groups:
+            groups[authors_count] = []
+        groups[authors_count].append(paper.title)
+    return groups
+
+
+def ids_by_author_count(papers: list[Paper]) -> dict[int, list[str]]:
+    
+    ...
+
+
+
+result = titles_by_author_count(papers)
 
 print(result)
 
