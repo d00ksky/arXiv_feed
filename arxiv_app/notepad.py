@@ -177,9 +177,18 @@ def summaries_by_author_count(papers: list[Paper]) -> dict[int, list[str]]:
     return groups
 
 
+def counts_by_author_count(papers: list[Paper]) -> dict[int, int]:
+    count = {}
+    for paper in papers:
+        author_count = len(paper.authors)
+        if author_count not in count:
+            count[author_count] = 0
+        count[author_count] += 1
+    return count
 
 
-result = summaries_by_author_count(papers)
+
+result = counts_by_author_count(papers)
 
 print(result)
 
