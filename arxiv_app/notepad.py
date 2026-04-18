@@ -187,8 +187,13 @@ def counts_by_author_count(papers: list[Paper]) -> dict[int, int]:
     return count
 
 
+def counts_by_year(papers: list[Paper]) -> dict[int, int]:
+    groups = {}
+    for paper in papers:
+        groups[paper.year] = groups.get(paper.year, 0) + 1
+    return groups
 
-result = counts_by_author_count(papers)
+result = counts_by_year(papers)
 
 print(result)
 
