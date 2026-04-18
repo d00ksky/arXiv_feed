@@ -167,10 +167,19 @@ def ids_by_author_count(papers: list[Paper]) -> dict[int, list[str]]:
     return groups
             
 
+def summaries_by_author_count(papers: list[Paper]) -> dict[int, list[str]]:
+    groups = {}
+    for paper in papers:
+        author_count = len(paper.authors)
+        if author_count not in groups:
+            groups[author_count] = []
+        groups[author_count].append(paper.summary)
+    return groups
 
 
 
-result = ids_by_author_count(papers)
+
+result = summaries_by_author_count(papers)
 
 print(result)
 
