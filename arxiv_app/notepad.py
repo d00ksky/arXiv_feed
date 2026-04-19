@@ -193,7 +193,22 @@ def counts_by_year(papers: list[Paper]) -> dict[int, int]:
         groups[paper.year] = groups.get(paper.year, 0) + 1
     return groups
 
-result = counts_by_year(papers)
+
+def papers_with_summary_keyword_count_at_least(
+    papers: list[Paper],
+    keyword: str,
+    min_count: int,
+) -> list[Paper]:
+    papers_with_keyword = []
+    for paper in papers:
+        summary_lower = paper.summary.lower()
+        keyword_lower = keyword.lower()
+        if summary_lower.count(keyword_lower) >= min_count:
+            papers_with_keyword.append(paper)
+    return papers_with_keyword
+        
+
+result = papers_with_summary_keyword_count_at_least(papers, 'natural', 1)
 
 print(result)
 
