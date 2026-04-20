@@ -208,7 +208,23 @@ def papers_with_summary_keyword_count_at_least(
     return papers_with_keyword
         
 
-result = papers_with_summary_keyword_count_at_least(papers, 'natural', 1)
+def paper_titles_with_summary_count_at_least(
+    papers: list[Paper],
+    keyword: str,
+    min_count: int,
+) -> list[str]:
+    return [paper.title for paper in papers if paper.summary.lower().count(keyword.lower()) >= min_count]
+
+
+def paper_ids_with_summary_count_at_least(
+    papers: list[Paper],
+    keyword: str,
+    min_count: int,
+) -> list[str]:
+    return [paper.id for paper in papers if paper.summary.lower().count(keyword.lower()) >= min_count]
+    
+
+result = paper_ids_with_summary_count_at_least(papers, 'natural', 1)
 
 print(result)
 
