@@ -240,8 +240,11 @@ def paper_summaries_with_keyword_in_title(papers: list[Paper], keyword: str) -> 
 def paper_ids_with_keyword_in_title_and_summary(papers: list[Paper], keyword: str) -> list[str]:
     return [paper.id for paper in papers if keyword.lower() in paper.title.lower() or keyword.lower() in paper.summary.lower()]
 
+def paper_titles_with_keyword_in_title_and_summary(papers: list[Paper], keyword: str) -> list[str]:
+    keyword_lower = keyword.lower()
+    return [paper.title for paper in papers if keyword_lower in paper.title.lower() or keyword_lower in paper.summary.lower()]
 
-result = paper_ids_with_keyword_in_title_and_summary(papers, 'AI')
+result = paper_titles_with_keyword_in_title_and_summary(papers, 'AI')
 
 print(result)
 
