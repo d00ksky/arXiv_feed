@@ -232,7 +232,16 @@ def paper_years_with_summary_count_at_least(
     
     return [paper.year for paper in papers if paper.summary.lower().count(keyword.lower()) >= min_count]
 
-result = paper_years_with_summary_count_at_least(papers, 'natural', 1)
+
+def paper_summaries_with_keyword_in_title(papers: list[Paper], keyword: str) -> list[str]:
+    return [paper.summary for paper in papers if keyword.lower() in paper.title.lower()]
+    
+
+def paper_ids_with_keyword_in_title_and_summary(papers: list[Paper], keyword: str) -> list[str]:
+    return [paper.id for paper in papers if keyword.lower() in paper.title.lower() or keyword.lower() in paper.summary.lower()]
+
+
+result = paper_ids_with_keyword_in_title_and_summary(papers, 'AI')
 
 print(result)
 
