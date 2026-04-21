@@ -248,6 +248,10 @@ def paper_count_with_keyword_in_title_and_summary(papers: list[Paper], keyword: 
     keyword_lower = keyword.lower()
     return len([paper for paper in papers if keyword_lower in paper.title.lower() or keyword_lower in paper.summary.lower()])
     
+def papers_with_keyword_in_title_and_summary(papers: list[Paper], keyword: str) -> list[Paper]:
+    keyword_lower = keyword.lower()
+    return [paper for paper in papers if keyword_lower in paper.title.lower() or keyword_lower in paper.summary.lower()]
+    
 
 result = paper_count_with_keyword_in_title_and_summary(papers, 'AI')
 
