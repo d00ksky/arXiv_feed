@@ -252,8 +252,13 @@ def papers_with_keyword_in_title_and_summary(papers: list[Paper], keyword: str) 
     keyword_lower = keyword.lower()
     return [paper for paper in papers if keyword_lower in paper.title.lower() or keyword_lower in paper.summary.lower()]
     
+def safe_paper_by_index(papers: list[Paper], index: int) -> Paper | None:
+    if index >= len(papers) or index < 0:
+        return None
+    return papers[index]
 
-result = paper_count_with_keyword_in_title_and_summary(papers, 'AI')
+
+result = safe_paper_by_index(papers, -3)
 
 print(result)
 
