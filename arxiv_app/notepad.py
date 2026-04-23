@@ -271,9 +271,18 @@ def safe_summary_snippet_by_index(
         return summary
     
     return summary[:limit] + "..."
-    
 
-result = safe_summary_snippet_by_index(papers, 3, 13)
+def safe_title_by_id(papers: list[Paper], paper_id: str) -> str | None:
+    for paper in papers:
+        if paper.id == paper_id:
+            return paper.title
+    return None
+        
+
+
+
+
+result = safe_title_by_id(papers, '2')
 
 print(result)
 
