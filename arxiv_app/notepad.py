@@ -257,8 +257,23 @@ def safe_paper_by_index(papers: list[Paper], index: int) -> Paper | None:
         return None
     return papers[index]
 
+def safe_summary_snippet_by_index(
+    papers: list[Paper],
+    index: int,
+    limit: int,
+) -> str | None:
+    if index < 0 or index >= len(papers):
+        return None
 
-result = safe_paper_by_index(papers, -3)
+    summary = papers[index].summary
+    
+    if len(summary) <= limit:
+        return summary
+    
+    return summary[:limit] + "..."
+    
+
+result = safe_summary_snippet_by_index(papers, 3, 13)
 
 print(result)
 
