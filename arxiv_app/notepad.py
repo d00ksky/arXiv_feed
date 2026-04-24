@@ -278,11 +278,17 @@ def safe_title_by_id(papers: list[Paper], paper_id: str) -> str | None:
             return paper.title
     return None
         
+def safe_summary_by_id(papers: list[Paper], paper_id: str) -> str | None:
+    for paper in papers:
+        if paper.id == paper_id:
+            return paper.summary
+    return None
+    
 
 
 
 
-result = safe_title_by_id(papers, '2')
+result = safe_summary_by_id(papers, '4')
 
 print(result)
 
