@@ -288,7 +288,7 @@ def safe_summary_by_id(papers: list[Paper], paper_id: str) -> str | None:
 
 
 
-result = safe_summary_by_id(papers, 'paper-3')
+result = safe_summary_by_id(papers, 'paper-')
 
 print(result)
 
