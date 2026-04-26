@@ -291,8 +291,13 @@ def safe_year_by_id(papers: list[Paper], paper_id: str) -> int | None:
             return paper.year
     return None
     
+def safe_authors_by_id(papers: list[Paper], paper_id: str) -> list[str] | None:
+    for paper in papers:
+        if paper.id == paper_id:
+            return paper.authors
+    return None
 
-result = safe_year_by_id(papers, 'paper-1')
+result = safe_summary_by_id(papers, 'paper-1')
 
 print(result)
 
