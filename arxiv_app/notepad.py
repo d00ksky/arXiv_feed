@@ -285,9 +285,14 @@ def safe_summary_by_id(papers: list[Paper], paper_id: str) -> str | None:
     return None
     
 
+def safe_year_by_id(papers: list[Paper], paper_id: str) -> int | None:
+    for paper in papers:
+        if paper.id == paper_id:
+            return paper.year
+    return None
+    
 
-
-result = safe_summary_by_id(papers, 'paper-')
+result = safe_year_by_id(papers, 'paper-1')
 
 print(result)
 
