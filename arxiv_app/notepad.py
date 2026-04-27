@@ -297,7 +297,15 @@ def safe_authors_by_id(papers: list[Paper], paper_id: str) -> list[str] | None:
             return paper.authors
     return None
 
-result = safe_summary_by_id(papers, 'paper-1')
+
+def safe_summary_by_year(papers: list[Paper], year: int) -> str | None:
+    for paper in papers:
+        if paper.year == year:
+            return paper.summary
+    return None
+
+
+result = safe_summary_by_year(papers, 2022)
+
 
 print(result)
-
