@@ -11,3 +11,4 @@ DEFAULT_INTERESTS = [
 
 def all_default_interests() -> list[str]:
     return list(DEFAULT_INTERESTS)
+    

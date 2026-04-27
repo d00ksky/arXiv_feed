@@ -304,8 +304,15 @@ def safe_summary_by_year(papers: list[Paper], year: int) -> str | None:
             return paper.summary
     return None
 
+def safe_titles_by_year(papers: list[Paper], year: int) -> list:
+    safed_titles = []    
+    for paper in papers:
+        if paper.year == year:
+            safed_titles.append(paper.title)
+    return safed_titles
 
-result = safe_summary_by_year(papers, 2022)
+
+result = safe_titles_by_year(papers, 2021)
 
 
 print(result)
