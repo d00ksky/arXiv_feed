@@ -318,8 +318,25 @@ def safe_titles_by_ids(papers: list[Paper], paper_id: str) -> list:
             saved_titles.append(paper.title)
     return saved_titles
         
+        
+def safe_summary_by_ids(papers: list[Paper], paper_id: str) -> list:
+    saved_summary = []
+    for paper in papers: 
+        if paper.id == paper_id:
+            saved_summary.append(paper.summary)
+    return saved_summary
 
-result = safe_titles_by_ids(papers, "paper-2")
+def titles_by_year_sorted(papers: list[Paper]) -> dict[int, list[Paper]]:
+    papers_by_year = {}
+    for paper in papers:
+        if paper.year not in papers_by_year:
+            papers_by_year[paper.year] = []
+        papers_by_year[paper.year].append(paper.title)
+        
+    return dict(sorted(papers_by_year.items()))
+
+
+result = titles_by_year_sorted(papers)
 
 
 print(result)
