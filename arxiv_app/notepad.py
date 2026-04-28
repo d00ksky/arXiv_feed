@@ -311,8 +311,15 @@ def safe_titles_by_year(papers: list[Paper], year: int) -> list:
             safed_titles.append(paper.title)
     return safed_titles
 
+def safe_titles_by_ids(papers: list[Paper], paper_id: str) -> list:
+    saved_titles = []
+    for paper in papers:
+        if paper.id == paper_id:
+            saved_titles.append(paper.title)
+    return saved_titles
+        
 
-result = safe_titles_by_year(papers, 2021)
+result = safe_titles_by_ids(papers, "paper-2")
 
 
 print(result)
