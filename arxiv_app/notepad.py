@@ -81,6 +81,16 @@ papers = [
 ]
 
 
+sorted_years = sorted(papers_by_year.items(), key=lambda count: count[1], reverse=True)
+
+only_years = [item[0] for item in sorted_years]
+
+titles = [paper.title for paper in papers]
+
+author = "John Doe"
+
+interests = ["openai", "superpartia", "    ", "Roberto"]
+
 
 def safe_paper_field_by_id(papers: list[Paper], paper_id: str, field: str) -> str | int | list[str] | None:
     for paper in papers:
@@ -97,10 +107,10 @@ def safe_paper_field_by_id(papers: list[Paper], paper_id: str, field: str) -> st
                 return paper.authors
             else:
                 return None
-    return None
+    return
         
     
-result = safe_paper_field_by_id(papers, "paper-2", "citations")
+result = safe_paper_field_by_id(papers, "paper-2", "title")
 
 
 print(result)
