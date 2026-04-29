@@ -282,8 +282,7 @@ def safe_summary_by_id(papers: list[Paper], paper_id: str) -> str | None:
     for paper in papers:
         if paper.id == paper_id:
             return paper.summary
-    return None
-    
+    return None   
 
 def safe_year_by_id(papers: list[Paper], paper_id: str) -> int | None:
     for paper in papers:
@@ -296,7 +295,6 @@ def safe_authors_by_id(papers: list[Paper], paper_id: str) -> list[str] | None:
         if paper.id == paper_id:
             return paper.authors
     return None
-
 
 def safe_summary_by_year(papers: list[Paper], year: int) -> str | None:
     for paper in papers:
@@ -317,8 +315,7 @@ def safe_titles_by_ids(papers: list[Paper], paper_id: str) -> list:
         if paper.id == paper_id:
             saved_titles.append(paper.title)
     return saved_titles
-        
-        
+               
 def safe_summary_by_ids(papers: list[Paper], paper_id: str) -> list:
     saved_summary = []
     for paper in papers: 
@@ -335,8 +332,13 @@ def titles_by_year_sorted(papers: list[Paper]) -> dict[int, list[Paper]]:
         
     return dict(sorted(papers_by_year.items()))
 
+def safe_citations_by_id(papers: list[Paper], paper_id: str) -> int | None:
+    for paper in papers:
+        if paper.id == paper_id:
+            return paper.citations
+    return None
 
-result = titles_by_year_sorted(papers)
+result = safe_citations_by_id(papers, "paper-2")
 
 
 print(result)
