@@ -338,7 +338,25 @@ def safe_citations_by_id(papers: list[Paper], paper_id: str) -> int | None:
             return paper.citations
     return None
 
-result = safe_citations_by_id(papers, "paper-2")
+def safe_paper_field_by_id(papers: list[Paper], paper_id: str, field: str) -> str | int | list[str] | None:
+    for paper in papers:
+        if paper.id == paper_id:
+            if field == 'title':
+                return paper.title
+            elif field == 'summary':
+                return paper.summary
+            elif field == 'year':
+                return paper.year
+            elif field == 'citations':
+                return paper.citations
+            elif field == 'authors':
+                return paper.authors
+            else:
+                return None
+    return None
+        
+    
+result = safe_paper_field_by_id(papers, "paper-2", "citations")
 
 
 print(result)
