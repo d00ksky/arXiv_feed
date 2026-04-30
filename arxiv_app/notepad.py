@@ -109,8 +109,17 @@ def safe_paper_field_by_id(papers: list[Paper], paper_id: str, field: str) -> st
                 return None
     return
         
+
+def safe_snippet_by_id(papers: list[Paper], paper_id: str, limit: int) -> str | None:
+    for paper in papers:
+        if paper.id == paper_id:
+            if len(paper.summary) <= limit:
+                return paper.summary
+            return paper.summary[:limit] + " ... "
+    return None
     
-result = safe_paper_field_by_id(papers, "paper-2", "title")
+    
+result = safe_snippet_by_id(papers, "paper-2", 5)
 
 
 print(result)
