@@ -78,6 +78,76 @@ papers = [
         "paper-7",
         "A paper about self-supervised learning techniques for representation learning."
     ),
+    Paper(
+    "AI Safety for Large Language Models",
+    2024,
+    920,
+    ["R. Turner", "L. Smith"],
+    "paper-8",
+    "This paper studies AI safety challenges in large language models, including robustness, misalignment, and unsafe model behavior."
+),
+Paper(
+    "Reasoning Abilities in Language Models",
+    2024,
+    780,
+    ["M. Chen", "A. Gupta"],
+    "paper-9",
+    "We analyze reasoning abilities in language models and evaluate how well modern models solve multi-step reasoning tasks."
+),
+Paper(
+    "Agentic Coding with LLM Systems",
+    2025,
+    410,
+    ["D. Park", "J. Miller"],
+    "paper-10",
+    "This paper explores agentic coding systems where language models autonomously write, revise, and debug code in iterative loops."
+),
+Paper(
+    "Retrieval-Augmented Generation in Practice",
+    2024,
+    650,
+    ["S. Rao", "E. Brown"],
+    "paper-11",
+    "We study retrieval-augmented generation systems and show how external knowledge retrieval improves factual accuracy and grounding."
+),
+Paper(
+    "Alignment and Control in AI Agents",
+    2025,
+    530,
+    ["K. Patel", "N. Evans"],
+    "paper-12",
+    "This work focuses on alignment and control problems in AI agents, with an emphasis on safety, monitoring, and reliable behavior."
+),
+Paper(
+    "Tool Use and Planning in Reasoning Models",
+    2025,
+    470,
+    ["Y. Nakamura", "P. Silva"],
+    "paper-13",
+    "We examine reasoning models that combine tool use, explicit planning, and structured intermediate steps for harder tasks."
+),
+Paper(
+    "Secure Deployment of Agentic AI Systems",
+    2024,
+    355,
+    ["T. Ivanov"],
+    "paper-14",
+    "This paper discusses the secure deployment of agentic AI systems, including oversight, safety constraints, and failure prevention."
+),
+Paper(
+    "Evaluation of OpenAI-style Reasoning Systems",
+    2025,
+    290,
+    ["C. Weber", "F. Rossi"],
+    "paper-15",
+    "We evaluate OpenAI-style reasoning systems on benchmarks requiring chain-of-thought, planning, and robust problem solving."
+),
+]
+
+test_queries = [
+    "ai safety",
+    "reasoning models",
+    "agentic coding",
 ]
 
 
@@ -107,7 +177,7 @@ def safe_paper_field_by_id(papers: list[Paper], paper_id: str, field: str) -> st
                 return paper.authors
             else:
                 return None
-    return
+    return None
         
 
 def safe_snippet_by_id(papers: list[Paper], paper_id: str, limit: int) -> str | None:
@@ -115,9 +185,15 @@ def safe_snippet_by_id(papers: list[Paper], paper_id: str, limit: int) -> str | 
         if paper.id == paper_id:
             if len(paper.summary) <= limit:
                 return paper.summary
-            return paper.summary[:limit] + " ... "
+            return paper.summary[:limit] + "..."
     return None
     
+for query in test_queries:
+    selected_papers = select_discovery_papers(papers, query, 5)
+    print(f'\nQUERY: {query}')
+    for paper in selected_papers:
+        print('-', paper.title)
+        
     
 result = safe_snippet_by_id(papers, "paper-2", 5)
 

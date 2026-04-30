@@ -23,7 +23,6 @@ def paper_match_score(paper: Paper, query: str) -> int:
         if word and word in summary_lower:
             score += 1
     return score
-    ...
 
 
 def select_discovery_papers(papers: list[Paper], query: str, limit: int = 5) -> list[Paper]:
