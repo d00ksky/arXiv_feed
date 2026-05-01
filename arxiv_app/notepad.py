@@ -203,10 +203,10 @@ papers = [
 def group_titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
     years_grouped = {}
     for paper in papers:
-        #print(paper['year'])
-        if paper['year'] not in years_grouped:
-            years_grouped[paper['year']] = []
-        years_grouped[paper["year"]].append(paper["title"])
+        year = paper['year']
+        if year not in years_grouped:
+            years_grouped[year] = []
+        years_grouped[year].append(paper["title"])
     return years_grouped
             
 
