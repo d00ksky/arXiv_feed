@@ -188,14 +188,30 @@ def safe_snippet_by_id(papers: list[Paper], paper_id: str, limit: int) -> str | 
             return paper.summary[:limit] + "..."
     return None
     
-for query in test_queries:
-    selected_papers = select_discovery_papers(papers, query, 5)
-    print(f'\nQUERY: {query}')
-    for paper in selected_papers:
-        print('-', paper.title)
+# for query in test_queries:
+#     selected_papers = select_discovery_papers(papers, query, 5)
+#     print(f'\nQUERY: {query}')
+#     for paper in selected_papers:
+#         print('-', paper.title)
         
-    
-result = safe_snippet_by_id(papers, "paper-2", 5)
+papers = [
+    {"title": "A", "year": 2024},
+    {"title": "B", "year": 2024},
+    {"title": "C", "year": 2023},
+]
+
+def group_titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
+    years_grouped = {}
+    for paper in papers:
+        #print(paper['year'])
+        if paper['year'] not in years_grouped:
+            years_grouped[paper['year']] = []
+        years_grouped[paper["year"]].append(paper["title"])
+    return years_grouped
+            
+
+
+result = group_titles_by_year(papers)
 
 
 print(result)

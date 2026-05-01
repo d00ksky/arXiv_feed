@@ -14,6 +14,3 @@ def digest_for_interest_query(interest: str, limit: int = 5, fetch_limit: int = 
     papers = normalize_papers(raw)
     selected = top_papers_for_interest(papers, interest, limit)
     return render_interest_digest(interest, selected)
-    
-
-    
