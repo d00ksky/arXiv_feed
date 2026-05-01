@@ -1,10 +1,12 @@
-from arxiv_app.logic import 
+from arxiv_app.logic import parse_selection
 
 def test_parse_selection_returns_int_for_number():
-    
+    result = parse_selection("3")
+    assert result == 3    
 
 def test_parse_selection_returns_none_for_empty_string():
-    ...
+    result = parse_selection("")
+    assert result == None
 
 def test_parse_selection_returns_none_for_non_number():
     ...
