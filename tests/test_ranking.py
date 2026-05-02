@@ -10,11 +10,6 @@ from arxiv_app.ranking import (
 # - select_discovery_papers sortuje po score
 
 
-
-title = "Large Language Models for Search"
-query = "large language models"
-
-
 # pełne query w tytule = +4
 # "large" w tytule = +2
 # "language" w tytule = +2
@@ -22,7 +17,9 @@ query = "large language models"
 
 # razem = 10
 
-def title_match_score_scoring_for_full_query():
+def test_title_match_score_scoring_for_full_query():
+    title = "Large Language Models for Search"
+    query = "large language models"
     result = title_match_score(title, query)
     
     assert result == 10
