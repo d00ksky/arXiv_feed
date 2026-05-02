@@ -44,3 +44,12 @@ def make_paper(title: str, summary: str, year: int = 2024) -> Paper:
         summary=summary,
     )
     
+def test_paper_match_score_uses_summary():
+    paper = make_paper(
+        title="Unrelated title",
+        summary="This paper is about large language models.",
+    )
+
+    result = paper_match_score(paper, "large language models")
+
+    assert result == 5
