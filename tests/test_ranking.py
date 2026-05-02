@@ -4,6 +4,8 @@ from arxiv_app.ranking import (
     select_discovery_papers
 )
 
+from arxiv_app.models import Paper
+
 # - title_match_score daje punkty za pełne query
 # - title_match_score daje punkty za pojedyncze słowa
 # - paper_match_score bierze pod uwagę summary
@@ -31,3 +33,14 @@ def test_title_match_score_scores_individual_words_without_full_query():
     )
 
     assert result == 4    
+    
+def make_paper(title: str, summary: str, year: int = 2024) -> Paper:
+    return Paper(
+        title=title,
+        year=year,
+        citations=0,
+        authors=["Test Author"],
+        id=f"test-id-{title}",
+        summary=summary,
+    )
+    
