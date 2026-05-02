@@ -53,3 +53,12 @@ def test_paper_match_score_uses_summary():
     result = paper_match_score(paper, "large language models")
 
     assert result == 5
+    
+def test_select_discovery_papers_sorts_by_score():
+    # arrange: weak_paper, strong_paper
+
+    # act: result = select_discovery_papers(...)
+
+    # assert: result == [...]
+    
+    
