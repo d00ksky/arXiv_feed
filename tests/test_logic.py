@@ -72,3 +72,8 @@ def test_summary_snippet_truncates_long_text():
     result = summary_snippet("abcdef", 3)
     
     assert result == "abc..."
+    
+def test_parse_selection_strips_spaces_around_number():
+    result = parse_selection("  7  ")
+
+    assert result == 7
