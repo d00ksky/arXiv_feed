@@ -23,3 +23,11 @@ def test_title_match_score_scoring_for_full_query():
     result = title_match_score(title, query)
     
     assert result == 10
+    
+def test_title_match_score_scores_individual_words_without_full_query():
+    result = title_match_score(
+        "Language Agents and Model Reasoning",
+        "language model",
+    )
+
+    assert result == 4    
