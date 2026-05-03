@@ -61,4 +61,23 @@ def test_select_discovery_papers_sorts_by_score():
 
     # assert: result == [...]
     
+    weak_paper = make_paper(
+        title="Unrelated title",
+        summary="This mentions language once.",
+    )
+    
+    strong_paper = make_paper(
+        title="Large language models for search",
+        summary="This paper is about large, even more large language models.",
+    )
+    
+    papers = [weak_paper, strong_paper]
+    
+    result = select_discovery_papers(
+        papers, 
+        query="large language model",
+        limit=2,
+        )
+    
+    assert result == [strong_paper, weak_paper]
     
