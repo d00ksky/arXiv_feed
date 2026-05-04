@@ -229,7 +229,17 @@ def group_services_by_category(services: list[dict]) -> dict[str, list[str]]:
         grouped[service["category"]].append(service["name"])
     return grouped
 
-result = group_services_by_category(services)
+
+def get_services_in_category(
+    grouped_services: dict[str, list[str]],
+    category: str,
+) -> list[str]:
+    return grouped_services.get(category, [])
+    
+
+grouped_services = group_services_by_category(services)
+
+result = get_services_in_category(grouped_services, "compute")
 
 
 print(result)
