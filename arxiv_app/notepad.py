@@ -210,8 +210,26 @@ def group_titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
     return years_grouped
             
 
+services = [
+    {"name": "S3", "category": "storage"},
+    {"name": "Lambda", "category": "compute"},
+    {"name": "IAM", "category": "security"},
+    {"name": "CloudWatch", "category": "monitoring"},
+    {"name": "Bedrock", "category": "genai"},
+    {"name": "OpenSearch Serverless", "category": "search"},
+    {"name": "AWS Budgets", "category": "cost"},
+    {"name": "EC2", "category": "compute"},
+]
 
-result = group_titles_by_year(papers)
+def group_services_by_category(services: list[dict]) -> dict[str, list[str]]:
+    grouped = {}
+    for service in services:
+        if service["category"] not in grouped:
+            grouped[service["category"]] = []
+        grouped[service["category"]].append(service["name"])
+    return grouped
+
+result = group_services_by_category(services)
 
 
 print(result)
