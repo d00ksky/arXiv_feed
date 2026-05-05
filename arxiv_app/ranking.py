@@ -36,3 +36,5 @@ def select_discovery_papers(papers: list[Paper], query: str, limit: int = 5) -> 
         reverse=True
     )[:limit]
     
+def explain_paper_match(paper: Paper, query: str) -> list[str]:
+    ...

@@ -194,11 +194,11 @@ def safe_snippet_by_id(papers: list[Paper], paper_id: str, limit: int) -> str | 
 #     for paper in selected_papers:
 #         print('-', paper.title)
         
-papers = [
-    {"title": "A", "year": 2024},
-    {"title": "B", "year": 2024},
-    {"title": "C", "year": 2023},
-]
+# papers = [
+#     {"title": "A", "year": 2024},
+#     {"title": "B", "year": 2024},
+#     {"title": "C", "year": 2023},
+# ]
 
 def group_titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
     years_grouped = {}
@@ -239,7 +239,49 @@ def get_services_in_category(
 
 grouped_services = group_services_by_category(services)
 
-result = get_services_in_category(grouped_services, "compute")
+
+def explain_paper_match(paper: Paper, query: str) -> list[str]:
+    
+    # paper.title = "Large Language Models for Search"
+    # paper.summary = "This paper studies retrieval systems."
+    # query = "large language models"
+    # paper.year = 2024
+    
+    reasons = []
+
+    query_lower = query.lower()
+    title_lower = paper.title.lower()
+    summary_lower = paper.summary.lower()
+
+    print(f"title = {paper.title}")
+    print(f"summary = {paper.summary}")
+    # 1. full query in title
+    # 2. full query in summary
+    # 3. each query word in title
+    # 4. each query word in summary
+    # 5. recent paper, for example year >= 2023
+    
+    if query_lower in title_lower:
+        reasons.append("title contains full query")
+    
+    for word in query_lower.split(" "):
+        if word in title_lower:
+            reasons.append(f"title contains keyword: {word}")
+        
+    if query_lower in summary_lower:
+        reasons.append("summary contains full query")
+        
+    if query_lower in summary_lower:
+        reasons.append(f"summary contains keyword: {query_lower}")
+
+    return reasons
+
+
+paper = papers[1]
+
+
+result = explain_paper_match(paper, "in Medicine")
+
 
 
 print(result)
