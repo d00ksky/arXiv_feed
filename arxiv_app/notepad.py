@@ -287,6 +287,8 @@ services = [
     {"name": "EC2", "category": "compute"},
 ]
 
+# DRILL 1
+
 def services_in_category(services: list[dict], category: str) -> list[str]:
     services_in_cat = []
     for service in services:
@@ -294,10 +296,23 @@ def services_in_category(services: list[dict], category: str) -> list[str]:
             services_in_cat.append(service["name"])
     return services_in_cat
 
+
+# DRILL 2
+
+def count_services_by_category(services: list[dict]) -> dict[str, int]:
+    services_count = {}
+    for service in services:
+        if service["category"] not in services_count:
+            services_count[service["category"]] = 1
+        else:
+            services_count[service["category"]] += 1
+    return services_count
+    
+
 paper = papers[1]
 
 
-result = services_in_category(services, "compute")
+result = count_services_by_category(services)
 
 
 
