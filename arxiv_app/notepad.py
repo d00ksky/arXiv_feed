@@ -312,11 +312,21 @@ def count_services_by_category(services: list[dict]) -> dict[str, int]:
 def has_service(services: list[dict], service_name: str) -> bool:
     return any(service["name"].lower() == service_name.lower() for service in services)
 
+services = [
+    {"name": "S3", "priority": 2},
+    {"name": "IAM", "priority": 5},
+    {"name": "Lambda", "priority": 3},
+]
+
+
+def sort_services_by_priority(services: list[dict]) -> list[dict]:
+    return sorted(services, key=lambda service: service["priority"], reverse=True)
+
 
 paper = papers[1]
 
 
-result = has_service(services, "S3")
+result = sort_services_by_priority(services)
 
 
 
