@@ -277,10 +277,27 @@ def explain_paper_match(paper: Paper, query: str) -> list[str]:
     return reasons
 
 
+
+# 2026-05-06
+
+services = [
+    {"name": "S3", "category": "storage"},
+    {"name": "Lambda", "category": "compute"},
+    {"name": "IAM", "category": "security"},
+    {"name": "EC2", "category": "compute"},
+]
+
+def services_in_category(services: list[dict], category: str) -> list[str]:
+    services_in_cat = []
+    for service in services:
+        if service["category"] == category:
+            services_in_cat.append(service["name"])
+    return services_in_cat
+
 paper = papers[1]
 
 
-result = explain_paper_match(paper, "in Medicine")
+result = services_in_category(services, "compute")
 
 
 
