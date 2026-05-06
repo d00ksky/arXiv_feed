@@ -308,6 +308,7 @@ def count_services_by_category(services: list[dict]) -> dict[str, int]:
             services_count[service["category"]] += 1
     return services_count
     
+# DRILL 3
 
 def has_service(services: list[dict], service_name: str) -> bool:
     return any(service["name"].lower() == service_name.lower() for service in services)
@@ -318,6 +319,7 @@ services = [
     {"name": "Lambda", "priority": 3},
 ]
 
+# DRILL 4
 
 def sort_services_by_priority(services: list[dict]) -> list[dict]:
     return sorted(services, key=lambda service: service["priority"], reverse=True)
