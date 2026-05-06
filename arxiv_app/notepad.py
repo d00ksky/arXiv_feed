@@ -309,10 +309,14 @@ def count_services_by_category(services: list[dict]) -> dict[str, int]:
     return services_count
     
 
+def has_service(services: list[dict], service_name: str) -> bool:
+    return any(service["name"].lower() == service_name.lower() for service in services)
+
+
 paper = papers[1]
 
 
-result = count_services_by_category(services)
+result = has_service(services, "S3")
 
 
 
