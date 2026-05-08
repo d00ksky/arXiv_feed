@@ -328,7 +328,12 @@ def sort_services_by_priority(services: list[dict]) -> list[dict]:
 paper = papers[1]
 
 
-result = sort_services_by_priority(services)
+def normalize_service_name(name: str) -> str:
+    return name.lower().strip()
+    
+
+
+result = normalize_service_name("services lambada. b")
 
 
 
