@@ -350,7 +350,45 @@ def high_priority_service_names(
     return prio_sevices
     
 
-result = high_priority_service_names(services, 4)
+services = [
+    {"name": "EC2", "category": "compute", "priority": 5},
+    {"name": "Lambda", "category": "compute", "priority": 4},
+    {"name": "S3", "category": "storage", "priority": 3},
+    {"name": "IAM", "category": "security", "priority": 5},
+    {"name": "CloudWatch", "category": "monitoring", "priority": 4},
+    {"name": "Bedrock", "category": "genai", "priority": 5},
+]
+
+
+def important_compute_services(
+    services: list[dict],
+    min_priority: int,
+) -> list[str]:
+    important_services = []
+    for service in services:
+        if service["category"] == "compute" and service["priority"] >= min_priority:
+            important_services.append(service["name"])
+    return important_services
+
+
+def important_compute_services2(
+    services: list[dict],
+    min_priority: int,
+) -> list[str]:
+    return [
+        service["name"] for service in services if 
+        service["category"] == "compute" and 
+        service["priority"] >= min_priority
+        ]
+    
+def non_compute_services(services: list[dict]) -> list[str]:
+    return [
+        service["name"] 
+        for service in services 
+        if service["category"] != "compute"
+    ]
+
+result = non_compute_services(services)
 
 
 
