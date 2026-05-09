@@ -388,7 +388,32 @@ def non_compute_services(services: list[dict]) -> list[str]:
         if service["category"] != "compute"
     ]
 
-result = non_compute_services(services)
+
+services = [
+    {"name": "EC2", "category": "compute", "priority": 5},
+    {"name": "Lambda", "category": "compute", "priority": 4},
+    {"name": "S3", "category": "storage", "priority": 5},
+    {"name": "EBS", "category": "storage", "priority": 3},
+    {"name": "IAM", "category": "security", "priority": 5},
+    {"name": "KMS", "category": "security", "priority": 4},
+    {"name": "CloudWatch", "category": "monitoring", "priority": 4},
+    {"name": "CloudTrail", "category": "monitoring", "priority": 5},
+]
+
+def top_service_by_category(services: list[dict]) -> dict[str, str]:
+    top_by_category = {}
+    for service in services:
+        category = service["category"]
+        if category not in top_by_category:
+            top_by_category[category] = service
+        elif top_by_category[category]["priority"] < service["priority"]:
+            top_by_category[category] = service
+    return {
+        category: service["name"]
+        for category, service in top_by_category.items()
+    }
+
+result = top_service_by_category(services)
 
 
 
