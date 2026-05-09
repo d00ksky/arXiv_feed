@@ -442,9 +442,54 @@ def average_priority_by_category(services: list[dict]) -> dict[str, float]:
     }
            
 
+services = [
+    {"name": "EC2", "category": "compute", "priority": 5},
+    {"name": "Lambda", "category": "compute", "priority": 4},
+    {"name": "ECS", "category": "compute", "priority": 3},
+    {"name": "S3", "category": "storage", "priority": 5},
+    {"name": "EBS", "category": "storage", "priority": 3},
+    {"name": "Glacier", "category": "storage", "priority": 2},
+    {"name": "IAM", "category": "security", "priority": 5},
+    {"name": "KMS", "category": "security", "priority": 4},
+    {"name": "CloudWatch", "category": "monitoring", "priority": 4},
+    {"name": "CloudTrail", "category": "monitoring", "priority": 5},
+]
 
+def top_services_by_category(
+    services: list[dict],
+    limit: int,
+) -> dict[str, list[str]]:
+    grouped = {}
+    for service in services:
+        category = service["category"]
+        priority = service["priority"]
+        if category not in grouped:
+            grouped[category] = [service]
+        else:
+            grouped[category].append(service)
+            
+    result = {}
+    for category, category_services in grouped.items():
+        sorted_services = sorted(
+            category_services, 
+            key=lambda service: service["priority"],
+            reverse=True
+        )
+        
+        top_services = sorted_services[:limit]
+        
+        result[category] = [
+            service["name"]
+            for service in top_services
+        ]
+        
+    return result
 
-result = average_priority_by_category(services)
+        
+    
+    ...
+
+result = top_services_by_category(services, 4)
 
 
 
