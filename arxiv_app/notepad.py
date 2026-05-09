@@ -413,7 +413,38 @@ def top_service_by_category(services: list[dict]) -> dict[str, str]:
         for category, service in top_by_category.items()
     }
 
-result = top_service_by_category(services)
+
+
+services = [
+    {"name": "EC2", "category": "compute", "priority": 5},
+    {"name": "Lambda", "category": "compute", "priority": 4},
+    {"name": "S3", "category": "storage", "priority": 5},
+    {"name": "EBS", "category": "storage", "priority": 3},
+    {"name": "IAM", "category": "security", "priority": 5},
+    {"name": "KMS", "category": "security", "priority": 4},
+    {"name": "CloudWatch", "category": "monitoring", "priority": 4},
+    {"name": "CloudTrail", "category": "monitoring", "priority": 5},
+]
+
+
+def average_priority_by_category(services: list[dict]) -> dict[str, float]:
+    totals = {}
+    for service in services:
+        category = service["category"]
+        if category not in totals:
+            totals[category] = {"total": service["priority"], "count": 1}
+        else:
+            totals[category]["total"] += service["priority"]
+            totals[category]["count"] += 1
+    return {
+        category: values["total"] / values["count"]
+        for category, values in totals.items()
+    }
+           
+
+
+
+result = average_priority_by_category(services)
 
 
 
