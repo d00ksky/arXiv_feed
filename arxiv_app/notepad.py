@@ -330,10 +330,27 @@ paper = papers[1]
 
 def normalize_service_name(name: str) -> str:
     return name.lower().strip()
+
+
+services = [
+    {"name": "S3", "priority": 2},
+    {"name": "IAM", "priority": 5},
+    {"name": "Lambda", "priority": 3},
+    {"name": "Bedrock", "priority": 4},
+]
+    
+def high_priority_service_names(
+    services: list[dict],
+    min_priority: int,
+) -> list[str]:
+    prio_sevices = []
+    for service in services:
+        if service["priority"] >= min_priority:
+            prio_sevices.append(service["name"])
+    return prio_sevices
     
 
-
-result = normalize_service_name("services lambada. b")
+result = high_priority_service_names(services, 4)
 
 
 
