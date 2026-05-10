@@ -502,24 +502,17 @@ services = [
 
 
 def category_summary(services: list[dict]) -> dict[str, dict]:
-    summary = {
-        "compute": {
-            "count": 0,
-            "total_priority": 0,
-            "top_service": None,
-            "top_priority": 0,
-        }
-    }
+    summary = {}
     for service in services:
         name = service["name"]
         category = service["category"]
         priority = service["priority"]
         if category not in summary:
             summary[category] = {
-        "count": 0,
-        "total_priority": 0,
-        "top_service": None,
-        "top_priority": 0,
+            "count": 0,
+            "total_priority": 0,
+            "top_service": None,
+            "top_priority": 0,
         }
         summary[category]["count"] += 1
         summary[category]["total_priority"] += priority
