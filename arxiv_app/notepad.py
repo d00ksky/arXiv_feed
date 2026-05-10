@@ -485,11 +485,66 @@ def top_services_by_category(
         
     return result
 
+
+
+services = [
+    {"name": "EC2", "category": "compute", "priority": 5},
+    {"name": "Lambda", "category": "compute", "priority": 4},
+    {"name": "ECS", "category": "compute", "priority": 3},
+    {"name": "S3", "category": "storage", "priority": 5},
+    {"name": "EBS", "category": "storage", "priority": 3},
+    {"name": "Glacier", "category": "storage", "priority": 2},
+    {"name": "IAM", "category": "security", "priority": 5},
+    {"name": "KMS", "category": "security", "priority": 4},
+    {"name": "CloudWatch", "category": "monitoring", "priority": 4},
+    {"name": "CloudTrail", "category": "monitoring", "priority": 5},
+]
+
+
+def category_summary(services: list[dict]) -> dict[str, dict]:
+    summary = {
+        "compute": {
+            "count": 0,
+            "total_priority": 0,
+            "top_service": None,
+            "top_priority": 0,
+        }
+    }
+    for service in services:
+        name = service["name"]
+        category = service["category"]
+        priority = service["priority"]
+        if category not in summary:
+            summary[category] = {
+        "count": 0,
+        "total_priority": 0,
+        "top_service": None,
+        "top_priority": 0,
+        }
+        summary[category]["count"] += 1
+        summary[category]["total_priority"] += priority
+        if summary[category]["top_priority"] < priority:
+            summary[category]["top_priority"] = priority
+            summary[category]["top_service"] = name
+        
+    final_summary = {}
+
+    for category, values in summary.items():
+        final_summary[category] = {
+            "count": values["count"],
+            "average_priority": values["total_priority"] / values["count"],
+            "top_service": values["top_service"],
+        }
+
+    return final_summary
+            
+    
+    
+            
         
     
-    ...
 
-result = top_services_by_category(services, 4)
+result = category_summary(services)
 
 
 
