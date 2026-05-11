@@ -533,11 +533,12 @@ def category_summary(services: list[dict]) -> dict[str, dict]:
             
     
     
-            
+def category_summary2(services: list[dict]) -> dict[str, dict]:
+                
         
     
 
-result = category_summary(services)
+result = category_summary2(services)
 
 
 
