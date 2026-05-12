@@ -563,11 +563,40 @@ def category_summary2(services: list[dict]) -> dict[str, dict]:
         
     return final_summary
         
-                
-        
+
+
+def category_summary3(services: list[dict]) -> dict[str, dict]:
+    summary = {}
+    for service in services:
+        name = service["name"]
+        priority = service["priority"]
+        category = service["category"]
+        if category not in summary:
+            summary[category] = {
+            "count": 0,
+            "total_priority": 0,
+            "top_service": None,
+            "top_priority": 0,
+        }
+        summary[category]["count"] += 1
+        summary[category]["total_priority"] += priority
+        if summary[category]["top_priority"] < priority:
+            summary[category]["top_priority"] = priority
+            summary[category]["top_service"] = name
+    final_summary = {}
+    for category, values in summary.items():
+        final_summary[category] = {
+            "count": values["count"],
+            "average_priority": values["total_priority"] / values["count"],
+            "top_service": values["top_service"],
+        }
+    
+    return final_summary 
     
 
-result = category_summary2(services)
+
+
+result = category_summary3(services)
 
 
 
