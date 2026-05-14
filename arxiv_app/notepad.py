@@ -592,7 +592,8 @@ def category_summary3(services: list[dict]) -> dict[str, dict]:
         }
     
     return final_summary 
-    
+   
+   #todok 
 
 
 
