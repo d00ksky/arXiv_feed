@@ -593,7 +593,70 @@ def category_summary3(services: list[dict]) -> dict[str, dict]:
     
     return final_summary 
    
-   #todok 
+   
+papers = [
+    {"title": "Large Language Models for Search", "year": 2024, "score": 9},
+    {"title": "Vision Transformers in Medicine", "year": 2024, "score": 7},
+    {"title": "Efficient Language Agents", "year": 2023, "score": 8},
+    {"title": "Graph Neural Networks", "year": 2023, "score": 6},
+    {"title": "Language Models for Code", "year": 2024, "score": 10},
+    {"title": "Reasoning in Large Models", "year": 2023, "score": 9},
+]
+
+
+# to zjebałem
+
+def top_matching_titles_by_year(
+    papers: list[dict],
+    keywords: list[str],
+    limit: int,
+) -> dict[int, list[str]]:
+    ...
+    grouped = {}
+    for paper in papers:
+        year = paper["year"]
+        if year not in grouped:
+            grouped[year] = [] 
+        if any(keyword.lower() in paper["title"].lower() for keyword in keywords):
+            grouped[year].append(paper)
+    return sorted(grouped, key=lambda paper: paper["score"], reverse=True) 
+ 
+ 
+# a tak powinno być
+
+def top_matching_titles_by_year(
+    papers: list[dict],
+    keywords: list[str],
+    limit: int,
+) -> dict[int, list[str]]:
+    grouped = {}
+
+    for paper in papers:
+        if any(keyword.lower() in paper["title"].lower() for keyword in keywords):
+            year = paper["year"]
+
+            if year not in grouped:
+                grouped[year] = []
+
+            grouped[year].append(paper)
+
+    result = {}
+
+    for year, year_papers in grouped.items():
+        sorted_papers = sorted(
+            year_papers,
+            key=lambda paper: paper["score"],
+            reverse=True,
+        )
+
+        top_papers = sorted_papers[:limit]
+
+        result[year] = [
+            paper["title"]
+            for paper in top_papers
+        ]
+
+    return result    
 
 
 
