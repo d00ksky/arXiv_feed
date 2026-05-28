@@ -604,22 +604,7 @@ papers = [
 ]
 
 
-# to zjebałem
 
-def top_matching_titles_by_year(
-    papers: list[dict],
-    keywords: list[str],
-    limit: int,
-) -> dict[int, list[str]]:
-    ...
-    grouped = {}
-    for paper in papers:
-        year = paper["year"]
-        if year not in grouped:
-            grouped[year] = [] 
-        if any(keyword.lower() in paper["title"].lower() for keyword in keywords):
-            grouped[year].append(paper)
-    return sorted(grouped, key=lambda paper: paper["score"], reverse=True) 
  
  
 # a tak powinno być
