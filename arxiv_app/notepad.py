@@ -658,9 +658,31 @@ def top_matching_titles_by_year(
 
     return result    
 
+papers = [
+    {"title": "Large Language Models for Search", "year": 2024},
+    {"title": "Vision Transformers in Medicine", "year": 2024},
+    {"title": "Language Models for Code", "year": 2023},
+    {"title": "Graph Neural Networks", "year": 2023},
+]
 
+def title_keyword_counts(
+    papers: list[dict],
+    keywords: list[str],
+) -> dict[str, int]:
+    keyword_counts = {}
+    for paper in papers:
+        count = 0
+        title_lower = paper["title"].lower()
+        for keyword in keywords:
+            if keyword.lower() in title_lower:
+                count += 1
+        keyword_counts[title_lower] = count
+    return keyword_counts
+        
+        
+        
 
-result = category_summary3(services)
+result = title_keyword_counts(papers, ["models", "language"])
 
 
 
