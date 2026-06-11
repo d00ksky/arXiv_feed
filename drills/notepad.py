@@ -29,4 +29,24 @@ def count_by_year(papers: list[dict]) -> dict[int, int]:
     return paper_count
 
 
-print(count_by_year(papers))
+papers = [
+    {
+        "title": "Paper A",
+        "authors": ["Yann LeCun", "Geoffrey Hinton"],
+    },
+    {
+        "title": "Paper B",
+        "authors": ["Ilya Sutskever", "Alex Krizhevsky"],
+    },
+]
+
+
+def has_author(papers: list[dict], author_query: str) -> bool:
+    author_query = author_query.lower()
+    return any(
+        any(author_query in author.lower() for author in paper["authors"])
+        for paper in papers
+    )
+
+
+print(has_author(papers, "karpathy"))
