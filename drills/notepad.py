@@ -49,4 +49,11 @@ def has_author(papers: list[dict], author_query: str) -> bool:
     )
 
 
-print(has_author(papers, "karpathy"))
+def normalize_keywords(text: str) -> list[str]:
+    return [keyword.strip().lower() for keyword in text.split(",") if keyword.strip()]
+
+
+print(normalize_keywords("AI, Machine Learning,  RAG"))
+# ["ai", "machine learning", "rag"]
+
+# print(has_author(papers, "karpathy"))
