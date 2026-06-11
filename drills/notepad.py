@@ -20,4 +20,13 @@ def top_titles_by_score(papers: list[dict], limit: int) -> list[str]:
     ][:limit]
 
 
-print(top_titles_by_score(papers, 3))
+def count_by_year(papers: list[dict]) -> dict[int, int]:
+    paper_count = {}
+    for paper in papers:
+        if paper["year"] not in paper_count:
+            paper_count[paper["year"]] = 0
+        paper_count[paper["year"]] += 1
+    return paper_count
+
+
+print(count_by_year(papers))
