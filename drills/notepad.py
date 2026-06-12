@@ -115,14 +115,43 @@ def has_author(papers: list[dict], author_query: str) -> bool:
     )
 
 
-assert has_author(papers, "vaswani") is True
-assert has_author(papers, "Vaswani") is True
-assert has_author(papers, "patrick") is True
-assert has_author(papers, "kowalska") is True
-assert has_author(papers, "hinton") is False
-assert has_author([], "vaswani") is False
-assert has_author(papers, "") is False
+# assert has_author(papers, "vaswani") is True
+# assert has_author(papers, "Vaswani") is True
+# assert has_author(papers, "patrick") is True
+# assert has_author(papers, "kowalska") is True
+# assert has_author(papers, "hinton") is False
+# assert has_author([], "vaswani") is False
+# assert has_author(papers, "") is False
+
+# print("All tests passed")
+
+# print(has_author(papers, "vaswani"))
+
+papers = [
+    {"title": "A", "year": 2024},
+    {"title": "B", "year": 2024},
+    {"title": "C", "year": 2020},
+]
+
+
+def group_titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
+    grouped_titles: dict[int, list[str]] = {}
+    for paper in papers:
+        year = paper["year"]
+        title = paper["title"]
+        if year not in grouped_titles:
+            grouped_titles[year] = []
+        grouped_titles[year].append(title)
+    return grouped_titles
+
+
+assert group_titles_by_year(papers) == {
+    2024: ["A", "B"],
+    2020: ["C"],
+}
+
+assert group_titles_by_year([]) == {}
 
 print("All tests passed")
 
-print(has_author(papers, "vaswani"))
+print(group_titles_by_year(papers))
