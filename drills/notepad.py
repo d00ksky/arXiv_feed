@@ -41,7 +41,7 @@ papers = [
 ]
 
 
-def has_author(papers: list[dict], author_query: str) -> bool:
+def has_author1(papers: list[dict], author_query: str) -> bool:
     author_query = author_query.lower()
     return any(
         any(author_query in author.lower() for author in paper["authors"])
@@ -76,4 +76,48 @@ def count_by_year(papers: list[dict]) -> dict[int, int]:
     return paper_year_count
 
 
-print(count_by_year(papers))
+# print(count_by_year(papers))
+
+# assert count_by_year(papers) == {2024: 2, 2020: 1}
+# assert count_by_year([]) == {}
+
+# print("All tests passed")
+
+
+papers = [
+    {
+        "title": "Attention Is All You Need",
+        "year": 2017,
+        "authors": ["Ashish Vaswani", "Noam Shazeer"],
+    },
+    {
+        "title": "Retrieval-Augmented Generation",
+        "year": 2020,
+        "authors": ["Patrick Lewis", "Ethan Perez"],
+    },
+    {
+        "title": "Modern LLM Evaluation",
+        "year": 2024,
+        "authors": ["Anna Kowalska", "Jan Nowak"],
+    },
+]
+
+
+def has_author(papers: list[dict], author_query: str) -> bool:
+    author_query = author_query.lower()
+    return any(
+        any(author_query in author.lower() for author in paper["authors"])
+        for paper in papers
+    )
+
+
+assert has_author(papers, "vaswani") is True
+assert has_author(papers, "Vaswani") is True
+assert has_author(papers, "patrick") is True
+assert has_author(papers, "kowalska") is True
+assert has_author(papers, "hinton") is False
+assert has_author([], "vaswani") is False
+
+print("All tests passed")
+
+print(has_author(papers, "vaswani"))
