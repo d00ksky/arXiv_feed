@@ -105,6 +105,10 @@ papers = [
 
 def has_author(papers: list[dict], author_query: str) -> bool:
     author_query = author_query.lower()
+
+    if not author_query.strip():
+        return False
+
     return any(
         any(author_query in author.lower() for author in paper["authors"])
         for paper in papers
@@ -117,6 +121,7 @@ assert has_author(papers, "patrick") is True
 assert has_author(papers, "kowalska") is True
 assert has_author(papers, "hinton") is False
 assert has_author([], "vaswani") is False
+assert has_author(papers, "") is False
 
 print("All tests passed")
 
