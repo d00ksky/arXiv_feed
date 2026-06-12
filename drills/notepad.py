@@ -20,7 +20,7 @@ def top_titles_by_score(papers: list[dict], limit: int) -> list[str]:
     ][:limit]
 
 
-def count_by_year(papers: list[dict]) -> dict[int, int]:
+def count_by_year1(papers: list[dict]) -> dict[int, int]:
     paper_count = {}
     for paper in papers:
         if paper["year"] not in paper_count:
@@ -53,7 +53,27 @@ def normalize_keywords(text: str) -> list[str]:
     return [keyword.strip().lower() for keyword in text.split(",") if keyword.strip()]
 
 
-print(normalize_keywords("AI, Machine Learning,  RAG"))
+# print(normalize_keywords("AI, Machine Learning,  RAG"))
 # ["ai", "machine learning", "rag"]
 
+
 # print(has_author(papers, "karpathy"))
+
+papers = [
+    {"title": "A", "year": 2024, "score": 9},
+    {"title": "B", "year": 2024, "score": 7},
+    {"title": "C", "year": 2020, "score": 8},
+]
+
+
+def count_by_year(papers: list[dict]) -> dict[int, int]:
+    paper_year_count = {}
+    for paper in papers:
+        year = paper["year"]
+        if year not in paper_year_count:
+            paper_year_count[year] = 0
+        paper_year_count[year] += 1
+    return paper_year_count
+
+
+print(count_by_year(papers))
