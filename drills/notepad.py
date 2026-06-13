@@ -66,7 +66,7 @@ papers = [
 ]
 
 
-def count_by_year(papers: list[dict]) -> dict[int, int]:
+def count_by_year2(papers: list[dict]) -> dict[int, int]:
     paper_year_count = {}
     for paper in papers:
         year = paper["year"]
@@ -145,13 +145,26 @@ def group_titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
     return grouped_titles
 
 
-assert group_titles_by_year(papers) == {
-    2024: ["A", "B"],
-    2020: ["C"],
-}
+# assert group_titles_by_year(papers) == {
+#     2024: ["A", "B"],
+#     2020: ["C"],
+# }
 
-assert group_titles_by_year([]) == {}
+# assert group_titles_by_year([]) == {}
 
-print("All tests passed")
+# print("All tests passed")
 
-print(group_titles_by_year(papers))
+# print(group_titles_by_year(papers))
+
+
+def count_by_year(papers: list[dict]) -> dict[int, int]:
+    year_count: dict[int, int] = {}
+    for paper in papers:
+        year = paper["year"]
+        if year not in year_count:
+            year_count[year] = 0
+        year_count[year] += 1
+    return year_count
+
+
+print(count_by_year(papers))
