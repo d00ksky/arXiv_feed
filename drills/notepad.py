@@ -158,13 +158,11 @@ def group_titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
 
 
 def count_by_year(papers: list[dict]) -> dict[int, int]:
-    year_count: dict[int, int] = {}
+    year_counts: dict[int, int] = {}
     for paper in papers:
         year = paper["year"]
-        if year not in year_count:
-            year_count[year] = 0
-        year_count[year] += 1
-    return year_count
+        year_counts[year] = year_counts.get(year, 0) + 1
+    return year_counts
 
 
 print(count_by_year(papers))
