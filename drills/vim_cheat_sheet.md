@@ -44,3 +44,12 @@ V  - visual line mode
 >  - indent selected lines right
 <  - indent selected lines left
 gv - reselect last visual selection
+
+
+## Visual mode
+
+v  - visual mode character selection
+V  - visual line mode
+d  - delete selected text
+y  - yank/copy selected text
+Esc - exit visual mode

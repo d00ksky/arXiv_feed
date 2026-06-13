@@ -166,3 +166,22 @@ def count_by_year(papers: list[dict]) -> dict[int, int]:
 
 
 print(count_by_year(papers))
+
+
+def count_by_category(papers: list[dict]) -> dict[str, int]:
+    category_counter: dict[str, int] = {}
+    for paper in papers:
+        category = paper["category"]
+        category_counter[category] = category_counter.get(category, 0) + 1
+    return category_counter
+
+
+papers = [
+    {"title": "A", "year": 2024, "category": "AI"},
+    {"title": "B", "year": 2024, "category": "ML"},
+    {"title": "C", "year": 2020, "category": "AI"},
+    {"title": "D", "year": 2023, "category": "NLP"},
+    {"title": "E", "year": 2024, "category": "AI"},
+]
+
+print(count_by_category(papers))
