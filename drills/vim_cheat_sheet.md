@@ -32,3 +32,15 @@ N - previous match
 :w - save
 :q - quit
 :wq - save and quit
+
+## Repeat / indent
+
+.  - repeat last change
+
+>> - indent current line right
+<< - indent current line left
+
+V  - visual line mode
+>  - indent selected lines right
+<  - indent selected lines left
+gv - reselect last visual selection
