@@ -165,7 +165,7 @@ def count_by_year(papers: list[dict]) -> dict[int, int]:
     return year_counts
 
 
-print(count_by_year(papers))
+# print(count_by_year(papers))
 
 
 def count_by_category(papers: list[dict]) -> dict[str, int]:
@@ -184,4 +184,37 @@ papers = [
     {"title": "E", "year": 2024, "category": "AI"},
 ]
 
-print(count_by_category(papers))
+# print(count_by_category(papers))
+
+
+def group_titles_by_category1(papers: list[dict]) -> dict[str, list[str]]:
+    titles_by_category: dict[str, list[str]] = {}
+    for paper in papers:
+        category = paper["category"]
+        title = paper["title"]
+        if category not in titles_by_category:
+            titles_by_category[category] = []
+        titles_by_category[category].append(title)
+    return titles_by_category
+
+
+def group_titles_by_category(papers: list[dict]) -> dict[str, list[str]]:
+    titles_by_category: dict[str, list[str]] = {}
+    for paper in papers:
+        category = paper["category"]
+        title = paper["title"]
+        titles = titles_by_category.get(category, [])
+        titles.append(title)
+        titles_by_category[category] = titles
+    return titles_by_category
+
+
+papers = [
+    {"title": "Attention Is All You Need", "category": "AI", "year": 2017},
+    {"title": "RAG Survey", "category": "NLP", "year": 2023},
+    {"title": "Transformer Improvements", "category": "AI", "year": 2024},
+    {"title": "Better Tokenization", "category": "NLP", "year": 2022},
+    {"title": "Quantum Weirdness", "category": "Physics", "year": 2020},
+]
+
+print(group_titles_by_category(papers))
