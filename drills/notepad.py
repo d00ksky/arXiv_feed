@@ -217,4 +217,53 @@ papers = [
     {"title": "Quantum Weirdness", "category": "Physics", "year": 2020},
 ]
 
-print(group_titles_by_category(papers))
+# print(group_titles_by_category(papers))
+
+
+def papers_matching_keyword(papers: list[dict], keyword: str) -> list[str]:
+    matching_titles: list[str] = []
+    normalized_keyword = keyword.strip().lower()
+
+    if not normalized_keyword:
+        return matching_titles
+
+    for paper in papers:
+        title = paper["title"]
+        normalized_title = title.lower()
+        normalized_summary = paper["summary"].lower()
+
+        if (
+            normalized_keyword in normalized_title
+            or normalized_keyword in normalized_summary
+        ):
+            matching_titles.append(title)
+    return matching_titles
+
+
+papers = [
+    {
+        "title": "Attention Is All You Need",
+        "summary": "A transformer architecture for sequence modeling.",
+        "year": 2017,
+    },
+    {
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP",
+        "summary": "Combines retrieval with generation for better factual answers.",
+        "year": 2020,
+    },
+    {
+        "title": "Graph Neural Networks Survey",
+        "summary": "A broad overview of graph-based deep learning methods.",
+        "year": 2021,
+    },
+    {
+        "title": "Efficient Tokenization for Language Models",
+        "summary": "Discusses preprocessing and vocabulary design.",
+        "year": 2023,
+    },
+]
+
+print(papers_matching_keyword(papers, "for"))
+print(papers_matching_keyword(papers, "attention"))
+print(papers_matching_keyword(papers, "TRANSFORMER"))
+print(papers_matching_keyword(papers, ""))
