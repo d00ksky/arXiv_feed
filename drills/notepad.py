@@ -296,13 +296,7 @@ def any_paper_has_any_keyword(papers: list[dict], keywords: list[str]) -> bool:
 
 
 def matching_titles_by_keywords(papers: list[dict], keywords: list[str]) -> list[str]:
-    matching_titles: list[str] = []
-    for paper in papers:
-        title = paper["title"]
-        if has_any_keyword(paper, keywords) is True:
-            matching_titles.append(title)
-
-    return matching_titles
+    return [paper["title"] for paper in papers if has_any_keyword(paper, keywords)]
 
 
 papers = [
