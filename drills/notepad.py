@@ -270,15 +270,26 @@ papers = [
 
 
 def has_any_keyword(paper: dict, keywords: list[str]) -> bool:
-    return any(
-        keyword.strip().lower() in paper["title"].lower()
-        or keyword.strip().lower() in paper["summary"].lower()
-        for keyword in keywords
-    )
+    normalized_title = paper["title"].lower()
+    normalized_summary = paper["summary"].lower()
+
+    for keyword in keywords:
+        normalized_keyword = keyword.strip().lower()
+
+        if not normalized_keyword:
+            continue
+
+        if (
+            normalized_keyword in normalized_title
+            or normalized_keyword in normalized_summary
+        ):
+            return True
+
+    return False
 
 
 def any_paper_has_any_keyword(papers: list[dict], keywords: list[str]) -> bool:
     return any(has_any_keyword(paper, keywords) for paper in papers)
 
 
-print(any_paper_has_any_keyword(papers, "for"))
+print(any_paper_has_any_keyword(papers, ["zyx"]))
