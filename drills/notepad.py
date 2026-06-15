@@ -292,4 +292,45 @@ def any_paper_has_any_keyword(papers: list[dict], keywords: list[str]) -> bool:
     return any(has_any_keyword(paper, keywords) for paper in papers)
 
 
-print(any_paper_has_any_keyword(papers, ["zyx"]))
+# print(any_paper_has_any_keyword(papers, ["zyx"]))
+
+
+def matching_titles_by_keywords(papers: list[dict], keywords: list[str]) -> list[str]:
+    matching_titles = []
+    for paper in papers:
+        title = paper["title"]
+        if has_any_keyword(paper, keywords) is True:
+            matching_titles.append(title)
+
+    return matching_titles
+
+
+papers = [
+    {
+        "title": "Retrieval-Augmented Generation",
+        "summary": "Combines retrieval with generation.",
+        "year": 2020,
+    },
+    {
+        "title": "Graph Neural Networks Survey",
+        "summary": "A broad overview of graph-based learning.",
+        "year": 2021,
+    },
+    {
+        "title": "Efficient Tokenization",
+        "summary": "Discusses vocabulary design for language models.",
+        "year": 2023,
+    },
+]
+
+print(matching_titles_by_keywords(papers, ["retrieval"]))
+# ["Retrieval-Augmented Generation"]
+
+print(matching_titles_by_keywords(papers, ["graph", "language"]))
+# ["Graph Neural Networks Survey", "Efficient Tokenization"]
+
+print(matching_titles_by_keywords(papers, ["quantum"]))
+# []
+
+print(matching_titles_by_keywords(papers, [""]))
+# []
