@@ -263,7 +263,22 @@ papers = [
     },
 ]
 
-print(papers_matching_keyword(papers, "for"))
-print(papers_matching_keyword(papers, "attention"))
-print(papers_matching_keyword(papers, "TRANSFORMER"))
-print(papers_matching_keyword(papers, ""))
+# print(papers_matching_keyword(papers, "for"))
+# print(papers_matching_keyword(papers, "attention"))
+# print(papers_matching_keyword(papers, "TRANSFORMER"))
+# print(papers_matching_keyword(papers, ""))
+
+
+def has_any_keyword(paper: dict, keywords: list[str]) -> bool:
+    return any(
+        keyword.strip().lower() in paper["title"].lower()
+        or keyword.strip().lower() in paper["summary"].lower()
+        for keyword in keywords
+    )
+
+
+def any_paper_has_any_keyword(papers: list[dict], keywords: list[str]) -> bool:
+    return any(has_any_keyword(paper, keywords) for paper in papers)
+
+
+print(any_paper_has_any_keyword(papers, "for"))
