@@ -299,32 +299,66 @@ def matching_titles_by_keywords(papers: list[dict], keywords: list[str]) -> list
     return [paper["title"] for paper in papers if has_any_keyword(paper, keywords)]
 
 
+# papers = [
+#     {
+#         "title": "Retrieval-Augmented Generation",
+#         "summary": "Combines retrieval with generation.",
+#         "year": 2020,
+#     },
+#     {
+#         "title": "Graph Neural Networks Survey",
+#         "summary": "A broad overview of graph-based learning.",
+#         "year": 2021,
+#     },
+#     {
+#         "title": "Efficient Tokenization",
+#         "summary": "Discusses vocabulary design for language models.",
+#         "year": 2023,
+#     },
+# ]
+
+
 papers = [
     {
-        "title": "Retrieval-Augmented Generation",
-        "summary": "Combines retrieval with generation.",
-        "year": 2020,
+        "title": "FastAPI for Internal Tools",
+        "authors": ["Anna Kowalska", "Jan Nowak"],
+        "year": 2024,
     },
     {
-        "title": "Graph Neural Networks Survey",
-        "summary": "A broad overview of graph-based learning.",
-        "year": 2021,
+        "title": "RAG Evaluation in Practice",
+        "authors": ["Jan Nowak", "Maria Zielinska"],
+        "year": 2025,
     },
     {
-        "title": "Efficient Tokenization",
-        "summary": "Discusses vocabulary design for language models.",
+        "title": "Observability with OpenSearch",
+        "authors": ["Anna Kowalska"],
         "year": 2023,
     },
 ]
 
-print(matching_titles_by_keywords(papers, ["retrieval"]))
-# ["Retrieval-Augmented Generation"]
 
-print(matching_titles_by_keywords(papers, ["graph", "language"]))
-# ["Graph Neural Networks Survey", "Efficient Tokenization"]
+def group_titles_by_author(papers: list[dict]) -> dict[str, list[str]]:
+    result = {}
+    for paper in papers:
+        title = paper["title"]
+        authors = paper["authors"]
+        for author in authors:
+            if author not in result:
+                result[author] = []
+            result[author].append(title)
+    return result
 
-print(matching_titles_by_keywords(papers, ["quantum"]))
-# []
 
-print(matching_titles_by_keywords(papers, [""]))
-# []
+assert group_titles_by_author(papers) == {
+    "Anna Kowalska": [
+        "FastAPI for Internal Tools",
+        "Observability with OpenSearch",
+    ],
+    "Jan Nowak": [
+        "FastAPI for Internal Tools",
+        "RAG Evaluation in Practice",
+    ],
+    "Maria Zielinska": [
+        "RAG Evaluation in Practice",
+    ],
+}
