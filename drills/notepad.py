@@ -435,3 +435,68 @@ assert titles_by_category_smarter(papers, "ai") == [
 ]
 
 assert titles_by_category_smarter(papers, "aws") == []
+
+papers = [
+    {
+        "title": "FastAPI for Internal Tools",
+        "category": "backend",
+        "score": 8,
+    },
+    {
+        "title": "RAG Evaluation in Practice",
+        "category": "ai",
+        "score": 10,
+    },
+    {
+        "title": "Observability with OpenSearch",
+        "category": "backend",
+        "score": 7,
+    },
+    {
+        "title": "Prompt Engineering Notes",
+        "category": "ai",
+        "score": 5,
+    },
+    {
+        "title": "Clean API Design",
+        "category": "backend",
+        "score": 9,
+    },
+]
+
+
+def top_titles_by_category(
+    papers: list[dict],
+    category: str,
+    limit: int,
+) -> list[str]:
+    ...
+    normalized_category = category.strip().lower()
+
+    if not category:
+        return []
+
+    return [
+        paper["title"]
+        for paper in sorted(papers, key=lambda paper: paper["score"], reverse=True)
+        if paper["category"].lower() == normalized_category
+    ][:limit]
+
+
+print(top_titles_by_category(papers, "backend", 2))
+
+assert top_titles_by_category(papers, "backend", 2) == [
+    "Clean API Design",
+    "FastAPI for Internal Tools",
+]
+
+assert top_titles_by_category(papers, "ai", 1) == [
+    "RAG Evaluation in Practice",
+]
+
+assert top_titles_by_category(papers, "aws", 2) == []
+
+assert top_titles_by_category(papers, " BACKEND ", 2) == [
+    "Clean API Design",
+    "FastAPI for Internal Tools",
+]
