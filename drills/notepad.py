@@ -379,4 +379,51 @@ papers = [
 ]
 
 
-print(top_titles_by_score(papers, 2))
+# print(top_titles_by_score(papers, 2))
+
+papers = [
+    {
+        "title": "FastAPI for Internal Tools",
+        "category": "backend",
+        "score": 8,
+    },
+    {
+        "title": "RAG Evaluation in Practice",
+        "category": "ai",
+        "score": 10,
+    },
+    {
+        "title": "Observability with OpenSearch",
+        "category": "backend",
+        "score": 7,
+    },
+    {
+        "title": "Prompt Engineering Notes",
+        "category": "ai",
+        "score": 5,
+    },
+]
+
+
+def titles_by_category(papers: list[dict], category: str) -> list[str]:
+    result: list[str] = []
+    for paper in papers:
+        title = paper["title"]
+        category_normalized = category.lower()
+        paper_category_normalized = paper["category"].lower()
+        if category_normalized == paper_category_normalized:
+            result.append(title)
+    return result
+
+
+assert titles_by_category(papers, "backend") == [
+    "FastAPI for Internal Tools",
+    "Observability with OpenSearch",
+]
+
+assert titles_by_category(papers, "ai") == [
+    "RAG Evaluation in Practice",
+    "Prompt Engineering Notes",
+]
+
+assert titles_by_category(papers, "aws") == []
