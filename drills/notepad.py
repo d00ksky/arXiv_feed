@@ -473,7 +473,7 @@ def top_titles_by_category(
     ...
     normalized_category = category.strip().lower()
 
-    if not category:
+    if not normalized_category:
         return []
 
     return [
