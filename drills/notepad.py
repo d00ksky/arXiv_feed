@@ -416,14 +416,22 @@ def titles_by_category(papers: list[dict], category: str) -> list[str]:
     return result
 
 
-assert titles_by_category(papers, "backend") == [
+def titles_by_category_smarter(papers: list[dict], category: str) -> list[str]:
+    return [
+        paper["title"]
+        for paper in papers
+        if paper["category"].lower() == category.lower()
+    ]
+
+
+assert titles_by_category_smarter(papers, "backend") == [
     "FastAPI for Internal Tools",
     "Observability with OpenSearch",
 ]
 
-assert titles_by_category(papers, "ai") == [
+assert titles_by_category_smarter(papers, "ai") == [
     "RAG Evaluation in Practice",
     "Prompt Engineering Notes",
 ]
 
-assert titles_by_category(papers, "aws") == []
+assert titles_by_category_smarter(papers, "aws") == []
