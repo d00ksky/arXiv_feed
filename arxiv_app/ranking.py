@@ -53,9 +53,9 @@ def explain_paper_match(paper: Paper, query: str) -> list[str]:
 
     for word in query_lower.split():
         if word and word in title_lower:
-            reasons.append(f"title contains {word}")
+            reasons.append(f"title contains word: {word}")
 
         if word and word in summary_lower:
-            reasons.append(f"summary contains {word}")
+            reasons.append(f"summary contains word: {word}")
 
     return reasons
