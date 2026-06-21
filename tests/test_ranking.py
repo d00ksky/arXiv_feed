@@ -106,3 +106,12 @@ def test_explain_paper_match_returns_reasons_for_title_match():
     assert "title contains word: large" in result
     assert "title contains word: language" in result
     assert "title contains word: models" in result
+
+
+paper = make_paper(
+    title="Large Language Models for Search",
+    summary="This paper explains retrieval systems.",
+)
+
+assert explain_paper_match(paper, "") == []
+assert explain_paper_match(paper, "   ") == []

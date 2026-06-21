@@ -41,9 +41,12 @@ def select_discovery_papers(
 def explain_paper_match(paper: Paper, query: str) -> list[str]:
     reasons: list[str] = []
 
-    query_lower = query.lower()
+    query_lower = query.lower().strip()
     title_lower = paper.title.lower()
     summary_lower = paper.summary.lower()
+
+    if not query_lower:
+        return []
 
     if query_lower in title_lower:
         reasons.append("query appears in title")
