@@ -25,16 +25,37 @@ def paper_match_score(paper: Paper, query: str) -> int:
     return score
 
 
-def select_discovery_papers(papers: list[Paper], query: str, limit: int = 5) -> list[Paper]:
+def select_discovery_papers(
+    papers: list[Paper], query: str, limit: int = 5
+) -> list[Paper]:
     """Returns sorted papers by score and if score is the same, by year"""
-    #ranking currently uses title + summary score + recency
-    #this is a heuristic V1 ranking
+    # ranking currently uses title + summary score + recency
+    # this is a heuristic V1 ranking
     return sorted(
-        papers, key=lambda paper: (
-            paper_match_score(paper, query), 
-            paper.year), 
-        reverse=True
+        papers,
+        key=lambda paper: (paper_match_score(paper, query), paper.year),
+        reverse=True,
     )[:limit]
-    
+
+
 def explain_paper_match(paper: Paper, query: str) -> list[str]:
-    ...
+    reasons: list[str] = []
+
+    query_lower = query.lower()
+    title_lower = paper.title.lower()
+    summary_lower = paper.summary.lower()
+
+    if query_lower in title_lower:
+        reasons.append("query appears in title")
+
+    if query_lower in summary_lower:
+        reasons.append("query appears in summary")
+
+    for word in query_lower.split():
+        if word and word in title_lower:
+            reasons.append(f"title contains {word}")
+
+        if word and word in summary_lower:
+            reasons.append(f"summary contains {word}")
+
+    return reasons
