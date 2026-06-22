@@ -364,7 +364,7 @@ assert group_titles_by_author(papers) == {
 }
 
 
-def top_titles_by_score(papers: list[dict], limit: int) -> list[str]:
+def top_titles_by_score2(papers: list[dict], limit: int) -> list[str]:
     return [
         paper["title"]
         for paper in sorted(papers, key=lambda paper: paper["score"], reverse=True)
@@ -512,9 +512,28 @@ papers = [
     {"title": "FastAPI Ranking API", "score": 7},
 ]
 
-print(titles_with_min_score(papers, 7))
+# print(titles_with_min_score(papers, 7))
 
 assert titles_with_min_score(papers, 7) == [
+    "RAG for Logs",
+    "FastAPI Ranking API",
+]
+
+
+def top_titles_by_score(papers: list[dict], limit: int) -> list[str]:
+    return [
+        paper["title"]
+        for paper in sorted(papers, key=lambda paper: paper["score"], reverse=True)
+    ][:limit]
+
+
+papers = [
+    {"title": "RAG for Logs", "score": 8},
+    {"title": "Old Neural Search", "score": 4},
+    {"title": "FastAPI Ranking API", "score": 7},
+]
+
+assert top_titles_by_score(papers, 2) == [
     "RAG for Logs",
     "FastAPI Ranking API",
 ]
