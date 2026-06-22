@@ -483,7 +483,7 @@ def top_titles_by_category(
     ][:limit]
 
 
-print(top_titles_by_category(papers, "backend", 2))
+# print(top_titles_by_category(papers, "backend", 2))
 
 assert top_titles_by_category(papers, "backend", 2) == [
     "Clean API Design",
@@ -499,4 +499,22 @@ assert top_titles_by_category(papers, "aws", 2) == []
 assert top_titles_by_category(papers, " BACKEND ", 2) == [
     "Clean API Design",
     "FastAPI for Internal Tools",
+]
+
+
+def titles_with_min_score(papers: list[dict], min_score: int) -> list[str]:
+    return [paper["title"] for paper in papers if paper["score"] >= min_score]
+
+
+papers = [
+    {"title": "RAG for Logs", "score": 8},
+    {"title": "Old Neural Search", "score": 4},
+    {"title": "FastAPI Ranking API", "score": 7},
+]
+
+print(titles_with_min_score(papers, 7))
+
+assert titles_with_min_score(papers, 7) == [
+    "RAG for Logs",
+    "FastAPI Ranking API",
 ]
