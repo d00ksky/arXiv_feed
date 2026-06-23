@@ -108,10 +108,17 @@ def test_explain_paper_match_returns_reasons_for_title_match():
     assert "title contains word: models" in result
 
 
+def test_explain_paper_match_returns_empty_for_blank_query():
+    paper = make_paper(
+        title="Large Language Models for Search",
+        summary="This paper explains retrieval systems.",
+    )
+
+    assert explain_paper_match(paper, "") == []
+    assert explain_paper_match(paper, "   ") == []
+
+
 paper = make_paper(
     title="Large Language Models for Search",
     summary="This paper explains retrieval systems.",
 )
-
-assert explain_paper_match(paper, "") == []
-assert explain_paper_match(paper, "   ") == []
