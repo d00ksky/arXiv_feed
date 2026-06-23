@@ -122,3 +122,33 @@ paper = make_paper(
     title="Large Language Models for Search",
     summary="This paper explains retrieval systems.",
 )
+
+
+def test_select_discovery_papers_returns_top_matches_up_to_limit():
+    paper_1 = make_paper(
+        title="Retrieval for Scientific Search",
+        summary="A system for ranking arXiv papers.",
+        year=2024,
+    )
+
+    paper_2 = make_paper(
+        title="Neural Search Systems",
+        summary="This paper uses retrieval for better factual answers.",
+        year=2023,
+    )
+
+    paper_3 = make_paper(
+        title="Graph Neural Networks Survey",
+        summary="A broad overview of graph-based methods.",
+        year=2022,
+    )
+
+    papers = [paper_1, paper_2, paper_3]
+
+    selected_papers = select_discovery_papers(papers, query="retrieval", limit=2)
+
+    assert len(selected_papers) == 2
+    assert [paper.title for paper in selected_papers] == [
+        "Retrieval for Scientific Search",
+        "Neural Search Systems",
+    ]
