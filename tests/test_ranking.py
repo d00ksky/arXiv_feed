@@ -118,12 +118,6 @@ def test_explain_paper_match_returns_empty_for_blank_query():
     assert explain_paper_match(paper, "   ") == []
 
 
-paper = make_paper(
-    title="Large Language Models for Search",
-    summary="This paper explains retrieval systems.",
-)
-
-
 def test_select_discovery_papers_returns_top_matches_up_to_limit():
     paper_1 = make_paper(
         title="Retrieval for Scientific Search",
