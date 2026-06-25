@@ -537,3 +537,25 @@ assert top_titles_by_score(papers, 2) == [
     "RAG for Logs",
     "FastAPI Ranking API",
 ]
+
+
+def count_papers_by_year(papers: list[dict]) -> dict[int, int]:
+    year_count: dict[int, int] = {}
+    for paper in papers:
+        year = paper["year"]
+        year_count[year] = year_count.get(year, 0) + 1
+    return year_count
+
+
+papers = [
+    {"title": "RAG for Logs", "year": 2024},
+    {"title": "Search Systems", "year": 2024},
+    {"title": "Old Ranking", "year": 2022},
+]
+
+print(count_papers_by_year(papers))
+
+assert count_papers_by_year(papers) == {
+    2024: 2,
+    2022: 1,
+}
