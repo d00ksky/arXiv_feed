@@ -405,7 +405,7 @@ papers = [
 ]
 
 
-def titles_by_category(papers: list[dict], category: str) -> list[str]:
+def titles_by_category1(papers: list[dict], category: str) -> list[str]:
     result: list[str] = []
     for paper in papers:
         title = paper["title"]
@@ -559,3 +559,23 @@ assert count_papers_by_year(papers) == {
     2024: 2,
     2022: 1,
 }
+
+
+def titles_by_category(papers: list[dict], category: str) -> list[str]:
+    return [
+        paper["title"]
+        for paper in papers
+        if paper["category"].lower() == category.lower()
+    ]
+
+
+papers = [
+    {"title": "RAG for Logs", "category": "ai"},
+    {"title": "FastAPI Basics", "category": "backend"},
+    {"title": "Vector Search", "category": "ai"},
+]
+
+assert titles_by_category(papers, "ai") == [
+    "RAG for Logs",
+    "Vector Search",
+]
