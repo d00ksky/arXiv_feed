@@ -579,3 +579,45 @@ assert titles_by_category(papers, "ai") == [
     "RAG for Logs",
     "Vector Search",
 ]
+
+
+def select_top_titles(
+    papers: list[dict],
+    min_score: int,
+    limit: int,
+) -> list[str]:
+
+    if limit < 0:
+        raise ValueError("limit cannot be negative")
+
+    papers_titles_above_min_score = [
+        paper for paper in papers if paper["score"] >= min_score
+    ]
+
+    sorted_papers_by_score = sorted(
+        papers_titles_above_min_score,
+        key=lambda paper: (-paper["score"], paper["title"]),
+    )
+
+    return [paper["title"] for paper in sorted_papers_by_score][:limit]
+
+
+papers = [
+    {"title": "Vector Search", "score": 7},
+    {"title": "Agents in Production", "score": 9},
+    {"title": "Basic Python", "score": 4},
+    {"title": "AI Evaluation", "score": 9},
+    {"title": "RAG Systems", "score": 6},
+]
+
+print(select_top_titles(papers, min_score=6, limit=3))
+
+assert select_top_titles(papers, min_score=6, limit=3) == [
+    "AI Evaluation",
+    "Agents in Production",
+    "Vector Search",
+]
+
+assert select_top_titles(papers, min_score=10, limit=3) == []
+
+assert select_top_titles(papers, min_score=4, limit=0) == []
