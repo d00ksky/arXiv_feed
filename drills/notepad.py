@@ -610,7 +610,7 @@ papers = [
     {"title": "RAG Systems", "score": 6},
 ]
 
-print(select_top_titles(papers, min_score=6, limit=3))
+# print(select_top_titles(papers, min_score=6, limit=3))
 
 assert select_top_titles(papers, min_score=6, limit=3) == [
     "AI Evaluation",
@@ -621,3 +621,52 @@ assert select_top_titles(papers, min_score=6, limit=3) == [
 assert select_top_titles(papers, min_score=10, limit=3) == []
 
 assert select_top_titles(papers, min_score=4, limit=0) == []
+
+
+# Funkcja ma:
+# policzyć słowa w source,
+# policzyć słowa w target,
+# zsumować obie długości,
+# zostawić tylko pary, których suma jest mniejsza lub równa max_total_words,
+# zwrócić listę krotek:
+
+
+def pairs_within_word_budget(
+    examples: list[dict[str, str]],
+    max_total_words: int,
+) -> list[tuple[str, str]]:
+    final_words = []
+    for example in examples:
+        source_words = len(example["source"].split())
+        target_words = len(example["target"].split())
+        example_word_count = source_words + target_words
+        if example_word_count <= max_total_words:
+            words = (example["source"], example["target"])
+            final_words.append(words)
+    return final_words
+
+
+examples = [
+    {
+        "source": "hello world",
+        "target": "witaj świecie",
+    },
+    {
+        "source": "translate this very long sentence",
+        "target": "przetłumacz to bardzo długie zdanie",
+    },
+    {
+        "source": "good morning",
+        "target": "dzień dobry",
+    },
+]
+
+
+print(pairs_within_word_budget(examples, max_total_words=4))
+
+assert pairs_within_word_budget(examples, max_total_words=4) == [
+    ("hello world", "witaj świecie"),
+    ("good morning", "dzień dobry"),
+]
+
+assert pairs_within_word_budget(examples, max_total_words=1) == []
