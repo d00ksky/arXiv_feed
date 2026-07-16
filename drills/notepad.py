@@ -662,7 +662,7 @@ examples = [
 ]
 
 
-print(pairs_within_word_budget(examples, max_total_words=4))
+# print(pairs_within_word_budget(examples, max_total_words=4))
 
 assert pairs_within_word_budget(examples, max_total_words=4) == [
     ("hello world", "witaj świecie"),
@@ -670,3 +670,45 @@ assert pairs_within_word_budget(examples, max_total_words=4) == [
 ]
 
 assert pairs_within_word_budget(examples, max_total_words=1) == []
+
+
+# połączyć każdy token z odpowiadającym mu wynikiem,
+# zostawić tokeny z wynikiem >= threshold,
+# zachować ich pierwotną kolejność,
+# rzucić ValueError, jeśli listy mają różne długości.
+
+
+def tokens_above_attention_threshold(
+    tokens: list[str],
+    attention_scores: list[float],
+    threshold: float,
+) -> list[str]:
+    if len(tokens) != len(attention_scores):
+        raise ValueError("tokens and attention_scores must have the same length")
+
+    tokens_with_scores = zip(tokens, attention_scores)
+
+    return [token for token, score in tokens_with_scores if score >= threshold]
+
+
+tokens = ["The", "model", "uses", "attention"]
+attention_scores = [0.05, 0.35, 0.10, 0.50]
+
+
+print(tokens_above_attention_threshold(tokens, attention_scores, threshold=0.30))
+
+assert tokens_above_attention_threshold(
+    tokens,
+    attention_scores,
+    threshold=0.30,
+) == ["model", "attention"]
+
+
+assert (
+    tokens_above_attention_threshold(
+        tokens,
+        attention_scores,
+        threshold=0.60,
+    )
+    == []
+)
