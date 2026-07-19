@@ -712,3 +712,32 @@ assert (
     )
     == []
 )
+
+
+def average_attention_score(
+    tokens: list[str],
+    attention_scores: list[float],
+) -> float:
+    if len(tokens) != len(attention_scores):
+        raise ValueError("Tokens and attention_scores need to be the same length")
+    if not attention_scores:
+        return 0.0
+
+    return sum(attention_scores) / len(attention_scores)
+
+
+assert (
+    average_attention_score(
+        ["the", "model", "attention"],
+        [0.1, 0.3, 0.5],
+    )
+    == 0.3
+)
+
+assert average_attention_score([], []) == 0.0
+
+# with pytest.raises(ValueError):
+#     average_attention_score(
+#         ["token"],
+#         [0.2, 0.4],
+#     )
