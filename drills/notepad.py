@@ -741,3 +741,33 @@ assert average_attention_score([], []) == 0.0
 #         ["token"],
 #         [0.2, 0.4],
 #     )
+
+
+def deduplicate_papers_by_id(
+    papers: list[dict],
+) -> list[dict]:
+    paper_ids = set()
+    deduplicated_papers = []
+    for paper in papers:
+        if paper["id"] not in paper_ids:
+            deduplicated_papers.append(paper)
+            paper_ids.add(paper["id"])
+
+    return deduplicated_papers
+
+
+papers = [
+    {"id": "123", "title": "Transformers"},
+    {"id": "456", "title": "RAG Systems"},
+    {"id": "123", "title": "Transformers duplicate"},
+    {"id": "789", "title": "AI Evaluation"},
+]
+
+# output for assert:
+# [
+#     {"id": "123", "title": "Transformers"},
+#     {"id": "456", "title": "RAG Systems"},
+#     {"id": "789", "title": "AI Evaluation"},
+# ]
+
+print(deduplicate_papers_by_id(papers))
