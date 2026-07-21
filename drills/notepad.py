@@ -771,3 +771,27 @@ papers = [
 # ]
 
 print(deduplicate_papers_by_id(papers))
+
+
+def select_titles_above_score(
+    papers: list[dict],
+    min_score: float,
+) -> list[str]:
+    return [
+        paper["title"]
+        for paper in sorted(papers, key=lambda paper: (-paper["score"], paper["title"]))
+        if paper["score"] >= min_score
+    ]
+
+
+papers = [
+    {"title": "Transformers", "score": 8.5},
+    {"title": "Attention", "score": 9.2},
+    {"title": "Agents", "score": 8.5},
+    {"title": "Databases", "score": 6.0},
+]
+
+# Dla min_score=8.0 wynik:
+# ["Attention", "Agents", "Transformers"]
+
+print(select_titles_above_score(papers, min_score=8.0))
