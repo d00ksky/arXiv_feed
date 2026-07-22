@@ -93,3 +93,17 @@ def test_normalize_paper_collapses_whitespace_in_summary():
     result = normalize_paper(raw_paper)
 
     assert result.summary == "This paper explains attention."
+
+
+def test_normalize_paper_collapses_whitespace_in_authors():
+    raw_paper = {
+        "id": "http://arxiv.org/abs/1234.5678",
+        "title": "  Attention\nIs   All You Need  ",
+        "authors": ["  Alice   Smith ", "Bob\nJones"],
+        "published": "2024-05-01T12:00:00Z",
+        "summary": "This paper explains attention.",
+    }
+
+    result = normalize_paper(raw_paper)
+
+    assert result.authors == ["Alice Smith", "Bob Jones"]
