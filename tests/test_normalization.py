@@ -13,9 +13,9 @@ def test_normalize_paper_converts_raw_dict_to_paper():
         "authors": ["Alice", "Bob"],
         "published": "2024-05-01T12:00:00Z",
         "summary": "This is a test summary.",
-}
+    }
     result = normalize_paper(raw_paper)
-    
+
     assert isinstance(result, Paper)
     assert result.title == "Test Paper"
     assert result.year == 2024
@@ -23,7 +23,7 @@ def test_normalize_paper_converts_raw_dict_to_paper():
     assert result.id == "http://arxiv.org/abs/1234.5678"
     assert result.summary == "This is a test summary."
     assert result.citations == 0
-    
+
 
 def test_normalize_papers_converts_raw_dicts_to_papers():
     raw_papers = [
@@ -42,9 +42,9 @@ def test_normalize_papers_converts_raw_dicts_to_papers():
             "summary": "Second summary.",
         },
     ]
-    
+
     result = normalize_papers(raw_papers)
-    
+
     assert len(result) == 2
 
     assert isinstance(result[0], Paper)
@@ -63,3 +63,19 @@ def test_normalize_papers_converts_raw_dicts_to_papers():
     assert result[1].id == "http://arxiv.org/abs/2222.2222"
     assert result[1].summary == "Second summary."
     assert result[1].citations == 0
+
+
+def test_normalize_paper_collapses_whitespace_in_title():
+    # "  Attention\nIs   All You Need  "
+    # expected: "Attention Is All You Need"
+    raw_paper = {
+        "id": "http://arxiv.org/abs/1234.5678",
+        "title": "  Attention\nIs   All You Need  ",
+        "authors": ["Alice", "Bob"],
+        "published": "2024-05-01T12:00:00Z",
+        "summary": "This is a test summary.",
+    }
+
+    result = normalize_paper(raw_paper)
+
+    assert result.title == "Attention Is All You Need"
