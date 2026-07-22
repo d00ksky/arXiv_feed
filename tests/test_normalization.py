@@ -79,3 +79,17 @@ def test_normalize_paper_collapses_whitespace_in_title():
     result = normalize_paper(raw_paper)
 
     assert result.title == "Attention Is All You Need"
+
+
+def test_normalize_paper_collapses_whitespace_in_summary():
+    raw_paper = {
+        "id": "http://arxiv.org/abs/1234.5678",
+        "title": "  Attention\nIs   All You Need  ",
+        "authors": ["Alice", "Bob"],
+        "published": "2024-05-01T12:00:00Z",
+        "summary": "  This paper\nexplains   attention.  ",
+    }
+
+    result = normalize_paper(raw_paper)
+
+    assert result.summary == "This paper explains attention."
