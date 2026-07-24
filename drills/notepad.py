@@ -811,3 +811,14 @@ class Solution:
                 return [seen[needed], i]
 
             seen[num] = i
+
+
+# solution for contains duplicate from neetcode
+
+def hasDuplicate(self, nums: List[int]) -> bool:
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return True
+            seen.add(num)
+    return False
