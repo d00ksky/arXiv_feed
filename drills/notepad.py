@@ -798,3 +798,16 @@ print(select_titles_above_score(papers, min_score=8.0))
 
 
 # neetcode two_sum()
+
+# solution for two_sum but with dictionary
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+
+        for i, num in enumerate(nums):
+            needed = target - num
+
+            if needed in seen:
+                return [seen[needed], i]
+
+            seen[num] = i
