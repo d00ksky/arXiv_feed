@@ -5,7 +5,10 @@ from arxiv_app.ranking import (
     explain_paper_match,
 )
 
-from arxiv_app.models import Paper
+from arxiv_app.models import (
+        Paper,
+        RankedPaper
+)
 
 
 def test_title_match_score_scoring_for_full_query():
