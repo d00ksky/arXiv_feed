@@ -146,3 +146,27 @@ def test_select_discovery_papers_returns_top_matches_up_to_limit():
         "Retrieval for Scientific Search",
         "Neural Search Systems",
     ]
+
+
+def test_ranked_paper():
+    paper = make_paper(
+        title="Retrieval for Scientific Search",
+        summary="A system for ranking arXiv papers.",
+        year=2024,
+    )
+
+    query = "retrieval"
+
+    paper_score = paper_match_score(paper, query)
+    expected_reasons = explain_paper_match(paper, query)
+
+    papers = [paper]
+
+    selected_papers = select_discovery_papers(papers, query, limit=3)
+
+    ranked_result = selected_papers[0]
+
+    assert ranked_result.paper == paper
+    assert ranked_result.score == paper_score
+    assert ranked_result.reasons == expected_reasons
+
