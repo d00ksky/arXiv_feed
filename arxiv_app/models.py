@@ -8,3 +8,9 @@ class Paper:
     authors: list[str]
     id: str
     summary: str
+
+@dataclass
+class RankedPaper:
+    paper: Paper
+    score: int
+    reasons: list[str]
