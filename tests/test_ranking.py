@@ -70,8 +70,10 @@ def test_select_discovery_papers_sorts_by_score():
         limit=2,
     )
 
-    assert result == [strong_paper, weak_paper]
-
+    assert [ranked_paper.paper for ranked_paper in result] == [
+    strong_paper,
+    weak_paper,
+]
 
 def test_select_discovery_papers_by_year_if_score_is_the_same():
 
@@ -94,7 +96,7 @@ def test_select_discovery_papers_by_year_if_score_is_the_same():
 
     result = select_discovery_papers(papers, query, limit)
 
-    assert result == [new_paper, old_paper]
+    assert [ranked_paper.paper for ranked_paper in result] == [new_paper, old_paper]
 
 
 def test_explain_paper_match_returns_reasons_for_title_match():
