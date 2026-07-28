@@ -147,7 +147,7 @@ def test_select_discovery_papers_returns_top_matches_up_to_limit():
     selected_papers = select_discovery_papers(papers, query="retrieval", limit=2)
 
     assert len(selected_papers) == 2
-    assert [paper.title for paper in selected_papers] == [
+    assert [ranked_paper.paper.title for ranked_paper in selected_papers] == [
         "Retrieval for Scientific Search",
         "Neural Search Systems",
     ]
