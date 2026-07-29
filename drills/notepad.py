@@ -903,7 +903,7 @@ ranked_papers = [
 
 result = extract_titles(ranked_papers)
 
-print(extract_titles(result))
+print(extract_titles(ranked_papers))
 
 assert result == [
     "Attention Is All You Need",
