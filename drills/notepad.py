@@ -855,7 +855,15 @@ def extract_titles(ranked_papers: list[RankedPaper]) -> list[str]:
 
     return extracted_titles
 
-
+def make_paper(title: str, summary: str, year: int = 2024) -> Paper:
+    return Paper(
+        title=title,
+        year=year,
+        citations=0,
+        authors=["Test Author"],
+        id=f"test-id-{title}",
+        summary=summary,
+    )
 
 paper_1 = make_paper(
     title="Attention Is All You Need",
@@ -895,7 +903,7 @@ ranked_papers = [
 
 result = extract_titles(ranked_papers)
 
-print(extracted_titles(ranked_papers))
+print(extract_titles(result))
 
 assert result == [
     "Attention Is All You Need",
