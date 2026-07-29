@@ -1,3 +1,8 @@
+from arxiv_app.models import (
+        RankedPaper,
+        Paper,
+)
+
 papers = [
     {"title": "Attention Is All You Need", "year": 2017, "score": 9},
     {"title": "Retrieval-Augmented Generation", "year": 2020, "score": 8},
@@ -800,28 +805,28 @@ print(select_titles_above_score(papers, min_score=8.0))
 # neetcode two_sum()
 
 # solution for two_sum but with dictionary
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}
-
-        for i, num in enumerate(nums):
-            needed = target - num
-
-            if needed in seen:
-                return [seen[needed], i]
-
-            seen[num] = i
+#class Solution:
+#    def twoSum(self, nums: List[int], target: int) -> List[int]:
+#        seen = {}
+#
+#        for i, num in enumerate(nums):
+#            needed = target - num
+#
+#            if needed in seen:
+#                return [seen[needed], i]
+#
+#            seen[num] = i
 
 
 # solution for contains duplicate from neetcode
 
-def hasDuplicate(self, nums: List[int]) -> bool:
-        seen = set()
-        for num in nums:
-            if num in seen:
-                return True
-            seen.add(num)
-    return False
+#def hasDuplicate(self, nums: List[int]) -> bool:
+#       seen = set()
+#        for num in nums:
+#            if num in seen:
+#                return True
+#            seen.add(num)
+#    return False
 
 # neetcode valid anagram 
 
@@ -834,3 +839,66 @@ class Solution:
         for letter in t:
             t_dict[letter] = t_dict.get(letter, 0) + 1
         return s_dict == t_dict
+
+
+
+# DRILL: wyciąganie tytułów z obiektów RankedPaper
+
+def extract_titles(ranked_papers: list[RankedPaper]) -> list[str]:
+    # Najpierw napisz wersję z:
+    # 1. pustą listą
+    # 2. pętlą for
+    # 3. append()
+    extracted_titles = []
+    for ranked_paper in ranked_papers:
+        extracted_titles.append(ranked_paper.paper.title)
+
+    return extracted_titles
+
+
+
+paper_1 = make_paper(
+    title="Attention Is All You Need",
+    summary="A paper about the Transformer architecture.",
+    year=2017,
+)
+
+paper_2 = make_paper(
+    title="Retrieval-Augmented Generation",
+    summary="Combining retrieval with language generation.",
+    year=2020,
+)
+
+paper_3 = make_paper(
+    title="Scaling Language Models",
+    summary="An analysis of language model scaling.",
+    year=2022,
+)
+
+ranked_papers = [
+    RankedPaper(
+        paper=paper_1,
+        score=10,
+        reasons=["title match"],
+    ),
+    RankedPaper(
+        paper=paper_2,
+        score=8,
+        reasons=["summary match"],
+    ),
+    RankedPaper(
+        paper=paper_3,
+        score=6,
+        reasons=["recent paper"],
+    ),
+]
+
+result = extract_titles(ranked_papers)
+
+print(extracted_titles(ranked_papers))
+
+assert result == [
+    "Attention Is All You Need",
+    "Retrieval-Augmented Generation",
+    "Scaling Language Models",
+]
