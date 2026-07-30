@@ -844,16 +844,27 @@ class Solution:
 
 # DRILL: wyciąganie tytułów z obiektów RankedPaper
 
-def extract_titles(ranked_papers: list[RankedPaper]) -> list[str]:
-    # Najpierw napisz wersję z:
-    # 1. pustą listą
-    # 2. pętlą for
-    # 3. append()
-    extracted_titles = []
-    for ranked_paper in ranked_papers:
-        extracted_titles.append(ranked_paper.paper.title)
+#def extract_titles(ranked_papers: list[RankedPaper]) -> list[str]:
+#   # Najpierw napisz wersję z:
+#   # 1. pustą listą
+#   # 2. pętlą for
+#   # 3. append()
+#   extracted_titles = []
+#   for ranked_paper in ranked_papers:
+#       extracted_titles.append(ranked_paper.paper.title)
+#
+#   return extracted_titles
+#
+#
 
-    return extracted_titles
+
+def extract_titles(ranked_papers: list[RankedPaper]) -> list[str]:
+    return [ranked_paper.paper.title for ranked_paper in ranked_papers]
+
+
+
+
+
 
 def make_paper(title: str, summary: str, year: int = 2024) -> Paper:
     return Paper(
