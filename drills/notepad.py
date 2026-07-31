@@ -938,3 +938,21 @@ def maxProfit(self, prices: List[int]) -> int:
                 if profit < current_profit:
                     profit = current_profit
     return profit
+
+
+
+# neetcode: better time complexity solution for the same buy stocks
+
+def maxProfit(self, prices: List[int]) -> int:
+   
+   profit = 0
+   lowest_price = prices[0]
+
+   for price in prices[1:]:
+       if price < lowest_price:
+           lowest_price = price
+       else:
+           profit_new = price - lowest_price
+           if profit_new > profit:
+               profit = profit_new
+   return profit
