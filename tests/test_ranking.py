@@ -5,6 +5,10 @@ from arxiv_app.ranking import (
     explain_paper_match,
 )
 
+from arxiv_app.render import (
+    render_discovery_view
+)
+
 from arxiv_app.models import (
         Paper,
         RankedPaper
@@ -175,3 +179,24 @@ def test_ranked_paper():
     assert ranked_result.score == paper_score
     assert ranked_result.reasons == expected_reasons
 
+
+def test_render():
+
+    paper = make_paper(
+        title="Retrieval for Scientific Search",
+        summary="A system for ranking arXiv papers.",
+        year=2024,
+    )
+
+
+    ranked_paper = RankedPaper(
+    paper=paper,
+    score=6,
+    reasons=["query appears in title"],
+    )
+
+    papers = [ranked_paper]
+    result = render_discovery_view(papers)
+
+    assert result.title in result
+    assert str(result.year) in result
