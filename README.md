@@ -142,3 +142,7 @@ Future stages will add:
 - semantic search
 - personalized ranking
 - interactive exploration of papers
+
+# To launch tests
+source .venv/bin/activate
+python -m pytest -q
