@@ -198,5 +198,5 @@ def test_render():
     papers = [ranked_paper]
     result = render_discovery_view(papers)
 
-    assert result.title in result
-    assert str(result.year) in result
+    assert paper.title in result
+    assert str(paper.year) in result

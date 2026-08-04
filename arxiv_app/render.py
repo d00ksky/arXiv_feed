@@ -60,7 +60,8 @@ def render_discovery_view(papers: list[Paper]) -> str:
     index = 1
     papers_by_year = {}
     
-    for paper in papers:
+    for ranked_paper in papers:
+        paper = ranked_paper.paper
         if paper.year not in papers_by_year:
             papers_by_year[paper.year] = []
         papers_by_year[paper.year].append(paper)
