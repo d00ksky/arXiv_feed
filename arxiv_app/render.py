@@ -1,4 +1,7 @@
-from arxiv_app.models import Paper
+from arxiv_app.models import (
+        Paper,
+        RankedPaper,
+)
 from arxiv_app.logic import summary_snippet
 from arxiv_app.ranking import select_discovery_papers
 
@@ -46,7 +49,7 @@ def render_stats(total_papers: int, years: dict[int, int], unique_authors_count:
     return "\n".join(lines)
 
 
-def render_discovery_view(papers: list[Paper]) -> str:
+def render_discovery_view(papers: list[RankedPaper]) -> str:
     # 2024
     # 1. Title A
     # Summary: ...
