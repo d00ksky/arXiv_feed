@@ -34,7 +34,7 @@ def select_discovery_papers(
     """Returns sorted papers by score and if score is the same, by year"""
     # ranking currently uses title + summary score + recency
     # this is a heuristic V1 ranking
-    selected_ranked_papers = sorted(
+    sorted_papers = sorted(
         papers,
         key=lambda paper: (paper_match_score(paper, query), paper.year),
         reverse=True,
@@ -42,7 +42,7 @@ def select_discovery_papers(
 
     ranked_papers = []
 
-    for paper in selected_ranked_papers:
+    for paper in sorted_papers:
         ranked_paper = RankedPaper(
             paper=paper,
             score=paper_match_score(paper, query),
