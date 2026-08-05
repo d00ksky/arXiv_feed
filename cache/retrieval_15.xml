@@ -2,7 +2,7 @@
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
   <id>https://arxiv.org/api/vN58p+HT1fIaSHTf8uPsudJn+wk</id>
   <title>arXiv Query: search_query=all:retrieval&amp;id_list=&amp;start=0&amp;max_results=15</title>
-  <updated>2026-08-05T20:42:34Z</updated>
+  <updated>2026-08-05T21:56:46Z</updated>
   <link href="https://arxiv.org/api/query?search_query=all:retrieval&amp;start=0&amp;max_results=15&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>15</opensearch:itemsPerPage>
   <opensearch:totalResults>61539</opensearch:totalResults>
@@ -226,6 +226,41 @@
     </author>
   </entry>
   <entry>
+    <id>http://arxiv.org/abs/2503.01763v2</id>
+    <title>Retrieval Models Aren't Tool-Savvy: Benchmarking Tool Retrieval for Large Language Models</title>
+    <updated>2025-05-26T15:19:40Z</updated>
+    <link href="https://arxiv.org/abs/2503.01763v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.01763v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Tool learning aims to augment large language models (LLMs) with diverse tools, enabling them to act as agents for solving practical tasks. Due to the limited context length of tool-using LLMs, adopting information retrieval (IR) models to select useful tools from large toolsets is a critical initial step. However, the performance of IR models in tool retrieval tasks remains underexplored and unclear. Most tool-use benchmarks simplify this step by manually pre-annotating a small set of relevant tools for each task, which is far from the real-world scenarios. In this paper, we propose ToolRet, a heterogeneous tool retrieval benchmark comprising 7.6k diverse retrieval tasks, and a corpus of 43k tools, collected from existing datasets. We benchmark six types of models on ToolRet. Surprisingly, even the models with strong performance in conventional IR benchmarks, exhibit poor performance on ToolRet. This low retrieval quality degrades the task pass rate of tool-use LLMs. As a further step, we contribute a large-scale training dataset with over 200k instances, which substantially optimizes the tool retrieval ability of IR models.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-03T17:37:16Z</published>
+    <arxiv:comment>ACL 2025. Code: https://github.com/mangopy/tool-retrieval-benchmark</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Zhengliang Shi</name>
+    </author>
+    <author>
+      <name>Yuhan Wang</name>
+    </author>
+    <author>
+      <name>Lingyong Yan</name>
+    </author>
+    <author>
+      <name>Pengjie Ren</name>
+    </author>
+    <author>
+      <name>Shuaiqiang Wang</name>
+    </author>
+    <author>
+      <name>Dawei Yin</name>
+    </author>
+    <author>
+      <name>Zhaochun Ren</name>
+    </author>
+  </entry>
+  <entry>
     <id>http://arxiv.org/abs/2512.24268v1</id>
     <title>RAGPart &amp; RAGMask: Retrieval-Stage Defenses Against Corpus Poisoning in Retrieval-Augmented Generation</title>
     <updated>2025-12-30T14:43:57Z</updated>
@@ -270,41 +305,6 @@
     <link rel="related" href="https://doi.org/10.1145/2808194.2809457" title="doi"/>
   </entry>
   <entry>
-    <id>http://arxiv.org/abs/2503.01763v2</id>
-    <title>Retrieval Models Aren't Tool-Savvy: Benchmarking Tool Retrieval for Large Language Models</title>
-    <updated>2025-05-26T15:19:40Z</updated>
-    <link href="https://arxiv.org/abs/2503.01763v2" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2503.01763v2" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Tool learning aims to augment large language models (LLMs) with diverse tools, enabling them to act as agents for solving practical tasks. Due to the limited context length of tool-using LLMs, adopting information retrieval (IR) models to select useful tools from large toolsets is a critical initial step. However, the performance of IR models in tool retrieval tasks remains underexplored and unclear. Most tool-use benchmarks simplify this step by manually pre-annotating a small set of relevant tools for each task, which is far from the real-world scenarios. In this paper, we propose ToolRet, a heterogeneous tool retrieval benchmark comprising 7.6k diverse retrieval tasks, and a corpus of 43k tools, collected from existing datasets. We benchmark six types of models on ToolRet. Surprisingly, even the models with strong performance in conventional IR benchmarks, exhibit poor performance on ToolRet. This low retrieval quality degrades the task pass rate of tool-use LLMs. As a further step, we contribute a large-scale training dataset with over 200k instances, which substantially optimizes the tool retrieval ability of IR models.</summary>
-    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
-    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
-    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2025-03-03T17:37:16Z</published>
-    <arxiv:comment>ACL 2025. Code: https://github.com/mangopy/tool-retrieval-benchmark</arxiv:comment>
-    <arxiv:primary_category term="cs.CL"/>
-    <author>
-      <name>Zhengliang Shi</name>
-    </author>
-    <author>
-      <name>Yuhan Wang</name>
-    </author>
-    <author>
-      <name>Lingyong Yan</name>
-    </author>
-    <author>
-      <name>Pengjie Ren</name>
-    </author>
-    <author>
-      <name>Shuaiqiang Wang</name>
-    </author>
-    <author>
-      <name>Dawei Yin</name>
-    </author>
-    <author>
-      <name>Zhaochun Ren</name>
-    </author>
-  </entry>
-  <entry>
     <id>http://arxiv.org/abs/2407.20114v3</id>
     <title>FiCo-ITR: bridging fine-grained and coarse-grained image-text retrieval for comparative performance analysis</title>
     <updated>2026-01-16T07:22:38Z</updated>
@@ -325,33 +325,6 @@
     </author>
     <arxiv:doi>10.1007/s13735-025-00368-6</arxiv:doi>
     <link rel="related" href="https://doi.org/10.1007/s13735-025-00368-6" title="doi"/>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/1606.04648v1</id>
-    <title>A Study of MatchPyramid Models on Ad-hoc Retrieval</title>
-    <updated>2016-06-15T05:39:30Z</updated>
-    <link href="https://arxiv.org/abs/1606.04648v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/1606.04648v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Deep neural networks have been successfully applied to many text matching tasks, such as paraphrase identification, question answering, and machine translation. Although ad-hoc retrieval can also be formalized as a text matching task, few deep models have been tested on it. In this paper, we study a state-of-the-art deep matching model, namely MatchPyramid, on the ad-hoc retrieval task. The MatchPyramid model employs a convolutional neural network over the interactions between query and document to produce the matching score. We conducted extensive experiments to study the impact of different pooling sizes, interaction functions and kernel sizes on the retrieval performance. Finally, we show that the MatchPyramid models can significantly outperform several recently introduced deep matching models on the retrieval task, but still cannot compete with the traditional retrieval models, such as BM25 and language models.</summary>
-    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2016-06-15T05:39:30Z</published>
-    <arxiv:comment>Neu-IR '16 SIGIR Workshop on Neural Information Retrieval</arxiv:comment>
-    <arxiv:primary_category term="cs.IR"/>
-    <author>
-      <name>Liang Pang</name>
-    </author>
-    <author>
-      <name>Yanyan Lan</name>
-    </author>
-    <author>
-      <name>Jiafeng Guo</name>
-    </author>
-    <author>
-      <name>Jun Xu</name>
-    </author>
-    <author>
-      <name>Xueqi Cheng</name>
-    </author>
   </entry>
   <entry>
     <id>http://arxiv.org/abs/2602.07525v1</id>
@@ -406,6 +379,33 @@
     </author>
     <author>
       <name>Randy Sawaya</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1606.04648v1</id>
+    <title>A Study of MatchPyramid Models on Ad-hoc Retrieval</title>
+    <updated>2016-06-15T05:39:30Z</updated>
+    <link href="https://arxiv.org/abs/1606.04648v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1606.04648v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Deep neural networks have been successfully applied to many text matching tasks, such as paraphrase identification, question answering, and machine translation. Although ad-hoc retrieval can also be formalized as a text matching task, few deep models have been tested on it. In this paper, we study a state-of-the-art deep matching model, namely MatchPyramid, on the ad-hoc retrieval task. The MatchPyramid model employs a convolutional neural network over the interactions between query and document to produce the matching score. We conducted extensive experiments to study the impact of different pooling sizes, interaction functions and kernel sizes on the retrieval performance. Finally, we show that the MatchPyramid models can significantly outperform several recently introduced deep matching models on the retrieval task, but still cannot compete with the traditional retrieval models, such as BM25 and language models.</summary>
+    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-06-15T05:39:30Z</published>
+    <arxiv:comment>Neu-IR '16 SIGIR Workshop on Neural Information Retrieval</arxiv:comment>
+    <arxiv:primary_category term="cs.IR"/>
+    <author>
+      <name>Liang Pang</name>
+    </author>
+    <author>
+      <name>Yanyan Lan</name>
+    </author>
+    <author>
+      <name>Jiafeng Guo</name>
+    </author>
+    <author>
+      <name>Jun Xu</name>
+    </author>
+    <author>
+      <name>Xueqi Cheng</name>
     </author>
   </entry>
   <entry>
