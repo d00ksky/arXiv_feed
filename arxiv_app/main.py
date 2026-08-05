@@ -81,12 +81,12 @@ def main():
     elif args.sort == "newest":
         papers = sorted(papers, key=lambda paper: paper.year, reverse=True)
 
-    discovery_papers = select_discovery_papers(papers, args.query, args.limit)
+    ranked_discovery_papers = select_discovery_papers(papers, args.query, args.limit)
     # Here we are printing papers after all filters
-    if not discovery_papers:
+    if not ranked_discovery_papers:
         print("No papers found.")
     else:
-        print(render_discovery_view(discovery_papers))
+        print(render_discovery_view(ranked_discovery_papers))
 
         selection = input("Select paper number (Enter to skip).")
 
@@ -99,13 +99,13 @@ def main():
             print("Invalid paper number")
             return
 
-        selected_paper = paper_at_index(discovery_papers, selected_index)
-        if selected_paper is None:
+        selected_ranked_paper = paper_at_index(ranked_discovery_papers, selected_index)
+        if selected_ranked_paper is None:
             print("Invalid paper number")
             return
 
         print()
-        print(render_paper_detail(selected_paper))
+        print(render_paper_detail(selected_ranked_paper.paper))
 
 
 if __name__ == "__main__":
