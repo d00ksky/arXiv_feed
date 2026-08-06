@@ -2,15 +2,6 @@ from arxiv_app.logic import paper_at_index
 
 from arxiv_app.render import render_paper_detail
 
-from arxiv_app.ranking import (
-    title_match_score,
-    paper_match_score,
-    select_discovery_papers,
-    explain_paper_match,
-)
-
-from arxiv_app.render import render_discovery_view
-
 from arxiv_app.models import (
     Paper,
     RankedPaper,
