@@ -1,4 +1,4 @@
-# Just notepad for testing and trying quick ideas 
+# Just notepad for testing and trying quick ideas
 from arxiv_app.models import Paper
 import collections
 from collections import (
@@ -14,12 +14,7 @@ from arxiv_app.render import render_discovery_view
 from arxiv_app.ranking import select_discovery_papers
 
 
-papers_by_year = {
-    2019: 1,
-    2020: 3,
-    2021: 4,
-    2022: 2
-}
+papers_by_year = {2019: 1, 2020: 3, 2021: 4, 2022: 2}
 
 papers = [
     Paper(
@@ -28,7 +23,7 @@ papers = [
         12000,
         ["Y. LeCun", "A. Smith"],
         "paper-1",
-        "A paper about deep learning methods used in computer vision tasks."
+        "A paper about deep learning methods used in computer vision tasks.",
     ),
     Paper(
         "Neural Networks in Medicine",
@@ -36,7 +31,7 @@ papers = [
         450,
         ["A. Smith", "K. Patel"],
         "paper-2",
-        "A study of neural network applications in medical diagnosis and treatment support."
+        "A study of neural network applications in medical diagnosis and treatment support.",
     ),
     Paper(
         "Transformers in NLP",
@@ -44,7 +39,7 @@ papers = [
         25000,
         ["A. Vaswani", "Y. LeCun"],
         "paper-3",
-        "An overview of transformer-based methods for natural language processing."
+        "An overview of transformer-based methods for natural language processing.",
     ),
     Paper(
         "Quantum Computing Basics",
@@ -52,7 +47,7 @@ papers = [
         300,
         ["John Doe"],
         "paper-4",
-        "A beginner-friendly introduction to the main concepts of quantum computing."
+        "A beginner-friendly introduction to the main concepts of quantum computing.",
     ),
     Paper(
         "Large Language Models",
@@ -60,7 +55,7 @@ papers = [
         800,
         ["A. Smith", "John Doe"],
         "paper-5",
-        "A paper discussing the capabilities and limitations of large language models."
+        "A paper discussing the capabilities and limitations of large language models.",
     ),
     Paper(
         "AI in Healthcare",
@@ -68,7 +63,7 @@ papers = [
         600,
         ["K. Patel", "A. Smith"],
         "paper-6",
-        "An analysis of how artificial intelligence can improve healthcare systems."
+        "An analysis of how artificial intelligence can improve healthcare systems.",
     ),
     Paper(
         "Self-Supervised Learning",
@@ -76,72 +71,72 @@ papers = [
         1500,
         ["A. Smith"],
         "paper-7",
-        "A paper about self-supervised learning techniques for representation learning."
+        "A paper about self-supervised learning techniques for representation learning.",
     ),
     Paper(
-    "AI Safety for Large Language Models",
-    2024,
-    920,
-    ["R. Turner", "L. Smith"],
-    "paper-8",
-    "This paper studies AI safety challenges in large language models, including robustness, misalignment, and unsafe model behavior."
-),
-Paper(
-    "Reasoning Abilities in Language Models",
-    2024,
-    780,
-    ["M. Chen", "A. Gupta"],
-    "paper-9",
-    "We analyze reasoning abilities in language models and evaluate how well modern models solve multi-step reasoning tasks."
-),
-Paper(
-    "Agentic Coding with LLM Systems",
-    2025,
-    410,
-    ["D. Park", "J. Miller"],
-    "paper-10",
-    "This paper explores agentic coding systems where language models autonomously write, revise, and debug code in iterative loops."
-),
-Paper(
-    "Retrieval-Augmented Generation in Practice",
-    2024,
-    650,
-    ["S. Rao", "E. Brown"],
-    "paper-11",
-    "We study retrieval-augmented generation systems and show how external knowledge retrieval improves factual accuracy and grounding."
-),
-Paper(
-    "Alignment and Control in AI Agents",
-    2025,
-    530,
-    ["K. Patel", "N. Evans"],
-    "paper-12",
-    "This work focuses on alignment and control problems in AI agents, with an emphasis on safety, monitoring, and reliable behavior."
-),
-Paper(
-    "Tool Use and Planning in Reasoning Models",
-    2025,
-    470,
-    ["Y. Nakamura", "P. Silva"],
-    "paper-13",
-    "We examine reasoning models that combine tool use, explicit planning, and structured intermediate steps for harder tasks."
-),
-Paper(
-    "Secure Deployment of Agentic AI Systems",
-    2024,
-    355,
-    ["T. Ivanov"],
-    "paper-14",
-    "This paper discusses the secure deployment of agentic AI systems, including oversight, safety constraints, and failure prevention."
-),
-Paper(
-    "Evaluation of OpenAI-style Reasoning Systems",
-    2025,
-    290,
-    ["C. Weber", "F. Rossi"],
-    "paper-15",
-    "We evaluate OpenAI-style reasoning systems on benchmarks requiring chain-of-thought, planning, and robust problem solving."
-),
+        "AI Safety for Large Language Models",
+        2024,
+        920,
+        ["R. Turner", "L. Smith"],
+        "paper-8",
+        "This paper studies AI safety challenges in large language models, including robustness, misalignment, and unsafe model behavior.",
+    ),
+    Paper(
+        "Reasoning Abilities in Language Models",
+        2024,
+        780,
+        ["M. Chen", "A. Gupta"],
+        "paper-9",
+        "We analyze reasoning abilities in language models and evaluate how well modern models solve multi-step reasoning tasks.",
+    ),
+    Paper(
+        "Agentic Coding with LLM Systems",
+        2025,
+        410,
+        ["D. Park", "J. Miller"],
+        "paper-10",
+        "This paper explores agentic coding systems where language models autonomously write, revise, and debug code in iterative loops.",
+    ),
+    Paper(
+        "Retrieval-Augmented Generation in Practice",
+        2024,
+        650,
+        ["S. Rao", "E. Brown"],
+        "paper-11",
+        "We study retrieval-augmented generation systems and show how external knowledge retrieval improves factual accuracy and grounding.",
+    ),
+    Paper(
+        "Alignment and Control in AI Agents",
+        2025,
+        530,
+        ["K. Patel", "N. Evans"],
+        "paper-12",
+        "This work focuses on alignment and control problems in AI agents, with an emphasis on safety, monitoring, and reliable behavior.",
+    ),
+    Paper(
+        "Tool Use and Planning in Reasoning Models",
+        2025,
+        470,
+        ["Y. Nakamura", "P. Silva"],
+        "paper-13",
+        "We examine reasoning models that combine tool use, explicit planning, and structured intermediate steps for harder tasks.",
+    ),
+    Paper(
+        "Secure Deployment of Agentic AI Systems",
+        2024,
+        355,
+        ["T. Ivanov"],
+        "paper-14",
+        "This paper discusses the secure deployment of agentic AI systems, including oversight, safety constraints, and failure prevention.",
+    ),
+    Paper(
+        "Evaluation of OpenAI-style Reasoning Systems",
+        2025,
+        290,
+        ["C. Weber", "F. Rossi"],
+        "paper-15",
+        "We evaluate OpenAI-style reasoning systems on benchmarks requiring chain-of-thought, planning, and robust problem solving.",
+    ),
 ]
 
 test_queries = [
@@ -162,23 +157,25 @@ author = "John Doe"
 interests = ["openai", "superpartia", "    ", "Roberto"]
 
 
-def safe_paper_field_by_id(papers: list[Paper], paper_id: str, field: str) -> str | int | list[str] | None:
+def safe_paper_field_by_id(
+    papers: list[Paper], paper_id: str, field: str
+) -> str | int | list[str] | None:
     for paper in papers:
         if paper.id == paper_id:
-            if field == 'title':
+            if field == "title":
                 return paper.title
-            elif field == 'summary':
+            elif field == "summary":
                 return paper.summary
-            elif field == 'year':
+            elif field == "year":
                 return paper.year
-            elif field == 'citations':
+            elif field == "citations":
                 return paper.citations
-            elif field == 'authors':
+            elif field == "authors":
                 return paper.authors
             else:
                 return None
     return None
-        
+
 
 def safe_snippet_by_id(papers: list[Paper], paper_id: str, limit: int) -> str | None:
     for paper in papers:
@@ -187,28 +184,30 @@ def safe_snippet_by_id(papers: list[Paper], paper_id: str, limit: int) -> str | 
                 return paper.summary
             return paper.summary[:limit] + "..."
     return None
-    
+
+
 # for query in test_queries:
 #     selected_papers = select_discovery_papers(papers, query, 5)
 #     print(f'\nQUERY: {query}')
 #     for paper in selected_papers:
 #         print('-', paper.title)
-        
+
 # papers = [
 #     {"title": "A", "year": 2024},
 #     {"title": "B", "year": 2024},
 #     {"title": "C", "year": 2023},
 # ]
 
+
 def group_titles_by_year(papers: list[dict]) -> dict[int, list[str]]:
     years_grouped = {}
     for paper in papers:
-        year = paper['year']
+        year = paper["year"]
         if year not in years_grouped:
             years_grouped[year] = []
         years_grouped[year].append(paper["title"])
     return years_grouped
-            
+
 
 services = [
     {"name": "S3", "category": "storage"},
@@ -220,6 +219,7 @@ services = [
     {"name": "AWS Budgets", "category": "cost"},
     {"name": "EC2", "category": "compute"},
 ]
+
 
 def group_services_by_category(services: list[dict]) -> dict[str, list[str]]:
     grouped = {}
@@ -235,18 +235,18 @@ def get_services_in_category(
     category: str,
 ) -> list[str]:
     return grouped_services.get(category, [])
-    
+
 
 grouped_services = group_services_by_category(services)
 
 
 def explain_paper_match(paper: Paper, query: str) -> list[str]:
-    
+
     # paper.title = "Large Language Models for Search"
     # paper.summary = "This paper studies retrieval systems."
     # query = "large language models"
     # paper.year = 2024
-    
+
     reasons = []
 
     query_lower = query.lower()
@@ -260,22 +260,21 @@ def explain_paper_match(paper: Paper, query: str) -> list[str]:
     # 3. each query word in title
     # 4. each query word in summary
     # 5. recent paper, for example year >= 2023
-    
+
     if query_lower in title_lower:
         reasons.append("title contains full query")
-    
+
     for word in query_lower.split(" "):
         if word in title_lower:
             reasons.append(f"title contains keyword: {word}")
-        
+
     if query_lower in summary_lower:
         reasons.append("summary contains full query")
-        
+
     if query_lower in summary_lower:
         reasons.append(f"summary contains keyword: {query_lower}")
 
     return reasons
-
 
 
 # 2026-05-06
@@ -289,6 +288,7 @@ services = [
 
 # DRILL 1
 
+
 def services_in_category(services: list[dict], category: str) -> list[str]:
     services_in_cat = []
     for service in services:
@@ -299,6 +299,7 @@ def services_in_category(services: list[dict], category: str) -> list[str]:
 
 # DRILL 2
 
+
 def count_services_by_category(services: list[dict]) -> dict[str, int]:
     services_count = {}
     for service in services:
@@ -307,11 +308,14 @@ def count_services_by_category(services: list[dict]) -> dict[str, int]:
         else:
             services_count[service["category"]] += 1
     return services_count
-    
+
+
 # DRILL 3
+
 
 def has_service(services: list[dict], service_name: str) -> bool:
     return any(service["name"].lower() == service_name.lower() for service in services)
+
 
 services = [
     {"name": "S3", "priority": 2},
@@ -320,6 +324,7 @@ services = [
 ]
 
 # DRILL 4
+
 
 def sort_services_by_priority(services: list[dict]) -> list[dict]:
     return sorted(services, key=lambda service: service["priority"], reverse=True)
@@ -338,7 +343,8 @@ services = [
     {"name": "Lambda", "priority": 3},
     {"name": "Bedrock", "priority": 4},
 ]
-    
+
+
 def high_priority_service_names(
     services: list[dict],
     min_priority: int,
@@ -348,7 +354,7 @@ def high_priority_service_names(
         if service["priority"] >= min_priority:
             prio_sevices.append(service["name"])
     return prio_sevices
-    
+
 
 services = [
     {"name": "EC2", "category": "compute", "priority": 5},
@@ -376,17 +382,14 @@ def important_compute_services2(
     min_priority: int,
 ) -> list[str]:
     return [
-        service["name"] for service in services if 
-        service["category"] == "compute" and 
-        service["priority"] >= min_priority
-        ]
-    
-def non_compute_services(services: list[dict]) -> list[str]:
-    return [
-        service["name"] 
-        for service in services 
-        if service["category"] != "compute"
+        service["name"]
+        for service in services
+        if service["category"] == "compute" and service["priority"] >= min_priority
     ]
+
+
+def non_compute_services(services: list[dict]) -> list[str]:
+    return [service["name"] for service in services if service["category"] != "compute"]
 
 
 services = [
@@ -400,6 +403,7 @@ services = [
     {"name": "CloudTrail", "category": "monitoring", "priority": 5},
 ]
 
+
 def top_service_by_category(services: list[dict]) -> dict[str, str]:
     top_by_category = {}
     for service in services:
@@ -408,11 +412,7 @@ def top_service_by_category(services: list[dict]) -> dict[str, str]:
             top_by_category[category] = service
         elif top_by_category[category]["priority"] < service["priority"]:
             top_by_category[category] = service
-    return {
-        category: service["name"]
-        for category, service in top_by_category.items()
-    }
-
+    return {category: service["name"] for category, service in top_by_category.items()}
 
 
 services = [
@@ -440,7 +440,7 @@ def average_priority_by_category(services: list[dict]) -> dict[str, float]:
         category: values["total"] / values["count"]
         for category, values in totals.items()
     }
-           
+
 
 services = [
     {"name": "EC2", "category": "compute", "priority": 5},
@@ -455,6 +455,7 @@ services = [
     {"name": "CloudTrail", "category": "monitoring", "priority": 5},
 ]
 
+
 def top_services_by_category(
     services: list[dict],
     limit: int,
@@ -467,24 +468,18 @@ def top_services_by_category(
             grouped[category] = [service]
         else:
             grouped[category].append(service)
-            
+
     result = {}
     for category, category_services in grouped.items():
         sorted_services = sorted(
-            category_services, 
-            key=lambda service: service["priority"],
-            reverse=True
+            category_services, key=lambda service: service["priority"], reverse=True
         )
-        
-        top_services = sorted_services[:limit]
-        
-        result[category] = [
-            service["name"]
-            for service in top_services
-        ]
-        
-    return result
 
+        top_services = sorted_services[:limit]
+
+        result[category] = [service["name"] for service in top_services]
+
+    return result
 
 
 services = [
@@ -509,17 +504,17 @@ def category_summary(services: list[dict]) -> dict[str, dict]:
         priority = service["priority"]
         if category not in summary:
             summary[category] = {
-            "count": 0,
-            "total_priority": 0,
-            "top_service": None,
-            "top_priority": 0,
-        }
+                "count": 0,
+                "total_priority": 0,
+                "top_service": None,
+                "top_priority": 0,
+            }
         summary[category]["count"] += 1
         summary[category]["total_priority"] += priority
         if summary[category]["top_priority"] < priority:
             summary[category]["top_priority"] = priority
             summary[category]["top_service"] = name
-        
+
     final_summary = {}
 
     for category, values in summary.items():
@@ -530,9 +525,8 @@ def category_summary(services: list[dict]) -> dict[str, dict]:
         }
 
     return final_summary
-            
-    
-    
+
+
 def category_summary2(services: list[dict]) -> dict[str, dict]:
     summary = {}
     for service in services:
@@ -541,28 +535,27 @@ def category_summary2(services: list[dict]) -> dict[str, dict]:
         priority = service["priority"]
         if category not in summary:
             summary[category] = {
-            "count": 0,
-            "total_priority": 0,
-            "top_service": None,
-            "top_priority": 0,
-        }
+                "count": 0,
+                "total_priority": 0,
+                "top_service": None,
+                "top_priority": 0,
+            }
         summary[category]["count"] += 1
         summary[category]["total_priority"] += priority
         if priority > summary[category]["total_priority"]:
             summary[category]["top_priority"] = priority
             summary[category]["top_service"] = name
-    
+
     final_summary = {}
-    
+
     for category, values in summary.items():
         final_summary[category] = {
             "count": values["count"],
             "average_priority": values["total_priority"] / values["count"],
             "top_service": values["top_service"],
         }
-        
+
     return final_summary
-        
 
 
 def category_summary3(services: list[dict]) -> dict[str, dict]:
@@ -573,11 +566,11 @@ def category_summary3(services: list[dict]) -> dict[str, dict]:
         category = service["category"]
         if category not in summary:
             summary[category] = {
-            "count": 0,
-            "total_priority": 0,
-            "top_service": None,
-            "top_priority": 0,
-        }
+                "count": 0,
+                "total_priority": 0,
+                "top_service": None,
+                "top_priority": 0,
+            }
         summary[category]["count"] += 1
         summary[category]["total_priority"] += priority
         if summary[category]["top_priority"] < priority:
@@ -590,10 +583,10 @@ def category_summary3(services: list[dict]) -> dict[str, dict]:
             "average_priority": values["total_priority"] / values["count"],
             "top_service": values["top_service"],
         }
-    
-    return final_summary 
-   
-   
+
+    return final_summary
+
+
 papers = [
     {"title": "Large Language Models for Search", "year": 2024, "score": 9},
     {"title": "Vision Transformers in Medicine", "year": 2024, "score": 7},
@@ -604,10 +597,8 @@ papers = [
 ]
 
 
-
- 
- 
 # a tak powinno być
+
 
 def top_matching_titles_by_year(
     papers: list[dict],
@@ -636,12 +627,10 @@ def top_matching_titles_by_year(
 
         top_papers = sorted_papers[:limit]
 
-        result[year] = [
-            paper["title"]
-            for paper in top_papers
-        ]
+        result[year] = [paper["title"] for paper in top_papers]
 
-    return result    
+    return result
+
 
 papers = [
     {"title": "Large Language Models for Search", "year": 2024},
@@ -649,6 +638,7 @@ papers = [
     {"title": "Language Models for Code", "year": 2023},
     {"title": "Graph Neural Networks", "year": 2023},
 ]
+
 
 def title_keyword_counts(
     papers: list[dict],
@@ -663,12 +653,30 @@ def title_keyword_counts(
                 count += 1
         keyword_counts[title_lower] = count
     return keyword_counts
-        
-        
-        
+
 
 result = title_keyword_counts(papers, ["models", "language"])
 
 
-
 print(result)
+
+
+# leetcode: Products of Array Except Self
+
+
+#    class Solution:
+#       def productExceptSelf(self, nums: List[int]) -> List[int]:
+#            answer = []
+#            left = [1] * len(nums)
+#            right = [1] * len(nums)
+#
+#            for i in range(1, len(nums)):
+#                left[i] = left[i - 1] * nums[i - 1]
+#
+#            for j in range(len(nums) - 2, -1, -1):
+#                right[j] = right[j + 1] * nums[j + 1]
+#
+#            for k in range(len(nums)):
+#                answer.append(left[k] * right[k])
+#
+#            return answer
