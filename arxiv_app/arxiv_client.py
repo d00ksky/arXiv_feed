@@ -9,11 +9,10 @@ from urllib.parse import quote_plus
 def _is_cache_fresh(path: str, ttl_seconds: int) -> bool:
     if not os.path.exists(path):
         return False
-    
-    modified_time = os.path.getmtime(path)
-    age = time.time() - modified_time 
-    return age < ttl_seconds
 
+    modified_time = os.path.getmtime(path)
+    age = time.time() - modified_time
+    return age < ttl_seconds
 
 
 def _cache_path(query: str, max_results: int) -> str:
@@ -22,14 +21,15 @@ def _cache_path(query: str, max_results: int) -> str:
     filename = f"{safe_query}_{max_results}.xml"
     return os.path.join("cache", filename)
 
+
 # n
+
 
 def _parse_xml(xml_bytes: bytes) -> list[dict]:
     xml_text = xml_bytes.decode("utf-8")
     ns = {"a": "http://www.w3.org/2005/Atom"}
     root = ET.fromstring(xml_text)
     entries = root.findall("a:entry", ns)
-
 
     papers = []
     for entry in entries:
@@ -38,10 +38,14 @@ def _parse_xml(xml_bytes: bytes) -> list[dict]:
         id_elem = entry.find("a:id", ns)
         summary_elem = entry.find("a:summary", ns)
         if (
-            pub_elem is None or pub_elem.text is None or
-            title_elem is None or title_elem.text is None or
-            id_elem is None or id_elem.text is None or
-            summary_elem is None or summary_elem.text is None
+            pub_elem is None
+            or pub_elem.text is None
+            or title_elem is None
+            or title_elem.text is None
+            or id_elem is None
+            or id_elem.text is None
+            or summary_elem is None
+            or summary_elem.text is None
         ):
             continue
 
@@ -51,32 +55,31 @@ def _parse_xml(xml_bytes: bytes) -> list[dict]:
             if name_elem is not None and name_elem.text is not None:
                 authors.append(name_elem.text.strip())
 
-        papers.append({
-            "id": id_elem.text.strip(),
-            "title": title_elem.text.strip(),
-            "authors": authors,
-            "published": pub_elem.text.strip(),
-            "summary": summary_elem.text.strip()
-        })
+        papers.append(
+            {
+                "id": id_elem.text.strip(),
+                "title": title_elem.text.strip(),
+                "authors": authors,
+                "published": pub_elem.text.strip(),
+                "summary": summary_elem.text.strip(),
+            }
+        )
 
     return papers
 
 
-
-def fetch_papers(query: str, max_results: int =10, cache_ttl: int = 600) -> list[dict]:
+def fetch_papers(query: str, max_results: int = 10, cache_ttl: int = 600) -> list[dict]:
     time.sleep(1.0)
     encoded_query = quote_plus(query)
-    url = (
-        f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}&start=0&max_results={max_results}"
-    )
+    url = f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
     headers = {
         "User-Agent": "arxiv-app/0.1 (contact: debski.jakub@gmail.com)",
         "From": "debski.jakub@gmail.com",
     }
-    
+
     cache_path = _cache_path(query, max_results)
     TTL = cache_ttl
-    
+
     # retry/backoff
     if os.path.exists(cache_path):
         max_attempts = 2
@@ -88,16 +91,16 @@ def fetch_papers(query: str, max_results: int =10, cache_ttl: int = 600) -> list
     last_err = None
 
     if _is_cache_fresh(cache_path, TTL):
-        with open(cache_path, 'rb') as f:
+        with open(cache_path, "rb") as f:
             xml_bytes = f.read()
 
-    else:  
+    else:
         for attempt in range(1, max_attempts + 1):
             req = urllib.request.Request(url, headers=headers, method="GET")
             try:
                 with urllib.request.urlopen(req, timeout=3) as response:
                     xml_bytes = response.read()
-                with open(cache_path, 'wb') as f:
+                with open(cache_path, "wb") as f:
                     f.write(xml_bytes)
                 last_err = None
                 break
@@ -122,18 +125,16 @@ def fetch_papers(query: str, max_results: int =10, cache_ttl: int = 600) -> list
                 time.sleep(delay)
                 delay = min(delay * 2, 30.0)
 
-  
         if xml_bytes is None:
             if os.path.exists(cache_path):
                 print("(fetch failed, using cache)")
-                with open(cache_path, 'rb') as f:
+                with open(cache_path, "rb") as f:
                     xml_bytes = f.read()
             else:
-                raise last_err if last_err is not None else RuntimeError("fetch_papers failed")
-
-
+                raise (
+                    last_err
+                    if last_err is not None
+                    else RuntimeError("fetch_papers failed")
+                )
 
     return _parse_xml(xml_bytes)
- 
-
-        
