@@ -68,10 +68,16 @@ def _parse_xml(xml_bytes: bytes) -> list[dict]:
     return papers
 
 
-def fetch_papers(query: str, max_results: int = 10, cache_ttl: int = 600) -> list[dict]:
-    time.sleep(1.0)
+def _build_query_url(query: str, max_results: int) -> str:
+
     encoded_query = quote_plus(query)
     url = f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+    return url
+
+
+def fetch_papers(query: str, max_results: int = 10, cache_ttl: int = 600) -> list[dict]:
+    time.sleep(1.0)
+    url = _build_query_url(query, max_results)
     headers = {
         "User-Agent": "arxiv-app/0.1 (contact: debski.jakub@gmail.com)",
         "From": "debski.jakub@gmail.com",
