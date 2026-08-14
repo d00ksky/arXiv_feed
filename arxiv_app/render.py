@@ -82,16 +82,20 @@ def render_discovery_view(papers: list[RankedPaper]) -> str:
         paper = ranked_paper.paper
         if paper.year not in papers_by_year:
             papers_by_year[paper.year] = []
-        papers_by_year[paper.year].append(paper)
+        papers_by_year[paper.year].append(ranked_paper)
 
     for year in sorted(papers_by_year, reverse=True):
         if view:
             view.append("")
         view.append(f"[{year}]")
-        for paper in papers_by_year[year]:
+        for ranked_paper in papers_by_year[year]:
+            paper = ranked_paper.paper
             view.append(f"{index}. {BOLD}{paper.title}{RESET}")
             view.append(
-                f"   {CYAN}Summary:{RESET} {summary_snippet(paper.summary, 150)}\n"
+                f"   {CYAN}Summary:{RESET} {summary_snippet(paper.summary, 150)}"
+            )
+            view.append(
+                f"   {CYAN}Why selected:{RESET} {', '.join(ranked_paper.reasons)}"
             )
             index += 1
 
