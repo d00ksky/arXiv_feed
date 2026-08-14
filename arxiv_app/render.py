@@ -1,6 +1,6 @@
 from arxiv_app.models import (
-        Paper,
-        RankedPaper,
+    Paper,
+    RankedPaper,
 )
 from arxiv_app.logic import summary_snippet
 from arxiv_app.ranking import select_discovery_papers
@@ -20,8 +20,9 @@ def render_paper_line(index: int, paper: Paper) -> str:
     result = f"{index}. ({year}) {title}"
     if authors:
         result += " - " + authors_str
-            
+
     return result
+
 
 def render_paper_list(papers: list[Paper]) -> str:
     lines = []
@@ -30,7 +31,13 @@ def render_paper_list(papers: list[Paper]) -> str:
     return "\n".join(lines)
 
 
-def render_stats(total_papers: int, years: dict[int, int], unique_authors_count: int, most_common_author: str | None, top_n_authors: list[tuple[str, int]] | None) -> str:
+def render_stats(
+    total_papers: int,
+    years: dict[int, int],
+    unique_authors_count: int,
+    most_common_author: str | None,
+    top_n_authors: list[tuple[str, int]] | None,
+) -> str:
     total_papers_str = f"Total papers: {total_papers}"
     if not years:
         years_str = "Years covered: N/A"
@@ -44,8 +51,16 @@ def render_stats(total_papers: int, years: dict[int, int], unique_authors_count:
     if top_n_authors is None:
         top_n_authors_string = "Top authors: N/A"
     else:
-        top_n_authors_string = ", ".join(f"{author} ({count})" for author, count in top_n_authors)
-    lines = [total_papers_str, years_str, unique_authors_count_str, most_common_author_string, top_n_authors_string]
+        top_n_authors_string = ", ".join(
+            f"{author} ({count})" for author, count in top_n_authors
+        )
+    lines = [
+        total_papers_str,
+        years_str,
+        unique_authors_count_str,
+        most_common_author_string,
+        top_n_authors_string,
+    ]
     return "\n".join(lines)
 
 
@@ -54,35 +69,35 @@ def render_discovery_view(papers: list[RankedPaper]) -> str:
     # 1. Title A
     # Summary: ...
     # 2. Title B
-    #Summary: ...
-    
+    # Summary: ...
+
     # 2023
-    # 3. Title C    
-    #Summary: ...
+    # 3. Title C
+    # Summary: ...
     view = []
     index = 1
     papers_by_year = {}
-    
+
     for ranked_paper in papers:
         paper = ranked_paper.paper
         if paper.year not in papers_by_year:
             papers_by_year[paper.year] = []
         papers_by_year[paper.year].append(paper)
-    
-        
+
     for year in sorted(papers_by_year, reverse=True):
         if view:
             view.append("")
         view.append(f"[{year}]")
         for paper in papers_by_year[year]:
             view.append(f"{index}. {BOLD}{paper.title}{RESET}")
-            view.append(f"   {CYAN}Summary:{RESET} {summary_snippet(paper.summary, 150)}\n")
+            view.append(
+                f"   {CYAN}Summary:{RESET} {summary_snippet(paper.summary, 150)}\n"
+            )
             index += 1
-             
+
     return "\n".join(view)
- 
- 
- 
+
+
 def render_paper_detail(paper: Paper) -> str:
     lines = []
     lines.append(f"Title: {paper.title}")
@@ -90,7 +105,8 @@ def render_paper_detail(paper: Paper) -> str:
     authors_str = ", ".join(paper.authors)
     lines.append(f"Authors: {authors_str}")
     lines.append(f"Summary: {paper.summary}")
-    return "\n".join(lines) 
+    lines.append(f"ID URL: {paper.id}")
+    return "\n".join(lines)
 
 
 def render_interest_digest(interest: str, papers: list[Paper]) -> str:
@@ -104,9 +120,12 @@ def render_interest_digest(interest: str, papers: list[Paper]) -> str:
 def digest_for_interest(interest: str, papers: list[Paper], limit: int = 5) -> str:
     selected_papers = select_discovery_papers(papers, interest, limit)
     return render_interest_digest(interest, selected_papers)
- 
-def digest_for_interests(interests: list[str], papers: list[Paper], limit: int = 5) -> str:
+
+
+def digest_for_interests(
+    interests: list[str], papers: list[Paper], limit: int = 5
+) -> str:
     sections = []
     for interest in interests:
-        sections.append(digest_for_interest(interest, papers, limit)) 
+        sections.append(digest_for_interest(interest, papers, limit))
     return "\n\n".join(sections)
