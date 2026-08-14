@@ -2,583 +2,463 @@
 <feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
   <id>https://arxiv.org/api/vN58p+HT1fIaSHTf8uPsudJn+wk</id>
   <title>arXiv Query: search_query=all:retrieval&amp;id_list=&amp;start=0&amp;max_results=15</title>
-  <updated>2026-08-12T19:37:45Z</updated>
+  <updated>2026-08-14T18:56:47Z</updated>
   <link href="https://arxiv.org/api/query?search_query=all:retrieval&amp;start=0&amp;max_results=15&amp;id_list=" type="application/atom+xml"/>
   <opensearch:itemsPerPage>15</opensearch:itemsPerPage>
-  <opensearch:totalResults>61927</opensearch:totalResults>
+  <opensearch:totalResults>62040</opensearch:totalResults>
   <opensearch:startIndex>0</opensearch:startIndex>
   <entry>
-    <id>http://arxiv.org/abs/2608.11200v1</id>
-    <title>ConVAWG: A Retrieval-Grounded Framework for Controlled Synthetic Dialogue Generation in Violence Against Women and Girls</title>
-    <updated>2026-08-11T17:57:34Z</updated>
-    <link href="https://arxiv.org/abs/2608.11200v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.11200v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Synthetic dialogue generation offers a way to study conversational dynamics in sensitive domains where real data are difficult to access, release, or annotate. The underlying abuse may occur online or offline: threats and coercion can appear directly in messages, while behaviours such as surveillance, isolation, stalking, and physical violence may be planned, disclosed, or referred to conversationally. Privacy and legal constraints make it difficult the release of large-scale real conversation datasets; existing work has mostly focused on sentence-level toxicity of online abuses, leaving a gap in modelling abuse as a relational and temporally unfolding phenomenon. In this work, we focus on modelling Violence Against Women and Girls (VAWG) scenarios as multi-turn dialogues. We introduce ConVAWG, a retrieval-grounded framework for generating CPS-aligned synthetic VAWG chat dialogues. ConVAWG builds scenarios from persona seeds, demographic patterns reported by the UK Office for National Statistics, official crime definitions, and retrieved Domestic Homicide Review cases; converts them into hierarchical event timelines; generates multi-scene role-play dialogues; and applies targeted activation-steered toxicity control to appropriate utterances. We release over 6,000 multi-turn dialogue events across 200 scenarios with rich scenario-, event-, and turn-level metadata. Extensive human evaluation, LLM-as-Judge assessment, ablations, and downstream tasks show strong dialogue quality and domain fidelity.</summary>
+    <id>http://arxiv.org/abs/2608.13546v1</id>
+    <title>Alaya-EVOKE: From Linear-Scaling Supervision to Endless World</title>
+    <updated>2026-08-13T17:57:00Z</updated>
+    <link href="https://arxiv.org/abs/2608.13546v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13546v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Interactive world models must support persistent memory, responsive interaction, and long-horizon generation, yet these requirements place conflicting demands on the model. Maintaining history in the denoiser context or key-value cache incurs growing cost, forcing a trade-off between session length and retained memory, while low-latency interaction relies on few-step generation whose capabilities are bounded by its teacher. Evoke addresses both limitations by externalizing persistent world state and redesigning the teacher for long-horizon interactive generation. Scene geometry is maintained in an external, camera-indexed world state bank, from which only view-relevant information is retrieved, keeping the denoiser context bounded as the session grows. Rather than treating the teacher as a fixed generator, we design it for long-horizon supervision: its sparse attention combines chunk-wise grouping, retrieval of selected distant frames, and a linear-attention global state, yielding linear growth in memory and compute while enabling supervision over long horizons. Such supervision exposes content drift that stays locally plausible within short windows, while per-chunk conditioning enables prompt changes and event control throughout the sequence. A 30-second distribution-matching objective, applied under self-forced rollouts, transfers both capabilities to a three-step student that uses no classifier-free guidance, improving resistance to long-term drift while preserving responsive conditioning. With bounded context and recurrent external memory, Evoke supports open-ended, continuously evolving generation; on a single H200 at $384\times 640$, each $1.5\,\mathrm{s}$ chunk is generated in $2.11\,\mathrm{s}$. As a three-step world model, Evoke achieves state-of-the-art performance on WBench while remaining competitive on VBench-Long and VBench-2.0.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T17:57:00Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yuanyang Yin</name>
+    </author>
+    <author>
+      <name>Gongxuan Wang</name>
+    </author>
+    <author>
+      <name>Yifan Zhan</name>
+    </author>
+    <author>
+      <name>Chuanhao Li</name>
+    </author>
+    <author>
+      <name>Kaipeng Zhang</name>
+    </author>
+    <author>
+      <name>Feng Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13516v1</id>
+    <title>Numerical Model Simulation of the Carruthers GCI Images</title>
+    <updated>2026-08-13T17:37:02Z</updated>
+    <link href="https://arxiv.org/abs/2608.13516v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13516v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Carruthers Geocorona Observatory, launched in September 2025, is NASA's first mission devoted to investigating the fundamental nature of Earth's exosphere from its distant vantage in halo orbit around the Earth-Sun Lagrange (L1) point. Its primary payload, the GeoCoronal Imager, consists of two coaligned photometric imagers that measure the radiance of ultraviolet emission at 121.6 nm (Lyman-$α$, or Ly-$α$) from exospheric hydrogen atoms simultaneously at wide and narrow fields of view. In order to validate the calibration and hydrogen density retrieval algorithms used in the Carruthers data processing pipeline, we developed a comprehensive numerical simulator to produce realistic images similar to those collected by the actual imagers on orbit. This paper details the algorithms used to simulate the exospheric emissions, background scene components, and instrument measurement model necessary to produce synthetic raw images.</summary>
+    <category term="astro-ph.IM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T17:37:02Z</published>
+    <arxiv:comment>25 pages, 9 figures, preprint, under review at Space Science Reviews</arxiv:comment>
+    <arxiv:primary_category term="astro-ph.IM"/>
+    <author>
+      <name>Heather Filippini</name>
+    </author>
+    <author>
+      <name>Alex Zhang</name>
+    </author>
+    <author>
+      <name>Evan Widloski</name>
+    </author>
+    <author>
+      <name>Jason McPhate</name>
+    </author>
+    <author>
+      <name>Lara Waldrop</name>
+    </author>
+    <author>
+      <name>Thomas Immel</name>
+    </author>
+    <author>
+      <name>John Clarke</name>
+    </author>
+    <author>
+      <name>Pratik Joshi</name>
+    </author>
+    <author>
+      <name>Michal Ondrejcek</name>
+    </author>
+    <author>
+      <name>Martin M. Sirk</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13495v1</id>
+    <title>TraVEL: Trajectory-Guided Video Embedding Learning for Driving-Video Retrieval</title>
+    <updated>2026-08-13T17:24:23Z</updated>
+    <link href="https://arxiv.org/abs/2608.13495v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13495v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Efficiently retrieving relevant clips from large-scale driving logs is essential for data curation, model development, and safety analysis. Structured and rule-based retrieval systems can explicitly target driving events, but typically require expert-defined rules, auxiliary data, and multi-stage perception pipelines. Multimodal embedding models offer a simpler and more efficient alternative by representing each video with a single searchable vector. However, general-purpose models often rely on shortcuts from static scene context and struggle to distinguish motion-centric events, such as turning left versus right or accelerating versus decelerating. In this work, we study how to adapt a general-purpose multimodal embedding model to driving-video retrieval. We first fine-tune Qwen3-VL-Embedding on paired clips and reasoning traces from nuReasoning using an InfoNCE objective. While this stage substantially improves overall retrieval, caption supervision alone remains insufficient for fine-grained motion understanding. We therefore introduce TraVEL (Trajectory-Guided Video Embedding Learning), a motion-aware fine-tuning framework that uses ego-trajectory similarity as a reward within Group Relative Policy Optimization. Trajectories serve only as privileged training supervision; retrieval still operates on single-vector video embeddings without ego poses, expert rules, or auxiliary perception outputs. We further construct a driving-video retrieval benchmark from nuReasoning. Experiments show that TraVEL improves motion-centric retrieval across model scales: relative to SFT, it raises longitudinal and lateral mAP by 9.8 and 4.7 points at 2B, with corresponding gains of 7.2 and 1.5 points at 8B. TraVEL thus combines physically grounded supervision with efficient embedding-based search.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T17:24:23Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yi-Chung Chen</name>
+    </author>
+    <author>
+      <name>Philip Jacobson</name>
+    </author>
+    <author>
+      <name>Tom Lampo</name>
+    </author>
+    <author>
+      <name>Yiren Lu</name>
+    </author>
+    <author>
+      <name>Jin Yao</name>
+    </author>
+    <author>
+      <name>David I. Inouye</name>
+    </author>
+    <author>
+      <name>Jing Gao</name>
+    </author>
+    <author>
+      <name>Danhua Guo</name>
+    </author>
+    <author>
+      <name>Burhan Yaman</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13410v1</id>
+    <title>Who Speaks Matters: Authority-Aware Multi-View RAG over Italian Parliamentary Proceedings</title>
+    <updated>2026-08-13T16:07:23Z</updated>
+    <link href="https://arxiv.org/abs/2608.13410v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13410v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Parliamentary proceedings are a primary record of democratic deliberation, yet their volume and fragmentation make multi-perspective access difficult for citizens, journalists, and researchers. Applying Retrieval-Augmented Generation (RAG) to parliamentary transcripts introduces three specific risks: dominance of the most frequent speakers, inability to weight speakers according to topical expertise, and citation misattribution in politically sensitive text. We present ParliamentRAG, a RAG system for the Italian Chamber of Deputies that addresses these risks jointly. Its core contribution is a topic-dependent authority model that estimates each speaker's authority as a function of the current query, combining interpretable components such as profession, education, and previous interventions. Given a user query, the system retrieves relevant speech chunks, identifies topic-relevant experts across parliamentary groups, and generates a summary synthesizing their perspectives, accompanied by supporting quotations. ParliamentRAG is evaluated against Google NotebookLM on 15 policy topics via a two-level protocol combining automated metrics and blind A/B human evaluation by six domain experts. The system achieves higher coverage across political groups (0.97 vs. 0.95), perfect quotation faithfulness (1.00 vs. 0.95), and stronger expert preferences on source-related dimensions, while NotebookLM remains stronger on prose-oriented dimensions.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T16:07:23Z</published>
+    <arxiv:comment>Accepted at ISWC 2026 In-Use Track. Please cite the ISWC version</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Mirko Tritella</name>
+    </author>
+    <author>
+      <name>Riccardo Pozzi</name>
+    </author>
+    <author>
+      <name>Matteo Palmonari</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13389v1</id>
+    <title>TopoIntent: Compiling Security Intent into Executable, Compliance-Checked Network Topologies</title>
+    <updated>2026-08-13T15:49:37Z</updated>
+    <link href="https://arxiv.org/abs/2608.13389v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13389v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Enterprise security topology design requires translating business intent, regulatory requirements, and risk assumptions into zones, boundary devices, inter-zone paths, and access-control policies. Existing NetOps automation tools mainly operate after this design is fixed, providing limited support for generating structured security topologies from underspecified natural-language requirements. We present TopoIntent, a system that compiles security intent into executable, compliance-checked network topologies. It uses a schema contract to constrain generation, retrieves reference architectures from a curated template library via dense-vector search, and applies staged fusion for intent-template alignment and security completion. The generated topology is checked against CIS Controls v8.1.2 safeguards visible at the topology layer, while unresolved cases are marked for manual review. Structural gaps are repaired through additive schema-preserving edits. The final topology is exported to Mininet scripts with kernel-level iptables ACLs, enabling executable reachability and allow/deny tests. Because no public benchmark exists for this requirement-to-topology task, we construct an evaluation set from reference security architecture diagrams. The retrieval set contains 22 templates and 44 synthetic intents across five scenarios, while the held-out set contains 7 templates and 14 intents from finance and government scenarios excluded from retrieval. On the held-out set, additive repair improves topology-visible CIS satisfaction from 0.78 to 1.00 in fewer than 1.5 rounds on average, and one feedback round raises the post-ACL policy pass rate from 0.78 to 0.88.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.NI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T15:49:37Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Xiaokang Qu</name>
+    </author>
+    <author>
+      <name>Jianliang Ma</name>
+    </author>
+    <author>
+      <name>Zao Fan</name>
+    </author>
+    <author>
+      <name>Tianshu Chu</name>
+    </author>
+    <author>
+      <name>Tianlong Fan</name>
+    </author>
+    <author>
+      <name>Linyuan Lü</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13384v1</id>
+    <title>Structure then Query: Enabling Precise Analytical Queries over Unstructured Documents</title>
+    <updated>2026-08-13T15:46:20Z</updated>
+    <link href="https://arxiv.org/abs/2608.13384v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13384v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Unstructured documents constitute the majority of enterprise and web data. With the rapid development of large language models(LLMs), researchers have started to build data systems that analyze unstructured textual documents like operating on databases. However, because mainstream retrieval methods still relies on fuzzy matching based on vector similarity, accurately obtaining information and performing structured analysis and reasoning remains a major challenge. To address these limitations, AnnoIndex introduces two core fundamental components. The first is Annotation Index. The system uses a module called SchemaLoop to automatically create hierarchical annotation schemas from the raw corpus, and then uses lightweight language model to extract specific values. It turns scattered unstructured text into a materialized, structured index that enables low-cost filtering and querying. The annotation index avoids the black-box matching of vector similarity and amortizes attribute extraction costs from online queries to a one-time build. The second innovation is a Structured Query Engine. It compiles user questions into execution plans based on SQL extension. It first uses the Annotation Index for precise documents filtering, then gradually applies extraction operations in ascending order of cost, resorting to LLMs only for the remaining minimal fraction of the corpus that require deep semantic understanding. The extracted attributions are merged into the annotation index, reducing the cost of future queries. Experiments on three real-world datasets demonstrate that AnnoIndex consistently outperforms state-of-the-art baselines, achieving the highest average F1 score (0.87) while maintaining robust performance on complex multi-hop join and progressive reasoning queries.</summary>
+    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.DB" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T15:46:20Z</published>
+    <arxiv:primary_category term="cs.IR"/>
+    <author>
+      <name>Teng Lin</name>
+    </author>
+    <author>
+      <name>Yuyu Luo</name>
+    </author>
+    <author>
+      <name>Nan Tang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13334v1</id>
+    <title>RippleMem: From Isolated Retrieval to Associative Recollection for Long-Term Agent Memory</title>
+    <updated>2026-08-13T15:05:01Z</updated>
+    <link href="https://arxiv.org/abs/2608.13334v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13334v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LLM-based agents increasingly rely on external memory to support long-horizon reasoning and interaction. However, the main bottleneck is not simply storing past experience, but recovering the right set of evidence when relevant information is distributed across many interactions. Existing approaches struggle with this access problem. Full-context methods require noisy long-context search, flat retrieval often returns isolated and incomplete records, and graph-based memory systems can be expensive to construct while compressing rich event context. We introduce RippleMem, a long-term memory system that replaces one-shot retrieval with adaptive associative recollection. Inspired by cue-dependent episodic retrieval and associative completion, RippleMem stores interaction history as cue-rich episodic memory units and organizes them in an event-centric memory graph. Given a query, it first recalls relevant memory anchors through hybrid cues, then expands from these anchors along semantic and structural associations to recover missing supporting evidence. In this way, initially recalled memories serve not only as answer context, but also as cues for completing the evidence needed to answer. Experiments on LoCoMo and LongMemEval-S show that RippleMem achieves the best overall performance across evaluated settings, improving LLM-as-a-Judge accuracy by 3.95% on LoCoMo and up to 11.87% on LongMemEval-S, while reducing graph construction cost by about 30x.</summary>
     <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T15:05:01Z</published>
+    <arxiv:comment>22 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Jingbo Ji</name>
+    </author>
+    <author>
+      <name>Lingyi Li</name>
+    </author>
+    <author>
+      <name>Xilong Cheng</name>
+    </author>
+    <author>
+      <name>Yuhao Zhou</name>
+    </author>
+    <author>
+      <name>Wenji Zhang</name>
+    </author>
+    <author>
+      <name>Yuting Tan</name>
+    </author>
+    <author>
+      <name>Yunxiao Qin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13290v1</id>
+    <title>VR-Themis: A Scalable Framework for Virtual Reality Application Clone Detection</title>
+    <updated>2026-08-13T14:24:28Z</updated>
+    <link href="https://arxiv.org/abs/2608.13290v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13290v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Repackaging of mobile applications (aka app cloning) not only threatens the security and privacy of mobile users but also infringes upon the copyright of the original app developers. However, existing detection methods that primarily focus on mobile platforms (such as Android) fail to capture the essential features of virtual reality (VR). Consequently, they are inadequate for effectively detecting cloned VR apps, which have often been targeted by illegal users in the VR market. Considering the unique features of VR apps, this paper proposes a two-stage app clone detection framework, namely VR-Themis, based on \emph{Hierarchy-Object-Behaviour} (HOB). Firstly, VR-Themis exploits the coarse-grained stage to cluster apps based on their retrievable statistical features, making this tool scalable to large-scale VR app datasets. Then, in the fine-grained stage, VR-Themis performs in-depth analysis of the suspicious apps (identified in the first stage) by calculating similarity using our defined \emph{HOB metrics}. Our extensive experiments indicate that VR-Themis successfully detects 307 suspected clone apps from the collected 4,277 VR apps without false positives, demonstrating its effectiveness and scalability.</summary>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T14:24:28Z</published>
+    <arxiv:comment>25 pages, 14 figures, 1 table. Accepted at the 29th International Symposium on Research in Attacks, Intrusions and Defenses (RAID 2026)</arxiv:comment>
+    <arxiv:primary_category term="cs.CR"/>
+    <author>
+      <name>Gengyang Xu</name>
+    </author>
+    <author>
+      <name>Hanyang Guo</name>
+    </author>
+    <author>
+      <name>Hong-Ning Dai</name>
+    </author>
+    <author>
+      <name>Weizhi Meng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13237v1</id>
+    <title>When Should Multi-Round RAG Stop? Structured Stopping Judgments and Retrieval Reduction in Search-R1</title>
+    <updated>2026-08-13T13:42:48Z</updated>
+    <link href="https://arxiv.org/abs/2608.13237v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13237v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multi-round retrieval-augmented generation (RAG) must decide when to stop searching as evidence accumulates. Because the deployed policy is determined by the first STOP on each trajectory, this is a sequential selection problem rather than an independent state-classification task. We adapt S2G-RAG's structured sufficiency-and-gap judgment to a frozen Search-R1 pipeline and train a Qwen3.5-2B judge on 3,009 states from 900 disjoint HotpotQA questions. Search-R1's reasoner, retriever, corpus, prompt, and search budget remain unchanged, while the judge checkpoint and stopping threshold are selected on grouped validation and frozen before confirmatory evaluation. On the confirmatory test set, the resulting policy reduces retrieval calls by 77 (3.70\%) relative to Native Search-R1, while Official Exact Match decreases by 0.625 percentage points. Thus, the trained S2G-style structured judge reduces retrieval while broadly preserving answer accuracy. The result does not imply unchanged or improved accuracy, safe stopping, or lower total inference cost.</summary>
+    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T13:42:48Z</published>
+    <arxiv:comment>16 pages, 3 figures. Code: https://github.com/luobostorm/search-r1-s2g-stopping</arxiv:comment>
+    <arxiv:primary_category term="cs.IR"/>
+    <author>
+      <name>Weimeng Luo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13228v1</id>
+    <title>Capability Sheaves for Compositional Agent-Harness Repair: Controlled Quotients and a Real-Repository Stress Test</title>
+    <updated>2026-08-13T13:31:09Z</updated>
+    <link href="https://arxiv.org/abs/2608.13228v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13228v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Agent harnesses combine retrieval, routing, state, provenance, and verification, but locally successful components may disagree on shared state. We model this failure with a finite \emph{capability sheaf}: stalks encode typed behavior signatures, restriction maps retain shared fields, and accepted runs are useful global sections. An exact finite constraint-satisfaction problem (CSP) defines acceptance, while a linearized relative cohomology class provides a diagnostic and search feature.
+  A controlled experiment over 20 task clusters introduces hidden interior mediators whose raw states are nuisance variables. Quotienting their coboundaries reduces the candidate budget from 2,000 to 1,000 per cluster; aligning the hidden state removes the gap. Exact CSP matches the quotient, so the result demonstrates invariance to stale representatives, not superiority over exact reasoning.
+  We then test the method on a discovery split from the SWE-bench Multilingual pool of PatchFuseBench: 160 issues from 20 repositories, 875 real candidate patches, 2,579 source-aware edit atoms, and 153 newly executed patches. A first pool-level construction is constant because $[b-Dx]=[b]$ in $\operatorname{coker}D$ and therefore cannot rank configurations. A candidate-indexed repair is nontrivial on 848/875 candidates and varies within 120/160 issues. It resolves 118 issues versus 116 for a matched noncohomological selector, but the difference is not supported across repositories (exact sign-flip $p=0.75$). A leave-one-repository-out abstention gate reaches 127/160, tying the strong anchor and exceeding its matched gate by one issue ($p=1.0$). The discovery gate therefore fails and the confirmatory split remains sealed. The study supports the controlled invariance mechanism and an identifiability correction, but not a real-world cohomological advantage.</summary>
     <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
     <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T17:57:34Z</published>
-    <arxiv:primary_category term="cs.CL"/>
+    <published>2026-08-13T13:31:09Z</published>
+    <arxiv:primary_category term="cs.AI"/>
     <author>
-      <name>Chen Lyu</name>
-    </author>
-    <author>
-      <name>Xingwei Tan</name>
-    </author>
-    <author>
-      <name>Simon Cullen</name>
-    </author>
-    <author>
-      <name>Shelley Wilson</name>
-    </author>
-    <author>
-      <name>Lois Arthurs</name>
-    </author>
-    <author>
-      <name>Arshad Jhumka</name>
-    </author>
-    <author>
-      <name>Gabriele Pergola</name>
+      <name>Saveliy Batruin</name>
     </author>
   </entry>
   <entry>
-    <id>http://arxiv.org/abs/2608.11190v1</id>
-    <title>Are We Really Making Progress in Group Recommendation? Unmasking the Tie-Breaking Illusion</title>
-    <updated>2026-08-11T17:50:08Z</updated>
-    <link href="https://arxiv.org/abs/2608.11190v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.11190v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Recent group recommendation methods have reported strong improvements on standard benchmarks, but it remains unclear whether these gains always reflect genuine advances in modeling group preferences. In this paper, we show that several recent methods are affected by a systematic evaluation bias caused by the interaction between training-time score compression and evaluation-time deterministic tie-breaking. Specifically, an additional sigmoid transformation before the BPR objective can greatly increase tied top scores, making top-K metrics such as HR@K and NDCG@K highly sensitive to how ties are resolved. We revisit recent representative methods and their baselines on CAMRa2011 and Mafengwo under both group and user recommendation settings, and evaluate them with a tie-aware protocol that computes the exact expectation of HR@K and NDCG@K under uniform random tie-breaking. Our results show that many previously reported improvements shrink substantially under tie-aware evaluation, and the relative ranking of methods can change markedly. We further show that the additional sigmoid may act as implicit margin smoothing during optimization, and that temperature-scaled BPR can retain much of this benefit without inducing severe tie inflation. Overall, our findings highlight the importance of tie-aware evaluation for establishing reliable progress in group recommendation. The code is available at https://github.com/songduoma/TieAwareGroupRec.</summary>
-    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T17:50:08Z</published>
-    <arxiv:comment>Accepted at RecSys 2026</arxiv:comment>
-    <arxiv:primary_category term="cs.IR"/>
+    <id>http://arxiv.org/abs/2608.13222v1</id>
+    <title>Critical Microwave Mach-Zehnder-Type Interferometry with Dual-LO Rydberg Atoms</title>
+    <updated>2026-08-13T13:24:58Z</updated>
+    <link href="https://arxiv.org/abs/2608.13222v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13222v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>High-precision phase measurement of microwave fields underpins a wide range of applications, including wireless communications, distributed radar, plasma diagnostics, and antenna metrology. Existing Rydberg-atom-based approaches, however, often face trade-offs among phase resolution, measurement range, and system complexity. Here we demonstrate a Rydberg-atom-based microwave Mach-Zehnder-type interferometer using a dual-local-oscillator configuration. The two local oscillators establish two coherent interferometric pathways in the Rydberg medium. Their coherent mixing with the signal field produces an interferometric intermediate-frequency output governed by a phase-to-intensity transfer characteristic that enables critical-point enhancement. This scheme supports direct phase retrieval with a resolution exceeding $0.1^\circ$ and unambiguous full $360^\circ$ phase coverage with the reconfigurable dual-LO architecture. Moreover, near the critical interference point, the system exhibits a sharply enhanced phase-to-amplitude transduction, where weak amplitude variations are converted into pronounced phase responses, yielding a sensitivity enhancement exceeding 25 dB. Besides, the same interferometric transfer mechanism enables microwave propagation-distance and polarization metrology, achieving a propagation-distance precision below 20 $μ$m at 5.7 GHz together with a polarization-angle resolution exceeding $0.1^\circ$. This approach eliminates the need for complex optical configurations and lock-in detection, providing a simple, scalable, and reconfigurable Mach-Zehnder-type quantum microwave interferometry framework for multifunctional high-precision microwave metrology.</summary>
+    <category term="physics.atom-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T13:24:58Z</published>
+    <arxiv:primary_category term="physics.atom-ph"/>
     <author>
-      <name>Song-Duo Ma</name>
+      <name>Jun-Rong Chen</name>
     </author>
     <author>
-      <name>Pu-Jen Cheng</name>
-    </author>
-    <arxiv:doi>10.1145/3773078.3831853</arxiv:doi>
-    <link rel="related" href="https://doi.org/10.1145/3773078.3831853" title="doi"/>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/2608.11164v1</id>
-    <title>Role of Personality in Conversational Information Seeking</title>
-    <updated>2026-08-11T17:26:24Z</updated>
-    <link href="https://arxiv.org/abs/2608.11164v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.11164v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Large language models (LLMs) are increasingly used for information seeking, where users find, compare, and evaluate information through dialogue. In this role, the assistant does more than retrieve or generate content: it shapes how users articulate constraints, ask follow-up questions, verify claims, and decide when an answer is sufficient for action. Yet little is known about how user personality, assistant personality, and task context jointly influence these interactions. We examine personality as a controllable variable in conversational information seeking and study its effects on user behaviour and interaction quality. We conducted a controlled within-subject study in which assistant personality and task type were experimentally varied, while participant personality was measured using Big Five scores. Twenty-six participants each completed three information-seeking tasks under three assistant personality conditions: extraverted, conscientious, and neutral. Tasks covered exploratory travel planning, comparative smartphone shopping, and verification-sensitive health and diet information seeking. Data included conversation logs, behavioural traces, post-interaction questionnaires, an exit questionnaire, and Big Five measures. The assistant conditions were behaviourally distinct: the extraverted assistant produced longer turns, the conscientious assistant elicited higher user word share and more turns, and the neutral baseline fell between them. The strongest effect was a task-by-assistant interaction on trust and delegation, with preferred styles varying by task. No global winner emerged, but participants strongly preferred style choice or adaptation. These findings position assistant personality as a context-sensitive interactional design variable rather than a globally optimisable system property.</summary>
-    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T17:26:24Z</published>
-    <arxiv:comment>Accepted by CIKM2026</arxiv:comment>
-    <arxiv:primary_category term="cs.IR"/>
-    <author>
-      <name>Abdisalam Abukar</name>
+      <name>Guo-Qing Qin</name>
     </author>
     <author>
-      <name>Junchen Fu</name>
+      <name>Peng-Fu Liang</name>
     </author>
     <author>
-      <name>Chengli Zhai</name>
+      <name>He Hao</name>
     </author>
     <author>
-      <name>Joemon M. Jose</name>
+      <name>Ming-Min Zhao</name>
+    </author>
+    <author>
+      <name>Ling-Qiang Meng</name>
+    </author>
+    <author>
+      <name>Gui-Lan Li</name>
+    </author>
+    <author>
+      <name>Min-Jian Zhao</name>
+    </author>
+    <author>
+      <name>Bin-Bin Wei</name>
+    </author>
+    <author>
+      <name>Hao Tian</name>
     </author>
   </entry>
   <entry>
-    <id>http://arxiv.org/abs/2608.11077v1</id>
-    <title>Learning Gaussian Structure: Intervention-Guided Density Control for Feed-Forward Driving Reconstruction</title>
-    <updated>2026-08-11T15:38:55Z</updated>
-    <link href="https://arxiv.org/abs/2608.11077v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.11077v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Feed-forward Gaussian reconstruction has recently emerged as an efficient approach for driving scene reconstruction. However, prevailing LiDAR-based methods preserve the initial correspondence between observed points and Gaussian primitives, treating the initialized primitive set as the final representation. Unlike optimization-based 3DGS, these methods cannot accumulate gradients during training to determine how the scenes representation should be densified. Meanwhile, the shared sparse backbone only fuses observations from different timestamps implicitly, without explicitly aggregating cross-time evidence for individual primitives. In this paper, we present Learning Gaussian Structure (LGS), a framework that enhances both Gaussian structure and primitive attributes. Our key observation is that changes in local gradient responses induced by a prune or add intervention reveal whether the corresponding structural adjustment benefits reconstruction. Based on this observation, our Gaussian Densify Policy learns a Densify Map comprising Prune and Addition Scores from controlled interventions, and directly adjusts the Gaussian structure during inference. We further develop a compact Cross-Time Point Query that explicitly retrieves and aggregates neighboring features from Gaussian primitives at other timestamps for reliable attribute prediction. Extensive experiments on the Waymo Open Dataset and PandaSet demonstrate that LGS consistently outperforms existing methods.</summary>
-    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T15:38:55Z</published>
-    <arxiv:primary_category term="cs.CV"/>
-    <author>
-      <name>Hang Li</name>
-    </author>
-    <author>
-      <name>Jiahe Li</name>
-    </author>
-    <author>
-      <name>Meiying Gu</name>
-    </author>
-    <author>
-      <name>Jin Zheng</name>
-    </author>
-    <author>
-      <name>Lina Yu</name>
-    </author>
-    <author>
-      <name>Xiao Bai</name>
-    </author>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/2608.11037v1</id>
-    <title>Multi-Level Evidence Aggregation for Robust Facial Phenotype Retrieval in Rare Genetic Disorder Prioritization</title>
-    <updated>2026-08-11T15:12:44Z</updated>
-    <link href="https://arxiv.org/abs/2608.11037v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.11037v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>AI-assisted facial phenotyping supports rare genetic disorder prioritization by retrieving visually similar diagnosed cases from facial image reference databases such as the GestaltMatcher Database (GMDB). Existing GestaltMatcher-based retrieval frameworks compare each test image with individual gallery images in a facial phenotype embedding space. However, this pointwise formulation does not fully exploit available evidence, because patients may have multiple images and disorders may be represented by multiple diagnosed gallery patients.
-  We propose an inference-time multi-level evidence aggregation framework that improves facial phenotype retrieval without modifying the underlying GestaltMatcher-Arc encoder. The framework combines embedding-level patient aggregation of multiple images from the same individual, patient-weighted disorder centroids, and hybrid individual-centroid scoring to integrate test-patient observations, disorder-level gallery evidence, and local nearest-neighbor evidence.
-  We evaluated the approach on GMDB v1.1.4 across disorders represented during training (GMDB-Freq), unseen disorders (GMDB-Rare), and multi-image patient subsets, using a unified gallery containing both GMDB-Freq and GMDB-Rare disorders. Multi-level evidence aggregation improved mean per-disorder top-$N$ retrieval accuracy across all evaluation subsets. Top-1 accuracy increased from 38.52% to 48.82% on GMDB-Freq and from 19.38% to 23.79% on GMDB-Rare. On multi-image subsets, top-1 accuracy increased from 46.12% to 60.94% on GMDB-Multi-Freq and from 18.54% to 26.71% on GMDB-Multi-Rare.
-  These findings show that inference-time aggregation can improve next-generation facial phenotype retrieval without retraining the encoder, supporting a shift from isolated single-image matching toward multi-level aggregation of patient and disorder evidence for rare-disorder prioritization.</summary>
-    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
-    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T15:12:44Z</published>
-    <arxiv:comment>including supplementary notes: 32 pages, 16 figures. Preprint submitted to journal for peer-review</arxiv:comment>
-    <arxiv:primary_category term="cs.CV"/>
-    <author>
-      <name>Alexander Hustinx</name>
-    </author>
-    <author>
-      <name>Carolin Kaffiné</name>
-    </author>
-    <author>
-      <name>Behnam Javanmardi</name>
-    </author>
-    <author>
-      <name>Tzung-Chien Hsieh</name>
-    </author>
-    <author>
-      <name>Peter Krawitz</name>
-    </author>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/2608.11030v1</id>
-    <title>Self-Knowledge Retrieval Augmented Generation Framework for Patent Matching</title>
-    <updated>2026-08-11T15:08:42Z</updated>
-    <link href="https://arxiv.org/abs/2608.11030v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.11030v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Patent retrieval and matching based on large language models (LLMs) play a vital role in intellectual property protection. However, due to the complex structure of patent documents, dense technical terminology, and multi-modal information, traditional methods struggle to accurately identify subtle differences between patents. Existing LLM-based patent matching approaches typically rely on domain-specific pretrained or instruction tuning, which often entail high manual labeling costs and catastrophic forgetting. While retrieval-augmented generation (RAG) methods introduce external knowledge they fail to fully leverage LLM's capability to automatically parse patents and mine deep semantic relationships. To address these limitations, this paper proposes a self-knowledge RAG framework that guides LLMs to autonomously extract key technical entities and construct hierarchical ontological structures from patent matching queries, thereby enabling query expansion and precise retrieval. The method integrates the FAISS retrieval with a generative matching mechanism, leveraging self-knowledge to enhance the model's understanding of patent innovations and significantly improve retrieval and matching accuracy. Experimental results demonstrate the outstanding performance of the proposed method on real-world patent datasets, validating its effectiveness and application potential.</summary>
-    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
-    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T15:08:42Z</published>
-    <arxiv:comment>Accepted by IEEE CSCWD 2026</arxiv:comment>
-    <arxiv:primary_category term="cs.IR"/>
-    <author>
-      <name>Jian Zhang</name>
-    </author>
-    <author>
-      <name>Songlin Lei</name>
-    </author>
-    <author>
-      <name>Zhuohao Yang</name>
-    </author>
-    <author>
-      <name>Bangli Liu</name>
-    </author>
-    <author>
-      <name>Ziwei Wang</name>
-    </author>
-    <author>
-      <name>Xufeng Weng</name>
-    </author>
-    <author>
-      <name>Gehan Amaratunga</name>
-    </author>
-    <author>
-      <name>Yu Lin</name>
-    </author>
-    <author>
-      <name>Hongwei Wang</name>
-    </author>
-    <arxiv:doi>10.1109/CSCWD68734.2026.11582454</arxiv:doi>
-    <link rel="related" href="https://doi.org/10.1109/CSCWD68734.2026.11582454" title="doi"/>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/2608.11025v1</id>
-    <title>Data Attribution of Emergent Misalignment with Persona Features</title>
-    <updated>2026-08-11T15:05:24Z</updated>
-    <link href="https://arxiv.org/abs/2608.11025v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.11025v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Emergent misalignment (EM) is the phenomenon where fine-tuning a language model on a narrow task leads to harmful behavior in unrelated domains. A leading mechanistic account attributes EM to persona features: latent directions acquired during pre-training that misaligned fine-tuning amplifies. We ask where these features come from: which pre-training documents activate them, and whether naturally occurring human-written text suffices to induce EM. Using Sparse Autoencoder (SAE) based model diffing across four open-weight models, we find that features related to jailbreak personas, sarcasm, deception, and manipulation are amplified by misalignment fine-tuning, while safety-relevant and assistant-identity features are suppressed. Steering individual features controls EM in both directions: it induces misalignment rates of up to 62% in aligned models -- exceeding the 35% reached by misalignment fine-tuning itself -- and re-aligns misaligned models to near-baseline misalignment rates. Attributing the causal features to a corpus of one million pre-training web documents retrieves semantically relevant narratives about villainous characters, domination, and harmful agency. However, fine-tuning on these human-written documents does not reliably induce EM, even after reformatting into assistant-style responses, whereas synthetic instruction-response pairs derived from the same content do -- and transfer across model families. Semantic relevance alone is therefore not sufficient: response structure or model-generated phrasing plays an important role in inducing EM.</summary>
-    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T15:05:24Z</published>
-    <arxiv:primary_category term="cs.CL"/>
-    <author>
-      <name>Clemens Vetter</name>
-    </author>
-    <author>
-      <name>David Kaczér</name>
-    </author>
-    <author>
-      <name>Lucie Flek</name>
-    </author>
-    <author>
-      <name>Florian Mai</name>
-    </author>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/2608.11017v1</id>
-    <title>R4DSG: Relative 4D Scene Graph Memory for Object-Centric Question Answering in Long Egocentric Video</title>
-    <updated>2026-08-11T15:00:15Z</updated>
-    <link href="https://arxiv.org/abs/2608.11017v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.11017v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Long-horizon egocentric video is a rich substrate for wearable AI assistants, but object-centric questions such as where an item was moved, when it last changed state, or why it was relocated remain difficult because caption- and transcript-based memories rarely preserve persistent object identity or structured spatial change. Existing long-video QA methods mainly emphasize temporal grounding and clip retrieval, while prior 3D scene-graph methods typically assume stronger geometry than free-motion wearable RGB video provides, including point clouds, RGB-D input, posed views, sparse reconstruction, or reconstructed scenes. R4DSG introduces a relative 4D scene graph memory for long egocentric video. Instead of storing raw graph sequences, R4DSG converts video into compact queryable memory entries indexed by time, place, persistent objects, anchor-relative change, and local interaction context. The main idea is to separate stable anchors from dynamic objects, maintain persistent object identity across frames, and represent object state through anchor-relative transitions rather than a globally aligned world model. Built on recent RGB-only advances in promptable video segmentation, temporal propagation, and relative 3D lifting, the method produces a retrieval-ready memory directly usable for long-horizon question answering. Evaluation on a 255-question object-related subset from EgoLifeQA shows, under question-only retrieval, a 6.7-point overall gain over EgoRAG-Text and a 12.5-point gain on when questions, which highlights the value of temporally organized object memory. These results position relative 4D scene graphs as a practical memory substrate for wearable assistants, AR systems, and embodied multimedia agents. GitHub Page: https://dualtransparency.github.io/R4DSG/.</summary>
+    <id>http://arxiv.org/abs/2608.13210v1</id>
+    <title>NARU: A Benchmark for NARrative Evolution and Cultural Nuance Understanding in Japanese Extreme Long Video</title>
+    <updated>2026-08-13T13:13:43Z</updated>
+    <link href="https://arxiv.org/abs/2608.13210v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13210v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Long-form video understanding encompasses tasks that go beyond retrieving isolated events, including tracking an evolving narrative and interpreting social meaning that may remain implicit. However, existing benchmarks rarely evaluate these capabilities jointly, particularly in high-context, non-English media. To address this gap, we introduce NARU, a benchmark designed to evaluate Narrative evolution and Reasoning on cultural Understanding in Japanese long-form video. NARU consists of 1,481 questions grounded in 155 videos totaling 146.8 hours, spanning four narrative and five cultural dimensions. To construct the benchmark at this scale, we propose a hierarchical memory-based annotation pipeline that transforms raw video into structured event, narrative, and cultural annotations, then generates questions via task-oriented synthesis and iterative shortcut removal. The construction process includes two native-speaker verification stages involving 68 annotators. Evaluations across eight model configurations reveal substantial limitations in both long-range narrative integration and culturally grounded reasoning. By exposing these persistent gaps, NARU offers a systematic testing ground for developing MLLMs capable of reliably interpreting long-form, high-context video.</summary>
     <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
     <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
-    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
     <category term="cs.MM" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T15:00:15Z</published>
-    <arxiv:comment>10 pages, 3 figures, ACM Multimedia 2026, egocentric video; 3D scene graph; temporal memory; graph retrieval; object-state reasoning; multimodal question answering</arxiv:comment>
+    <published>2026-08-13T13:13:43Z</published>
+    <arxiv:comment>Yuheng Huang and Jianlang Chen contributed equally to this work. More details available on the project's website https://ma-labo.github.io/naru/ and https://infinimind.io/en/company/news/2026/narubench-release</arxiv:comment>
     <arxiv:primary_category term="cs.CV"/>
     <author>
-      <name>Ke Ma</name>
+      <name>Yuheng Huang</name>
     </author>
     <author>
-      <name>Yamin Mao</name>
+      <name>Jianlang Chen</name>
     </author>
     <author>
-      <name>Weiming Li</name>
+      <name>Jiayang Song</name>
     </author>
     <author>
-      <name>Shuai Tan</name>
+      <name>Hua Qi</name>
     </author>
     <author>
-      <name>Yijie Zhong</name>
+      <name>Aza Kai</name>
     </author>
     <author>
-      <name>Hao Chen</name>
+      <name>Vincent Markert</name>
     </author>
     <author>
-      <name>Haofen Wang</name>
+      <name>Edison Marrese-Taylor</name>
     </author>
     <author>
-      <name>Meng Wang</name>
-    </author>
-    <arxiv:doi>10.1145/3767308.3835995</arxiv:doi>
-    <link rel="related" href="https://doi.org/10.1145/3767308.3835995" title="doi"/>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/2608.11015v1</id>
-    <title>Sona Technical Report</title>
-    <updated>2026-08-11T14:58:26Z</updated>
-    <link href="https://arxiv.org/abs/2608.11015v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.11015v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>We introduce Sona, a single-model generative recommender for Yandex Music. In an online A/B test, Sona replaced the entire production cascade, comprising more than 15 candidate generators followed by pre-ranking and ranking models that consume hundreds of features, including signals from large transformer models such as Argus and target-attention scorers, while significantly improving key engagement metrics.
-  The architecture of Sona unifies candidate generation and ranking around a shared user representation. Its encoder transforms the user's chronological sequence of logged engagement events into hidden states consumed by both the autoregressive decoder and the Ranking Module. The next-token-prediction and distillation objectives jointly update the encoder, coupling generation and ranking through the same user state. Neither Sona nor its Teacher Ranker uses hand-engineered features; both operate on logged event fields and learned item representations. In the final Sona configuration, the larger teacher supplies ranking targets during training but is absent from serving, leaving the encoder, decoder, and Ranking Module as a single deployed model.
-  We evaluate Sona in an online A/B experiment using live traffic from My Vibe on smart speakers, one of Yandex Music's largest recommendation surfaces. Relative to the production control, Sona produced statistically significant uplifts of 4.53% in Active Users, the primary metric, 6.30% in Total Listening Time, and 11.42% in Likes. These effects were incremental to improvements retained from preceding deployments. The Active Users uplift was 2.35 times the increment previously delivered by Argus, the strongest model deployed on this surface before Sona. These results show that a single jointly trained model can replace a mature multi-stage recommendation cascade while improving recommendation quality on live traffic.</summary>
-    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T14:58:26Z</published>
-    <arxiv:primary_category term="cs.IR"/>
-    <author>
-      <name> Sona Team</name>
+      <name>Jianjun Zhao</name>
     </author>
     <author>
-      <name>Alexandr Udeneev</name>
-    </author>
-    <author>
-      <name>Aleksei Krasilnikov</name>
-    </author>
-    <author>
-      <name>Alexey Nadtochiy</name>
-    </author>
-    <author>
-      <name>Andrey Semenov</name>
-    </author>
-    <author>
-      <name>Andrey Tsyrkunov</name>
-    </author>
-    <author>
-      <name>Anna Krivonos</name>
-    </author>
-    <author>
-      <name>Anna Lipkina</name>
-    </author>
-    <author>
-      <name>Artem Matveev</name>
-    </author>
-    <author>
-      <name>Daniil Burlakov</name>
-    </author>
-    <author>
-      <name>Daniil Leschev</name>
-    </author>
-    <author>
-      <name>Daria Tikhonovich</name>
-    </author>
-    <author>
-      <name>Denis Burshtein</name>
-    </author>
-    <author>
-      <name>Ekaterina Dmitrieva</name>
-    </author>
-    <author>
-      <name>Eugene Krofto</name>
-    </author>
-    <author>
-      <name>Grigorii Khlystov</name>
-    </author>
-    <author>
-      <name>Ilya Murzin</name>
-    </author>
-    <author>
-      <name>Kirill Golovko</name>
-    </author>
-    <author>
-      <name>Ksenia Sycheva</name>
-    </author>
-    <author>
-      <name>Leonid Dmitriev</name>
-    </author>
-    <author>
-      <name>Mariia Rozaeva</name>
-    </author>
-    <author>
-      <name>Mariia Ulianova</name>
-    </author>
-    <author>
-      <name>Mikhail Sandul</name>
-    </author>
-    <author>
-      <name>Nikolai Savushkin</name>
-    </author>
-    <author>
-      <name>Oleg Sorokin</name>
-    </author>
-    <author>
-      <name>Roman Odobesku</name>
-    </author>
-    <author>
-      <name>Semyon Panenko</name>
-    </author>
-    <author>
-      <name>Sergei Liamaev</name>
-    </author>
-    <author>
-      <name>Sergei Makeev</name>
-    </author>
-    <author>
-      <name>Vadim Shilov</name>
-    </author>
-    <author>
-      <name>Veronika Ivanova</name>
-    </author>
-    <author>
-      <name>Viktor Yanush</name>
-    </author>
-    <author>
-      <name>Vladimir Baikalov</name>
-    </author>
-    <author>
-      <name>Vladislav Dodonov</name>
-    </author>
-    <author>
-      <name>Vladislav Tytskiy</name>
+      <name>Lei Ma</name>
     </author>
   </entry>
   <entry>
-    <id>http://arxiv.org/abs/2608.10983v1</id>
-    <title>TimeRoute: Time-Aware Modality Routing and Diffusion for Multi-Modal Recommendation</title>
-    <updated>2026-08-11T14:36:30Z</updated>
-    <link href="https://arxiv.org/abs/2608.10983v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.10983v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Multi-modal recommenders fuse collaborative signals with item modalities such as text, images, and audio, but the usefulness of each drifts over time and at different rates. For example, chocolate purchases typically guided by textual ingredient cues can shift toward visual packaging and ambient audio around Valentine's Day. This modality time-scale mismatch gives rise to two coupled challenges: (1) users require different modality proportions across temporal contexts, and (2) less relevant modalities are more likely to introduce outdated or misleading signals into the recommender. We address both challenges within a unified diffusion-based recommender, TimeRoute. A temporal-aware modal router maps each user's aggregated behavioral features to a personalized modality distribution, replacing the globally shared fusion weights used in prior work. The diffusion-based graph reconstructor is then conditioned on the same temporal profile through Feature-wise Linear Modulation (FiLM) with dual-stream long- and short-term denoising heads, suppressing outdated modality edges before they enter the propagation graph. Experiments on TikTok, Amazon-Baby, and Amazon-Sports demonstrate consistent improvements of up to 9.8\% in Recall@K, Precision@K, and NDCG@K over strong baselines across 10-seed paired tests. Code is available at https://anonymous.4open.science/r/TimeRoute.</summary>
-    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
-    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T14:36:30Z</published>
-    <arxiv:primary_category term="cs.IR"/>
-    <author>
-      <name>Pengyu Zhang</name>
-    </author>
-    <author>
-      <name>Yangqin Jiang</name>
-    </author>
-    <author>
-      <name>Klim Zaporojets</name>
-    </author>
-    <author>
-      <name>Congfeng Cao</name>
-    </author>
-    <author>
-      <name>Paul Groth</name>
-    </author>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/2608.10949v1</id>
-    <title>StreamFlow: Dynamic Memory Flows for Streaming Video Understanding</title>
-    <updated>2026-08-11T14:19:03Z</updated>
-    <link href="https://arxiv.org/abs/2608.10949v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.10949v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Streaming video understanding requires multimodal large language models (MLLMs) to preserve relevant evidence from continuously evolving streams under strict causality and bounded memory. Yet existing paradigms remain limited: model-based methods require intrusive backbone updates, while memory-based methods expend substantial visual-encoding computation on temporally redundant content and rely on rigid access to visual history. To address these limitations, we introduce StreamFlow, an efficient visual memory framework that enables dynamic, on-demand access to historical visual information. StreamFlow combines a lightweight, dynamics-aware mid-term memory that filters temporal redundancy before visual encoding with a latent long-term memory that consolidates historical video content into visual latents accessible to subsequent reasoning. During generation, an attention-guided retrieval mechanism injects relevant visual latents when the model's reliance on visual evidence weakens. StreamFlow achieves state-of-the-art streaming video understanding performance, reaching 67.73% overall accuracy on StreamingBench, while also delivering strong performance on offline long-video benchmarks. Relative to the vanilla setting, it improves the visual attention score (VAS) by 59.1% while reducing end-to-end latency and peak memory by 50.4% and 21.1%, respectively, enabling more visually grounded and efficient reasoning.</summary>
-    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <id>http://arxiv.org/abs/2608.13200v1</id>
+    <title>GEM: A Generative Embedding Model Bridging Reasoning and Retrieval</title>
+    <updated>2026-08-13T13:03:49Z</updated>
+    <link href="https://arxiv.org/abs/2608.13200v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13200v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Modern LLMs excel at reasoning and instruction following, enabling users to express complex and diverse information needs. However, conventional retrievers largely rely on surface-level matching between queries and documents, resulting in a growing gap between how users express their needs and how retrievers interpret them. In this paper, we present GEM, a generative embedding model that augments retrieval through its own knowledge by explicitly reasoning about user intent and relevance criteria. GEM unifies generation and embedding within a single model: it first reasons over the query, then appends an embedding token to encode the enriched context for retrieval. \zhili{Evaluated on reasoning-intensive and instruction-following retrieval tasks, GEM demonstrates the effectiveness of its reasoning-augmented retrieval, outperforming its non-reasoning variant and matching baselines using substantially larger models.} Furthermore, GEM's generative nature allows test-time compute scaling via prompting to further enhance retrieval performance. Our code is available at: https://anonymous.4open.science/r/GEM.</summary>
     <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T14:19:03Z</published>
-    <arxiv:primary_category term="cs.CV"/>
-    <author>
-      <name>Muxin Fu</name>
-    </author>
-    <author>
-      <name>Yifan Zhang</name>
-    </author>
-    <author>
-      <name>Wentao Zhang</name>
-    </author>
-    <author>
-      <name>Fangming Guo</name>
-    </author>
-    <author>
-      <name>Qian Chen</name>
-    </author>
-    <author>
-      <name>Guibin Zhang</name>
-    </author>
-    <author>
-      <name>Shuicheng Yan</name>
-    </author>
-    <author>
-      <name>Bo An</name>
-    </author>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/2608.10938v1</id>
-    <title>GS-CPE: Unified 6-Degree-of-Freedom Camera Pose Estimation via 3D Gaussian Splatting</title>
-    <updated>2026-08-11T14:06:51Z</updated>
-    <link href="https://arxiv.org/abs/2608.10938v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.10938v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Despite substantial progress in visual localization, from scene coordinate regression to direct camera pose regression, achieving both robust generalization and high accuracy remain challenging. This study introduces GS-CPE (Gaussian Splatting based Camera Pose Estimation), a coarse-to-fine framework for 6-DoF camera pose estimation that unifies geometry-based coarse pose estimation with robust 3D Gaussian Splatting (3DGS) warping based pose refinement. GS-CPE first estimates a coarse pose via retrieval-guided geometric pose estimation on a 3DGS scene representation, then refines it by minimizing a visibility aware masked RGB warping objective in a multi-scale optimization framework, with adaptive re-rendering. Extensive experiments on indoor and outdoor benchmarks including 7Scenes, Cambridge Landmarks, FAST-LIVO2 datasets, and a custom dataset demonstrate state-of-the-art performance, consistently outperforming in both accuracy and generalization.</summary>
-    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T14:06:51Z</published>
-    <arxiv:comment>8 pages, accepted at IROS 2026</arxiv:comment>
-    <arxiv:primary_category term="cs.CV"/>
-    <author>
-      <name>Huaiyuan Weng</name>
-    </author>
-    <author>
-      <name>Chul Min Yeum</name>
-    </author>
-    <author>
-      <name>Su-Min Kang</name>
-    </author>
-  </entry>
-  <entry>
-    <id>http://arxiv.org/abs/2608.10928v1</id>
-    <title>ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling</title>
-    <updated>2026-08-11T13:58:07Z</updated>
-    <link href="https://arxiv.org/abs/2608.10928v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.10928v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Large Reasoning Models (LRMs) improve performance by allocating additional inference-time compute to generate extended chain-of-thought reasoning. However, recent studies reveal that sequential test-time scaling often yields diminishing or even negative returns, as longer traces exhibit increased uncertainty, error compounding, and drift from the original problem. We propose ThinkRetrieve, a test-time scaling framework that augments the reasoning traces of LRMs with dynamically retrieved solved examples at each reasoning step. Given an external corpus of problems paired with step-by-step solutions, ThinkRetrieve retrieves relevant exemplars at each intermediate step and injects them directly into the thinking trace, providing the model with guidance on how to reason rather than merely what facts are relevant. Experiments across five reasoning models (1.5B--8B parameters) on GSM-8K, MATH-500, AIME 2025, and SciQ demonstrate that ThinkRetrieve consistently improves accuracy over standard test-time scaling, with relative gains of up to $60\%$ on AIME 2025.</summary>
     <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T13:58:07Z</published>
-    <arxiv:primary_category term="cs.AI"/>
+    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T13:03:49Z</published>
+    <arxiv:primary_category term="cs.CL"/>
     <author>
-      <name>Vaibhav Singh</name>
+      <name>Zhili Shen</name>
     </author>
     <author>
-      <name>Soumya Suvra Ghosal</name>
-    </author>
-    <author>
-      <name>Sarvesh Gharat</name>
-    </author>
-    <author>
-      <name>Soumyabrata Pal</name>
-    </author>
-    <author>
-      <name>Ramasuri Narayanam</name>
-    </author>
-    <author>
-      <name>Dinesh Manocha</name>
+      <name>Craig Macdonald</name>
     </author>
   </entry>
   <entry>
-    <id>http://arxiv.org/abs/2608.10827v1</id>
-    <title>MIRA: Medical Image Reflection for Agentic Diagnosis</title>
-    <updated>2026-08-11T11:57:27Z</updated>
-    <link href="https://arxiv.org/abs/2608.10827v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.10827v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Medical visual agents can use tools to inspect images and retrieve external knowledge, but indiscriminate tool use may introduce noisy or misleading evidence. Reliable diagnosis therefore requires not only acquiring additional observations, but also verifying whether tool actions are necessary and whether the resulting evidence supports the current hypothesis. We introduce MIRA (Medical Image Reflection for Agentic Diagnosis), a medical visual diagnostic framework for autonomous evidence search and reflective verification. MIRA dynamically invokes image-processing operations, including zooming, grounding, pointing, rotation, and measurement, as well as web search, while evaluating the relevance and consistency of the acquired evidence. We develop MIRA through a two-stage training strategy. First, a tool-augmented Monte Carlo Tree Search data engine explores diverse diagnostic hypotheses and jointly verifies visual grounding accuracy and semantic consistency to construct supervised fine-tuning trajectories. Second, reinforcement learning further improves decision-making through online reflective principle evolution: failure cases are distilled into candidate principles, and only principles that improve held-out rollout rewards are retained. Across nine medical visual reasoning benchmarks, MIRA achieves an average score of 64.73, improving its Qwen3-VL-8B backbone by 7.44 points. It also increases useful tool-use judgments from 56.2% to 73.8% and reduces harmful judgments from 8.9% to 1.6%. Qualitative analyses show that MIRA can re-examine evidence, correct premature conclusions, and adapt its tool-use strategy. Project page: https://MIRA-VL.github.io/</summary>
-    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <id>http://arxiv.org/abs/2608.13160v1</id>
+    <title>Better Decomposition, Free Aggregation: A Synthesizer-Folding Framework for Multilingual Multi-Hop Question Answering</title>
+    <updated>2026-08-13T12:25:59Z</updated>
+    <link href="https://arxiv.org/abs/2608.13160v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13160v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multilingual retrieval-augmented generation (mRAG) equips large language models with access to globally distributed external knowledge for complex multilingual question answering. Recent approaches either translate retrieved documents into English or the query language to bridge the cross-lingual semantic gap, or decompose a complex query into sub-questions and aggregate the intermediate reasoning process. However, both lines of work suffer from two limitations. First, one-size-fits-all translation alignment, blanket translation discards culturally and linguistically native information unique to the target language, introduces translation noise, and inflates system cost. Second, greedy decomposition and aggregation, uncontrolled decomposition produces redundant sub-questions that compound errors during step-wise reasoning, and the final aggregation over reasoning paths further amplifies these errors. We address both with our method Syfer, a synthesizer-folding framework for multilingual multi-hop question answering that defers translation rather than applying it by default. Syfer first invokes a format-constrained decomposer to produce a sub-question graph in the original language, followed by a decomposition-quality check; when the check passes, sub-questions are answered sequentially under a retrieve-then-answer policy in the target language, and the English translation pathway with bilingual sub-question graph alignment is activated only when the check fails. Experiments across multiple languages show that Syfer attains competitive accuracy while striking a favourable balance between performance and computational cost.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
     <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T11:57:27Z</published>
-    <arxiv:primary_category term="cs.CV"/>
+    <published>2026-08-13T12:25:59Z</published>
+    <arxiv:comment>Accepted by NLPCC 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
     <author>
-      <name>Shengzhi Wang</name>
+      <name>Yilin Wang</name>
     </author>
     <author>
-      <name>Jun Yang</name>
+      <name>Yuchun Fan</name>
     </author>
     <author>
-      <name>Kai Wu</name>
+      <name>Weidong Bao</name>
     </author>
     <author>
-      <name>Xiaozhong Ji</name>
+      <name>Zili Wei</name>
     </author>
     <author>
-      <name>Yiwen Ye</name>
+      <name>Shi Feng</name>
     </author>
     <author>
-      <name>Ziyang Chen</name>
+      <name>Tong Xiao</name>
     </author>
     <author>
-      <name>Mingliang Xiong</name>
+      <name>Zhengtao Yu</name>
     </author>
     <author>
-      <name>Wen Fang</name>
-    </author>
-    <author>
-      <name>Mingqing Liu</name>
-    </author>
-    <author>
-      <name>Mengyuan Xu</name>
-    </author>
-    <author>
-      <name>Miaoxuan Shan</name>
-    </author>
-    <author>
-      <name>Caiyan Liu</name>
-    </author>
-    <author>
-      <name>Bin He</name>
-    </author>
-    <author>
-      <name>Qingwen Liu</name>
+      <name>Jingbo Zhu</name>
     </author>
   </entry>
   <entry>
-    <id>http://arxiv.org/abs/2608.10795v1</id>
-    <title>EvoMem: Memory-Augmented Evolution for Code Optimization</title>
-    <updated>2026-08-11T11:03:32Z</updated>
-    <link href="https://arxiv.org/abs/2608.10795v1" rel="alternate" type="text/html"/>
-    <link href="https://arxiv.org/pdf/2608.10795v1" rel="related" type="application/pdf" title="pdf"/>
-    <summary>Successful mutation strategies in evolutionary code search may contain reusable knowledge that is useful beyond a single run, and in some cases may transfer across related tasks and domains. However, existing LLM-driven evolutionary frameworks largely discard such knowledge, repeatedly rediscovering similar ideas and limiting opportunities for cross-run and cross-task learning. We introduce EvoMem, a persistent memory architecture for LLM-based evolutionary program search that captures and reuses candidate mutation knowledge. EvoMem converts successful mutation events into structured, task-aware advice for future runs. It operates in two phases: after each run, it extracts and stores promising ideas with provenance, and during subsequent evolution, it retrieves a small set of relevant instructions based on the current task and program context to guide mutation. Across geometric optimization, multi-hop question answering, GPU kernel optimization, and related benchmarks, our experiments show positive average improvements in target metrics or search speed for most evaluated settings, while also revealing variability across tasks. Overall, EvoMem provides evidence that persistent memory can reduce some redundant exploration and improve the reuse and adaptation of successful strategies in LLM-driven evolutionary search.</summary>
+    <id>http://arxiv.org/abs/2608.13136v1</id>
+    <title>LigBench: A Unified and Human-Aligned Benchmark for LLM-based Research Idea Generation</title>
+    <updated>2026-08-13T12:11:23Z</updated>
+    <link href="https://arxiv.org/abs/2608.13136v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13136v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>With the rapid advancement of large language models (LLMs), research idea generation has attracted increasing attention. Existing approaches enable LLMs to retrieve relevant literature and propose novel ideas for research areas. However, current evaluation practices for idea generation remain fragmented and lack objective standards, often relying on direct LLM scoring, which limits their ability to provide unified and reliable assessments across a coherent distribution of generated ideas. To address this challenge, we propose LigBench, an automated evaluation benchmark that enables fine-grained and reliable evaluation of AI research ideas, consistently applicable across different generation distributions. In addition, we introduce PAIR-IQ, a dataset tailored for training pairwise idea judgment models and serving as an auxiliary reference to support more objective comparative evaluation. Extensive experiments demonstrate that LigBench achieves stable and interpretable evaluations, significantly improving alignment with expert judgments. Furthermore, models trained on PAIR-IQ exhibit enhanced ranking accuracy and robustness, establishing a principled standard for scalable and objective research idea assessment.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
     <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
-    <category term="cs.NE" scheme="http://arxiv.org/schemas/atom"/>
-    <published>2026-08-11T11:03:32Z</published>
-    <arxiv:primary_category term="cs.AI"/>
+    <category term="cs.DB" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-13T12:11:23Z</published>
+    <arxiv:comment>17 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
     <author>
-      <name>Viktor Volkov</name>
+      <name>Chenrun Wang</name>
     </author>
     <author>
-      <name>Valentin Khrulkov</name>
+      <name>Mingxuan Zhu</name>
     </author>
     <author>
-      <name>Andrey V. Galichin</name>
+      <name>Tiancheng Huang</name>
     </author>
     <author>
-      <name>Danil Sivtsov</name>
+      <name>Wenjie Li</name>
     </author>
     <author>
-      <name>Nikita Glazkov</name>
+      <name>Yujie Zhang</name>
     </author>
     <author>
-      <name>Olga Volkova</name>
+      <name>Zichen Zhu</name>
     </author>
     <author>
-      <name>Konstantin Pchelin</name>
+      <name>Zhiying Zou</name>
     </author>
     <author>
-      <name>Iaroslav Bespalov</name>
+      <name>Kai Yu</name>
     </author>
     <author>
-      <name>Dmitry V. Dylov</name>
-    </author>
-    <author>
-      <name>Petr Anokhin</name>
-    </author>
-    <author>
-      <name>Ivan Oseledets</name>
+      <name>Lu Chen</name>
     </author>
   </entry>
 </feed>

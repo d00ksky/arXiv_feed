@@ -97,6 +97,7 @@ def render_discovery_view(papers: list[RankedPaper]) -> str:
             view.append(
                 f"   {CYAN}Why selected:{RESET} {', '.join(ranked_paper.reasons)}"
             )
+            view.append(f"   {CYAN}URL:{RESET}  {paper.id}")
             index += 1
 
     return "\n".join(view)
