@@ -97,7 +97,7 @@ def render_discovery_view(papers: list[RankedPaper]) -> str:
             view.append(
                 f"   {CYAN}Why selected:{RESET} {', '.join(ranked_paper.reasons)}"
             )
-            view.append(f"   {CYAN}URL:{RESET}  {paper.id}")
+            view.append(f"   {CYAN}URL:{RESET}{paper.id}")
             index += 1
 
     return "\n".join(view)
@@ -109,7 +109,7 @@ def render_paper_detail(paper: Paper) -> str:
     lines.append(f"Year: {paper.year}")
     authors_str = ", ".join(paper.authors)
     lines.append(f"Authors: {authors_str}")
-    lines.append(f"ID URL: {paper.id}")
+    lines.append(f"URL: {paper.id}")
     lines.append(f"Summary: {paper.summary}")
     return "\n".join(lines)
 
