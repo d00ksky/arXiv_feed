@@ -49,3 +49,4 @@ def test_selected_ranked_paper_can_be_rendered_as_detail():
     assert paper.title in result
     assert str(paper.year) in result
     assert paper.summary in result
+    assert paper.id in result
