@@ -18,3 +18,19 @@ def digest_for_interest_query(
     papers = normalize_papers(raw)
     selected = top_papers_for_interest(papers, interest, limit)
     return render_interest_digest(interest, selected)
+
+
+def build_paper_digest_prompt(
+    ranked_paper: RankedPaper,
+    interest: str,
+) -> str:
+
+    title = ranked_paper.paper.title
+    summary = ranked_paper.paper.summary
+    prompt = "Give 2-3 sentences summarizing paper in the context of interest"
+
+    full_prompt = (
+        f"Title: {title} \nSummary: {summary} \nInterest: {interest} \nPrompt: {prompt}"
+    )
+
+    return full_prompt
