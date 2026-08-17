@@ -114,7 +114,7 @@ def render_paper_detail(paper: Paper) -> str:
     return "\n".join(lines)
 
 
-def render_interest_digest(interest: str, papers: list[Paper]) -> str:
+def render_interest_digest(interest: str, papers: list[RankedPaper]) -> str:
     lines = []
     lines.append(f"Interest: =={interest}==")
     lines.append("")
