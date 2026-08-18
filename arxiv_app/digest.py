@@ -34,3 +34,12 @@ def build_paper_digest_prompt(
     )
 
     return full_prompt
+
+
+def generate_paper_digest(
+    ranked_paper: RankedPaper,
+    interest: str,
+    generate_text,
+) -> str:
+    prompt = build_paper_digest_prompt(ranked_paper, interest)
+    return generate_text(prompt)
