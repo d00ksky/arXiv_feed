@@ -43,3 +43,7 @@ def test_build_paper_digest_prompt_contains_paper_data():
     assert paper.title in full_prompt
     assert paper.summary in full_prompt
     assert interest in full_prompt
+
+
+def fake_generate_text(prompt: str) -> str:
+    return "Test AI summary"
