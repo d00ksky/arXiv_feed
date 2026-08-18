@@ -3,6 +3,7 @@ from arxiv_app.models import Paper, RankedPaper
 from arxiv_app.normalization import normalize_papers
 from arxiv_app.ranking import select_discovery_papers
 from arxiv_app.render import render_interest_digest
+from collections.abc import Callable
 
 
 def top_papers_for_interest(
@@ -39,7 +40,7 @@ def build_paper_digest_prompt(
 def generate_paper_digest(
     ranked_paper: RankedPaper,
     interest: str,
-    generate_text,
+    generate_text: Callable[[str], str],
 ) -> str:
     prompt = build_paper_digest_prompt(ranked_paper, interest)
     return generate_text(prompt)
