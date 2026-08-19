@@ -110,11 +110,12 @@ def main():
 
         print()
         print(render_paper_detail(selected_ranked_paper.paper))
+        print("\nAI Summary\n")
         print(
             generate_paper_digest(
                 selected_ranked_paper,
                 interest,
-                openai_generate_text(prompt),
+                openai_generate_text,
             )
         )
 
