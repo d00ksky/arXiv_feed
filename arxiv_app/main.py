@@ -106,7 +106,6 @@ def main():
         if selected_ranked_paper is None:
             print("Invalid paper number")
             return
-        prompt = "summarize paper in easy to understand analysis"
 
         print()
         print(render_paper_detail(selected_ranked_paper.paper))
