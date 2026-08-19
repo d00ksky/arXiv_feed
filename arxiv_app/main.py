@@ -23,7 +23,10 @@ from arxiv_app.stats import (
 )
 
 from arxiv_app.ranking import select_discovery_papers
-# n
+
+from arxiv_app.digest import generate_paper_digest
+
+from arxiv_app.llm_client import openai_generate_text
 
 
 def main():
@@ -48,7 +51,7 @@ def main():
     args = parser.parse_args()
 
     # Fetch and normalize papers before applying filters and discovery selection.
-
+    interest = args.query
     raw = fetch_papers(args.query, max_results=args.limit * 5, cache_ttl=args.cache_ttl)
     papers = normalize_papers(raw)
 
@@ -103,9 +106,17 @@ def main():
         if selected_ranked_paper is None:
             print("Invalid paper number")
             return
+        prompt = "summarize paper in easy to understand analysis"
 
         print()
         print(render_paper_detail(selected_ranked_paper.paper))
+        print(
+            generate_paper_digest(
+                selected_ranked_paper,
+                interest,
+                openai_generate_text(prompt),
+            )
+        )
 
 
 if __name__ == "__main__":
