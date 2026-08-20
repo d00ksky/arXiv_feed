@@ -44,3 +44,12 @@ def generate_paper_digest(
 ) -> str:
     prompt = build_paper_digest_prompt(ranked_paper, interest)
     return generate_text(prompt)
+
+
+def generate_paper_digests(
+    ranked_papers: list[RankedPaper], interest: str, generate_text: Callable[[str], str]
+) -> list[str]:
+    return [
+        generate_paper_digest(ranked_paper, interest, generate_text)
+        for ranked_paper in ranked_papers
+    ]
