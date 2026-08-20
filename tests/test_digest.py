@@ -104,6 +104,12 @@ def test_generate_paper_digests_generates_summary_for_each_paper():
 
     interest = "retrieval"
 
+    received_prompts: list[str] = []
+
+    def tracking_generate_text(prompt: str) -> str:
+        received_prompts.append(prompt)
+        return f"AI summary {len(received_prompts)}"
+
     result = generate_paper_digests(
         [ranked_paper_1, ranked_paper_2],
         interest,
