@@ -6,6 +6,7 @@ from arxiv_app.models import (
 from arxiv_app.digest import (
     build_paper_digest_prompt,
     generate_paper_digest,
+    generate_paper_digests,
 )
 
 
@@ -113,7 +114,7 @@ def test_generate_paper_digests_generates_summary_for_each_paper():
     result = generate_paper_digests(
         [ranked_paper_1, ranked_paper_2],
         interest,
-        fake_generate_text,
+        tracking_generate_text,
     )
 
     assert result == ["AI summary 1", "AI summary 2"]
