@@ -27,14 +27,19 @@ def test_title_match_score_scores_individual_words_without_full_query():
     assert result == 4
 
 
-def make_paper(title: str, summary: str, year: int = 2024) -> Paper:
+def make_paper(
+    title: str,
+    summary: str,
+    year: int = 2024,
+    id: str = "http://arxiv.org/abs/2608.13495v1",
+) -> Paper:
     return Paper(
         title=title,
         year=year,
         citations=0,
         authors=["Test Author"],
-        id=f"test-id-{title}",
         summary=summary,
+        id=id,
     )
 
 
@@ -178,26 +183,44 @@ def test_ranked_paper():
 
 def test_render():
 
-    paper = make_paper(
+    paper_1 = make_paper(
         title="Retrieval for Scientific Search",
         summary="A system for ranking arXiv papers.",
         year=2024,
+        id="http://arxiv.org/abs/2608.13495v1",
     )
 
-    ranked_paper = RankedPaper(
-        paper=paper,
+    ranked_paper_1 = RankedPaper(
+        paper=paper_1,
         score=6,
         reasons=["query appears in title"],
     )
 
-    papers = [ranked_paper]
-    result = render_discovery_view(
-        papers,
-        ai_summaries=[
-            "Paper one explains retrieval methods for ranking scientific publications.",
-            "Paper two examines ranking signals used in scientific search.",
-        ],
+    paper_2 = make_paper(
+        title="Scientific Search ranking",
+        summary="A system for ranking arXiv retrieval papers.",
+        year=2026,
+        id="http://arxiv.org/abs/2608.13495v2",
     )
 
-    assert paper.title in result
-    assert str(paper.year) in result
+    ranked_paper_2 = RankedPaper(
+        paper=paper_2,
+        score=6,
+        reasons=["query appears in summary"],
+    )
+
+    ai_summaries = [
+        "Paper one explains retrieval methods for ranking scientific publications.",
+        "Paper two examines ranking signals used in scientific search.",
+    ]
+
+    papers = [ranked_paper_1, ranked_paper_2]
+    result = render_discovery_view(papers, ai_summaries)
+
+    assert paper_1.title in result
+    assert paper_2.title in result
+    assert str(paper_1.year) in result
+    assert str(paper_2.year) in result
+    assert ai_summaries[0] in result
+    assert ai_summaries[1] in result
+    assert result.index(ai_summaries[0]) < result.index(ai_summaries[1])
