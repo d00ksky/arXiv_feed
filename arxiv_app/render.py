@@ -64,7 +64,7 @@ def render_stats(
     return "\n".join(lines)
 
 
-def render_discovery_view(papers: list[RankedPaper]) -> str:
+def render_discovery_view(papers: list[RankedPaper], ai_summaries: list[str]) -> str:
     # 2024
     # 1. Title A
     # Summary: ...
@@ -76,29 +76,14 @@ def render_discovery_view(papers: list[RankedPaper]) -> str:
     # Summary: ...
     view = []
     index = 1
-    papers_by_year = {}
 
     for ranked_paper in papers:
         paper = ranked_paper.paper
-        if paper.year not in papers_by_year:
-            papers_by_year[paper.year] = []
-        papers_by_year[paper.year].append(ranked_paper)
-
-    for year in sorted(papers_by_year, reverse=True):
-        if view:
-            view.append("")
-        view.append(f"[{year}]")
-        for ranked_paper in papers_by_year[year]:
-            paper = ranked_paper.paper
-            view.append(f"{index}. {BOLD}{paper.title}{RESET}")
-            view.append(
-                f"   {CYAN}AI Summary:{RESET} {summary_snippet(paper.summary, 150)}"
-            )
-            view.append(
-                f"   {CYAN}Why selected:{RESET} {', '.join(ranked_paper.reasons)}"
-            )
-            view.append(f"   {CYAN}URL:{RESET}{paper.id}")
-            index += 1
+        view.append(f"{index}. (Year: {paper.year}) {BOLD}{paper.title}{RESET}")
+        view.append(f"   {CYAN}AI Summary:{RESET} {ai_summaries[index - 1]}")
+        view.append(f"   {CYAN}Why selected:{RESET} {', '.join(ranked_paper.reasons)}")
+        view.append(f"   {CYAN}URL: {RESET}{paper.id}")
+        index += 1
 
     return "\n".join(view)
 
@@ -114,23 +99,27 @@ def render_paper_detail(paper: Paper) -> str:
     return "\n".join(lines)
 
 
-def render_interest_digest(interest: str, papers: list[RankedPaper]) -> str:
+def render_interest_digest(
+    interest: str, papers: list[RankedPaper], ai_summaries: list[str]
+) -> str:
     lines = []
     lines.append(f"Interest: =={interest}==")
     lines.append("")
-    lines.append(render_discovery_view(papers))
+    lines.append(render_discovery_view(papers, ai_summaries))
     return "\n".join(lines)
 
 
-def digest_for_interest(interest: str, papers: list[Paper], limit: int = 5) -> str:
+def digest_for_interest(
+    interest: str, papers: list[Paper], ai_summaries: list[str], limit: int = 5
+) -> str:
     selected_papers = select_discovery_papers(papers, interest, limit)
-    return render_interest_digest(interest, selected_papers)
+    return render_interest_digest(interest, selected_papers, ai_summaries)
 
 
 def digest_for_interests(
-    interests: list[str], papers: list[Paper], limit: int = 5
+    interests: list[str], papers: list[Paper], ai_summaries: list[str], limit: int = 5
 ) -> str:
     sections = []
     for interest in interests:
-        sections.append(digest_for_interest(interest, papers, limit))
+        sections.append(digest_for_interest(interest, papers, ai_summaries, limit))
     return "\n\n".join(sections)
