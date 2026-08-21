@@ -98,33 +98,6 @@ def main():
     else:
         print(render_discovery_view(ranked_discovery_papers, ai_summaries))
 
-        selection = input("Select paper number (Enter to skip).")
-
-        if not selection.strip():
-            return
-
-        selected_index = parse_selection(selection)
-
-        if selected_index is None:
-            print("Invalid paper number")
-            return
-
-        selected_ranked_paper = paper_at_index(ranked_discovery_papers, selected_index)
-        if selected_ranked_paper is None:
-            print("Invalid paper number")
-            return
-
-        print()
-        print(render_paper_detail(selected_ranked_paper.paper))
-        print("\nAI Summary\n")
-        print(
-            generate_paper_digest(
-                selected_ranked_paper,
-                interest,
-                openai_generate_text,
-            )
-        )
-
 
 if __name__ == "__main__":
     main()
