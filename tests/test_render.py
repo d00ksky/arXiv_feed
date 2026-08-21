@@ -79,7 +79,6 @@ def test_render_discovery_view_reasons():
     result = render_discovery_view(
         ranked_papers,
         ai_summaries=[
-            "Paper one explains retrieval methods for ranking scientific publications.",
             "Paper two examines ranking signals used in scientific search.",
         ],
     )
