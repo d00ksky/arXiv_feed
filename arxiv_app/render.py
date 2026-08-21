@@ -92,7 +92,7 @@ def render_discovery_view(papers: list[RankedPaper]) -> str:
             paper = ranked_paper.paper
             view.append(f"{index}. {BOLD}{paper.title}{RESET}")
             view.append(
-                f"   {CYAN}Summary:{RESET} {summary_snippet(paper.summary, 150)}"
+                f"   {CYAN}AI Summary:{RESET} {summary_snippet(paper.summary, 150)}"
             )
             view.append(
                 f"   {CYAN}Why selected:{RESET} {', '.join(ranked_paper.reasons)}"
