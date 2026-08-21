@@ -5,14 +5,11 @@ from arxiv_app.logic import (
     filter_papers_after_year,
     filter_papers_by_author,
     most_cited_papers,
-    paper_at_index,
-    parse_selection,
 )
 from arxiv_app.validation import non_negative_int
 from arxiv_app.render import (
     render_stats,
     render_discovery_view,
-    render_paper_detail,
 )
 
 from arxiv_app.stats import (
@@ -25,9 +22,7 @@ from arxiv_app.stats import (
 from arxiv_app.ranking import select_discovery_papers
 
 from arxiv_app.digest import (
-    generate_paper_digest,
     generate_paper_digests,
-    build_paper_digest_prompt,
 )
 
 from arxiv_app.llm_client import openai_generate_text
@@ -89,13 +84,13 @@ def main():
         papers = sorted(papers, key=lambda paper: paper.year, reverse=True)
 
     ranked_discovery_papers = select_discovery_papers(papers, args.query, args.limit)
-    ai_summaries = generate_paper_digests(
-        ranked_discovery_papers, interest, openai_generate_text
-    )
     # Here we are printing papers after all filters
     if not ranked_discovery_papers:
         print("No papers found.")
     else:
+        ai_summaries = generate_paper_digests(
+            ranked_discovery_papers, interest, openai_generate_text
+        )
         print(render_discovery_view(ranked_discovery_papers, ai_summaries))
 
 
