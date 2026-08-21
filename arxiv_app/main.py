@@ -24,7 +24,11 @@ from arxiv_app.stats import (
 
 from arxiv_app.ranking import select_discovery_papers
 
-from arxiv_app.digest import generate_paper_digest
+from arxiv_app.digest import (
+    generate_paper_digest,
+    generate_paper_digests,
+    build_paper_digest_prompt,
+)
 
 from arxiv_app.llm_client import openai_generate_text
 
@@ -85,11 +89,14 @@ def main():
         papers = sorted(papers, key=lambda paper: paper.year, reverse=True)
 
     ranked_discovery_papers = select_discovery_papers(papers, args.query, args.limit)
+    ai_summaries = generate_paper_digests(
+        ranked_discovery_papers, interest, openai_generate_text
+    )
     # Here we are printing papers after all filters
     if not ranked_discovery_papers:
         print("No papers found.")
     else:
-        print(render_discovery_view(ranked_discovery_papers))
+        print(render_discovery_view(ranked_discovery_papers, ai_summaries))
 
         selection = input("Select paper number (Enter to skip).")
 
