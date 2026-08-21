@@ -76,7 +76,15 @@ def test_render_discovery_view_reasons():
     )
 
     ranked_papers = [ranked_paper]
-    result = render_discovery_view(ranked_papers)
+    result = render_discovery_view(
+        ranked_papers,
+        ai_summaries=[
+            "Paper one explains retrieval methods for ranking scientific publications.",
+            "Paper two examines ranking signals used in scientific search.",
+        ],
+    )
 
     assert "query appears in title" in result
     assert paper.id in result
+
+

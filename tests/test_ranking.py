@@ -5,14 +5,9 @@ from arxiv_app.ranking import (
     explain_paper_match,
 )
 
-from arxiv_app.render import (
-    render_discovery_view
-)
+from arxiv_app.render import render_discovery_view
 
-from arxiv_app.models import (
-        Paper,
-        RankedPaper
-)
+from arxiv_app.models import Paper, RankedPaper
 
 
 def test_title_match_score_scoring_for_full_query():
@@ -75,9 +70,10 @@ def test_select_discovery_papers_sorts_by_score():
     )
 
     assert [ranked_paper.paper for ranked_paper in result] == [
-    strong_paper,
-    weak_paper,
-]
+        strong_paper,
+        weak_paper,
+    ]
+
 
 def test_select_discovery_papers_by_year_if_score_is_the_same():
 
@@ -188,15 +184,20 @@ def test_render():
         year=2024,
     )
 
-
     ranked_paper = RankedPaper(
-    paper=paper,
-    score=6,
-    reasons=["query appears in title"],
+        paper=paper,
+        score=6,
+        reasons=["query appears in title"],
     )
 
     papers = [ranked_paper]
-    result = render_discovery_view(papers)
+    result = render_discovery_view(
+        papers,
+        ai_summaries=[
+            "Paper one explains retrieval methods for ranking scientific publications.",
+            "Paper two examines ranking signals used in scientific search.",
+        ],
+    )
 
     assert paper.title in result
     assert str(paper.year) in result
