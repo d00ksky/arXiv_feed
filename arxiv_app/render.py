@@ -2,7 +2,6 @@ from arxiv_app.models import (
     Paper,
     RankedPaper,
 )
-from arxiv_app.logic import summary_snippet
 from arxiv_app.ranking import select_discovery_papers
 
 
@@ -65,21 +64,12 @@ def render_stats(
 
 
 def render_discovery_view(papers: list[RankedPaper], ai_summaries: list[str]) -> str:
-    # 2024
-    # 1. Title A
-    # Summary: ...
-    # 2. Title B
-    # Summary: ...
-
-    # 2023
-    # 3. Title C
-    # Summary: ...
     view = []
     index = 1
 
     for ranked_paper in papers:
         paper = ranked_paper.paper
-        view.append(f"{index}. (Year: {paper.year}) {BOLD}{paper.title}{RESET}")
+        view.append(f"{index}. ({paper.year}) {BOLD}{paper.title}{RESET}")
         view.append(f"   {CYAN}AI Summary:{RESET} {ai_summaries[index - 1]}")
         view.append(f"   {CYAN}Why selected:{RESET} {', '.join(ranked_paper.reasons)}")
         view.append(f"   {CYAN}URL: {RESET}{paper.id}")
