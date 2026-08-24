@@ -78,17 +78,6 @@ def render_discovery_view(papers: list[RankedPaper], ai_summaries: list[str]) ->
     return "\n".join(view)
 
 
-def render_paper_detail(paper: Paper) -> str:
-    lines = []
-    lines.append(f"Title: {paper.title}")
-    lines.append(f"Year: {paper.year}")
-    authors_str = ", ".join(paper.authors)
-    lines.append(f"Authors: {authors_str}")
-    lines.append(f"URL: {paper.id}")
-    lines.append(f"Summary: {paper.summary}")
-    return "\n".join(lines)
-
-
 def render_interest_digest(
     interest: str, papers: list[RankedPaper], ai_summaries: list[str]
 ) -> str:
