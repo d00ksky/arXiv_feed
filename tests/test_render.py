@@ -1,7 +1,4 @@
-from arxiv_app.logic import paper_at_index
-
 from arxiv_app.render import (
-    render_paper_detail,
     render_discovery_view,
 )
 
@@ -85,5 +82,3 @@ def test_render_discovery_view_reasons():
 
     assert "query appears in title" in result
     assert paper.id in result
-
-
