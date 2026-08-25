@@ -63,16 +63,22 @@ def render_stats(
     return "\n".join(lines)
 
 
-def render_discovery_view(papers: list[RankedPaper], ai_summaries: list[str]) -> str:
+def render_discovery_view(
+    papers: list[RankedPaper], ai_summaries: list[str], use_color: bool = True
+) -> str:
     view = []
     index = 1
 
+    bold = BOLD if use_color else ""
+    cyan = CYAN if use_color else ""
+    reset = RESET if use_color else ""
+
     for ranked_paper in papers:
         paper = ranked_paper.paper
-        view.append(f"{index}. ({paper.year}) {BOLD}{paper.title}{RESET}")
-        view.append(f"   {CYAN}AI Summary:{RESET} {ai_summaries[index - 1]}")
-        view.append(f"   {CYAN}Why selected:{RESET} {', '.join(ranked_paper.reasons)}")
-        view.append(f"   {CYAN}URL: {RESET}{paper.id}")
+        view.append(f"{index}. ({paper.year}) {bold}{paper.title}{reset}")
+        view.append(f"   {cyan}AI Summary:{reset} {ai_summaries[index - 1]}")
+        view.append(f"   {cyan}Why selected:{reset} {', '.join(ranked_paper.reasons)}")
+        view.append(f"   {cyan}URL: {reset}{paper.id}")
         index += 1
 
     return "\n".join(view)
