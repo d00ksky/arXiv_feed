@@ -1,5 +1,4 @@
 import argparse
-from email import message
 from arxiv_app.arxiv_client import fetch_papers
 from arxiv_app.normalization import normalize_papers
 from arxiv_app.logic import (
