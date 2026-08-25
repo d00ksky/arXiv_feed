@@ -28,31 +28,6 @@ from arxiv_app.digest import (
 
 from arxiv_app.llm_client import openai_generate_text
 
-import smtplib
-from email.message import EmailMessage
-
-
-def send_email(
-    subject: str,
-    body: str,
-    sender: str,
-    recipient: str,
-    app_password: str,
-) -> None:
-
-    context = ssl.create_default_context()
-
-    msg = EmailMessage()
-    msg.set_content(body)
-
-    msg["Subject"] = subject
-    msg["From"] = sender
-    msg["To"] = recipient
-
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10, context=context) as server:
-        server.login(sender, app_password)
-        server.send_message(msg)
-
 
 def main():
     parser = argparse.ArgumentParser(description="arXiv CLI tool")
