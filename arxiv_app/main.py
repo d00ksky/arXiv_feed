@@ -42,23 +42,16 @@ def send_email(
 
     context = ssl.create_default_context()
 
-    sender_email = "email_sender"
-    recipient_email = "email_recipient"
-    password = "email_app_password"
-
-    email_message = "hejoooo <3"
-
     msg = EmailMessage()
-    msg.set_content(email_message)
+    msg.set_content(body)
 
-    msg["Subject"] = "The contents of hejooo <3"
-    msg["From"] = sender_email
-    msg["To"] = recipient_email
+    msg["Subject"] = subject
+    msg["From"] = sender
+    msg["To"] = recipient
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10, context=context) as server:
-        server.login(sender_email, password)
-        server.send_message(email_message)
-        server.quit()
+        server.login(sender, app_password)
+        server.send_message(msg)
 
 
 def main():
