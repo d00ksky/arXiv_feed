@@ -1,17 +1,5 @@
 # Just notepad for testing and trying quick ideas
 from arxiv_app.models import Paper
-import collections
-from collections import (
-    defaultdict,
-    Counter,
-)
-from arxiv_app.logic import recent_papers
-import os
-from arxiv_app.interests import (
-    DEFAULT_INTERESTS,
-)
-from arxiv_app.render import render_discovery_view
-from arxiv_app.ranking import select_discovery_papers
 
 
 papers_by_year = {2019: 1, 2020: 3, 2021: 4, 2022: 2}
@@ -463,7 +451,6 @@ def top_services_by_category(
     grouped = {}
     for service in services:
         category = service["category"]
-        priority = service["priority"]
         if category not in grouped:
             grouped[category] = [service]
         else:

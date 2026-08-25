@@ -1,6 +1,5 @@
 # for testing fetch_papers
 from arxiv_app.arxiv_client import (
-    fetch_papers,
     _build_query_url,
 )
 
