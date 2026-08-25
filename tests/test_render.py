@@ -71,6 +71,7 @@ def test_render_discovery_view_can_disable_terminal_colors():
         ai_summaries=[
             "Paper two examines ranking signals used in scientific search.",
         ],
+        use_color=False,
     )
 
     assert "\033[" not in result
