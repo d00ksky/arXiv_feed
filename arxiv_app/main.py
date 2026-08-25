@@ -1,4 +1,5 @@
 import argparse
+from email import message
 from arxiv_app.arxiv_client import fetch_papers
 from arxiv_app.normalization import normalize_papers
 from arxiv_app.logic import (
@@ -26,6 +27,38 @@ from arxiv_app.digest import (
 )
 
 from arxiv_app.llm_client import openai_generate_text
+
+import smtplib
+from email.message import EmailMessage
+
+
+def send_email(
+    subject: str,
+    body: str,
+    sender: str,
+    recipient: str,
+    app_password: str,
+) -> None:
+
+    context = ssl.create_default_context()
+
+    sender_email = "email_sender"
+    recipient_email = "email_recipient"
+    password = "email_app_password"
+
+    email_message = "hejoooo <3"
+
+    msg = EmailMessage()
+    msg.set_content(email_message)
+
+    msg["Subject"] = "The contents of hejooo <3"
+    msg["From"] = sender_email
+    msg["To"] = recipient_email
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10, context=context) as server:
+        server.login(sender_email, password)
+        server.send_message(email_message)
+        server.quit()
 
 
 def main():
