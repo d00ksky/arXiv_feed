@@ -90,7 +90,7 @@ def main():
 
     ranked_discovery_papers = select_discovery_papers(papers, args.query, args.limit)
     # Here we are printing papers after all filters
-
+    # Retrieving from .env config for email send
     sender = os.environ.get("EMAIL_SENDER")
     recipient = os.environ.get("EMAIL_RECIPIENT")
     app_password = os.environ.get("EMAIL_APP_PASSWORD")
