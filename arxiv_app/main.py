@@ -27,6 +27,10 @@ from arxiv_app.digest import (
 
 from arxiv_app.llm_client import openai_generate_text
 
+import os
+
+from arxiv_app.email_client import send_email
+
 
 def main():
     parser = argparse.ArgumentParser(description="arXiv CLI tool")
@@ -46,6 +50,7 @@ def main():
     parser.add_argument(
         "--stats", action="store_true", help="Show statistics about papers"
     )
+    parser.add_argument("--send-email", action="store_true")
 
     args = parser.parse_args()
 
@@ -85,12 +90,23 @@ def main():
 
     ranked_discovery_papers = select_discovery_papers(papers, args.query, args.limit)
     # Here we are printing papers after all filters
+
+    sender = os.environ.get("EMAIL_SENDER")
+    recipient = os.environ.get("EMAIL_RECIPIENT")
+    app_password = os.environ.get("EMAIL_APP_PASSWORD")
+
     if not ranked_discovery_papers:
         print("No papers found.")
     else:
         ai_summaries = generate_paper_digests(
             ranked_discovery_papers, interest, openai_generate_text
         )
+        if args.send_email == True:
+            body = render_discovery_view(
+                ranked_discovery_papers, ai_summaries, use_color=False
+            )
+            subject = body[:10]
+            send_email(subject, body, sender, recipient, app_password)
         print(render_discovery_view(ranked_discovery_papers, ai_summaries))
 
 
