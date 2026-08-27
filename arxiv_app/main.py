@@ -102,6 +102,9 @@ def main():
             recipient = os.environ.get("EMAIL_RECIPIENT")
             app_password = os.environ.get("EMAIL_APP_PASSWORD")
 
+            if not sender or not recipient or not app_password:
+                raise RuntimeError("Missing required email environment variables")
+
             body = render_discovery_view(
                 ranked_discovery_papers, ai_summaries, use_color=False
             )
