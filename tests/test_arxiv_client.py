@@ -17,16 +17,8 @@ def test_build_query_url():
 
 
 def test_build_query_url_can_filter_by_category():
-    # Ma opisywać zachowanie:
-    # _build_query_url("retrieval", 25, category="cs.IR")
-    # i sprawdzać, że wynikowe zapytanie zawiera jednocześnie:
-    # all:retrieval
-    # AND
-    # cat:cs.IR
-    query = "retrieval"
-    category = "cs.IR"
-
-    url = _build_query_url(query, category)
+    url = _build_query_url("retrieval", 25, category="cs.IR")
 
     assert "all:retrieval" in url
+    assert "AND" in url
     assert "cat:cs.IR" in url

@@ -68,10 +68,13 @@ def _parse_xml(xml_bytes: bytes) -> list[dict]:
     return papers
 
 
-def _build_query_url(query: str, max_results: int) -> str:
+def _build_query_url(query: str, max_results: int, category: str | None = None) -> str:
 
     encoded_query = quote_plus(query)
-    url = f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+    if category:
+        url = f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}+AND+cat:{category}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+    else:
+        url = f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
     return url
 
 
