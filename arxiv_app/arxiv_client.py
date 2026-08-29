@@ -72,9 +72,12 @@ def _build_query_url(query: str, max_results: int, category: str | None = None) 
 
     encoded_query = quote_plus(query)
     if category:
-        url = f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}+AND+cat:{category}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+        search_query = f"all:{encoded_query}+AND+cat:{category}"
     else:
-        url = f"http://export.arxiv.org/api/query?search_query=all:{encoded_query}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+        search_query = f"all:{encoded_query}"
+
+    url = f"http://export.arxiv.org/api/query?search_query={search_query}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+
     return url
 
 
