@@ -51,12 +51,15 @@ def main():
         "--stats", action="store_true", help="Show statistics about papers"
     )
     parser.add_argument("--send-email", action="store_true")
+    parser.add_argument("--category", help="Choose category")
 
     args = parser.parse_args()
 
     # Fetch and normalize papers before applying filters and discovery selection.
     interest = args.query
-    raw = fetch_papers(args.query, max_results=args.limit * 5, cache_ttl=args.cache_ttl)
+    raw = fetch_papers(
+        args.query, args.category, max_results=args.limit * 5, cache_ttl=args.cache_ttl
+    )
     papers = normalize_papers(raw)
 
     if args.year is not None:

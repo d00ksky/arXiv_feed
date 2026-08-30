@@ -18,7 +18,11 @@ def _is_cache_fresh(path: str, ttl_seconds: int) -> bool:
 def _cache_path(query: str, max_results: int, category: str | None = None) -> str:
     os.makedirs("cache", exist_ok=True)
     safe_query = query.replace(" ", "_")
-    filename = f"{safe_query}_{max_results}.xml"
+    if category:
+        safe_category = category.replace(" ", "_")
+        filename = f"{safe_query}_{safe_category}_{max_results}.xml"
+    else:
+        filename = f"{safe_query}_{max_results}.xml"
     return os.path.join("cache", filename)
 
 
@@ -94,7 +98,7 @@ def fetch_papers(
         "From": "debski.jakub@gmail.com",
     }
 
-    cache_path = _cache_path(query, max_results)
+    cache_path = _cache_path(query, max_results, category)
     TTL = cache_ttl
 
     # retry/backoff
