@@ -15,7 +15,7 @@ def _is_cache_fresh(path: str, ttl_seconds: int) -> bool:
     return age < ttl_seconds
 
 
-def _cache_path(query: str, max_results: int) -> str:
+def _cache_path(query: str, max_results: int, category: str | None = None) -> str:
     os.makedirs("cache", exist_ok=True)
     safe_query = query.replace(" ", "_")
     filename = f"{safe_query}_{max_results}.xml"
@@ -81,9 +81,14 @@ def _build_query_url(query: str, max_results: int, category: str | None = None) 
     return url
 
 
-def fetch_papers(query: str, max_results: int = 10, cache_ttl: int = 600) -> list[dict]:
+def fetch_papers(
+    query: str, category: str | None = None, max_results: int = 10, cache_ttl: int = 600
+) -> list[dict]:
     time.sleep(1.0)
-    url = _build_query_url(query, max_results)
+    if category:
+        url = _build_query_url(query, max_results, category)
+    else:
+        url = _build_query_url(query, max_results)
     headers = {
         "User-Agent": "arxiv-app/0.1 (contact: debski.jakub@gmail.com)",
         "From": "debski.jakub@gmail.com",
