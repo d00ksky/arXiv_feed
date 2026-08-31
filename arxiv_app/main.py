@@ -111,8 +111,19 @@ def main():
             body = render_discovery_view(
                 ranked_discovery_papers, ai_summaries, use_color=False
             )
+
+            html_body = f""""<article>
+  <header>
+    <h1>Here is you digest!</h1>
+    <p>{body}</p>
+  </header>
+  <p>That's all folks!</p>
+</article>"""
+
             subject = f"arxiv Digest {interest}"
-            send_email(subject, body, sender, recipient, app_password)
+            send_email(
+                subject, body, sender, recipient, app_password, html_body=html_body
+            )
         print(render_discovery_view(ranked_discovery_papers, ai_summaries))
 
 
