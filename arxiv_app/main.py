@@ -112,9 +112,9 @@ def main():
                 ranked_discovery_papers, ai_summaries, use_color=False
             )
 
-            html_body = f""""<article>
+            html_body = f"""<article>
   <header>
-    <h1>Here is you digest!</h1>
+    <h1>Here is your digest!</h1>
     <p>{body}</p>
   </header>
   <p>That's all folks!</p>
