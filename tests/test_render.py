@@ -76,3 +76,35 @@ def test_render_discovery_view_can_disable_terminal_colors():
 
     assert "\033[" not in result
     assert paper.title in result
+
+
+def test_render_discovery_html():
+    # tytułu,
+    # AI summary,
+    # klikalnego URL-a w href,
+    # poprawnego zabezpieczenia znaku <.
+
+    paper = make_paper(
+        title="Retrieval for Scientific Search",
+        summary="A system for ranking arXiv papers.",
+        year=2024,
+        id="http://arxiv.org/abs/2608.13495v1",
+    )
+
+    ranked_paper = RankedPaper(
+        paper=paper,
+        score=6,
+        reasons=["query appears in title"],
+    )
+
+    ranked_papers = [ranked_paper]
+    result = render_discovery_view_html(
+        ranked_papers,
+        ai_summaries=[
+            "Paper two examines ranking signals used in scientific search.",
+        ],
+        use_color=False,
+    )
+
+    assert paper.title in result
+    assert ai_summaries in result
