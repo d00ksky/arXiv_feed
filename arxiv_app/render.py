@@ -118,11 +118,15 @@ def render_discovery_html(
     index = 1
     for ranked_paper in ranked_papers:
         paper = ranked_paper.paper
+        reasons_html = []
+        for reason in ranked_paper.reasons:
+            reasons_html.append(html.escape(reason))
+
         view.append(
             f"<header><h1>{index}. ({paper.year}) {html.escape(paper.title)}</h1></header>"
         )
         view.append(f"<p>   AI Summary: {html.escape(ai_summaries[index - 1])}</p>")
-        view.append(f"<p>   Why selected: {', '.join(ranked_paper.reasons)}</p>")
+        view.append(f"<p>   Why selected: {', '.join(reasons_html)}</p>")
         safe_url = html.escape(paper.id, quote=True)
         view.append(f'<p>   URL: <a href="{safe_url}">Go to paper</a></p>')
         index += 1

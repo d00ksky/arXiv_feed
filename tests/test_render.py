@@ -91,7 +91,7 @@ def test_render_discovery_html():
     ranked_paper = RankedPaper(
         paper=paper,
         score=6,
-        reasons=["query appears in title"],
+        reasons=["query appears < in title"],
     )
 
     ranked_papers = [ranked_paper]
@@ -108,3 +108,4 @@ def test_render_discovery_html():
     assert "Retrieval &lt; Scientific Search" in result
     expected_link = f'<a href="{paper.id}">Go to paper</a>'
     assert expected_link in result
+    assert "query appears &lt; in title" in result
