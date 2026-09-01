@@ -1,5 +1,6 @@
 from arxiv_app.render import (
     render_discovery_view,
+    render_discovery_html,
 )
 
 from arxiv_app.models import (
@@ -103,5 +104,7 @@ def test_render_discovery_html():
     )
 
     assert ai_summary in result
-    assert 'href="http://arxiv.org/abs/2608.13495v1"' in result
+    assert 'href="http://arxiv.org/abs/2608.13495v1' in result
     assert "Retrieval &lt; Scientific Search" in result
+    expected_link = f'<a href="{paper.id}">Go to paper</a>'
+    assert expected_link in result

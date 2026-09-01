@@ -3,6 +3,7 @@ from arxiv_app.models import (
     RankedPaper,
 )
 from arxiv_app.ranking import select_discovery_papers
+import html
 
 
 RESET = "\033[0m"
@@ -108,3 +109,23 @@ def digest_for_interests(
     for interest in interests:
         sections.append(digest_for_interest(interest, papers, ai_summaries, limit))
     return "\n\n".join(sections)
+
+
+def render_discovery_html(
+    ranked_papers: list[RankedPaper], ai_summaries: list[str]
+) -> str:
+    view = []
+    index = 1
+    for ranked_paper in ranked_papers:
+        paper = ranked_paper.paper
+        view.append(
+            f"<header><h1>{index}. ({paper.year}) {html.escape(paper.title)}</h1></header>"
+        )
+        view.append(f"<p>   AI Summary: {html.escape(ai_summaries[index - 1])}</p>")
+        view.append(f"<p>   Why selected: {', '.join(ranked_paper.reasons)}</p>")
+        safe_url = html.escape(paper.id, quote=True)
+        view.append(f'<p>   URL: <a href="{safe_url}">Go to paper</a></p>')
+        index += 1
+
+    body = "\n".join(view)
+    return f"<article>{body}</article>"
