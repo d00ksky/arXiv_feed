@@ -10,6 +10,7 @@ from arxiv_app.validation import non_negative_int
 from arxiv_app.render import (
     render_stats,
     render_discovery_view,
+    render_discovery_html,
 )
 
 from arxiv_app.stats import (
@@ -112,13 +113,7 @@ def main():
                 ranked_discovery_papers, ai_summaries, use_color=False
             )
 
-            html_body = f"""<article>
-  <header>
-    <h1>Here is your digest!</h1>
-    <p>{body}</p>
-  </header>
-  <p>That's all folks!</p>
-</article>"""
+            html_body = render_discovery_html(ranked_discovery_papers, ai_summaries)
 
             subject = f"arxiv Digest {interest}"
             send_email(
