@@ -80,16 +80,62 @@ def test_select_discovery_papers_sorts_by_score():
     ]
 
 
+def test_select_discovery_papers_not_return_zero_score_papers():
+
+    zero_paper = make_paper(
+        title="Unrelated title",
+        summary="This mentions nothing.",
+    )
+
+    paper = make_paper(
+        title="Large language models for search",
+        summary="This paper is about large, even more large language models.",
+    )
+
+    papers = [zero_paper, paper]
+
+    result = select_discovery_papers(
+        papers,
+        query="large language model",
+        limit=2,
+    )
+
+    assert [paper] == [ranked_paper.paper for ranked_paper in result]
+
+
+def test_select_discovery_papers_when_nothing_matches():
+
+    zero_paper = make_paper(
+        title="Unrelated title",
+        summary="This mentions nothing.",
+    )
+
+    zero_paper2 = make_paper(
+        title="for search",
+        summary="This paper is about nothing.",
+    )
+
+    papers = [zero_paper, zero_paper2]
+
+    result = select_discovery_papers(
+        papers,
+        query="large language model",
+        limit=2,
+    )
+
+    assert result == []
+
+
 def test_select_discovery_papers_by_year_if_score_is_the_same():
 
     old_paper = make_paper(
-        title="Completely unrelated",
+        title="Completely language unrelated",
         summary="Nothing useful here",
         year=2020,
     )
 
     new_paper = make_paper(
-        title="Also unrelated",
+        title="Also language unrelated",
         summary="Still nothing useful",
         year=2024,
     )

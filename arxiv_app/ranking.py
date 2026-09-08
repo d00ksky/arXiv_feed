@@ -48,7 +48,9 @@ def select_discovery_papers(
             score=paper_match_score(paper, query),
             reasons=explain_paper_match(paper, query),
         )
-        ranked_papers.append(ranked_paper)
+
+        if ranked_paper.score > 0:
+            ranked_papers.append(ranked_paper)
 
     return ranked_papers
 
