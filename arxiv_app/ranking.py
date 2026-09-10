@@ -34,6 +34,12 @@ def select_discovery_papers(
     """Returns sorted papers by score and if score is the same, by year"""
     # ranking currently uses title + summary score + recency
     # this is a heuristic V1 ranking
+
+    if limit < 0:
+        raise ValueError("limit must be > 0")
+    if limit == 0:
+        return []
+
     sorted_papers = sorted(
         papers,
         key=lambda paper: (paper_match_score(paper, query), paper.year),
