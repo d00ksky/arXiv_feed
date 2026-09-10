@@ -8,5 +8,6 @@ def non_negative_int(value: str) -> int:
     """
     parsed_value = int(value)
     if parsed_value < 0:
-        raise argparse.ArgumentTypeError("cache-ttl must be >= 0")
+        raise argparse.ArgumentTypeError("must be >= 0")
     return parsed_value
+

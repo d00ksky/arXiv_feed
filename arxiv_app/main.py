@@ -39,7 +39,9 @@ def main():
     parser.add_argument("--query", required=True, help="Search query")
     parser.add_argument("--year", type=int, help="Filter papers after year")
     parser.add_argument("--author", help="Filter papers by author substring")
-    parser.add_argument("--limit", type=int, default=5, help="Limit number of results")
+    parser.add_argument(
+        "--limit", type=non_negative_int, default=5, help="Limit number of results"
+    )
     parser.add_argument(
         "--cache-ttl",
         type=non_negative_int,
