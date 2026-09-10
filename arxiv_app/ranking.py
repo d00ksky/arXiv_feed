@@ -36,7 +36,7 @@ def select_discovery_papers(
     # this is a heuristic V1 ranking
 
     if limit < 0:
-        raise ValueError("limit must be > 0")
+        raise ValueError("limit must be >= 0")
     if limit == 0:
         return []
 
