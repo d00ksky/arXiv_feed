@@ -9,6 +9,8 @@ from arxiv_app.render import render_discovery_view
 
 from arxiv_app.models import Paper, RankedPaper
 
+import pytest
+
 
 def test_title_match_score_scoring_for_full_query():
     title = "Large Language Models for Search"
@@ -148,6 +150,41 @@ def test_select_discovery_papers_by_year_if_score_is_the_same():
     result = select_discovery_papers(papers, query, limit)
 
     assert [ranked_paper.paper for ranked_paper in result] == [new_paper, old_paper]
+
+
+def test_select_discovery_papers_negative_limit():
+
+    new_paper = make_paper(
+        title="Also language unrelated",
+        summary="Still nothing useful",
+        year=2024,
+    )
+
+    query = "large language models"
+    limit = -1
+
+    papers = [new_paper]
+
+    with pytest.raises(ValueError):
+        select_discovery_papers(papers, query, limit)
+
+
+def test_select_discovery_papers_zero_limit():
+    new_paper = make_paper(
+        title="Large language models",
+        summary="Methods for training large language models.",
+        year=2024,
+    )
+
+    query = "large language models"
+    papers = [new_paper]
+
+    result_one = select_discovery_papers(papers, query, limit=1)
+    result_zero = select_discovery_papers(papers, query, limit=0)
+
+    assert len(result_one) == 1
+    assert result_one[0].paper == new_paper
+    assert result_zero == []
 
 
 def test_explain_paper_match_returns_reasons_for_title_match():
