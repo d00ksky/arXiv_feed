@@ -5,6 +5,8 @@ from arxiv_app.models import (
 
 
 def title_match_score(title: str, query: str) -> int:
+    if query == "":
+        return 0
     score = 0
     query_lower = query.lower()
     title_lower = title.lower()
@@ -17,6 +19,8 @@ def title_match_score(title: str, query: str) -> int:
 
 
 def paper_match_score(paper: Paper, query: str) -> int:
+    if query == "":
+        return 0
     score = title_match_score(paper.title, query)
     query_lower = query.lower()
     summary_lower = paper.summary.lower()
