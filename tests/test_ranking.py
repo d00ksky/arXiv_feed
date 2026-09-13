@@ -202,6 +202,21 @@ def test_paper_match_score_returns_zero():
     assert result == 0
 
 
+def test_title_match_score_returns_zero():
+
+    new_paper = make_paper(
+        title="Large language models",
+        summary="Methods for training large language models.",
+        year=2024,
+    )
+
+    query = ""
+
+    result = title_match_score(new_paper.title, query)
+
+    assert result == 0
+
+
 def test_explain_paper_match_returns_reasons_for_title_match():
     paper = make_paper(
         title="Large Language Models for Search",
