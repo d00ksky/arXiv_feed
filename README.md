@@ -1,148 +1,57 @@
-A personalized research feed and AI assistant for discovering and understanding arXiv papers.
+# arXiv Digest
 
-# arXiv Feed
+A personal Python CLI that selects relevant arXiv papers, generates short AI summaries, and can deliver a digest by email.
 
-A tool for discovering and understanding new arXiv papers in a more personalized and interactive way.
+The V1 goal is a small, useful digest delivered regularly for configured interests. Each item includes its title, source link, AI summary, and ranking reasons. [docs/v1.md](docs/v1.md) defines the scope and delivery stages.
 
-The goal of this project is to build an intelligent feed for arXiv research papers, similar to a mix of Feedly and Reddit, but designed specifically for scientific papers and enhanced with an AI assistant.
+## Current functionality
 
-Instead of manually browsing arXiv or RSS feeds, the application helps users discover the most relevant papers in their areas of interest and understand them faster.
+- Fetch recent arXiv results with a local cache.
+- Normalize records into `Paper` objects and apply CLI filters.
+- Rank matches deterministically using title and abstract text, with year as a tie-breaker.
+- Return `RankedPaper` objects containing the original paper, score, and reasons.
+- Generate AI summaries for selected papers using the OpenAI API.
+- Render terminal output and plain-text/HTML email.
 
----
+The CLI already connects these components. Reproducible dependency installation and AWS deployment are the next work; scheduled delivery and the remaining V1 requirements are still pending.
 
-# Project Vision
+## Run in an existing environment
 
-The long-term goal is to create a personalized research assistant that:
+Run commands from the repository root, in the environment where the application dependencies are installed. The repository does not yet include a dependency manifest.
 
-- monitors arXiv for topics the user cares about
-- builds a personalized feed of new papers
-- filters and ranks papers by relevance
-- helps the user quickly understand and evaluate papers
-- allows deeper exploration with AI assistance
+The application uses the `openai` package. Configure `OPENAI_API_KEY` in the environment. For email delivery, also configure `EMAIL_SENDER`, `EMAIL_RECIPIENT`, and `EMAIL_APP_PASSWORD`. The current email implementation uses Gmail SMTP with an app password.
 
-Example workflow:
+```bash
+python -m arxiv_app.main --help
+python -m arxiv_app.main --query "large language models" --limit 3
+python -m arxiv_app.main --query "large language models" --limit 3 --send-email
+```
 
-1. User selects a topic or provides an area of interest.
-2. The system fetches recent papers from arXiv.
-3. The system filters, ranks, and selects a small useful set instead of showing everything.
-4. The user sees a compact discovery view of relevant papers or themes.
-5. The user chooses a topic or paper to inspect more deeply.
-6. The system shows more detailed information and, later, AI assistance.
+Digest generation calls the OpenAI API for selected papers, including when email delivery is disabled. The cache is stored in a local `cache/` directory. Provide credentials through the environment rather than committing their values.
 
----
+## Run existing tests
 
-# Current Product Framing
+In an environment with the test dependencies installed:
 
-The current CLI is a prototype interface for validating the product logic, not the final product itself.
-
-This project is not meant to become a collection of random CLI filters, paper statistics, or developer-only helper commands. The real product direction is a discovery-first arXiv assistant that helps the user quickly notice what is worth paying attention to, then go deeper only where needed.
-
-The default experience should favor:
-
-- a compact discovery view instead of a raw dump of all matching papers
-- a small selected set of relevant papers or topics instead of maximum volume
-- low-noise presentation in the first view, with more detail shown only on demand
-
-This means the initial view may intentionally hide less important metadata, such as authors, until the user chooses to inspect a topic or paper more deeply.
-
----
-
-# Key Features (Planned)
-
-### Smart arXiv Feed
-
-- fetch latest papers from arXiv
-- surface the most relevant recent papers for a topic or interest area
-- ranking and recommendation of relevant papers
-- personalized research feed
-
-### AI Reading Assistant
-
-For each paper the user can:
-
-- generate a TL;DR summary
-- get explanations at different difficulty levels
-- translate complex passages
-- compare papers
-- extract key ideas and contributions
-
-### Personalization
-
-The system will adapt to the user by learning:
-
-- preferred topics
-- reading patterns
-- level of expertise
-- preferred types of papers
-
-Over time this should improve the ranking and recommendations in the feed.
-
----
-
-# Architecture Direction
-
-The system is designed around a clear data pipeline:
-
-arXiv API → normalization → Paper model → logic → rendering → CLI / UI
-
-Key principles:
-
-- normalize raw API data into a clean internal model (`Paper`)
-- keep logic separate from rendering
-- build composable functions for filtering, ranking, and analysis
-- gradually extend the system with AI features
-
----
-
-# AI Strategy
-
-This project **does not aim to train a custom model initially**.
-
-Instead it focuses on:
-
-- using existing LLM APIs for summarization and explanation
-- building strong retrieval and ranking logic
-- improving personalization through user behavior
-
-Custom models may be explored later for specific tasks such as:
-
-- paper classification
-- recommendation ranking
-- difficulty prediction
-
----
-
-# Product Discipline
-
-New CLI options, filters, and helper functions should only be added when they clearly support the core workflow:
-
-1. fetch relevant papers
-2. rank or select useful results
-3. present a meaningful discovery view
-4. let the user inspect a selected topic or paper more deeply
-5. later improve personalization and AI assistance
-
-If a task is useful mainly as Python practice but not clearly useful to the product yet, it should stay as an isolated exercise rather than being added directly to the main app.
-
----
-
-# Current Stage
-
-This project currently includes:
-
-- arXiv API client
-- normalization pipeline
-- `Paper` data model
-- filtering and ranking logic
-- CLI interface
-
-Future stages will add:
-
-- AI summarization
-- semantic search
-- personalized ranking
-- interactive exploration of papers
-
-# To launch tests
-source .venv/bin/activate
+```bash
 python -m pytest -q
+```
+
+## Next milestones
+
+1. Reproduce a complete local digest run from a fresh environment.
+2. Run the existing flow manually on AWS.
+3. Add scheduled delivery and assess the usefulness of the received digests.
+4. Complete the remaining V1 requirements in [docs/v1.md](docs/v1.md).
+
+The local report fallback is deferred to the later V1 stage. It is not a prerequisite for the first private deployment. Initial private deployment is an intermediate milestone, not a declaration that all V1 requirements are finished.
+
+## Development and learning
+
+Work is organized around useful outcomes with room for independent implementation. Reviews and tests are proportionate to the change. See [AGENTS.md](AGENTS.md) for collaboration rules and [AI_HANDOFF.md](AI_HANDOFF.md) for the current state and next goal.
+
+[ChatGPT project instructions](docs/chatgpt-project-instructions.md) contain the complete text to paste into the project's instruction field. They complement the repository rules; changing the file does not change ChatGPT settings.
+
+## Longer-term ideas
+
+Interactive exploration, semantic search, and deeper personalization remain possible future directions. They are outside the current V1 scope.
